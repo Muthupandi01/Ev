@@ -1,0 +1,5 @@
+<!-- res/drawable/background_blink.xml -->
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/grad_orange_ev" android:duration="500" />
+    <item android:drawable="@color/transparent" android:duration="500" />
+</animation-list>

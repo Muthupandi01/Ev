@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actvity_view.VehicleRegistration">
+
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/vehiclepair_lnr"
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_38sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Vehicle Paring"
+            android:textColor="#25314C"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/commontxt"
+            android:layout_marginTop="@dimen/_75ssp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Turn on vehicle bluetooth and keep your phone near"
+            android:textColor="#25314C"
+            android:textSize="@dimen/_11ssp" />
+
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/commongif"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:foregroundGravity="center" />
+
+        <TextView
+            android:id="@+id/turnon"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp_2"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_34624388_ev"
+            android:text="Turn on" />
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/parentsub"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="80dp"> <!-- Adjust padding as needed -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/noun_left_arrow_59757_ev_ev" />
+
+            <TextView
+                android:id="@+id/changetxthead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Bluetooth"
+                android:textColor="#25314C"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/changetxtsubhead"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Turn on vehicle bluetooth and keep your phone near"
+            android:textSize="@dimen/_11ssp" />
+
+
+
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Searching for Devices.."
+            android:textColor="#0897FF"
+            android:textSize="@dimen/_10ssp" />
+
+
+
+        <LinearLayout
+            android:id="@+id/serachparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Found devices"
+                android:textSize="15sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/devices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_5" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/img_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_18sdp"
+
+                android:fontFamily="@font/poppins_medium"
+                android:visibility="visible"
+                android:text="No devices Found"
+                android:textSize="@dimen/_10ssp" />
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:contentDescription="@string/imageupload"
+                android:scaleType="fitXY"
+                android:src="@drawable/bluetooth_no_device_ev"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/overallbtn"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"> <!-- Adjust padding as needed -->
+
+
+
+
+        <!-- Adding a space to push the button down -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" /> <!-- Adjust the height as needed -->
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           >
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/rectangle_34624242_ev"
+                android:backgroundTint="@color/hintColor"
+                android:clickable="false"
+                android:textColor="@color/white"
+                android:focusable="false"
+                android:enabled="false"
+                android:text="Connect"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

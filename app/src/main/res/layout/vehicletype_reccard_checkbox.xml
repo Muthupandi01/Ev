@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/_5ssp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="@dimen/_9sdp"
+        android:background="@drawable/rectangle_34624239_ev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:weightSum="2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/motortypeimg"
+                android:visibility="visible"
+                android:backgroundTint="#25314C"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                android:src="@drawable/g"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/vehicletype"
+                android:layout_marginLeft="@dimen/_5ssp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/_11ssp"
+                android:text="2-Wheeler"
+                android:textColor="#292929"
+                android:textColorHint="#292929"/>
+
+            <CheckBox
+                android:id="@+id/checbox"
+                android:visibility="visible"
+                android:backgroundTint="#25314C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/qr_code__1__1_ev"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

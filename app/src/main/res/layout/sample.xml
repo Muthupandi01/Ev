@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow_left_ev" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Connect to EVzone Device"
+                    android:textColor="#25314C"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_image"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/group_427319042_ev"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@string/imageupload"/>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rectangle_34624562_ev"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginHorizontal="@dimen/_8ssp"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/triangle_exclamation_ev"/>
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/_5ssp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The PIN and Serial Number can be found in the instruction manual and on the charge sticker. If you've misplaced this information, please contact us at 𝐬𝐮𝐩𝐩𝐨𝐫𝐭@𝐞𝐯𝐳𝐨𝐧𝐞.𝐜𝐨𝐦 for assistance."
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_10ssp"/>
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/devicename"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="#E8656565"
+                    android:layout_height="wrap_content"
+                    android:text="Device name *"/>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:background="@drawable/rectangle_34624239_ev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical"
+                            android:hint="Type device name"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#25314C"
+                            android:textColorHint="#9A656565"/>
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:backgroundTint="#25314C"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/angle_right_small_ev"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="#E8656565"
+                    android:layout_height="wrap_content"
+                    android:text="Serial Number(optional)"/>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:background="@drawable/rectangle_34624239_ev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:background="@color/transparent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical"
+                            android:hint="Type serial number"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#25314C"
+                            android:textColorHint="#9A656565"/>
+
+                        <ImageView
+                            android:visibility="visible"
+                            android:backgroundTint="#25314C"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/qr_code__1__1_ev"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="#E8656565"
+                    android:layout_height="wrap_content"
+                    android:text="PIN Code(optional)"/>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:background="@drawable/rectangle_34624239_ev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:background="@color/transparent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical"
+                            android:hint="Type PIN code"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#25314C"
+                            android:textColorHint="#9A656565"/>
+
+                        <ImageView
+                            android:visibility="visible"
+                            android:backgroundTint="#25314C"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/qr_code__1__1_ev"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="#E8656565"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Type"/>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"> <!-- Changed from match_parent -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/vehicletype"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/> <!-- Changed from match_parent -->
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:paddingVertical="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/btn_submit"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:text="Save Device"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rectangle_34624554_ev"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

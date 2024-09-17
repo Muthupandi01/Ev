@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/brand_card_parent"
+    android:paddingVertical="@dimen/_5sdp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+   >
+
+    <LinearLayout
+        android:background="@drawable/border_drawable_ev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:padding="@dimen/_3sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:id="@+id/brand_id_img"
+                android:background="@drawable/rectangle_34624257_ev"
+                android:src="@drawable/pngwing"/>
+
+            <TextView
+                android:id="@+id/brand_id_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_12ssp"
+                android:text="Tesla Model X"
+                android:textAlignment="viewStart"
+                android:gravity="start"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="#25314C"
+                android:fontFamily="@font/poppins_medium"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

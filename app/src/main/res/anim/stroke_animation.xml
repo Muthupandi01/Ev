@@ -1,0 +1,10 @@
+<!-- res/animator/stroke_animation.xml -->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:propertyName="strokeWidth"
+        android:valueFrom="1.5dp"
+        android:valueTo="3dp"
+        android:duration="1000"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse"/>
+</set>

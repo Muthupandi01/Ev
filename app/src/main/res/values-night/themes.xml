@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme for night mode. -->
+    <style name="Base.Theme.HeptoTech" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/greentxt</item>
+        <item name="colorPrimaryVariant">@color/my_dark_primary_variant</item>
+        <item name="colorOnPrimary">@color/my_dark_on_primary</item>
+        <item name="colorSecondary">@color/blue_common</item>
+        <item name="colorSecondaryVariant">@color/blue_common</item>
+        <item name="colorOnSecondary">@color/my_dark_on_secondary</item>
+        <item name="colorOnBackground">@color/my_dark_on_background</item>
+        <item name="colorSurface">@color/my_dark_surface</item>
+        <item name="colorOnSurface">@color/my_dark_on_surface</item>
+        <item name="colorError">@color/my_dark_error</item>
+        <item name="colorOnError">@color/my_dark_on_error</item>
+    </style>
+
+    <style name="Theme.HeptoTech" parent="Base.Theme.HeptoTech" />
+</resources>

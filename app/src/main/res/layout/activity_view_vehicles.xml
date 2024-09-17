@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- FrameLayout to overlay the ImageView and TabLayout -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- ImageView for the car image -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_220sdp"
+                android:src="@drawable/fragment_img_ev"
+                android:scaleType="centerCrop" />
+
+            <!-- RelativeLayout to position the model name and icon -->
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_gravity="top">
+
+                <!-- First TextView for the model name -->
+                <LinearLayout
+                    android:gravity="center"
+
+                    android:background="@drawable/border_drawable_ev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="16dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/brand_id_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tesla Model Y"
+                                android:textSize="@dimen/_11ssp"
+                                android:textColor="#25314C"
+                                android:fontFamily="@font/poppins_medium"/>
+
+                            <TextView
+                                android:id="@+id/subtextview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="UPL 630"
+                                android:textSize="@dimen/_9ssp"
+                                android:textColor="#000000"
+                                android:fontFamily="@font/poppins_regular"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imgtick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
+                            android:layout_marginHorizontal="@dimen/_12sdp"
+                            android:src="@drawable/plus_circle"/>
+
+
+                    </LinearLayout>
+
+                    <!-- Pair TextView -->
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <!-- TabLayout for tabs with a custom curved background -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_tabs_background_ev"
+                android:elevation="4dp"
+                android:layout_gravity="bottom"
+                android:paddingTop="8dp"
+                app:tabIndicatorColor="@color/greentxt"
+                app:tabSelectedTextColor="@color/greentxt"
+                app:tabTextColor="#616161"
+                app:tabTextAppearance="@style/CustomTabTextAppearance" />
+
+        </FrameLayout>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:fitsSystemWindows="true"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

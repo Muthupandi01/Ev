@@ -1,0 +1,1866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:paddingHorizontal="@dimen/dp_5"
+            android:paddingVertical="@dimen/dp_5"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            android:text="Scheduled Orders"
+            android:textColor="#5C5C5C"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_width="match_parent"
+            android:background="@drawable/property_1_variant3_ev"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 />
+
+            <com.example.heptotech.customclass.PillView
+                android:id="@+id/pillView"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_7ssp"
+                android:layout_margin="@dimen/_5ssp"/>
+
+
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            android:text="Upcoming"
+            android:textColor="#5C5C5C"
+            />
+
+        <LinearLayout
+
+            android:background="@drawable/rectangle_34624331_ev"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:background="@drawable/rectangle_34624408_ev"
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:layout_marginRight="@dimen/_3ssp"
+
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text="Starting in"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9ssp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:background="@drawable/rectangle_34624409_ev"
+                            android:layout_margin="@dimen/_3ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text="02 d"
+                            android:textColor="@color/blue_common"
+                            android:textSize="@dimen/_8ssp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text=":"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:background="@drawable/rectangle_34624409_ev"
+                            android:layout_margin="@dimen/_3ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text="03 h"
+                            android:textColor="@color/blue_common"
+                            android:textSize="@dimen/_8ssp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text=":"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:background="@drawable/rectangle_34624409_ev"
+                            android:layout_margin="@dimen/_3ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text="45 m"
+                            android:textColor="@color/blue_common"
+                            android:textSize="@dimen/_8ssp"
+                            android:gravity="center"/>
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginVertical="@dimen/dp_10"
+                    android:layout_marginHorizontal="@dimen/_8ssp"
+                    android:padding="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+
+                            android:background="@android:color/transparent">
+
+                            <ImageView
+
+                                android:layout_width="@dimen/_55sdp"
+                                android:layout_height="@dimen/_55sdp"
+                                android:src="@drawable/ev_booking_img_ev"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/rounded_corners_ev"/>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_weight="2.7"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingVertical="@dimen/_1sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Kampala EV Charge Station"
+                            android:textSize="@dimen/_10ssp" />
+                        <TextView
+                            android:paddingVertical="@dimen/_3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="August 15, 2024"
+                            android:textSize="@dimen/_9ssp" />
+                        <TextView
+                            android:paddingVertical="2dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Kampla"
+                            android:drawablePadding="@dimen/dp_5"
+                            android:drawableLeft="@drawable/location_pin_ev"
+                            android:textColor="#F77F00"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <!-- Icons -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/edit_ev"
+                            app:tint="@color/greentxt" />
+                        <ImageView
+
+                            android:layout_marginTop="@dimen/_8ssp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/times_circle_close"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_5ssp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_291_ev"/>
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/_5ssp"
+                        android:paddingVertical="@dimen/_3ssp"
+                        android:layout_marginVertical="@dimen/_6sdp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_marginHorizontal="@dimen/_6sdp"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/kwhheader"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="kWh (40%)"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/kwhchild"
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="100"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Duration"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/durationchild"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="2 hrs"
+                                    android:textColor="@color/commontxtcolor"
+                                     android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginHorizontal="@dimen/dp_10"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/feeheader"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fee"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/feechild"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="UGX 73,000"
+                                    android:textColor="@color/commontxtcolor"
+                                     android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_marginHorizontal="@dimen/_5ssp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_291_ev"/>
+
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:layout_margin="@dimen/_10ssp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:gravity="center"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_6ssp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:textColor="#F64C35"
+                            android:background="@drawable/rectangle_34624401_cancel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cancel"/>
+
+                        <TextView
+                            android:paddingVertical="@dimen/_5sdp"
+
+                            android:gravity="center"
+                            android:fontFamily="@font/poppins_medium"
+                            android:background="@drawable/rectangle_34624412_exit_ev"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:text="Reschedule"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            android:text="Charging: Vehicle plugged in"
+            android:textColor="#5C5C5C"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/green_border_upcoming_ev"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:backgroundTint="#02CD8D"
+                    android:background="@drawable/rectangle_34624408__1_"
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_3ssp"
+                            android:fontFamily="@font/poppins_medium"
+
+                            android:gravity="center"
+                            android:lineHeight="30dp"
+                            android:text="Charging"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginVertical="@dimen/dp_10"
+                    android:layout_marginHorizontal="@dimen/_8ssp"
+                    android:padding="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+
+                            android:background="@android:color/transparent">
+
+                            <ImageView
+
+                                android:layout_width="@dimen/_55sdp"
+                                android:layout_height="@dimen/_55sdp"
+                                android:src="@drawable/ev_booking_img_ev"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/rounded_corners_ev"/>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_weight="2.7"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingVertical="@dimen/_1sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Kampala EV Charge Station"
+                            android:textSize="@dimen/_10ssp" />
+                        <TextView
+                            android:paddingVertical="@dimen/_3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="August 15, 2024"
+                            android:textSize="@dimen/_9ssp" />
+                        <TextView
+                            android:paddingVertical="2dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Kampla"
+                            android:drawablePadding="@dimen/dp_5"
+                            android:drawableLeft="@drawable/location_pin_ev"
+                            android:textColor="#F77F00"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <!-- Icons -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/edit_ev"
+                            app:tint="@color/greentxt" />
+                        <ImageView
+
+                            android:layout_marginTop="@dimen/_8ssp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/times_circle_close"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_5ssp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_291_ev"/>
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/_5ssp"
+                        android:paddingVertical="@dimen/_3ssp"
+                        android:layout_marginVertical="@dimen/_6sdp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_marginHorizontal="@dimen/_6sdp"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="kWh (40%)"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="100"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Duration"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="2 hrs"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginHorizontal="@dimen/dp_10"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fee"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="UGX 73,000"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_marginHorizontal="@dimen/_5ssp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_291_ev"/>
+
+
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:layout_margin="@dimen/_10ssp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- First TextView -->
+                    <TextView
+
+                        android:layout_marginRight="@dimen/_6ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:backgroundTint="#F64C35"
+                        android:background="@drawable/rectangle_34624401_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stop" />
+
+                    <!-- Second TextView with ImageView inside -->
+
+                    <LinearLayout
+                        android:id="@+id/pauseresumelnr"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/rectangle_34624412_exit_ev"
+                        android:backgroundTint="#F77F00"
+
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pauseresumeimg"
+                                android:layout_gravity="center"
+                                android:src="@drawable/pause_ev"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_3sdp"/>
+
+                            <TextView
+                                android:id="@+id/pauseresumetxt"
+                                android:text="Pause"
+                                android:textColor="@color/white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            android:text="Ready: Waiting to Plugin"
+            android:textColor="#5C5C5C"
+            />
+        <LinearLayout
+            android:id="@+id/parentgrad"
+            android:background="@drawable/grad_orange_ev"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                    android:id="@+id/anim2"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="@dimen/_38sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_3ssp"
+                            android:fontFamily="@font/poppins_medium"
+
+                            android:gravity="center"
+                            android:lineHeight="30dp"
+                            android:text="Cancelling  in"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_3ssp"
+                            android:background="@drawable/rectangle_34624410_ev"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:lineHeight="30dp"
+                            android:text="14 m"
+                            android:textColor="#F77F00"
+                            android:textSize="@dimen/_8ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:lineHeight="30dp"
+                            android:text=":"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_3ssp"
+                            android:background="@drawable/rectangle_34624410_ev"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:lineHeight="30dp"
+                            android:text="45 s"
+                            android:textColor="#F77F00"
+                            android:textSize="@dimen/_8ssp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_marginVertical="@dimen/dp_10"
+                    android:layout_marginHorizontal="@dimen/_8ssp"
+                    android:padding="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+
+                            android:background="@android:color/transparent">
+
+                            <ImageView
+
+                                android:layout_width="@dimen/_55sdp"
+                                android:layout_height="@dimen/_55sdp"
+                                android:src="@drawable/ev_booking_img_ev"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/rounded_corners_ev"/>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_weight="2.7"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingVertical="@dimen/_1sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Kampala EV Charge Station"
+                            android:textSize="@dimen/_10ssp" />
+                        <TextView
+                            android:paddingVertical="@dimen/_3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="August 15, 2024"
+                            android:textSize="@dimen/_9ssp" />
+                        <TextView
+                            android:paddingVertical="2dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Kampla"
+                            android:drawablePadding="@dimen/dp_5"
+                            android:drawableLeft="@drawable/location_pin_ev"
+                            android:textColor="#F77F00"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <!-- Icons -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/edit_ev"
+                            app:tint="@color/greentxt" />
+                        <ImageView
+
+                            android:layout_marginTop="@dimen/_8ssp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/times_circle_close"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/_5ssp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_291_ev"/>
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/_5ssp"
+                        android:paddingVertical="@dimen/_3ssp"
+                        android:layout_marginVertical="@dimen/_6sdp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_marginHorizontal="@dimen/_6sdp"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="kWh (40%)"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="100"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Duration"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="2 hrs"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginHorizontal="@dimen/dp_10"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fee"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#5C5C5C" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:text="UGX 73,000"
+                                    android:textColor="@color/commontxtcolor"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:gravity="center"/> <!-- Centering text inside TextView -->
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_marginHorizontal="@dimen/_5ssp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_291_ev"/>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:layout_margin="@dimen/_10ssp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rectangle_34624412__1__ev"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/calendar_clock_ev"/>
+
+                    <TextView
+                        android:layout_marginLeft="@dimen/_6ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:paddingVertical="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reschedule"/>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/_10ssp"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            android:text="Charging History"
+            android:textColor="#5C5C5C"
+            />
+        <TextView
+            android:paddingVertical="@dimen/_3sdp"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/_9ssp"
+            android:text="July 5, 2024"
+            android:textColor="#5C5C5C"
+            />
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:background="@drawable/rectangle_34624400_ev"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginVertical="@dimen/dp_10"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:padding="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+
+                        android:background="@android:color/transparent">
+
+                        <ImageView
+
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_55sdp"
+                            android:src="@drawable/ev_booking_img_ev"
+                            android:scaleType="fitXY"
+                            android:background="@drawable/rounded_corners_ev"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_6ssp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.7"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:paddingVertical="@dimen/_1sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Kampala EV Charge Station"
+                        android:textSize="@dimen/_10ssp" />
+                    <TextView
+                        android:paddingVertical="@dimen/_3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="August 15, 2024"
+                        android:textSize="@dimen/_9ssp" />
+                    <TextView
+                        android:paddingVertical="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Kampla"
+                        android:drawablePadding="@dimen/dp_5"
+                        android:drawableLeft="@drawable/location_pin_ev"
+                        android:textColor="#F77F00"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+
+                <!-- Icons -->
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                    android:textColor="@color/greentxt"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Completed"
+                    android:textSize="@dimen/_9ssp" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_10ssp"
+                android:background="@drawable/rectangle_34624402_ev"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/group_427318831_ev"/>
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:paddingHorizontal="@dimen/_3ssp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type 2"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#5C5C5C"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_287_ev"/>
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <TextView
+                            android:paddingHorizontal="@dimen/_3ssp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text="120 Miles"
+                            android:textColor="@color/commontxtcolor"
+                            android:gravity="center"/> <!-- Centering text inside TextView -->
+
+
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:paddingHorizontal="@dimen/_3ssp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Distance"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#5C5C5C"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_287_ev"/>
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <TextView
+                            android:paddingHorizontal="@dimen/_3ssp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:textStyle="bold"
+                            android:text="UGX 24,500"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/commontxtcolor"
+                            android:gravity="center"/> <!-- Centering text inside TextView -->
+
+
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:paddingHorizontal="@dimen/_3ssp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#5C5C5C"
+                        />
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:paddingVertical="@dimen/_1sdp"
+                android:layout_margin="@dimen/_10ssp"
+                android:layout_width="match_parent"
+                android:background="@drawable/new_cancel_ev"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+
+                    android:layout_width="@dimen/_6ssp"
+                    android:layout_height="@dimen/_6ssp"
+                    android:src="@drawable/rotate_right_ev"/>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/_6ssp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/blue_common"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rebook"/>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:background="@drawable/rectangle_34624400_ev"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginVertical="@dimen/dp_10"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:padding="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+
+                        android:background="@android:color/transparent">
+
+                        <ImageView
+
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_55sdp"
+                            android:src="@drawable/ev_booking_img_ev"
+                            android:scaleType="fitXY"
+                            android:background="@drawable/rounded_corners_ev"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_6ssp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.7"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:paddingVertical="@dimen/_1sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Kampala EV Charge Station"
+                        android:textSize="@dimen/_10ssp" />
+                    <TextView
+                        android:paddingVertical="@dimen/_3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="August 15, 2024"
+                        android:textSize="@dimen/_9ssp" />
+                    <TextView
+                        android:paddingVertical="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Kampla"
+                        android:drawablePadding="@dimen/dp_5"
+                        android:drawableLeft="@drawable/location_pin_ev"
+                        android:textColor="#F77F00"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+
+                <!-- Icons -->
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                    android:textColor="@color/greentxt"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Completed"
+                    android:textSize="@dimen/_9ssp" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_10ssp"
+                android:background="@drawable/rectangle_34624402_ev"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/group_427318831_ev"/>
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:paddingHorizontal="@dimen/_3ssp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type 2"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#5C5C5C"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_287_ev"/>
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <TextView
+                            android:paddingHorizontal="@dimen/_3ssp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textStyle="bold"
+                            android:text="120 Miles"
+                            android:textColor="@color/commontxtcolor"
+                            android:gravity="center"/> <!-- Centering text inside TextView -->
+
+
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:paddingHorizontal="@dimen/_3ssp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Distance"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#5C5C5C"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_287_ev"/>
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <TextView
+                            android:paddingHorizontal="@dimen/_3ssp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="30dp"
+                            android:textStyle="bold"
+                            android:text="UGX 24,500"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/commontxtcolor"
+                            android:gravity="center"/> <!-- Centering text inside TextView -->
+
+
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:paddingHorizontal="@dimen/_3ssp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#5C5C5C"
+                        />
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:paddingVertical="@dimen/_1sdp"
+                android:layout_margin="@dimen/_10ssp"
+                android:layout_width="match_parent"
+                android:background="@drawable/new_cancel_ev"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+
+                    android:layout_width="@dimen/_6ssp"
+                    android:layout_height="@dimen/_6ssp"
+                    android:src="@drawable/rotate_right_ev"/>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/_6ssp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/blue_common"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rebook"/>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

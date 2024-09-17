@@ -1,0 +1,186 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <!-- Toolbar -->
+            <LinearLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow_left_ev" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Add a new Site"
+                    android:textColor="#25314C"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginEnd="20dp" />
+            </LinearLayout>
+
+            <!-- Google Map -->
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:layout_marginTop="@dimen/_20sdp" />
+
+            <!-- Rest of the layout content -->
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:elevation="@dimen/_16sdp"
+                    android:background="@drawable/rounded_top_corners_ev"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/rectangle_34624553_ev" />
+
+                    <!-- Address input fields -->
+                    <LinearLayout
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_width="match_parent"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#E8656565"
+                            android:layout_height="wrap_content"
+                            android:text="Address" />
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_9sdp"
+                            android:background="@drawable/rectangle_34624239_ev"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_marginHorizontal="15dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/typeaddres"
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:layout_gravity="center_vertical"
+                                    android:hint="Type address"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textSize="@dimen/_11ssp"
+                                    android:textColor="#25314C"
+                                    android:textColorHint="#9A656565" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Site Name input -->
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_width="match_parent"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#E8656565"
+                            android:layout_height="wrap_content"
+                            android:text="Site name" />
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_9sdp"
+                            android:background="@drawable/rectangle_34624239_ev"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_marginHorizontal="15dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:id="@+id/sitename"
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:layout_gravity="center_vertical"
+                                    android:hint="Type site name"
+                                    android:textSize="@dimen/_11ssp"
+                                    android:textColor="#25314C"
+                                    android:textColorHint="#9A656565" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Confirm button -->
+                        <TextView
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:id="@+id/conformbtn"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            android:text="Confirm"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11ssp"
+                            android:paddingStart="@dimen/_20sdp"
+                            android:paddingEnd="@dimen/_20sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:paddingTop="@dimen/_7sdp"
+                            android:paddingBottom="@dimen/_7sdp"
+                            android:background="@drawable/rectangle_34624554_ev" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

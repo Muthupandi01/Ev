@@ -1,0 +1,27 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background Layer -->
+    <item>
+        <vector
+            android:width="48dp"
+            android:height="48dp"
+            android:viewportWidth="48"
+            android:viewportHeight="48">
+            <path
+                android:pathData="M10,0L38,0A10,10 0,0 1,48 10L48,38A10,10 0,0 1,38 48L10,48A10,10 0,0 1,0 38L0,10A10,10 0,0 1,10 0z"
+                android:fillColor="#02CD8D"/>
+        </vector>
+    </item>
+
+    <!-- Foreground Layer -->
+    <item android:gravity="center">
+        <vector
+            android:width="17dp"
+            android:height="14dp"
+            android:viewportWidth="17"
+            android:viewportHeight="14">
+            <path
+                android:pathData="M16.618,7.781L10.725,13.673C10.51,13.888 10.227,13.997 9.945,13.997C9.662,13.997 9.379,13.89 9.164,13.673C8.732,13.241 8.732,12.542 9.164,12.11L14.276,6.998L9.164,1.887C8.732,1.455 8.732,0.755 9.164,0.324C9.595,-0.108 10.295,-0.108 10.727,0.324L16.619,6.216C17.049,6.651 17.049,7.349 16.618,7.781ZM1.887,0.327C1.455,-0.105 0.755,-0.105 0.324,0.327C-0.108,0.758 -0.108,1.458 0.324,1.89L5.435,7.001L0.324,12.113C-0.108,12.545 -0.108,13.244 0.324,13.676C0.539,13.891 0.822,14 1.105,14C1.387,14 1.67,13.892 1.885,13.676L7.778,7.784C8.209,7.352 8.209,6.652 7.778,6.22L1.887,0.327Z"
+                android:fillColor="#ffffff"/>
+        </vector>
+    </item>
+</layer-list>

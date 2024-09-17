@@ -1,0 +1,47 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="380dp"
+    android:height="50dp"
+    android:viewportWidth="380"
+    android:viewportHeight="50">
+
+  <!-- Background Wave Shape -->
+  <path
+      android:pathData="M0,25 C60,40 120,10 180,25 C240,40 300,10 360,25 L380,50 L0,50 Z"
+      android:fillColor="#FFFB2A1D"/>
+
+  <!-- Shine Effect -->
+  <path
+      android:pathData="M0,25 C60,40 120,10 180,25 C240,40 300,10 360,25 L380,50 L0,50 Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="0"
+          android:startY="25"
+          android:endX="380"
+          android:endY="25"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFFFFFFF" android:alpha="0.3"/>
+        <item android:offset="0.3" android:color="#FFFFFFFF" android:alpha="0"/>
+        <item android:offset="0.7" android:color="#FFFFFFFF" android:alpha="0"/>
+        <item android:offset="1" android:color="#FFFFFFFF" android:alpha="0.3"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+
+  <!-- Original Gradient Background -->
+  <path
+      android:pathData="M0,12C0,5.37 5.37,0 12,0H368C374.63,0 380,5.37 380,12V50H0V12Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="0"
+          android:startY="25"
+          android:endX="380"
+          android:endY="25"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFFB2A1D"/>
+        <item android:offset="0.51" android:color="#FFF77F00"/>
+        <item android:offset="0.99" android:color="#FFFDCA17"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+</vector>

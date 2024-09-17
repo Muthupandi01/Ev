@@ -1,0 +1,29 @@
+<!-- res/drawable/scan_frame_2.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="280dp"
+    android:height="280dp"
+    android:viewportWidth="280"
+    android:viewportHeight="280">
+
+    <!-- Middle rectangle with gradient fill -->
+    <path
+        android:pathData="M4,92h272v92h-272z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="140"
+                android:startY="92"
+                android:endX="140"
+                android:endY="184"
+                android:type="linear">
+                <item android:offset="0" android:color="#CC02CD8D"/>
+                <item android:offset="1" android:color="#0002CD8D"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Outer rounded rectangle border -->
+    <path
+        android:pathData="M15,92L265,92A13,13 0,0 1,278 105L278,265A13,13 0,0 1,265 278L15,278A13,13 0,0 1,2 265L2,105A13,13 0,0 1,15 92z"
+        android:fillColor="#00000000" />
+</vector>

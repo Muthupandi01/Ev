@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#80000000"/> <!-- Semi-transparent black background -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent"/> <!-- Transparent circle in the center -->
+            <size
+                android:width="@dimen/_190sdp"
+                android:height="@dimen/_190sdp"/>
+        </shape>
+        <scale
+            android:scaleGravity="center"
+            android:scaleHeight="1"
+            android:scaleWidth="1"/>
+    </item>
+</layer-list>

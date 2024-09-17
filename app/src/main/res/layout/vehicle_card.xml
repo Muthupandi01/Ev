@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/_5ssp"
+    android:layout_marginHorizontal="@dimen/_10ssp"
+    android:id="@+id/card_click">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="@dimen/_1sdp"
+        android:background="@color/loginBkColor"
+        >
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Tesla Model Y"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+
+            <!-- Icons -->
+            <ImageView
+                android:padding="@dimen/_2sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vector__1__ev"
+                android:layout_marginStart="8dp"/>
+
+            <ImageView
+                android:padding="@dimen/_2sdp"
+                android:id="@+id/delete_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/trash_ev"
+                android:layout_marginStart="15dp"/>
+
+            <ImageView
+                android:padding="@dimen/_2sdp"
+                android:id="@+id/edit_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit_ev"
+                android:layout_marginStart="15dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/licene"
+            android:layout_marginHorizontal="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Licence Plate : UPS 256"
+            android:textColor="#F77F00"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10ssp"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardimg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_135sdp"
+                android:layout_marginHorizontal="@dimen/_15ssp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                android:layout_marginBottom="@dimen/_14ssp"
+                android:background="@android:color/transparent">
+
+                <ImageView
+                    android:id="@+id/showimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:clipToOutline="true"
+                    android:background="@drawable/rounded_corners_ev"/>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

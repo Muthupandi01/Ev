@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.heptotech">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Vehicle Registration"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.HeptoTech"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".actvity_view.samplecard"
+            android:exported="false" />
+        <activity
+            android:name=".Switch"
+            android:exported="false" />
+        <activity
+            android:name=".AddNewUserAcces"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.AccessBottomsheet"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.PriceBottomSheet"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.OtherDevicesChargestation"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE" />
+
+        <activity
+            android:name=".actvity_view.AddsiteAdddresAdd"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.MapMakrAftersave"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.ConnectToServer"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.DashBoard"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.ScanActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".actvity_view.VehicleBluetoothActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.MakeBrandModel"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.VehicleRegistration"
+            android:exported="false" /> <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE" /> -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.heptotech.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".actvity_view.ViewVehicles"
+            android:exported="false" />
+        <activity
+            android:name=".actvity_view.OrderDetails"
+            android:exported="false" />
+        <activity android:name=".actvity_view.RegistrationListGet" />
+        <activity
+            android:name=".actvity_view.PrivateStation"
+            android:exported="true"
+            android:label="Vehicle Registration">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity_view.ConnectToEvActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity_view.AvailablityBottomsheet" />
+    </application>
+
+</manifest>

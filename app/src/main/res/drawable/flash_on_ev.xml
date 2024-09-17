@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="52dp"
+    android:height="58dp"
+    android:viewportWidth="512"
+    android:viewportHeight="580"> <!-- Increased height to simulate margin -->
+
+  <!-- Outer circle -->
+  <path
+      android:fillColor="#FFFFFF"
+      android:pathData="M256,16C123.5,16,16,123.5,16,256s107.5,240,240,240,240-107.5,240-240S388.5,16,256,16z"/>
+
+  <!-- Flash icon -->
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M302.7,64L143,288h95.8l-29.5,160L369,224h-95.8L302.7,64L302.7,64z"/>
+</vector>
