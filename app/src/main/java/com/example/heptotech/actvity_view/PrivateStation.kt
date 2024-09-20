@@ -29,7 +29,6 @@ class PrivateStation : AppCompatActivity() {
             val bottomSheetDialog = BottomSheetDialog(this)
             val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_privatestation, null)
             bottomSheetDialog.setContentView(view)
-
             val chooseCamera = view.findViewById<ConstraintLayout>(R.id.choose_camera)
 
             chooseCamera.setOnClickListener {
@@ -42,8 +41,5 @@ class PrivateStation : AppCompatActivity() {
 
             bottomSheetDialog.show()
         }
-
-
-
     }
 }
