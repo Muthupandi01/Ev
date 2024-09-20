@@ -8,12 +8,14 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.heptotech.AddNewUserAcces
 import com.example.heptotech.R
 import com.example.heptotech.adapters.UserAdapter
+import com.example.heptotech.adapters.VechicleUserAdapter
+import com.example.heptotech.bean_dataclass.VechicleUserItem
 import com.example.heptotech.bean_dataclass.User
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -27,13 +29,15 @@ class AccessBottomsheet : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_access_bottomsheet)
+
         back = findViewById(R.id.back)
         btn_submit = findViewById(R.id.btn_submit)
         usercardrec = findViewById(R.id.usercardrec)
         addlnr = findViewById(R.id.addlnr)
 
         addlnr.setOnClickListener {
-
+            val intent = Intent(this, AddNewUserAcces::class.java)
+            startActivity(intent)
         }
 
         val users = listOf(
@@ -46,36 +50,8 @@ class AccessBottomsheet : AppCompatActivity() {
         )
         usercardrec.layoutManager = LinearLayoutManager(this)
         usercardrec.adapter = UserAdapter(users) { selectedUser ->
-//            val resultIntent = Intent().apply {
-//                putExtra("selected_user_name", selectedUser.username)
-//                putExtra("selected_user_relation", selectedUser.relationStatus)
-//                putExtra("selected_user_card_type", selectedUser.cardType)
-//            }
-//            setResult(Activity.RESULT_OK, resultIntent)
-//            finish()
-
-
-
-//            val bottomSheetDialog = BottomSheetDialog(this)
-//            val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_user, null)
-//            bottomSheetDialog.setContentView(view)
-//            bottomSheetDialog.show()
-
-            val bottomSheetDialog = BottomSheetDialog(this)
-            bottomSheetDialog.setContentView(R.layout.bottom_sheet_user)
-
-            // Ensure the bottom sheet expands fully to show the image
-            val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)!!)
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-
-            // Show the dialog
-           // bottomSheetDialog.show()
-
-
-
+            showBottomSheet(selectedUser)
         }
-
-
 
         back.setOnClickListener {
             val resultIntent = Intent()
@@ -89,11 +65,41 @@ class AccessBottomsheet : AppCompatActivity() {
         }
     }
 
+    private fun showBottomSheet(selectedUser: User) {
+        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_user)
+
+        // Initialize the RecyclerView and set up the adapter
+        val vehicleRecyclerView = bottomSheetDialog.findViewById<RecyclerView>(R.id.recycle_vechicle)
+        val vehicleItems = listOf(
+            VechicleUserItem(R.drawable.mcar_list, "Tesla Model X", "License Plate 123", true),
+            VechicleUserItem(R.drawable.mcar1_list, "Tesla Model X", "License Plate 456", true),
+            VechicleUserItem(R.drawable.mcar2_list, "Tesla Model X", "License Plate 456", false)
+
+        )
+        vehicleRecyclerView?.layoutManager = LinearLayoutManager(this)
+        vehicleRecyclerView?.adapter = VechicleUserAdapter(vehicleItems)
+
+        // Optionally populate user details in the bottom sheet
+        bottomSheetDialog.findViewById<ImageView>(R.id.user_img)?.setImageResource(selectedUser.userImageResId)
+        bottomSheetDialog.findViewById<TextView>(R.id.username_txt)?.text = selectedUser.username
+        bottomSheetDialog.findViewById<TextView>(R.id.relationstatus)?.text = selectedUser.relationStatus
+        bottomSheetDialog.findViewById<TextView>(R.id.typecard)?.text = selectedUser.cardType
+
+        // Expand the bottom sheet to full height
+        val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)!!)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+
+        // Show the dialog
+        bottomSheetDialog.show()
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         val resultIntent = Intent()
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
-
     }
 }
+
+

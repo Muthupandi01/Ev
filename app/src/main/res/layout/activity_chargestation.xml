@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_70sdp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/back1"
+                        :scaleType="fitXY"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20dp"
+                        android:src="@drawable/arrow_left" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:text="Configuration"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_14ssp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/usemode_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Use Mode"
+                    android:textColor="#5C5C5C"
+                    android:textSize="@dimen/_11ssp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_below="@id/usemode_text"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/usemode_design_recycle" />
+
+                <RelativeLayout
+                    android:id="@+id/maxrelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recycle"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/rectangle_54"
+                    android:padding="@dimen/_20sdp">
+
+                    <ImageView
+                        android:id="@+id/im"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/calendar_check_alt" />
+
+                    <TextView
+                        android:id="@+id/ten_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/im"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="10"
+                        android:textColor="#292929"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ten_textview"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textSize="@dimen/_8sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="max charging\nprofile installed" />
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lv"
+                    android:layout_below="@+id/maxrelative"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/three_relative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rectangle_241">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_15sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_16sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="3 - Phase"
+                                    android:textColor="#1D1D1D"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textSize="@dimen/_8ssp"
+                                    android:text="Connector\nSwitch"
+                                    android:textColor="#2F2F2F" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/staton_relative"
+                            android:background="@drawable/rectangle_553"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_9sdp"
+                                android:src="@drawable/electric_station__15"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/check"
+                                android:src="@drawable/check_square__2_"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/check"
+                                android:text="Reserve Connector\nZero"
+                                android:textSize="@dimen/_8ssp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:textColor="#1D1D1D"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/listmax"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@drawable/rectangle_555">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:src="@drawable/electric_station__15"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:text="150"
+                                android:id="@+id/one_fifty"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/_10ssp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#292929"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/one_fifty"
+                                android:text="Local Authorization\nList Max Length"
+                                android:textSize="@dimen/_8ssp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:textColor="#1D1D1D"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/powerRelative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_toRightOf="@id/three_relative"
+                            android:background="@drawable/rectangl_551">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_7sdp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/group_90" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Power"
+                                    android:textColor="#1D1D1D"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_8sdp"
+                                    android:textSize="@dimen/_8ssp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Charging Rate"
+                                    android:textColor="#2F2F2F" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/local"
+                            android:layout_toRightOf="@id/three_relative"
+                            android:layout_below="@id/powerRelative"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:background="@drawable/rectangle_552">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textSize="@dimen/_8ssp"
+                                android:text="Charging Schedule\nMax Peroids"
+                                android:id="@+id/center_text"
+                                android:textColor="#2F2F2F"
+                                android:layout_marginTop="@dimen/_21sdp"/>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/group_92"
+                                android:layout_below="@id/center_text"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/_20sdp"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@id/lv1"
+                    android:layout_below="@id/lv"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:id="@+id/transcition"
+                            android:background="@drawable/rectangle_556"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_20sdp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/layer_3"
+                                android:id="@+id/layer3"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/layer3"
+                                android:text="Stop Transaction\nSampled Data Max\nLength"
+                                android:textSize="@dimen/_8ssp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#2F2F2F"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_10sdp"/>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/local"
+                            android:id="@+id/max1"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rectangle_559">
+
+                            <ImageView
+                                android:id="@+id/vector"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:src="@drawable/vector__3_" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/vector"
+                                android:text="Stop Transaction\nSampled Data Max\nLength"
+                                android:textSize="@dimen/_8sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#2F2F2F"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_9sdp"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:id="@+id/profile_max"
+                    android:layout_below="@+id/lv1"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rectangle_557">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_17sdp"
+                        android:id="@+id/five"
+                        android:text="5"
+                        android:textStyle="bold"
+                        android:textColor="#292929"
+                        android:textSize="@dimen/_10ssp"
+                        android:fontFamily="@font/poppins_medium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/five"
+                        android:id="@+id/support"
+                        android:text="Support Feature\nProfile Max Length"
+                        android:textSize="@dimen/_8ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#2F2F2F"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toRightOf="@id/support"
+                        android:src="@drawable/group_204"/>
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_max"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/profile_max"
+                            android:id="@+id/rect_56"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rectangle_566">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:text="5"
+                                android:id="@+id/fives"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold"
+                                android:textColor="#292929"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/fives"
+                                android:textSize="@dimen/_8ssp"
+                                android:id="@+id/meter_value"
+                                android:text="Meter Values Sampled\nData Max Length"
+                                android:textColor="#2F2F2F"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_below="@id/meter_value"
+                                android:src="@drawable/group_graph_79"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/rect_56"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rectangle_564">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/layer2"
+                                android:src="@drawable/layer_2"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:id="@+id/five1"
+                                android:layout_below="@id/layer2"
+                                android:textSize="@dimen/_10ssp"
+                                android:text="5"
+                                android:textStyle="bold"
+                                android:textColor="#1D1D1D"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/five1"
+                                android:textSize="@dimen/_8ssp"
+                                android:text="Get Configuration\nMax Keys"
+                                android:textColor="#2F2F2F"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginStart="@dimen/_16sdp"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rect_564"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:background="@drawable/rectangle_563">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/x_svg"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:src="@drawable/_x36_61"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:id="@+id/five3"
+                                android:layout_below="@id/x_svg"
+                                android:textSize="@dimen/_10ssp"
+                                android:text="5"
+                                android:textStyle="bold"
+                                android:textColor="#1D1D1D"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/five3"
+                                android:textSize="@dimen/_8ssp"
+                                android:text=" Connector Phase\nRotation Max\nlength"
+                                android:textColor="#2F2F2F"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginStart="@dimen/_16sdp"/>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/profile_max1"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+
+
+                            android:background="@drawable/rectangle_558">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/saving"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:src="@drawable/energy_saving_1"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/saving"
+                                android:id="@+id/smart"
+                                android:text="Smart Charging"
+                                android:textSize="@dimen/_10ssp"
+                                android:textColor="#1D1D1D"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textStyle="bold"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/smart"
+                                android:textSize="@dimen/_8ssp"
+                                android:text="Supported Feature\nProfiles"
+                                android:textColor="#2F2F2F"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/matter_value"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_below="@id/profile_max1"
+                            android:layout_toRightOf="@id/rect_56"
+                            android:background="@drawable/rectangle_134">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:text="5"
+                                android:id="@+id/fivess"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold"
+                                android:textColor="#292929"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/fivess"
+                                android:textSize="@dimen/_8ssp"
+                                android:id="@+id/meter_value1"
+                                android:text="Meter Values Sampled\nData Max Length"
+                                android:textColor="#2F2F2F"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginStart="@dimen/_15sdp"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_below="@id/meter_value1"
+                                android:src="@drawable/group_081"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_toRightOf="@id/rect_564"
+                            android:layout_below="@id/matter_value"
+                            android:background="@drawable/rectangle_565__1_">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/group_15"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:src="@drawable/group__15_"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:id="@+id/five4"
+                                android:layout_below="@id/group_15"
+                                android:textSize="@dimen/_10ssp"
+                                android:text="5"
+                                android:textStyle="bold"
+                                android:textColor="#1D1D1D"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/five4"
+                                android:textSize="@dimen/_8ssp"
+                                android:text="Number Of\nConnectors"
+                                android:textColor="#2F2F2F"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_marginStart="@dimen/_16sdp"/>
+
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:background="@drawable/rectangle_vechicle"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:id="@+id/car_img"
+            android:src="@drawable/maskgroup"
+            android:scaleType="fitXY"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tesela Model X"
+                android:id="@+id/tesela"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Licence Plate : UPS 256"
+                android:id="@+id/licene"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#F77F00"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_gravity="center_vertical">
+        <CheckBox
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="end"
+            android:id="@+id/checbox"
+            android:gravity="end"/>
+    </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

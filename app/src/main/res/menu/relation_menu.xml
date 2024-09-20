@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/family"
+        android:title="Family"/>
+    <item
+        android:id="@+id/friend"
+        android:title="Friend"/>
+    <item
+        android:id="@+id/colleague"
+        android:title="Colleague"/>
+    <item
+        android:id="@+id/other"
+        android:title="Other"/>
+
+</menu>

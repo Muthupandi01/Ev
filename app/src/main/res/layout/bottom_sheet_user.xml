@@ -1,48 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:gravity="center_horizontal">
+    android:gravity="center_vertical"
+    android:background="@drawable/top_shape_ev"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linear1"
+        android:gravity="center_vertical">
 
-    <!-- Profile Image with circular shape and margin to show outer part -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_marginTop="-60dp"
-        android:layout_height="wrap_content">
-
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="8dp"
-            android:src="@drawable/dummy2"
-            android:scaleType="centerCrop"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:src="@drawable/dummy1"
+            app:civ_border_width="3dp"
+            app:civ_border_color="@color/change_color"/>
 
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!-- Other content below -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Robert Fox"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_15ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#292929"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="#E1E1E1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear1"
+        android:id="@+id/linear2"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_gravity="start"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#292929"
+            android:textSize="@dimen/_8ssp"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:text="Relation"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_11ssp"
+            android:text="Brother"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/_20sdp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear2"
+        android:id="@+id/linear23"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#292929"
+            android:textSize="@dimen/_8ssp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_gravity="start"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:text="Type"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="APP, RFID Card"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="#292929"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/_20sdp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:id="@+id/view"
+        android:layout_below="@id/linear23"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:background="#E1E1E1"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Robert Fox"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black" />
-
-    <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/vechicle_text"
+        android:text="Vechicle List"
+        android:textSize="@dimen/_8ssp"
+        android:layout_below="@id/view"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/poppins_medium"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Brother • App, RFID Card"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray" />
-
-</LinearLayout>
+        android:id="@+id/recycle_vechicle"
+        tools:itemCount="2"
+        tools:listitem="@layout/vechiclelist_recycle"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@id/vechicle_text"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp" />
+</RelativeLayout>

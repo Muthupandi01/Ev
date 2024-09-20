@@ -265,6 +265,10 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 val intent = Intent(this@MapMakrAftersave, AccessBottomsheet::class.java)
                 startActivity(intent)
             }
+            config.setOnClickListener {
+                val intent = Intent(this@MapMakrAftersave, UserModeCharge::class.java)
+                startActivity(intent)
+            }
 
 
             bottomSheetDialog.show()

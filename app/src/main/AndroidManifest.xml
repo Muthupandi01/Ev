@@ -35,6 +35,7 @@
         <activity
             android:name=".actvity_view.AccessBottomsheet"
             android:exported="false" />
+
         <activity
             android:name=".actvity_view.PriceBottomSheet"
             android:exported="false" />
@@ -104,6 +105,7 @@
             android:name=".activity_view.ConnectToEvActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity_view.AvailablityBottomsheet" />
+        <activity android:name=".actvity_view.UserModeCharge" />
     </application>
 
 </manifest>
