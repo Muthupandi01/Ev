@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioButton
@@ -47,7 +48,8 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var radio_manual: RadioButton
 
 
-
+    lateinit var addtimerectangle:LinearLayout
+    lateinit var addview:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +82,13 @@ class AvailablityBottomsheet : AppCompatActivity() {
         daymode=findViewById(R.id.day_mode)
         night_mode=findViewById(R.id.night_mode)
         maual_mode=findViewById(R.id.manual_mode)
+        addtimerectangle=findViewById(R.id.addtimerectangle)
+        addview=findViewById(R.id.addview)
 
+        addtimerectangle.setOnClickListener {
+
+            addTimeSlotView()
+        }
 
 
         // Handle back button click
@@ -150,6 +158,26 @@ class AvailablityBottomsheet : AppCompatActivity() {
         }
     }
 
+
+    private fun addTimeSlotView() {
+        val inflater = layoutInflater
+        val newView = inflater.inflate(R.layout.time_slot_layout, addview, false)
+
+        // Handle delete button click
+        val deleteButton: ImageView = newView.findViewById(R.id.delete)
+        deleteButton.setOnClickListener {
+            removeTimeSlotView(newView)
+        }
+
+
+        // Add the new view to the parent layout
+        addview.addView(newView)
+    }
+
+    private fun removeTimeSlotView(newView: View?) {
+        addview.removeView(newView)
+    }
+
     // Function to handle Home RadioButton click
     private fun radioHomeClicked() {
         radioOffice.isChecked=false
@@ -195,7 +223,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
     // Function to handle Commercial RadioButton click
     private fun radioCommercialClicked() {
-
+        manualonlychild.isVisible=true
         radioHome.isChecked=false
         radioOffice.isChecked=false
         radioCommercial.isChecked=true
