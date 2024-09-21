@@ -131,6 +131,8 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:focusable="false"
+                            android:clickable="false"
                             android:maxLines="1"
                             android:singleLine="true"
                             android:layout_width="0dp"
@@ -139,7 +141,7 @@
                             android:background="@color/transparent"
                             android:fontFamily="@font/poppins_medium"
                             android:layout_gravity="center_vertical"
-                            android:hint="WSS://OCPP.evzone.com"
+                            android:text="WSS://OCPP.evzone.com"
                             android:textSize="@dimen/_11ssp"
                             android:textColor="#25314C"
                             android:textColorHint="#9A656565"/>
@@ -177,6 +179,8 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:focusable="false"
+                            android:clickable="false"
                             android:maxLines="1"
                             android:singleLine="true"
                             android:background="@color/transparent"
@@ -187,7 +191,7 @@
                             android:layout_gravity="center_vertical"
                             android:hint="EV67-CH45-ST-89"
                             android:textSize="@dimen/_11ssp"
-                            android:textColor="#25314C"
+                            android:text="#25314C"
                             android:textColorHint="#9A656565"/>
 
                         <ImageView
@@ -222,6 +226,8 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:focusable="false"
+                            android:clickable="false"
                             android:maxLines="1"
                             android:singleLine="true"
                             android:background="@color/transparent"
@@ -230,7 +236,7 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/poppins_medium"
                             android:layout_gravity="center_vertical"
-                            android:hint="454545556"
+                            android:text="454545556"
                             android:textSize="@dimen/_11ssp"
                             android:textColor="#25314C"
                             android:textColorHint="#9A656565"/>
@@ -246,21 +252,7 @@
 
                 </LinearLayout>
 
-
-
-
-
-
             </LinearLayout>
-
-
-
-
-
-
-
-
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

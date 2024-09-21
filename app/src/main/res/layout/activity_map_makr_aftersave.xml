@@ -155,6 +155,7 @@
 
             <!-- Middle ImageView -->
             <ImageView
+                android:padding="@dimen/_2ssp"
                 android:layout_marginLeft="@dimen/_3ssp"
                 android:id="@+id/editIcon"
                 android:layout_width="wrap_content"
@@ -205,12 +206,15 @@
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:padding="16dp"
-
                         android:layout_height="wrap_content"
                         >
 
                         <!-- Left ImageView -->
                         <ImageView
+                            android:padding="@dimen/_2ssp"
+                            android:background="@drawable/ripple"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:id="@+id/leftImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -222,6 +226,10 @@
 
                         <!-- Right ImageView -->
                         <ImageView
+                            android:padding="@dimen/_2ssp"
+                            android:background="@drawable/ripple"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:id="@+id/rightImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -555,7 +563,7 @@
 
 
                         <LinearLayout
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:id="@+id/notplugedlayout"
                             android:gravity="center"
                             android:layout_width="match_parent"
@@ -642,7 +650,7 @@
                         <LinearLayout
                             android:id="@+id/nooperatorassignedlay"
                             android:gravity="center"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
@@ -746,7 +754,7 @@
                         <LinearLayout
                             android:id="@+id/onlinecard"
                             android:gravity="center"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
@@ -934,6 +942,8 @@
 
 
                         <androidx.cardview.widget.CardView
+                            android:visibility="gone"
+                            android:id="@+id/orangependingCard"
                             android:layout_marginHorizontal="@dimen/_5ssp"
                             app:cardUseCompatPadding="true"
                             android:background="@drawable/rectangle_34624611"
@@ -1160,7 +1170,10 @@
                                 </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
+
                         <androidx.cardview.widget.CardView
+                            android:visibility="gone"
+                            android:id="@+id/greenChargingCard"
                             android:layout_marginHorizontal="@dimen/_5ssp"
                             app:cardUseCompatPadding="true"
                             android:background="@drawable/rectangle_34624611"
@@ -1396,6 +1409,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/maincard"
+                            android:visibility="gone"
                             android:layout_marginHorizontal="@dimen/_5ssp"
                             app:cardUseCompatPadding="true"
                             android:background="@drawable/rectangle_34624611"
@@ -1669,7 +1683,6 @@
                                 </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
-
 
                         <LinearLayout
                             android:id="@+id/homechargeblue"

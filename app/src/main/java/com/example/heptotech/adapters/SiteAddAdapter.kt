@@ -1,6 +1,7 @@
 package com.example.heptotech.adapters
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,16 +15,20 @@ import com.example.heptotech.bean_dataclass.SiteAdd
 class SiteAddAdapter(private val siteList: List<SiteAdd>) :
     RecyclerView.Adapter<SiteAddAdapter.SiteViewHolder>() {
 
+    private var selectedPosition = -1  // Track the selected item position (-1 means no selection)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SiteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.siterec_cardbottomsheet, parent, false)
         return SiteViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SiteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SiteViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val site = siteList[position]
         holder.stationName.text = site.stationname
         holder.address.text = site.Adderess
-        if (position == 0) {
+
+        // Show check for selected item, hide for others
+        if (position == selectedPosition) {
             holder.check.visibility = View.VISIBLE
             holder.imgview.visibility = View.GONE
         } else {
@@ -31,15 +36,15 @@ class SiteAddAdapter(private val siteList: List<SiteAdd>) :
             holder.imgview.visibility = View.VISIBLE
         }
 
-
+        // Handle click on card view
         holder.cardView.setOnClickListener {
-            if (holder.check.visibility == View.GONE) {
-                holder.check.visibility = View.VISIBLE
-                holder.imgview.visibility = View.GONE
-            } else {
-                holder.check.visibility = View.GONE
-                holder.imgview.visibility = View.VISIBLE
-            }
+            // Update selected position
+            val previousSelectedPosition = selectedPosition
+            selectedPosition = position
+
+            // Notify adapter to refresh both old and new selected items
+            notifyItemChanged(previousSelectedPosition)
+            notifyItemChanged(selectedPosition)
         }
     }
 
@@ -55,3 +60,4 @@ class SiteAddAdapter(private val siteList: List<SiteAdd>) :
         val imgview: ImageView = itemView.findViewById(R.id.imgviews)
     }
 }
+

@@ -1,6 +1,7 @@
 package com.example.heptotech.activity_view
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
@@ -59,8 +60,13 @@ class ConnectToEvActivity : AppCompatActivity() {
 
 
         back.setOnClickListener{
-            val intent = Intent(this@ConnectToEvActivity, PrivateStation::class.java)
-            startActivity(intent)
+
+//            val intent = Intent(this@ConnectToEvActivity, PrivateStation::class.java)
+//            startActivity(intent)
+
+            val resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
 
         vehicleItemCheckBoxAdapter = VehicleItemCheckBoxAdapter(vehicleList) { isChecked ->
@@ -113,8 +119,9 @@ class ConnectToEvActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this@ConnectToEvActivity, PrivateStation::class.java)
-        startActivity(intent)
+        val resultIntent = Intent()
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
     }
 }
 
