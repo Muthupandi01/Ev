@@ -34,6 +34,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.util.Locale
 
 class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var addsitelnr: LinearLayout
@@ -46,8 +51,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var btn_submit: TextView
 
     lateinit var greygreentint: LinearLayout
-    lateinit var notplugedlayout: LinearLayout
-    lateinit var nooperatorassignedlay: LinearLayout
+
     lateinit var txteditlocationdetails: TextView
     private lateinit var addSiteLauncher: ActivityResultLauncher<Intent>
     lateinit var menu: ImageView
@@ -61,7 +65,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var access: LinearLayout
     lateinit var availablity: LinearLayout
     lateinit var config: LinearLayout
-    lateinit var maincard:CardView
+
    lateinit var lntsttime:LinearLayout
    lateinit var providesttime:EditText
    lateinit var conformbtn:TextView
@@ -69,6 +73,27 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
    lateinit var reservetxt:TextView
    lateinit var booknewslottxt:TextView
    lateinit var child:LinearLayout
+
+    lateinit var notplugedlayout: LinearLayout
+    lateinit var nooperatorassignedlay: LinearLayout
+    lateinit var onlinecard: LinearLayout
+    lateinit var orangependingCard: CardView
+    lateinit var greenChargingCard: CardView
+    lateinit var maincard:CardView
+    lateinit var homechargeblue:LinearLayout
+    lateinit var editIcon:ImageView
+
+
+
+    lateinit var leftImageView:ImageView
+    lateinit var rightImageView:ImageView
+    lateinit var firstTextView:TextView
+
+    private var currentMonth: Int = 8 // Starting with August (0 = January, 11 = December)
+    private val maxMonth = 11 // Maximum month index for December
+    private val minMonth = 0  // Minimum month index for January
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,13 +106,9 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         addsitelnr = findViewById(R.id.addsitelnr)
         locationupdate = findViewById(R.id.locationupdate)
         greygreentint = findViewById(R.id.greygreentint)
-        nooperatorassignedlay = findViewById(R.id.nooperatorassignedlay)
-        notplugedlayout = findViewById(R.id.notplugedlayout)
         txteditlocationdetails = findViewById(R.id.txteditlocationdetails)
         menu = findViewById(R.id.menu)
         mapimgdummy = findViewById(R.id.mapimgdummy)
-
-        maincard = findViewById(R.id.maincard)
         providesttime = findViewById(R.id.providesttime)
         lntsttime = findViewById(R.id.lntsttime)
         conformbtn = findViewById(R.id.conformbtn)
@@ -95,6 +116,48 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         reservetxt = findViewById(R.id.reservetxt)
         child = findViewById(R.id.child)
         booknewslottxt = findViewById(R.id.booknewslottxt)
+        leftImageView = findViewById(R.id.leftImageView)
+        rightImageView = findViewById(R.id.rightImageView)
+        firstTextView = findViewById(R.id.firstTextView)
+
+
+        notplugedlayout = findViewById(R.id.notplugedlayout)
+        nooperatorassignedlay = findViewById(R.id.nooperatorassignedlay)
+        onlinecard = findViewById(R.id.onlinecard)
+        orangependingCard = findViewById(R.id.orangependingCard)
+        greenChargingCard = findViewById(R.id.greenChargingCard)
+        maincard = findViewById(R.id.maincard)
+        homechargeblue = findViewById(R.id.homechargeblue)
+
+        editIcon = findViewById(R.id.editIcon)
+
+
+
+
+        // Initial month display
+        updateMonthDisplay()
+        leftImageView.setOnClickListener {
+            if (currentMonth > minMonth) {
+                currentMonth--
+                updateMonthDisplay()
+            }
+        }
+
+        rightImageView.setOnClickListener {
+            if (currentMonth < maxMonth) {
+                currentMonth++
+                updateMonthDisplay()
+            }
+        }
+
+        editIcon.setOnClickListener {
+            val intent = Intent(this@MapMakrAftersave, ConnectToEvActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
+
 
         booknewslottxt.setOnClickListener {
             booknewslottxt.isVisible=false
@@ -216,10 +279,41 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                     addsitelnr.isVisible = false
                     mapimgdummy.isVisible = false
                     notplugedlayout.isVisible = false
-                    nooperatorassignedlay.isVisible = true
+                   // nooperatorassignedlay.isVisible = true
                     txteditlocationdetails.text = "Edit Location details"
                     menu.isVisible = true
-
+//                    GlobalScope.launch(Dispatchers.Main) {
+//                        // Step 1: Initial state
+//                        delay(500)
+//                        notplugedlayout.isVisible = false
+//                        nooperatorassignedlay.isVisible = true
+//
+//                        // Step 2: Show the next layout after 1 second
+//                        delay(1500)
+//                        nooperatorassignedlay.isVisible = false
+//                        onlinecard.isVisible = true
+//
+//                        // Step 3: Show the third layout after another 1 second
+//                        delay(1500)
+//                        onlinecard.isVisible = false
+//                        orangependingCard.isVisible = true
+//
+//                        // Step 4: Show the fourth layout after another 1 second
+//                        delay(1500)
+//                        orangependingCard.isVisible = false
+//                        greenChargingCard.isVisible = true
+//
+//                        // Step 5: Show the fifth layout after another 1 second
+//                        delay(1500)
+//                        greenChargingCard.isVisible = false
+//                        homechargeblue.isVisible = true
+//
+//                        // Step 6: Show the sixth layout after another 1 second
+//                        delay(1500)
+//                        homechargeblue.isVisible = false
+//                        maincard.isVisible = true
+//
+//                    }
                     updateMapVisibility()
                 }
             }
@@ -227,8 +321,12 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
         // Launch Add Site Activity
         addsitelnr.setOnClickListener {
-            val intent = Intent(this@MapMakrAftersave, AddsiteAdddresAdd::class.java)
-            addSiteLauncher.launch(intent)
+
+            addsitefn()
+//            val intent = Intent(this@MapMakrAftersave, AddsiteAdddresAdd::class.java)
+//            addSiteLauncher.launch(intent)
+
+
         }
 
         // Bottom sheet menu
@@ -265,6 +363,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 val intent = Intent(this@MapMakrAftersave, AccessBottomsheet::class.java)
                 startActivity(intent)
             }
+
             config.setOnClickListener {
                 val intent = Intent(this@MapMakrAftersave, UserModeCharge::class.java)
                 startActivity(intent)
@@ -276,38 +375,68 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
         // Location update logic
         locationupdate.setOnClickListener {
-            val bottomSheetDialog = BottomSheetDialog(this)
-            val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_choosesite, null)
-            bottomSheetDialog.setContentView(view)
 
-            toggle_switch = view.findViewById(R.id.toggle_switch)
-            siteRecyclerview = view.findViewById(R.id.siteRecyclerview)
-            chargerbtns = view.findViewById(R.id.chargerbtns)
-            addsite = view.findViewById(R.id.addsite)
-            btn_submit = view.findViewById(R.id.btn_submit)
+            addsitefn()
 
-            // Setup RecyclerView
-            val siteList = listOf(
-                SiteAdd("Evzone Charge Station", "Kampala, Uganda"),
-                SiteAdd("Soroti Charge Station", "Soroti, Uganda")
-            )
-            siteRecyclerview.layoutManager = LinearLayoutManager(this)
-            siteRecyclerview.adapter = SiteAddAdapter(siteList)
-
-            // Switch logic
-            toggle_switch.setOnCheckedChangeListener { _, isChecked ->
-                chargerbtns.isVisible = !isChecked
-                addsite.isVisible = !isChecked
-            }
-
-            // Submit button
-            btn_submit.setOnClickListener {
-                bottomSheetDialog.dismiss()
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            }
-
-            bottomSheetDialog.show()
         }
+    }
+
+
+    private fun updateMonthDisplay() {
+        val calendar = java.util.Calendar.getInstance()
+        val currentMonthValue = calendar.get(java.util.Calendar.MONTH)
+
+        val monthName = calendar.apply {
+            set(java.util.Calendar.MONTH, currentMonth)
+        }.getDisplayName(java.util.Calendar.MONTH, java.util.Calendar.LONG, Locale.getDefault())
+
+        firstTextView.text = monthName+" Overview"
+
+        // Disable the right arrow if the currentMonth is the current month
+        rightImageView.isEnabled = currentMonth < maxMonth && currentMonth < currentMonthValue
+        leftImageView.isEnabled = currentMonth > minMonth
+    }
+
+
+    private fun addsitefn() {
+        val bottomSheetDialog = BottomSheetDialog(this)
+        val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_choosesite, null)
+        bottomSheetDialog.setContentView(view)
+
+        toggle_switch = view.findViewById(R.id.toggle_switch)
+        siteRecyclerview = view.findViewById(R.id.siteRecyclerview)
+        chargerbtns = view.findViewById(R.id.chargerbtns)
+        addsite = view.findViewById(R.id.addsite)
+        btn_submit = view.findViewById(R.id.btn_submit)
+
+        addsite.setOnClickListener {
+            val intent = Intent(this@MapMakrAftersave, AddsiteAdddresAdd::class.java)
+            addSiteLauncher.launch(intent)
+        }
+
+        // Setup RecyclerView
+        val siteList = listOf(
+            SiteAdd("Evzone Charge Station", "Kampala, Uganda"),
+            SiteAdd("Soroti Charge Station", "Soroti, Uganda")
+        )
+        siteRecyclerview.layoutManager = LinearLayoutManager(this)
+        siteRecyclerview.adapter = SiteAddAdapter(siteList)
+
+        // Switch logic
+        toggle_switch.setOnCheckedChangeListener { _, isChecked ->
+            chargerbtns.isVisible = !isChecked
+            addsite.isVisible = !isChecked
+        }
+
+        // Submit button
+        btn_submit.setOnClickListener {
+            bottomSheetDialog.dismiss()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        }
+
+        bottomSheetDialog.show()
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
