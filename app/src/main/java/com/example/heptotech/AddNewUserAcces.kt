@@ -22,6 +22,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
+import com.example.heptotech.actvity_view.IphoneMap
 import com.example.heptotech.actvity_view.UserModeCharge
 
 class AddNewUserAcces : AppCompatActivity() {
@@ -88,7 +89,7 @@ class AddNewUserAcces : AppCompatActivity() {
                 linearLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_34624554)
                 textView.setTextColor(ContextCompat.getColor(this, R.color.white))
                 sidTextView.visibility = View.GONE
-                val intent = Intent(this, UserModeCharge::class.java)
+                val intent = Intent(this, IphoneMap::class.java)
                 startActivity(intent)
             } else {
                 linearLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_34624554)

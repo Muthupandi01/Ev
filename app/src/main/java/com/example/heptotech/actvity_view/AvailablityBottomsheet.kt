@@ -10,6 +10,7 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.heptotech.R
@@ -25,11 +26,16 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var thuTextView: TextView
     lateinit var friTextView: TextView
     lateinit var satTextView: TextView
+    lateinit var daymode:ConstraintLayout
+    lateinit var night_mode:ConstraintLayout
+    lateinit var maual_mode:ConstraintLayout
 
     private var selectedTextViews = mutableSetOf<TextView>()
     lateinit var onlineChange: TextView
     lateinit var offlineChange: TextView
+    private lateinit var model:TextView
 
+    private lateinit var days:TextView
     //mode
     lateinit var radioHome: RadioButton
     lateinit var radioOffice: RadioButton
@@ -69,6 +75,13 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radio_night = findViewById(R.id.radio_night)
         radio_manual = findViewById(R.id.radio_manual)
         manualonlychild = findViewById(R.id.manualonlychild)
+        model = findViewById(R.id.maual_text)
+        days=findViewById(R.id.days_text)
+        daymode=findViewById(R.id.day_mode)
+        night_mode=findViewById(R.id.night_mode)
+        maual_mode=findViewById(R.id.manual_mode)
+
+
 
         // Handle back button click
         back.setOnClickListener {
@@ -139,9 +152,24 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
     // Function to handle Home RadioButton click
     private fun radioHomeClicked() {
-        radioHome.isChecked=true
         radioOffice.isChecked=false
         radioCommercial.isChecked=false
+        radioHome.isChecked=true
+        manualonlychild.isVisible=false
+        model.isVisible=false
+
+
+        sunTextView.isVisible=false
+        monTextView.isVisible=false
+        tueTextView.isVisible=false
+        wedTextView.isVisible=false
+        thuTextView.isVisible=false
+        friTextView.isVisible=false
+        satTextView.isVisible=false
+        days.isVisible=false
+        daymode.isVisible=false
+        night_mode.isVisible=false
+        maual_mode.isVisible=false
     }
 
     // Function to handle Office RadioButton click
@@ -149,6 +177,19 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radioHome.isChecked=false
         radioOffice.isChecked=true
         radioCommercial.isChecked=false
+        days.isVisible=true
+        night_mode.isVisible=true
+        maual_mode.isVisible=true
+        model.isVisible=true
+        daymode.isVisible=true
+        sunTextView.isVisible=true
+        monTextView.isVisible=true
+        tueTextView.isVisible=true
+        wedTextView.isVisible=true
+        thuTextView.isVisible=true
+        friTextView.isVisible=true
+        satTextView.isVisible=true
+
 
     }
 
@@ -158,6 +199,18 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radioHome.isChecked=false
         radioOffice.isChecked=false
         radioCommercial.isChecked=true
+        days.isVisible=true
+        night_mode.isVisible=true
+        maual_mode.isVisible=true
+        model.isVisible=true
+        daymode.isVisible=true
+        sunTextView.isVisible=true
+        monTextView.isVisible=true
+        tueTextView.isVisible=true
+        wedTextView.isVisible=true
+        thuTextView.isVisible=true
+        friTextView.isVisible=true
+        satTextView.isVisible=true
     }
 
     // Function to handle Day RadioButton click

@@ -291,6 +291,7 @@
                     android:layout_width="match_parent"
                     android:textSize="@dimen/_11ssp"
                     android:textColor="#E8656565"
+                    android:id="@+id/maual_text"
                     android:layout_height="wrap_content"
                     android:text="Model"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -457,6 +458,7 @@
                     android:textSize="@dimen/_11ssp"
                     android:textColor="#E8656565"
                     android:layout_height="wrap_content"
+                    android:id="@+id/days_text"
                     android:text="Days"/>
 
                     <LinearLayout
@@ -629,6 +631,7 @@
                            android:layout_marginHorizontal="@dimen/_10ssp"
                             android:background="@drawable/rectangle_1583_ev"
                             android:orientation="horizontal"
+                            android:id="@+id/start"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content">
@@ -638,6 +641,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:focusable="false"
+                                android:inputType="number"
                                 android:hint="09:30 AM"
                                 android:background="@color/transparent"
                                 android:fontFamily="@font/poppins_medium"
@@ -647,6 +651,7 @@
                         <LinearLayout
                             android:background="@drawable/rectangle_1583_ev"
                             android:orientation="horizontal"
+                            android:id="@+id/stat1"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content">
@@ -656,6 +661,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:focusable="false"
+                                android:inputType="number"
                                 android:hint="10:30 AM"
                                 android:drawableRight="@drawable/clock__1__ev"
                                 android:background="@color/transparent"
@@ -675,6 +681,7 @@
                             <ImageView
                                 android:src="@drawable/trash_new_ev"
                                 android:layout_width="wrap_content"
+                                android:id="@+id/delete"
                                 android:scaleType="center"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/rectangle_1584_ev"
@@ -692,6 +699,7 @@
                     <LinearLayout
                         android:layout_marginTop="@dimen/_10ssp"
                         android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:id="@+id/addtimerectangle"
                         android:background="@drawable/rectangle_180_ev"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -763,7 +771,6 @@
                 tools:layout_editor_absoluteX="3dp"
                 tools:layout_editor_absoluteY="3dp"
                 >
-
                 <TextView
                     android:id="@+id/btn_submit"
                     android:layout_width="0dp"
