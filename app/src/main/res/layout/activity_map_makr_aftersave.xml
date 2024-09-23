@@ -554,7 +554,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/arrow_right_circle_ev"
-                                    android:layout_gravity="center_vertical"/>
+                                    android:layout_gravity="center_vertical"
+                                    app:tint="@color/commontxtcolor" />
                             </LinearLayout>
 
 
@@ -562,6 +563,83 @@
 
 
                         </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/neverConnected"
+                            android:layout_marginHorizontal="@dimen/_9ssp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rectangle_582_ev"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/frame"
+                                android:padding="@dimen/_20sdp">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:src="@drawable/ellipse_669_ev"/>
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/triangle_exclamation_ev"
+                                    android:layout_gravity="center"/>
+                            </FrameLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/frame"
+                                android:id="@+id/ev_text"
+                                android:textSize="@dimen/_11ssp"
+                                android:text="Ev Charger"
+                                android:paddingVertical="@dimen/_2sdp"
+                                android:layout_marginTop="@dimen/_19sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/white"/>
+                            <ImageView
+                                android:id="@+id/showBottomsheteye"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/ev_text"
+                                android:src="@drawable/info_circle_ev"
+                                android:layout_marginTop="@dimen/_21sdp"
+                                android:layout_marginStart="@dimen/_5sdp"/>
+                            <TextView
+                                android:textSize="@dimen/_11ssp"
+                                android:paddingVertical="@dimen/_2sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EV567"
+                                android:id="@+id/ev_five"
+                                android:layout_below="@id/ev_text"
+                                android:layout_toRightOf="@id/frame"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <TextView
+                                android:paddingVertical="@dimen/_2sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Never Connected"
+                                android:id="@+id/never_text"
+                                android:layout_below="@id/ev_five"
+                                android:layout_toRightOf="@id/frame"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/arrow_right_circle_ev"
+                                android:layout_below="@id/never_text"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_alignParentEnd="true"/>
+
+
+
+                        </RelativeLayout>
 
 
 
@@ -1689,7 +1767,7 @@
                         <LinearLayout
                             android:id="@+id/homechargeblue"
                             android:gravity="center"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
