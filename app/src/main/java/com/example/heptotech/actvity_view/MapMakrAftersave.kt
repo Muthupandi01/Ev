@@ -107,6 +107,8 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var myEdit: SharedPreferences.Editor
 
+    lateinit var goServer:ImageView
+
     @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -145,6 +147,12 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         editIcon = findViewById(R.id.editIcon)
         neverConnected = findViewById(R.id.neverConnected)
         showBottomsheteye = findViewById(R.id.showBottomsheteye)
+        goServer = findViewById(R.id.goServer)
+
+        goServer.setOnClickListener {
+            val intent = Intent(this@MapMakrAftersave, ConnectToServer::class.java)
+            startActivity(intent)
+        }
 
 
 //        // Retrieving data from SharedPreferences
@@ -154,20 +162,21 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
         val intent = intent
         val checkSumValue = intent.getStringExtra("Key")
-        val checkSumValueCompare = intent.getStringExtra("Key2")
 
         Log.d("CheckValuethis", "onCreate: "+checkSumValue)
 
         if (checkSumValue.equals("Home")){
             getDisplayfn()
 
-                 neverConnected.isVisible=false
+            neverConnected.isVisible=false
                 notplugedlayout.isVisible=false
                 homechargeblue.isVisible=true
 
 
         }
+
         else if (checkSumValue.equals("Office")){
+
             getDisplayfn()
             neverConnected.isVisible=false
             notplugedlayout.isVisible=false
@@ -177,34 +186,6 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 delay(1000)
                 nooperatorassignedlay.isVisible=false
                 onlinecard.isVisible=true
-            }
-
-
-        }else if (checkSumValue.equals("Office")){
-
-            if (checkSumValueCompare.equals("Manual")){
-                getDisplayfn()
-                neverConnected.isVisible=false
-                notplugedlayout.isVisible=false
-                homechargeblue.isVisible=false
-                nooperatorassignedlay.isVisible=true
-                GlobalScope.launch(Dispatchers.Main) {
-                    delay(1000)
-                    nooperatorassignedlay.isVisible=false
-                    onlinecard.isVisible=true
-                }
-            }else{
-                getDisplayfn()
-                neverConnected.isVisible=false
-                notplugedlayout.isVisible=false
-                homechargeblue.isVisible=false
-                nooperatorassignedlay.isVisible=true
-                GlobalScope.launch(Dispatchers.Main) {
-                    delay(1000)
-                    nooperatorassignedlay.isVisible=false
-                    onlinecard.isVisible=true
-                }
-
             }
 
 
@@ -233,43 +214,9 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
 
 
-        }else if (checkSumValue.equals("Day")||checkSumValue.equals("Night")){
-            getDisplayfn()
-            neverConnected.isVisible=false
-            notplugedlayout.isVisible=false
-            homechargeblue.isVisible=false
-            nooperatorassignedlay.isVisible=false
-            onlinecard.isVisible=false
+        }
 
-
-            orangependingCard.isVisible=true
-            GlobalScope.launch(Dispatchers.Main) {
-                delay(1000)
-                orangependingCard.isVisible=false
-                greenChargingCard.isVisible=true
-
-                delay(1000)
-                orangependingCard.isVisible=false
-                greenChargingCard.isVisible=false
-                maincard.isVisible=true
-            }
-
-
-
-
-        }else if (checkSumValue.equals("Manual")){
-            getDisplayfn()
-            neverConnected.isVisible=false
-            notplugedlayout.isVisible=false
-            homechargeblue.isVisible=false
-            nooperatorassignedlay.isVisible=true
-            GlobalScope.launch(Dispatchers.Main) {
-                delay(1000)
-                nooperatorassignedlay.isVisible=false
-                onlinecard.isVisible=true
-            }
-
-        }else{
+         else{
             GlobalScope.launch(Dispatchers.Main) {
                 delay(3000)
                 neverConnected.isVisible=false
@@ -329,7 +276,8 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_sttime, null)
             bottomSheetDialog.setContentView(view)
             // Initialize NumberPickers for hours, minutes, and AM/PM
-            val header = view.findViewById<TextView>(R.id.header)
+
+            val time_pick = view.findViewById<ImageView>(R.id.time_pick)
             val conformbtns = view.findViewById<TextView>(R.id.conformbtn)
             val hourPicker = view.findViewById<NumberPicker>(R.id.hourPicker)
             val minutePicker = view.findViewById<NumberPicker>(R.id.minutePicker)
@@ -367,7 +315,9 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                // Toast.makeText(this, "Selected: $selectedAmPm", Toast.LENGTH_SHORT).show()
             }
 
-            header.setOnClickListener {
+
+
+            time_pick.setOnClickListener {
                 bottomSheetDialog.dismiss()
             }
 
@@ -636,5 +586,11 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         val defaultLocation = LatLng(0.323334, 32.578890)
         mMap.addMarker(MarkerOptions().position(defaultLocation).title("NAKASERO"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 15f))
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this@MapMakrAftersave, ConnectToServer::class.java)
+        startActivity(intent)
     }
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,30 +9,36 @@
     android:paddingBottom="@dimen/_10sdp">
 
     <!-- Header TextView -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/times_circle_ev"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/time_pick"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:tint="@color/commontxtcolor" />
+
     <TextView
         android:id="@+id/header"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:fontFamily="@font/poppins_medium"
-        android:paddingTop="@dimen/_15sdp"
-        android:paddingBottom="@dimen/_7sdp"
-        android:text="Start Time"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Ride Start Time"
         android:textColor="@color/black"
         android:textSize="@dimen/_13ssp"
-        android:drawableTint="@color/black"
-        android:drawableRight="@drawable/times_circle_ev"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/time_pick"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- NumberPickers Layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/choose_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_10sdp"
@@ -46,39 +51,44 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_34624366"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            tools:ignore="MissingConstraints">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/linear_date"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
                 <!-- NumberPicker for hour selection -->
                 <NumberPicker
-
                     android:id="@+id/hourPicker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/_10sdp" />
+                    android:layout_marginHorizontal="@dimen/_25sdp" />
 
                 <!-- NumberPicker for minute selection -->
                 <NumberPicker
                     android:id="@+id/minutePicker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/_10sdp" />
+
+                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_weight="1" />
+
+
+
                 <!-- NumberPicker for AM/PM selection -->
                 <NumberPicker
                     android:id="@+id/amPmPicker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25sdp"
                     android:layout_weight="1" />
-
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -90,19 +100,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:background="@drawable/rectangle_34624614_ev"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
+        android:backgroundTint="@color/black"
         android:paddingTop="@dimen/_7sdp"
         android:paddingBottom="@dimen/_7sdp"
         android:text="Done"
-        android:backgroundTint="@color/black"
         android:textColor="@color/white"
         android:textSize="@dimen/_11ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choose_gallery" />
-
+        app:layout_constraintTop_toBottomOf="@id/choose_gallery"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

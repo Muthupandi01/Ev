@@ -123,4 +123,6 @@ class ConnectToServer : AppCompatActivity() {
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
     }
+
+
 }

@@ -66,7 +66,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var addview:LinearLayout
 
     lateinit var checkSumValue:String
-    lateinit var checkSumValueCompare:String
+
 
 //    private lateinit var sharedPreferences: SharedPreferences
 //    private lateinit var myEdit: SharedPreferences.Editor
@@ -80,7 +80,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
 
         checkSumValue="Home"
-        checkSumValueCompare="Manual"
 
         // Find views by their ID
         back = findViewById(R.id.back)
@@ -142,7 +141,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
         // Handle submit button click
         btnSubmit.setOnClickListener {
             val intent = Intent(this, MapMakrAftersave::class.java).apply {
-                putExtra("Key", checkSumValue).putExtra("Key2", checkSumValueCompare) // Replace checkSumValue with your actual value
+                putExtra("Key", checkSumValue) // Replace checkSumValue with your actual value
             }
             startActivity(intent)
 
@@ -195,20 +194,17 @@ class AvailablityBottomsheet : AppCompatActivity() {
         // Add separate click handling for day, night, and manual if needed
         radio_day.setOnClickListener {
             radioDayClicked()
-            checkSumValue="Day"
-            checkSumValueCompare="Day"
+
         }
 
         radio_night.setOnClickListener {
             radioNightClicked()
-            checkSumValue="Night"
-            checkSumValueCompare="Night"
+
         }
 
         radio_manual.setOnClickListener {
             radioManualClicked()
-            checkSumValue="Manual"
-            checkSumValueCompare="Manual"
+
 
         }
     }
