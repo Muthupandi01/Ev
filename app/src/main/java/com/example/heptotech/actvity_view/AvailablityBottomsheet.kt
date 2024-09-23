@@ -1,13 +1,10 @@
 package com.example.heptotech.activity_view
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.TimePickerDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioButton
@@ -18,7 +15,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.heptotech.R
-import java.util.Calendar
 
 class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var btnSubmit: TextView
@@ -34,10 +30,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var daymode:ConstraintLayout
     lateinit var night_mode:ConstraintLayout
     lateinit var maual_mode:ConstraintLayout
-    lateinit var start:LinearLayout
-    lateinit var end:LinearLayout
-    lateinit var timeset:EditText
-    lateinit var st:LinearLayout
 
     private var selectedTextViews = mutableSetOf<TextView>()
     lateinit var onlineChange: TextView
@@ -49,18 +41,16 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var radioHome: RadioButton
     lateinit var radioOffice: RadioButton
     lateinit var radioCommercial: RadioButton
-    lateinit var clock:EditText
 
     //model
     lateinit var radio_day: RadioButton
     lateinit var radio_night: RadioButton
     lateinit var radio_manual: RadioButton
-    lateinit var endtime:EditText
+
 
     lateinit var addtimerectangle:LinearLayout
     lateinit var addview:LinearLayout
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // Optional for edge-to-edge UI
@@ -79,7 +69,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
         onlineChange = findViewById(R.id.Onlinechange)
         offlineChange = findViewById(R.id.oflinechange)
 
-
         radioHome = findViewById(R.id.radio_home)
         radioOffice = findViewById(R.id.radio_office)
         radioCommercial = findViewById(R.id.radio_commercial)
@@ -95,24 +84,10 @@ class AvailablityBottomsheet : AppCompatActivity() {
         maual_mode=findViewById(R.id.manual_mode)
         addtimerectangle=findViewById(R.id.addtimerectangle)
         addview=findViewById(R.id.addview)
-        start=findViewById(R.id.start)
-        end=findViewById(R.id.stat1)
-        timeset=findViewById(R.id.nine_text)
-        endtime=findViewById(R.id.ten_text)
-
 
         addtimerectangle.setOnClickListener {
 
             addTimeSlotView()
-        }
-        timeset.setOnClickListener()
-        {
-            openTimePicker()
-        }
-
-        endtime.setOnClickListener()
-        {
-            openTimePickers()
         }
 
 
@@ -183,60 +158,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
         }
     }
 
-  /*  private fun clockview()
-    {
-        val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
-            // Convert hour to 12-hour format and determine AM/PM
-            val amPm = if (hour >= 12) "PM"
-            else
-                "AM"
-            val hourIn12 = if (hour % 12 == 0) 12 else hour % 12
-
-            // Showing the picked value in the EditText
-            clock.setText(String.format("%d:%02d %s", hourIn12, minute, amPm))
-        }, 3, 30, false) // Initial hour set to 3 (for 3:30 AM)
-
-        timePickerDialog.setTitle("Select Time")
-        timePickerDialog.show()
-
-
-    }*/
-
-    private fun openTimePickers() {
-        val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
-            // Convert hour to 12-hour format and determine AM/PM
-            val amPm = if (hour >= 12) "PM"
-            else
-                "AM"
-            val hourIn12 = if (hour % 12 == 0) 12 else hour % 12
-
-            // Showing the picked value in the EditText
-            endtime.setText(String.format("%d:%02d %s", hourIn12, minute, amPm))
-        }, 3, 30, false) // Initial hour set to 3 (for 3:30 AM)
-
-        timePickerDialog.setTitle("Select Time")
-        timePickerDialog.show()
-
-
-    }
-
-    private fun openTimePicker() {
-        val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
-            // Convert hour to 12-hour format and determine AM/PM
-            val amPm = if (hour >= 12) "PM"
-            else
-                "AM"
-            val hourIn12 = if (hour % 12 == 0) 12 else hour % 12
-
-            // Showing the picked value in the EditText
-            timeset.setText(String.format("%d:%02d %s", hourIn12, minute, amPm))
-        }, 3, 30, false) // Initial hour set to 3 (for 3:30 AM)
-
-        timePickerDialog.setTitle("Select Time")
-        timePickerDialog.show()
-
-    }
-
 
     private fun addTimeSlotView() {
         val inflater = layoutInflater
@@ -247,62 +168,10 @@ class AvailablityBottomsheet : AppCompatActivity() {
         deleteButton.setOnClickListener {
             removeTimeSlotView(newView)
         }
-        val startTimeEditText: EditText = newView.findViewById(R.id.clock_time)
-        startTimeEditText.setOnClickListener {
-            showTimePickerDialog(startTimeEditText)
-        }
-        val endTimEditText: EditText = newView.findViewById(R.id.endtime)
-        endTimEditText.setOnClickListener {
-            showTimePickerDialogend(endTimEditText)
-        }
 
 
-        // Handle time picker for end time
-      
-
-
-
-
-
-    // Add the new view to the parent layout
+        // Add the new view to the parent layout
         addview.addView(newView)
-    }
-
-    private fun showTimePickerDialogend(endTimEditText: EditText)
-    {
-        val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
-            // Convert hour to 12-hour format and determine AM/PM
-            val amPm = if (hour >= 12) "PM"
-            else
-                "AM"
-            val hourIn12 = if (hour % 12 == 0) 12 else hour % 12
-
-            // Showing the picked value in the EditText
-            endTimEditText.setText(String.format("%d:%02d %s", hourIn12, minute, amPm))
-        }, 3, 30, false) // Initial hour set to 3 (for 3:30 AM)
-
-        timePickerDialog.setTitle("Select Time")
-        timePickerDialog.show()
-
-    }
-
-    private fun showTimePickerDialog(startTimeEditText: EditText)
-    {
-        val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
-            // Convert hour to 12-hour format and determine AM/PM
-            val amPm = if (hour >= 12) "PM"
-            else
-                "AM"
-            val hourIn12 = if (hour % 12 == 0) 12 else hour % 12
-
-            // Showing the picked value in the EditText
-            startTimeEditText.setText(String.format("%d:%02d %s", hourIn12, minute, amPm))
-        }, 3, 30, false) // Initial hour set to 3 (for 3:30 AM)
-
-        timePickerDialog.setTitle("Select Time")
-        timePickerDialog.show()
-
-
     }
 
     private fun removeTimeSlotView(newView: View?) {
