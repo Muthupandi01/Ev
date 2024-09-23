@@ -32,7 +32,7 @@
                 android:id="@+id/clock_time"
                 android:focusable="false"
                 android:inputType="number"
-                android:hint="09:30 AM"
+                android:hint="00:00 AM"
                 android:background="@color/transparent"
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="@dimen/_12ssp"/>
@@ -53,7 +53,7 @@
                 android:focusable="false"
                 android:inputType="number"
                 android:id="@+id/endtime"
-                android:hint="10:30 AM"
+                android:hint="00:00 AM"
                 android:drawableRight="@drawable/clock__1__ev"
                 android:background="@color/transparent"
                 android:fontFamily="@font/poppins_medium"

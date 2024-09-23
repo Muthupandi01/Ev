@@ -628,7 +628,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-
+                            android:visibility="gone"
                             android:weightSum="2.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -652,7 +652,7 @@
                                     android:id="@+id/nine_text"
                                     android:focusable="false"
                                     android:inputType="number"
-                                    android:hint="09:30 AM"
+                                    android:hint="00:00 AM"
                                     android:background="@color/transparent"
                                     android:fontFamily="@font/poppins_medium"
                                     android:textSize="@dimen/_12ssp"/>
@@ -666,14 +666,13 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content">
                                 <EditText
-
                                     android:layout_margin="@dimen/_10ssp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:focusable="false"
                                     android:inputType="number"
                                     android:id="@+id/ten_text"
-                                    android:hint="10:30 AM"
+                                    android:hint="00:00 AM"
                                     android:drawableRight="@drawable/clock__1__ev"
                                     android:background="@color/transparent"
                                     android:fontFamily="@font/poppins_medium"
@@ -709,37 +708,47 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_10ssp"
-                        android:layout_marginHorizontal="@dimen/_10ssp"
-                        android:id="@+id/addtimerectangle"
-                        android:background="@drawable/rectangle_180_ev"
+                        android:paddingBottom="@dimen/_5ssp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:layout_marginHorizontal="@dimen/_10ssp"
-                            android:layout_width="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:layout_marginTop="@dimen/_10ssp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/addtimerectangle"
+                            android:background="@drawable/rectangle_180_ev"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/plus_ev"
-                            app:tint="@color/white" />
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_marginHorizontal="@dimen/_10ssp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/plus_ev"
+                                app:tint="@color/white" />
 
-                        <TextView
-                            android:textColor="@color/white"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Add Time"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_12ssp"/>
+                            <TextView
+                                android:textColor="@color/white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Add Time"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textSize="@dimen/_12ssp"/>
 
 
 
 
 
+                        </LinearLayout>
                     </LinearLayout>
+
+
+
+
 
 
 

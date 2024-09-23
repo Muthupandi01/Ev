@@ -183,7 +183,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             homechargeblue.isVisible=false
             nooperatorassignedlay.isVisible=true
             GlobalScope.launch(Dispatchers.Main) {
-                delay(1000)
+                delay(2500)
                 nooperatorassignedlay.isVisible=false
                 onlinecard.isVisible=true
             }
@@ -202,11 +202,11 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
             orangependingCard.isVisible=true
             GlobalScope.launch(Dispatchers.Main) {
-                delay(1000)
+                delay(2000)
                 orangependingCard.isVisible=false
                 greenChargingCard.isVisible=true
 
-                delay(1000)
+                delay(2000)
                 orangependingCard.isVisible=false
                 greenChargingCard.isVisible=false
                 maincard.isVisible=true
@@ -218,7 +218,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
          else{
             GlobalScope.launch(Dispatchers.Main) {
-                delay(3000)
+                delay(2500)
                 neverConnected.isVisible=false
                 notplugedlayout.isVisible=true
 

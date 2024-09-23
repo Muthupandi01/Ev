@@ -71,6 +71,9 @@ class AvailablityBottomsheet : AppCompatActivity() {
 //    private lateinit var sharedPreferences: SharedPreferences
 //    private lateinit var myEdit: SharedPreferences.Editor
 
+   lateinit var endTimEditText: EditText
+    lateinit var startTimeEditText: EditText
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,14 +115,12 @@ class AvailablityBottomsheet : AppCompatActivity() {
         addview=findViewById(R.id.addview)
         start=findViewById(R.id.start)
         end=findViewById(R.id.stat1)
+
         timeset=findViewById(R.id.nine_text)
         endtime=findViewById(R.id.ten_text)
 
 
-        addtimerectangle.setOnClickListener {
 
-            addTimeSlotView()
-        }
         timeset.setOnClickListener()
         {
             openTimePicker()
@@ -129,6 +130,14 @@ class AvailablityBottomsheet : AppCompatActivity() {
         {
             openTimePickers()
         }
+
+
+        addTimeSlotView()
+        addtimerectangle.setOnClickListener {
+            if (endTimEditText.text.toString().length>0&&startTimeEditText.text.toString().length>0)
+             addTimeSlotView()
+        }
+
 
 
         // Handle back button click
@@ -267,33 +276,29 @@ class AvailablityBottomsheet : AppCompatActivity() {
     private fun addTimeSlotView() {
         val inflater = layoutInflater
         val newView = inflater.inflate(R.layout.time_slot_layout, addview, false)
-
         // Handle delete button click
         val deleteButton: ImageView = newView.findViewById(R.id.delete)
         deleteButton.setOnClickListener {
             removeTimeSlotView(newView)
         }
-        val startTimeEditText: EditText = newView.findViewById(R.id.clock_time)
+         startTimeEditText = newView.findViewById(R.id.clock_time)
+
+
         startTimeEditText.setOnClickListener {
             showTimePickerDialog(startTimeEditText)
         }
-        val endTimEditText: EditText = newView.findViewById(R.id.endtime)
+         endTimEditText = newView.findViewById(R.id.endtime)
+
+
         endTimEditText.setOnClickListener {
             showTimePickerDialogend(endTimEditText)
         }
 
-
-        // Handle time picker for end time
-
-
-
-
-
-
-        // Add the new view to the parent layout
         addview.addView(newView)
 
     }
+
+
     private fun showTimePickerDialogend(endTimEditText: EditText)
     {
         val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
