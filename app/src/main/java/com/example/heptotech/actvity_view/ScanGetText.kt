@@ -79,7 +79,12 @@ class ScanGetText : AppCompatActivity() {
         val animationDrawable: AnimationDrawable = scanAnimationView.drawable as AnimationDrawable
         animationDrawable.start()
 
-
+        GlobalScope.launch {
+            delay(1500)
+            val resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
+        }
 
 
         // Set up the QR code scanner
@@ -87,7 +92,7 @@ class ScanGetText : AppCompatActivity() {
            // handleScanResult(result.text)
 
             GlobalScope.launch {
-                delay(3000)
+                delay(1500)
                 val resultIntent = Intent()
                 setResult(Activity.RESULT_OK, resultIntent)
                 finish()
@@ -104,7 +109,6 @@ class ScanGetText : AppCompatActivity() {
             checkStr = "scanclick"
             scannerView.resume()
         }
-
 
         dummycharge.setOnClickListener {
             checkStr = "dummyclick"

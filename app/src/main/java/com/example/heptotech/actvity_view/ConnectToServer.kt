@@ -105,7 +105,7 @@ class ConnectToServer : AppCompatActivity() {
             copied2.isVisible=false
             copied3.isVisible=false
 
-        }, 4000)
+        }, 2000)
     }
 
     private fun copyToClipboard(text: String) {
