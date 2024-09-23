@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/top_shape_ev"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/commercial_text"
+        android:text="Commercial device"
+        android:textSize="@dimen/_14ssp"
+        android:gravity="center"
+        android:textColor="#F77F00"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/commercial_text"
+        android:id="@+id/platform_text"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_11ssp"
+       android:gravity="center"
+        android:text="To have more than one commercial stations,\nyou can use our Evzone charging Aggrecator,\nPlatform"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/platform_text"
+       android:background="@drawable/rectangle_568_ev"
+       android:layout_marginHorizontal="@dimen/_18sdp"
+       android:layout_marginTop="@dimen/_10sdp">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="See Aggregator"
+           android:gravity="center"
+           android:layout_gravity="center_vertical"
+           android:textColor="@color/white"
+           android:fontFamily="@font/poppins_medium"/>
+   </LinearLayout>
+</RelativeLayout>
