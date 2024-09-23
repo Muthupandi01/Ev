@@ -23,7 +23,10 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+
 import com.example.heptotech.activity_view.AvailablityBottomsheet
+//import com.example.heptotech.activity_view.AvailablityBottomsheet
+//import com.example.heptotech.activity_view.AvailablityBottomsheet
 import com.example.heptotech.activity_view.ConnectToEvActivity
 import com.example.heptotech.adapters.SiteAddAdapter
 import com.example.heptotech.bean_dataclass.SiteAdd
@@ -349,7 +352,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             }
 
             availablity.setOnClickListener {
-                val intent = Intent(this@MapMakrAftersave, AvailablityBottomsheet::class.java)
+                val intent = Intent(this@MapMakrAftersave,AvailablityBottomsheet::class.java)
                 startActivity(intent)
 
             }

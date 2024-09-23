@@ -483,7 +483,7 @@
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                         <TextView
                             android:layout_marginRight="@dimen/_2ssp"
@@ -492,12 +492,13 @@
                             android:layout_weight="1"
                             android:layout_height="match_parent"
                             android:text="Mon"
+
                             android:padding="12dp"
                             android:background="@drawable/rectangle_34624564_ev"
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                         <TextView
                             android:layout_marginRight="@dimen/_2ssp"
@@ -511,7 +512,7 @@
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                         <TextView
                             android:layout_marginRight="@dimen/_2ssp"
@@ -525,7 +526,7 @@
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                         <TextView
                             android:layout_marginRight="@dimen/_2ssp"
@@ -539,7 +540,7 @@
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                         <TextView
                             android:layout_marginRight="@dimen/_2ssp"
@@ -553,7 +554,7 @@
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                         <TextView
                             android:layout_marginRight="@dimen/_2ssp"
@@ -567,7 +568,7 @@
                             android:textColor="@android:color/black"
                             android:gravity="center"
                             android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_7ssp" />
 
                     </LinearLayout>
 
@@ -647,6 +648,7 @@
                                     android:layout_margin="@dimen/_10ssp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:id="@+id/nine_text"
                                     android:focusable="false"
                                     android:inputType="number"
                                     android:hint="09:30 AM"
@@ -669,6 +671,7 @@
                                     android:layout_height="wrap_content"
                                     android:focusable="false"
                                     android:inputType="number"
+                                    android:id="@+id/ten_text"
                                     android:hint="10:30 AM"
                                     android:drawableRight="@drawable/clock__1__ev"
                                     android:background="@color/transparent"
