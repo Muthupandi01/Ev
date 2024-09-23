@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.NumberPicker
+import android.widget.RelativeLayout
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -84,6 +85,9 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var greenChargingCard: CardView
     lateinit var maincard:CardView
     lateinit var homechargeblue:LinearLayout
+    lateinit var neverConnected:RelativeLayout
+
+
     lateinit var editIcon:ImageView
 
 
@@ -91,6 +95,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var leftImageView:ImageView
     lateinit var rightImageView:ImageView
     lateinit var firstTextView:TextView
+    lateinit var showBottomsheteye:ImageView
 
     private var currentMonth: Int = 8 // Starting with August (0 = January, 11 = December)
     private val maxMonth = 11 // Maximum month index for December
@@ -132,8 +137,25 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         maincard = findViewById(R.id.maincard)
         homechargeblue = findViewById(R.id.homechargeblue)
         editIcon = findViewById(R.id.editIcon)
+        neverConnected = findViewById(R.id.neverConnected)
+        showBottomsheteye = findViewById(R.id.showBottomsheteye)
 
 
+
+        GlobalScope.launch(Dispatchers.Main) {
+
+            delay(3000)
+            neverConnected.isVisible=false
+            notplugedlayout.isVisible=true
+
+
+        }
+        showBottomsheteye.setOnClickListener {
+            val bottomSheetDialog = BottomSheetDialog(this)
+            val view = LayoutInflater.from(this).inflate(R.layout.bottomsheet_commercial_device, null)
+            bottomSheetDialog.setContentView(view)
+            bottomSheetDialog.show()
+        }
 
 
         // Initial month display

@@ -1,6 +1,7 @@
 package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -83,19 +84,21 @@ class ConnectToServer : AppCompatActivity() {
             val intent = Intent(this@ConnectToServer, MapMakrAftersave::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_down)
+
+
+
         }
 
         back.setOnClickListener {
-            val intent = Intent(this@ConnectToServer, ConnectToEvActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            val resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
     }
 
     private fun showTick(imageView: ImageView, text: String) {
         imageView.setImageResource(R.drawable.tick_ev) // Your tick image
         copyToClipboard(text)
-
 
         // Reset image after 3 seconds
         handler.postDelayed({
@@ -116,8 +119,8 @@ class ConnectToServer : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this@ConnectToServer, ConnectToEvActivity::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        val resultIntent = Intent()
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
     }
 }
