@@ -36,7 +36,6 @@ class ConnectToServer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect_to_server)
 
-
         back = findViewById(R.id.back)
         btn_submit = findViewById(R.id.btn_submit)
         serverImg = findViewById(R.id.Img)

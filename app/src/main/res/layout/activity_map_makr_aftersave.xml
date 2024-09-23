@@ -239,7 +239,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center"
+                            app:tint="#25314C" />
 
                         <!-- Center LinearLayout with Two TextViews -->
                         <LinearLayout
