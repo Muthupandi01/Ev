@@ -268,8 +268,8 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
         // Add the new view to the parent layout
         addview.addView(newView)
-    }
 
+    }
     private fun showTimePickerDialogend(endTimEditText: EditText)
     {
         val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
