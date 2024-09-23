@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:background="@drawable/rectangle_582_ev"
+        android:layout_marginTop="@dimen/_10sdp">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/frame"
+            android:padding="@dimen/_20sdp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ellipse_669_ev"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/triangle_exclamation_ev"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/frame"
+            android:id="@+id/ev_text"
+            android:text="Ev Charger"
+            android:layout_marginTop="@dimen/_19sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ev_text"
+            android:src="@drawable/info_circle_ev"
+            android:layout_marginTop="@dimen/_21sdp"
+            android:layout_marginStart="@dimen/_5sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EV567"
+            android:id="@+id/ev_five"
+            android:layout_below="@id/ev_text"
+            android:layout_toRightOf="@id/frame"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Never Connected"
+            android:id="@+id/never_text"
+            android:layout_below="@id/ev_five"
+            android:layout_toRightOf="@id/frame"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_right_circle_ev"
+            android:layout_below="@id/never_text"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_alignParentEnd="true"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
