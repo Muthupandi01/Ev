@@ -101,7 +101,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="10"
                         android:textColor="#292929"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_11ssp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -109,7 +109,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ten_textview"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:textSize="@dimen/_8sdp"
+                        android:textSize="@dimen/_9ssp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="max charging\nprofile installed" />
                 </RelativeLayout>
@@ -147,7 +147,7 @@
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="3 - Phase"
                                     android:textColor="#1D1D1D"
-                                    android:textSize="@dimen/_10ssp"
+                                    android:textSize="@dimen/_11ssp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -155,7 +155,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_10sdp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:textSize="@dimen/_8ssp"
+                                    android:textSize="@dimen/_9ssp"
                                     android:text="Connector\nSwitch"
                                     android:textColor="#2F2F2F" />
                             </LinearLayout>
@@ -187,7 +187,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/check"
                                 android:text="Reserve Connector\nZero"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:textColor="#1D1D1D"
                                 android:fontFamily="@font/poppins_medium"
@@ -216,7 +216,7 @@
                                 android:text="150"
                                 android:id="@+id/one_fifty"
                                 android:textStyle="bold"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_11ssp"
                                 android:fontFamily="@font/poppins_medium"
                                 android:textColor="#292929"/>
                             <TextView
@@ -224,7 +224,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/one_fifty"
                                 android:text="Local Authorization\nList Max Length"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:layout_marginTop="@dimen/_8sdp"
                                 android:textColor="#1D1D1D"
                                 android:fontFamily="@font/poppins_medium"
@@ -267,7 +267,7 @@
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="Power"
                                     android:textColor="#1D1D1D"
-                                    android:textSize="@dimen/_10ssp"
+                                    android:textSize="@dimen/_11ssp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -275,7 +275,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_15sdp"
                                     android:layout_marginTop="@dimen/_8sdp"
-                                    android:textSize="@dimen/_8ssp"
+                                    android:textSize="@dimen/_9ssp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="Charging Rate"
                                     android:textColor="#2F2F2F" />
@@ -296,7 +296,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
                                 android:fontFamily="@font/poppins_medium"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:text="Charging Schedule\nMax Peroids"
                                 android:id="@+id/center_text"
                                 android:textColor="#2F2F2F"
@@ -343,7 +343,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/layer3"
                                 android:text="Stop Transaction\nSampled Data Max\nLength"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:fontFamily="@font/poppins_medium"
                                 android:textColor="#2F2F2F"
                                 android:layout_marginStart="@dimen/_15sdp"
@@ -379,7 +379,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/vector"
                                 android:text="Stop Transaction\nSampled Data Max\nLength"
-                                android:textSize="@dimen/_8sdp"
+                                android:textSize="@dimen/_9sdp"
                                 android:fontFamily="@font/poppins_medium"
                                 android:textColor="#2F2F2F"
                                 android:layout_marginStart="@dimen/_15sdp"
@@ -406,7 +406,7 @@
                         android:text="5"
                         android:textStyle="bold"
                         android:textColor="#292929"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_11ssp"
                         android:fontFamily="@font/poppins_medium"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -414,7 +414,7 @@
                         android:layout_below="@id/five"
                         android:id="@+id/support"
                         android:text="Support Feature\nProfile Max Length"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="@dimen/_9ssp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#2F2F2F"
                         android:layout_marginStart="@dimen/_15sdp"
@@ -454,7 +454,7 @@
                                 android:layout_marginTop="@dimen/_15sdp"
                                 android:text="5"
                                 android:id="@+id/fives"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_11ssp"
                                 android:textStyle="bold"
                                 android:textColor="#292929"
                                 android:fontFamily="@font/poppins_medium"/>
@@ -462,7 +462,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/fives"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:id="@+id/meter_value"
                                 android:text="Meter Values Sampled\nData Max Length"
                                 android:textColor="#2F2F2F"
@@ -498,7 +498,7 @@
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:id="@+id/five1"
                                 android:layout_below="@id/layer2"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_11ssp"
                                 android:text="5"
                                 android:textStyle="bold"
                                 android:textColor="#1D1D1D"
@@ -507,7 +507,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/five1"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:text="Get Configuration\nMax Keys"
                                 android:textColor="#2F2F2F"
                                 android:fontFamily="@font/poppins_medium"
@@ -533,7 +533,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/_16sdp"
-                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_11sdp"
                                 android:id="@+id/five3"
                                 android:layout_below="@id/x_svg"
                                 android:textSize="@dimen/_10ssp"
@@ -545,7 +545,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/five3"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:text=" Connector Phase\nRotation Max\nlength"
                                 android:textColor="#2F2F2F"
                                 android:fontFamily="@font/poppins_medium"
@@ -584,7 +584,7 @@
                                 android:layout_below="@id/saving"
                                 android:id="@+id/smart"
                                 android:text="Smart Charging"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_11ssp"
                                 android:textColor="#1D1D1D"
                                 android:fontFamily="@font/poppins_medium"
                                 android:textStyle="bold"
@@ -595,7 +595,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/smart"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:text="Supported Feature\nProfiles"
                                 android:textColor="#2F2F2F"
                                 android:fontFamily="@font/poppins_medium"
@@ -619,7 +619,7 @@
                                 android:layout_marginTop="@dimen/_15sdp"
                                 android:text="5"
                                 android:id="@+id/fivess"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_11ssp"
                                 android:textStyle="bold"
                                 android:textColor="#292929"
                                 android:fontFamily="@font/poppins_medium"/>
@@ -627,7 +627,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/fivess"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:id="@+id/meter_value1"
                                 android:text="Meter Values Sampled\nData Max Length"
                                 android:textColor="#2F2F2F"
@@ -664,7 +664,7 @@
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:id="@+id/five4"
                                 android:layout_below="@id/group_15"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_11ssp"
                                 android:text="5"
                                 android:textStyle="bold"
                                 android:textColor="#1D1D1D"
@@ -673,7 +673,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/five4"
-                                android:textSize="@dimen/_8ssp"
+                                android:textSize="@dimen/_9ssp"
                                 android:text="Number Of\nConnectors"
                                 android:textColor="#2F2F2F"
                                 android:fontFamily="@font/poppins_medium"
