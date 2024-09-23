@@ -47,7 +47,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var radio_night: RadioButton
     lateinit var radio_manual: RadioButton
 
-
     lateinit var addtimerectangle:LinearLayout
     lateinit var addview:LinearLayout
 
@@ -185,7 +184,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radioHome.isChecked=true
         manualonlychild.isVisible=false
         model.isVisible=false
-
 
         sunTextView.isVisible=false
         monTextView.isVisible=false

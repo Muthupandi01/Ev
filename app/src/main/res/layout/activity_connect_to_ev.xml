@@ -191,6 +191,7 @@
                             android:textColorHint="#9A656565"/>
 
                         <ImageView
+                            android:id="@+id/serialImg"
                             android:visibility="visible"
                             android:backgroundTint="#25314C"
                             android:layout_width="wrap_content"
@@ -237,6 +238,7 @@
                             android:textColorHint="#9A656565"/>
 
                         <ImageView
+                            android:id="@+id/pincodeImg"
                             android:visibility="visible"
                             android:backgroundTint="#25314C"
                             android:layout_width="wrap_content"

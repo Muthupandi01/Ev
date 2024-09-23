@@ -26,6 +26,9 @@
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".actvity_view.ScanGetText"
+            android:exported="false" />
+        <activity
             android:name=".actvity_view.samplecard"
             android:exported="false" />
         <activity
@@ -37,7 +40,6 @@
         <activity
             android:name=".actvity_view.AccessBottomsheet"
             android:exported="false" />
-
         <activity
             android:name=".actvity_view.PriceBottomSheet"
             android:exported="false" />
@@ -48,13 +50,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE" />
-        <activity android:name=".actvity_view.IphoneMap"
-            android:exported="false"/>
 
+        <activity
+            android:name=".actvity_view.IphoneMap"
+            android:exported="false" />
         <activity
             android:name=".actvity_view.AddsiteAdddresAdd"
             android:exported="false" />
-
         <activity
             android:name=".actvity_view.MapMakrAftersave"
             android:exported="false" />

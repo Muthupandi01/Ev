@@ -168,6 +168,8 @@
                 app:layout_constraintBottom_toBottomOf="parent" />
 
             <!-- Menu ImageView (move to the end) -->
+
+
             <ImageView
                 android:padding="@dimen/_7ssp"
                 android:id="@+id/menu"
@@ -1170,7 +1172,6 @@
                                 </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
-
                         <androidx.cardview.widget.CardView
                             android:visibility="gone"
                             android:id="@+id/greenChargingCard"
@@ -1404,8 +1405,6 @@
                                 </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
-
-
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/maincard"
@@ -1683,6 +1682,8 @@
                                 </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
+
+
 
                         <LinearLayout
                             android:id="@+id/homechargeblue"

@@ -128,7 +128,6 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         greenChargingCard = findViewById(R.id.greenChargingCard)
         maincard = findViewById(R.id.maincard)
         homechargeblue = findViewById(R.id.homechargeblue)
-
         editIcon = findViewById(R.id.editIcon)
 
 
@@ -149,6 +148,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 updateMonthDisplay()
             }
         }
+
 
         editIcon.setOnClickListener {
             val intent = Intent(this@MapMakrAftersave, ConnectToEvActivity::class.java)
@@ -266,11 +266,25 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        GlobalScope.launch(Dispatchers.Main) {
+                        // Step 1: Initial state
+                        delay(2000)
+            greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this@MapMakrAftersave, R.color.greentxt))
+            addsitelnr.isVisible = false
+            mapimgdummy.isVisible = false
+            notplugedlayout.isVisible = false
+            // nooperatorassignedlay.isVisible = true
+            txteditlocationdetails.text = "Edit Location details"
+            menu.isVisible = true
+        }
+
         // Site address launcher
         addSiteLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val data = result.data
                 if (data != null) {
+
+
                     val siteName = data.getStringExtra("site_name")
                     val siteAddress = data.getStringExtra("site_address")
 

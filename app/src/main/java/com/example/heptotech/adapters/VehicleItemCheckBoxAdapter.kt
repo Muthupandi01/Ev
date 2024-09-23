@@ -13,7 +13,7 @@ import com.example.heptotech.bean_dataclass.VehicleItem
 // VehicleItemCheckBoxAdapter.kt
 class VehicleItemCheckBoxAdapter(
     private val vehicleList: List<VehicleItem>,
-    private val onCheckboxChecked: (Boolean) -> Unit
+    private val listener: OnVehicleCheckChangeListener
 ) : RecyclerView.Adapter<VehicleItemCheckBoxAdapter.VehicleViewHolder>() {
 
     private val checkedItems = mutableSetOf<Int>() // Track checked item positions
@@ -33,10 +33,11 @@ class VehicleItemCheckBoxAdapter(
         holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkedItems.add(position)
+                listener.onVehicleCheckedChange(isChecked, currentItem.vehicleType)
             } else {
                 checkedItems.remove(position)
+                listener.onVehicleCheckedChange(isChecked, currentItem.vehicleType)
             }
-            onCheckboxChecked(checkedItems.isNotEmpty())
         }
     }
 
@@ -46,6 +47,9 @@ class VehicleItemCheckBoxAdapter(
         val motorTypeImg: ImageView = itemView.findViewById(R.id.motortypeimg)
         val vehicleType: TextView = itemView.findViewById(R.id.vehicletype)
         val checkBox: CheckBox = itemView.findViewById(R.id.checbox)
+    }
+    interface OnVehicleCheckChangeListener {
+        fun onVehicleCheckedChange(isChecked: Boolean, vehicleType: String)
     }
 }
 

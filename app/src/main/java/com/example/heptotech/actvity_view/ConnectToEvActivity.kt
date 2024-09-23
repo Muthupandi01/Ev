@@ -20,13 +20,15 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.actvity_view.ConnectToServer
+import com.example.heptotech.actvity_view. ConnectToServer
 import com.example.heptotech.actvity_view.PrivateStation
+import com.example.heptotech.actvity_view.ScanGetText
 import com.example.heptotech.adapters.VehicleItemCheckBoxAdapter
 import com.example.heptotech.bean_dataclass.VehicleItem
 
 // ConnectToEvActivity.kt
-class ConnectToEvActivity : AppCompatActivity() {
+class ConnectToEvActivity : AppCompatActivity(),
+    VehicleItemCheckBoxAdapter.OnVehicleCheckChangeListener {
 
     private lateinit var vehicleRecyclerView: RecyclerView
     private lateinit var btnSubmit: TextView
@@ -34,6 +36,9 @@ class ConnectToEvActivity : AppCompatActivity() {
     private lateinit var vehicleItemCheckBoxAdapter: VehicleItemCheckBoxAdapter
     private lateinit var scrollView: ScrollView
     lateinit var back: ImageView
+    lateinit var pincodeImg: ImageView
+    lateinit var serialImg: ImageView
+    private val selectedVehicles = mutableSetOf<String>()
     private val vehicleList = listOf(
         VehicleItem(R.drawable.g, "2-Wheeler"),
         VehicleItem(R.drawable.h, "4-Wheeler")
@@ -48,14 +53,23 @@ class ConnectToEvActivity : AppCompatActivity() {
         btnSubmit = findViewById(R.id.btn_submit)
         devicename = findViewById(R.id.devicename)
         back=findViewById(R.id.back)
-
-
+        serialImg=findViewById(R.id.serialImg)
+        pincodeImg=findViewById(R.id.pincodeImg)
+        back=findViewById(R.id.back)
 
         btnSubmit.setOnClickListener {
-            val intent = Intent(this@ConnectToEvActivity, ConnectToServer::class.java)
+            navigateToConnectToServer()
+        }
+        pincodeImg.setOnClickListener {
+            val intent = Intent(this, ScanGetText::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
+        }
+        serialImg.setOnClickListener {
+            val intent = Intent(this, ScanGetText::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
 
@@ -69,15 +83,24 @@ class ConnectToEvActivity : AppCompatActivity() {
             finish()
         }
 
-        vehicleItemCheckBoxAdapter = VehicleItemCheckBoxAdapter(vehicleList) { isChecked ->
-            updateSubmitButtonColor(isChecked)
-        }
+        vehicleItemCheckBoxAdapter = VehicleItemCheckBoxAdapter(vehicleList, this)
+        vehicleRecyclerView.adapter = vehicleItemCheckBoxAdapter
+
         vehicleRecyclerView.layoutManager = LinearLayoutManager(this)
         vehicleRecyclerView.adapter = vehicleItemCheckBoxAdapter
 
         // Optionally enable edge-to-edge mode
         enableEdgeToEdge()
         setRedStarTextView(devicename)
+    }
+
+    private fun navigateToConnectToServer() {
+        val intent = Intent(this, ConnectToServer::class.java).apply {
+            putExtra("selectedVehicles", selectedVehicles.toTypedArray())
+        }
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
     }
 
     fun setRedStarTextView(textView: TextView) {
@@ -108,13 +131,6 @@ class ConnectToEvActivity : AppCompatActivity() {
         textView.text = spannableString
     }
 
-    private fun updateSubmitButtonColor(isChecked: Boolean) {
-        if (isChecked) {
-            btnSubmit.setBackgroundResource(R.drawable.rectanglef_ev) // Green drawable for enabled state
-        } else {
-            btnSubmit.setBackgroundResource(R.drawable.rectangle_34624554_ev) // Grey drawable for disabled state
-        }
-    }
 
 
     override fun onBackPressed() {
@@ -122,6 +138,21 @@ class ConnectToEvActivity : AppCompatActivity() {
         val resultIntent = Intent()
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
+    }
+
+    override fun onVehicleCheckedChange(isChecked: Boolean, vehicleType: String) {
+        if (isChecked) {
+            selectedVehicles.add(vehicleType)
+        } else {
+            selectedVehicles.remove(vehicleType)
+        }
+
+        // Enable the button if at least one vehicle is selected
+        if (selectedVehicles.isNotEmpty()) {
+            btnSubmit.setBackgroundResource(R.drawable.rectanglef_ev) // Green drawable for enabled state
+        } else {
+            btnSubmit.setBackgroundResource(R.drawable.rectangle_34624554_ev) // Grey drawable for disabled state
+        }
     }
 }
 
