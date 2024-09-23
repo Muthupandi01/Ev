@@ -2,6 +2,8 @@ package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +18,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -101,13 +104,16 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     private val maxMonth = 11 // Maximum month index for December
     private val minMonth = 0  // Minimum month index for January
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var myEdit: SharedPreferences.Editor
 
-
+    @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_map_makr_aftersave)
+
 
 
         // Initialize views
@@ -141,13 +147,144 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         showBottomsheteye = findViewById(R.id.showBottomsheteye)
 
 
+//        // Retrieving data from SharedPreferences
+//        val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+//        val s1: String = sharedPreferences.getString("Key", "") ?: ""
+//        Log.d("CheckLoggedvalue", "onCreate: "+s1)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            delay(3000)
-            neverConnected.isVisible=false
-            notplugedlayout.isVisible=true
+        val intent = intent
+        val checkSumValue = intent.getStringExtra("Key")
+        val checkSumValueCompare = intent.getStringExtra("Key2")
+
+        Log.d("CheckValuethis", "onCreate: "+checkSumValue)
+
+        if (checkSumValue.equals("Home")){
+            getDisplayfn()
+
+                 neverConnected.isVisible=false
+                notplugedlayout.isVisible=false
+                homechargeblue.isVisible=true
+
 
         }
+        else if (checkSumValue.equals("Office")){
+            getDisplayfn()
+            neverConnected.isVisible=false
+            notplugedlayout.isVisible=false
+            homechargeblue.isVisible=false
+            nooperatorassignedlay.isVisible=true
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(1000)
+                nooperatorassignedlay.isVisible=false
+                onlinecard.isVisible=true
+            }
+
+
+        }else if (checkSumValue.equals("Office")){
+
+            if (checkSumValueCompare.equals("Manual")){
+                getDisplayfn()
+                neverConnected.isVisible=false
+                notplugedlayout.isVisible=false
+                homechargeblue.isVisible=false
+                nooperatorassignedlay.isVisible=true
+                GlobalScope.launch(Dispatchers.Main) {
+                    delay(1000)
+                    nooperatorassignedlay.isVisible=false
+                    onlinecard.isVisible=true
+                }
+            }else{
+                getDisplayfn()
+                neverConnected.isVisible=false
+                notplugedlayout.isVisible=false
+                homechargeblue.isVisible=false
+                nooperatorassignedlay.isVisible=true
+                GlobalScope.launch(Dispatchers.Main) {
+                    delay(1000)
+                    nooperatorassignedlay.isVisible=false
+                    onlinecard.isVisible=true
+                }
+
+            }
+
+
+
+        }
+        else if (checkSumValue.equals("Commercial")){
+            getDisplayfn()
+            neverConnected.isVisible=false
+            notplugedlayout.isVisible=false
+            homechargeblue.isVisible=false
+            nooperatorassignedlay.isVisible=false
+            onlinecard.isVisible=false
+
+
+            orangependingCard.isVisible=true
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(1000)
+                orangependingCard.isVisible=false
+                greenChargingCard.isVisible=true
+
+                delay(1000)
+                orangependingCard.isVisible=false
+                greenChargingCard.isVisible=false
+                maincard.isVisible=true
+            }
+
+
+
+        }else if (checkSumValue.equals("Day")||checkSumValue.equals("Night")){
+            getDisplayfn()
+            neverConnected.isVisible=false
+            notplugedlayout.isVisible=false
+            homechargeblue.isVisible=false
+            nooperatorassignedlay.isVisible=false
+            onlinecard.isVisible=false
+
+
+            orangependingCard.isVisible=true
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(1000)
+                orangependingCard.isVisible=false
+                greenChargingCard.isVisible=true
+
+                delay(1000)
+                orangependingCard.isVisible=false
+                greenChargingCard.isVisible=false
+                maincard.isVisible=true
+            }
+
+
+
+
+        }else if (checkSumValue.equals("Manual")){
+            getDisplayfn()
+            neverConnected.isVisible=false
+            notplugedlayout.isVisible=false
+            homechargeblue.isVisible=false
+            nooperatorassignedlay.isVisible=true
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(1000)
+                nooperatorassignedlay.isVisible=false
+                onlinecard.isVisible=true
+            }
+
+        }else{
+            GlobalScope.launch(Dispatchers.Main) {
+                delay(3000)
+                neverConnected.isVisible=false
+                notplugedlayout.isVisible=true
+
+            }
+        }
+
+
+
+
+
+
+
+
         showBottomsheteye.setOnClickListener {
             val bottomSheetDialog = BottomSheetDialog(this)
             val view = LayoutInflater.from(this).inflate(R.layout.bottomsheet_commercial_device, null)
@@ -420,6 +557,15 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             addsitefn()
 
         }
+    }
+
+    private fun getDisplayfn() {
+        greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this@MapMakrAftersave, R.color.greentxt))
+        addsitelnr.isVisible = false
+        mapimgdummy.isVisible = false
+        notplugedlayout.isVisible = false
+        txteditlocationdetails.text = "Edit Location details"
+        menu.isVisible = true
     }
 
 

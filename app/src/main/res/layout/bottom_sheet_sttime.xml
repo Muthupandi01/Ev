@@ -72,7 +72,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/_10sdp" />
-
                 <!-- NumberPicker for AM/PM selection -->
                 <NumberPicker
                     android:id="@+id/amPmPicker"

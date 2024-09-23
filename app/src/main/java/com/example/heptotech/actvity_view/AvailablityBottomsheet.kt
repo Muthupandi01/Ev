@@ -1,9 +1,11 @@
 package com.example.heptotech.activity_view
 
+import android.R.attr.name
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -18,7 +20,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.heptotech.R
-import java.util.Calendar
+import com.example.heptotech.actvity_view.MapMakrAftersave
+
 
 class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var btnSubmit: TextView
@@ -62,11 +65,22 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var addtimerectangle:LinearLayout
     lateinit var addview:LinearLayout
 
+    lateinit var checkSumValue:String
+    lateinit var checkSumValueCompare:String
+
+//    private lateinit var sharedPreferences: SharedPreferences
+//    private lateinit var myEdit: SharedPreferences.Editor
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // Optional for edge-to-edge UI
         setContentView(R.layout.activity_availablity_bottomsheet)
+
+
+
+        checkSumValue="Home"
+        checkSumValueCompare="Manual"
 
         // Find views by their ID
         back = findViewById(R.id.back)
@@ -127,10 +141,13 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
         // Handle submit button click
         btnSubmit.setOnClickListener {
-            val resultIntent = Intent()
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
+            val intent = Intent(this, MapMakrAftersave::class.java).apply {
+                putExtra("Key", checkSumValue).putExtra("Key2", checkSumValueCompare) // Replace checkSumValue with your actual value
+            }
+            startActivity(intent)
+
         }
+
 
         // Handle online/offline change
         onlineChange.setOnClickListener {
@@ -160,29 +177,39 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radioHome.setOnClickListener {
             // Handle home radio button click
             radioHomeClicked()
+            checkSumValue="Home"
         }
 
         radioOffice.setOnClickListener {
             // Handle office radio button click
             radioOfficeClicked()
+            checkSumValue="Office"
         }
 
         radioCommercial.setOnClickListener {
             // Handle commercial radio button click
             radioCommercialClicked()
+            checkSumValue="Commercial"
         }
 
         // Add separate click handling for day, night, and manual if needed
         radio_day.setOnClickListener {
             radioDayClicked()
+            checkSumValue="Day"
+            checkSumValueCompare="Day"
         }
 
         radio_night.setOnClickListener {
             radioNightClicked()
+            checkSumValue="Night"
+            checkSumValueCompare="Night"
         }
 
         radio_manual.setOnClickListener {
             radioManualClicked()
+            checkSumValue="Manual"
+            checkSumValueCompare="Manual"
+
         }
     }
 
@@ -337,6 +364,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radioHome.isChecked=false
         radioOffice.isChecked=true
         radioCommercial.isChecked=false
+        manualonlychild.isVisible=true
         days.isVisible=true
         night_mode.isVisible=true
         maual_mode.isVisible=true
@@ -349,6 +377,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
         thuTextView.isVisible=true
         friTextView.isVisible=true
         satTextView.isVisible=true
+
 
 
     }
@@ -388,7 +417,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
         radio_night.isChecked=true
         radio_manual.isChecked=false
         manualonlychild.isVisible=false
-
     }
 
     // Function to handle Manual RadioButton click
