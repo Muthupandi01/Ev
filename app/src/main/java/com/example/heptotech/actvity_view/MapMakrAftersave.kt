@@ -143,11 +143,9 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
 
         GlobalScope.launch(Dispatchers.Main) {
-
             delay(3000)
             neverConnected.isVisible=false
             notplugedlayout.isVisible=true
-
 
         }
         showBottomsheteye.setOnClickListener {
@@ -384,28 +382,32 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             other.setOnClickListener {
                 val intent = Intent(this@MapMakrAftersave, OtherDevicesChargestation::class.java)
                 startActivity(intent)
-
+                bottomSheetDialog.dismiss()
             }
 
             availablity.setOnClickListener {
                 val intent = Intent(this@MapMakrAftersave,AvailablityBottomsheet::class.java)
                 startActivity(intent)
+                bottomSheetDialog.dismiss()
 
             }
 
             price.setOnClickListener {
                 val intent = Intent(this@MapMakrAftersave, PriceBottomSheet::class.java)
                 startActivity(intent)
+                bottomSheetDialog.dismiss()
             }
 
             access.setOnClickListener {
                 val intent = Intent(this@MapMakrAftersave, AccessBottomsheet::class.java)
                 startActivity(intent)
+                bottomSheetDialog.dismiss()
             }
 
             config.setOnClickListener {
                 val intent = Intent(this@MapMakrAftersave, UserModeCharge::class.java)
                 startActivity(intent)
+                bottomSheetDialog.dismiss()
             }
 
 

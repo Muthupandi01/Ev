@@ -561,6 +561,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        app:tint="@color/commontxtcolor"
                         android:layout_marginHorizontal="@dimen/_8sdp"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"

@@ -176,6 +176,7 @@
 
                         <!-- Home RadioButton -->
                         <RadioButton
+                            android:checked="true"
                             android:buttonTint="#828282"
                             android:id="@+id/radio_home"
                             android:layout_width="@dimen/_25sdp"
@@ -279,7 +280,7 @@
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_15sdp"
                             android:layout_marginTop="4dp"
-                            android:checked="true"
+
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>

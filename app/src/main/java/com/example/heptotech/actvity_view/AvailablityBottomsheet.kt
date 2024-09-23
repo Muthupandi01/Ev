@@ -156,6 +156,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
         }
 
         // Handle RadioButton clicks separately
+        radioHomeClicked()
         radioHome.setOnClickListener {
             // Handle home radio button click
             radioHomeClicked()
@@ -303,7 +304,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
         timePickerDialog.setTitle("Select Time")
         timePickerDialog.show()
-
 
     }
 
