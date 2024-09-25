@@ -8,16 +8,20 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.example.heptotech.R
 import com.example.heptotech.actvity_view.MapMakrAftersave
@@ -58,13 +62,16 @@ class AvailablityBottomsheet : AppCompatActivity() {
     lateinit var radio_day: RadioButton
     lateinit var radio_night: RadioButton
     lateinit var radio_manual: RadioButton
+    private lateinit var linearLayoutContainer: LinearLayout
 
     lateinit var endtime:EditText
+    lateinit var deleteImageView: ImageView
 
 
     lateinit var addtimerectangle:LinearLayout
     lateinit var addview:LinearLayout
-
+    lateinit var time_invisible:LinearLayout
+private var layoutCount=0
     lateinit var checkSumValue:String
 
 
@@ -115,9 +122,17 @@ class AvailablityBottomsheet : AppCompatActivity() {
         addview=findViewById(R.id.addview)
         start=findViewById(R.id.start)
         end=findViewById(R.id.stat1)
-
+       // time_invisible=findViewById(R.id.time_invisible)
         timeset=findViewById(R.id.nine_text)
         endtime=findViewById(R.id.ten_text)
+        deleteImageView=findViewById(R.id.delete)
+        deleteImageView.setOnClickListener()
+        {
+            endtime.text.clear()
+            timeset.text.clear()
+        }
+
+
 
 
 
@@ -132,11 +147,12 @@ class AvailablityBottomsheet : AppCompatActivity() {
         }
 
 
-        addTimeSlotView()
+
         addtimerectangle.setOnClickListener {
-            if (endTimEditText.text.toString().length>0&&startTimeEditText.text.toString().length>0)
+
              addTimeSlotView()
         }
+
 
 
 
@@ -218,6 +234,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
         }
     }
 
+
     /*  private fun clockview()
       {
           val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
@@ -274,10 +291,11 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
 
     private fun addTimeSlotView() {
+        layoutCount++
         val inflater = layoutInflater
-        val newView = inflater.inflate(R.layout.time_slot_layout, addview, false)
+        val newView = inflater.inflate(R.layout.time_slot_layout,addview , false)
         // Handle delete button click
-        val deleteButton: ImageView = newView.findViewById(R.id.delete)
+        var deleteButton: ImageView = newView.findViewById(R.id.delete)
         deleteButton.setOnClickListener {
             removeTimeSlotView(newView)
         }
@@ -334,10 +352,30 @@ class AvailablityBottomsheet : AppCompatActivity() {
         timePickerDialog.show()
 
     }
+    private var isCleared = false
 
-    private fun removeTimeSlotView(newView: View?) {
-        addview.removeView(newView)
-    }
+    private fun removeTimeSlotView(view: View?) {
+        if (!isCleared) {
+            // Clear EditTexts on the first click
+            if (startTimeEditText.text.isNotEmpty() || endTimEditText.text.isNotEmpty()) {
+                startTimeEditText.text.clear()
+                endTimEditText.text.clear()
+                isCleared = true
+            Toast.makeText(this,"Again delete button image ",Toast.LENGTH_SHORT).show()
+            // Set state to indicate fields were cleared
+            } else if (startTimeEditText.text.isEmpty() && endTimEditText.text.isEmpty()) {
+                addview.removeView(view) // Remove view if both are empty
+            }
+        } else {
+            // Remove the view if both EditTexts are empty
+            if (startTimeEditText.text.isEmpty() && endTimEditText.text.isEmpty()) {
+                addview.removeView(view)
+                isCleared = false // Reset the state
+            }
+        }
+
+        }
+
 
     // Function to handle Home RadioButton click
     private fun radioHomeClicked() {

@@ -628,7 +628,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:visibility="gone"
+
                             android:weightSum="2.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -697,13 +697,7 @@
                                     android:background="@drawable/rectangle_1584_ev"
 
                                     />
-
                             </LinearLayout>
-
-
-
-
-
                         </LinearLayout>
                     </LinearLayout>
 
@@ -713,6 +707,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:id="@+id/linearLayoutContainer"
                         android:layout_marginTop="@dimen/_10ssp"
                         android:orientation="vertical">
 

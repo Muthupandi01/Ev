@@ -52,7 +52,7 @@
             android:value="AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE" />
 
         <activity
-            android:name=".actvity_view.IphoneMap"
+            android:name=".activity_view.IphoneMap"
             android:exported="false" />
         <activity
             android:name=".actvity_view.AddsiteAdddresAdd"

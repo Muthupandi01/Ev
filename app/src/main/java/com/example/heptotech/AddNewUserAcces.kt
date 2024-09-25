@@ -22,7 +22,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
-import com.example.heptotech.actvity_view.IphoneMap
+import com.example.heptotech.activity_view.IphoneMap
+
+
+
+//import com.example.heptotech.actvity_view.IphoneMap
+
 import com.example.heptotech.actvity_view.UserModeCharge
 
 class AddNewUserAcces : AppCompatActivity() {

@@ -20,7 +20,7 @@
         android:layout_height="@dimen/_60sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_40sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/rectangle_343"
         />
@@ -45,6 +45,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/current_loction"
             android:layout_below="@id/group1"
             android:src="@drawable/group_427318907"/>
 

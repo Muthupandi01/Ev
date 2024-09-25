@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Route Plan"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/poppins_medium"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/car_image"
+        android:src="@drawable/group_912"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/car_image"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/select_text"
+        android:text="Selcet Your Start and end point and customize\nYour route to only view recommendation that\nWork for you and your vechicle.  "
+        android:gravity="center"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#424242"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/select_text"
+        android:orientation="vertical"
+        android:gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_text"
+        android:gravity="center"
+        android:background="@drawable/rectangle_344_ev">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create a Route Plan"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
+

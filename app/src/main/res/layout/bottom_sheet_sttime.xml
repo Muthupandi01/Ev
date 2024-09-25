@@ -51,8 +51,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_34624366"
             android:orientation="vertical"
-            android:gravity="center"
-            tools:ignore="MissingConstraints">
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,7 +68,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginHorizontal="@dimen/_25sdp" />
+                    android:layout_marginHorizontal="@dimen/_27sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text=":"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
 
                 <!-- NumberPicker for minute selection -->
                 <NumberPicker
@@ -77,7 +84,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginHorizontal="@dimen/_27sdp"
                     android:layout_weight="1" />
 
 
@@ -87,12 +94,11 @@
                     android:id="@+id/amPmPicker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginHorizontal="@dimen/_27sdp"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <!-- Confirm Button -->
     <TextView
         android:id="@+id/conformbtn"
