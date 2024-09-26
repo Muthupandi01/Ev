@@ -94,8 +94,8 @@
                         android:id="@+id/imgviews"
                         android:scaleType="centerInside"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="@dimen/_10sdp"
-                        android:layout_height="@dimen/_10sdp"
+                        android:layout_width="@dimen/_13sdp"
+                        android:layout_height="@dimen/_13sdp"
                         android:src="@drawable/ellipse_667_ev"
                         tools:ignore="DuplicateIds" />
                     <ImageView
@@ -103,8 +103,8 @@
                         android:id="@+id/check"
                         android:scaleType="centerInside"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="@dimen/_10sdp"
-                        android:layout_height="@dimen/_10sdp"
+                        android:layout_width="@dimen/_13sdp"
+                        android:layout_height="@dimen/_13sdp"
                         android:src="@drawable/check_circle_ev"
                         app:tint="#F77F00" />
 

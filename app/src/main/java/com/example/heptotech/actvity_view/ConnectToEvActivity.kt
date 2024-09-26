@@ -74,12 +74,14 @@ class ConnectToEvActivity : AppCompatActivity(),
             setResult(Activity.RESULT_OK, Intent())
             finish()
         }
+
         pincodeImg.setOnClickListener {
             val intent = Intent(this, ScanGetText::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         }
+
         serialImg.setOnClickListener {
             val intent = Intent(this, ScanGetText::class.java)
             startActivity(intent)
@@ -141,7 +143,7 @@ class ConnectToEvActivity : AppCompatActivity(),
     }
 
     private fun navigateToConnectToServer() {
-        val intent = Intent(this, ConnectToServer::class.java).apply {
+        val intent = Intent(this, com.example.heptotech.actvity_view.ConnectToServer::class.java).apply {
             putExtra("selectedVehicles", selectedVehicles.toTypedArray())
         }
         startActivity(intent)
