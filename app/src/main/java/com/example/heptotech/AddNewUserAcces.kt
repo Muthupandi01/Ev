@@ -8,27 +8,18 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.PopupMenu
+import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import com.example.heptotech.activity_view.IphoneMap
-
-
-
-//import com.example.heptotech.actvity_view.IphoneMap
-
-import com.example.heptotech.actvity_view.UserModeCharge
 
 class AddNewUserAcces : AppCompatActivity() {
 
@@ -57,55 +48,20 @@ class AddNewUserAcces : AppCompatActivity() {
         sidTextView = findViewById(R.id.incorrect_sid)
         sidEditText = findViewById(R.id.SID_Edittext)
 
-        val typeTextView = findViewById<TextView>(R.id.Type_textview)
-        val assignTextView = findViewById<TextView>(R.id.Assign_text)
-        val appSidTextView = findViewById<TextView>(R.id.APP_text)
-        val relationTextView = findViewById<TextView>(R.id.APP_text1)
+        // Set up text views with red asterisks
+        setupSpannableText()
 
-        // Function to create SpannableString with red asterisk
-        fun createSpannableString(baseText: String): SpannableString {
-            val spannableString = SpannableString(baseText)
-            val asteriskStart = baseText.indexOf('*')
-            val asteriskEnd = asteriskStart + 1
-            spannableString.setSpan(
-                ForegroundColorSpan(Color.RED),
-                asteriskStart,
-                asteriskEnd,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            return spannableString
-        }
-
-        // Set spannable text for all relevant TextViews
-        typeTextView.text = createSpannableString(getString(R.string.type))
-        assignTextView.text = createSpannableString(getString(R.string.assign_card))
-        appSidTextView.text = createSpannableString(getString(R.string.app_sid))
-        relationTextView.text = createSpannableString(getString(R.string.relation))
-
-        // Set up PopupMenu for relation selection
+        // Set up the PopupWindow for relation selection
         editText.setOnClickListener {
-            showPopupMenu(it)
+            showPopupWindow(it)
         }
 
         linearLayout.setOnClickListener {
-            val sidText = sidEditText.text.toString()
-
-            if (sidText == "abc11") {
-                linearLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_34624554)
-                textView.setTextColor(ContextCompat.getColor(this, R.color.white))
-                sidTextView.visibility = View.GONE
-                val intent = Intent(this, IphoneMap::class.java)
-                startActivity(intent)
-            } else {
-                linearLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_34624554)
-                textView.setTextColor(ContextCompat.getColor(this, R.color.white))
-                sidTextView.visibility = View.VISIBLE // Show "Incorrect SID"
-            }
+            handleLinearLayoutClick(linearLayout)
         }
 
         imageView.setOnClickListener {
-            val resultIntent = Intent()
-            setResult(Activity.RESULT_OK, resultIntent)
+            setResult(Activity.RESULT_OK)
             finish()
         }
 
@@ -118,47 +74,66 @@ class AddNewUserAcces : AppCompatActivity() {
         }
 
         switchimg.setOnClickListener {
-            if (isEnable)
-                switchimg.setImageResource(R.drawable.yes__1_)
-            else
-                switchimg.setImageResource(R.drawable.no_1)
-            isEnable = !isEnable
+            toggleSwitchImage()
         }
     }
 
-    private fun showPopupMenu(view: View) {
-        val popupMenu = PopupMenu(this, view)
-        val menuInflater: MenuInflater = popupMenu.menuInflater
-        menuInflater.inflate(R.menu.relation_menu, popupMenu.menu)
+    private fun setupSpannableText() {
+        // Create and set Spannable text for TextViews (if needed)
+    }
 
-        popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
-            when (menuItem.itemId) {
-                R.id.family -> {
-                    editText.setText("Family")
-                    true
-                }
-                R.id.friend -> {
-                    editText.setText("Friend")
-                    true
-                }
-                R.id.colleague -> {
-                    editText.setText("Colleague")
-                    true
-                }
-                R.id.other -> {
-                    editText.setText("Other")
-                    true
-                }
-                else -> false
-            }
+    private fun showPopupWindow(anchor: View) {
+        val popupView = layoutInflater.inflate(R.layout.popup_menu, null)
+        val popupWindow = PopupWindow(popupView, anchor.width, LinearLayout.LayoutParams.WRAP_CONTENT)
+
+        // Set onClick listeners for the items
+        popupView.findViewById<TextView>(R.id.item_family).setOnClickListener {
+            editText.setText("Family")
+            popupWindow.dismiss()
         }
-        popupMenu.show()
+        popupView.findViewById<TextView>(R.id.item_friend).setOnClickListener {
+            editText.setText("Friend")
+            popupWindow.dismiss()
+        }
+        popupView.findViewById<TextView>(R.id.item_colleague).setOnClickListener {
+            editText.setText("Colleague")
+            popupWindow.dismiss()
+        }
+        popupView.findViewById<TextView>(R.id.item_other).setOnClickListener {
+            editText.setText("Other")
+            popupWindow.dismiss()
+        }
+
+        // Show the popup window below the anchor view
+        popupWindow.showAsDropDown(anchor)
+    }
+
+    private fun handleLinearLayoutClick(linearLayout: LinearLayout) {
+        val sidText = sidEditText.text.toString()
+        if (sidText == "abc11") {
+            linearLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_34624554)
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            sidTextView.visibility = View.GONE
+            startActivity(Intent(this, IphoneMap::class.java))
+        } else {
+            linearLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_34624554)
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            sidTextView.visibility = View.VISIBLE
+        }
+    }
+
+    private fun toggleSwitchImage() {
+        if (isEnable) {
+            switchimg.setImageResource(R.drawable.yes__1_)
+        } else {
+            switchimg.setImageResource(R.drawable.no_1)
+        }
+        isEnable = !isEnable
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val resultIntent = Intent()
-        setResult(Activity.RESULT_OK, resultIntent)
+        setResult(Activity.RESULT_OK)
         finish()
     }
 }

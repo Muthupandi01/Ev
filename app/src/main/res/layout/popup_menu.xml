@@ -1,0 +1,36 @@
+<!-- res/layout/popup_menu.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rectangle_new_user1">
+
+    <TextView
+        android:id="@+id/item_family"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Family"/>
+
+    <TextView
+        android:id="@+id/item_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Friend"/>
+
+    <TextView
+        android:id="@+id/item_colleague"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Colleague"/>
+
+    <TextView
+        android:id="@+id/item_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Other"/>
+</LinearLayout>

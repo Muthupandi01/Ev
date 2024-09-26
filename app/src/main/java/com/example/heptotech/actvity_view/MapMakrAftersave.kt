@@ -27,6 +27,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+import com.example.heptotech.activity_view.AccessBottomsheet
 
 import com.example.heptotech.activity_view.AvailablityBottomsheet
 //import com.example.heptotech.activity_view.AvailablityBottomsheet
@@ -73,13 +74,13 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var availablity: LinearLayout
     lateinit var config: LinearLayout
 
-   lateinit var lntsttime:LinearLayout
-   lateinit var providesttime:EditText
-   lateinit var conformbtn:TextView
-   lateinit var tickstime:ImageView
-   lateinit var reservetxt:TextView
-   lateinit var booknewslottxt:TextView
-   lateinit var child:LinearLayout
+    lateinit var lntsttime:LinearLayout
+    lateinit var providesttime:EditText
+    lateinit var conformbtn:TextView
+    lateinit var tickstime:ImageView
+    lateinit var reservetxt:TextView
+    lateinit var booknewslottxt:TextView
+    lateinit var child:LinearLayout
 
     lateinit var notplugedlayout: LinearLayout
     lateinit var nooperatorassignedlay: LinearLayout
@@ -169,8 +170,8 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             getDisplayfn()
 
             neverConnected.isVisible=false
-                notplugedlayout.isVisible=false
-                homechargeblue.isVisible=true
+            notplugedlayout.isVisible=false
+            homechargeblue.isVisible=true
 
 
         }
@@ -216,7 +217,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
         }
 
-         else{
+        else{
             GlobalScope.launch(Dispatchers.Main) {
                 delay(2500)
                 neverConnected.isVisible=false
@@ -312,7 +313,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             amPmPicker.setOnValueChangedListener { picker, oldVal, newVal ->
                 // Do something with the selected AM/PM
                 val selectedAmPm = if (newVal == 0) "AM" else "PM"
-               // Toast.makeText(this, "Selected: $selectedAmPm", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(this, "Selected: $selectedAmPm", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -377,8 +378,8 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         GlobalScope.launch(Dispatchers.Main) {
-                        // Step 1: Initial state
-                        delay(2000)
+            // Step 1: Initial state
+            delay(2000)
             greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this@MapMakrAftersave, R.color.greentxt))
             addsitelnr.isVisible = false
             mapimgdummy.isVisible = false
@@ -393,62 +394,22 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             if (result.resultCode == RESULT_OK) {
                 val data = result.data
                 if (data != null) {
+                    GlobalScope.launch(Dispatchers.Main) {
+                        delay(2500)
+                        neverConnected.isVisible=false
+                        notplugedlayout.isVisible=true
 
+                    }
 
-                    val siteName = data.getStringExtra("site_name")
-                    val siteAddress = data.getStringExtra("site_address")
-
-                    // Update the UI here
-                    greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.greentxt))
-                    addsitelnr.isVisible = false
-                    mapimgdummy.isVisible = false
-                    notplugedlayout.isVisible = false
-                   // nooperatorassignedlay.isVisible = true
-                    txteditlocationdetails.text = "Edit Location details"
-                    menu.isVisible = true
-//                    GlobalScope.launch(Dispatchers.Main) {
-//                        // Step 1: Initial state
-//                        delay(500)
-//                        notplugedlayout.isVisible = false
-//                        nooperatorassignedlay.isVisible = true
-//
-//                        // Step 2: Show the next layout after 1 second
-//                        delay(1500)
-//                        nooperatorassignedlay.isVisible = false
-//                        onlinecard.isVisible = true
-//
-//                        // Step 3: Show the third layout after another 1 second
-//                        delay(1500)
-//                        onlinecard.isVisible = false
-//                        orangependingCard.isVisible = true
-//
-//                        // Step 4: Show the fourth layout after another 1 second
-//                        delay(1500)
-//                        orangependingCard.isVisible = false
-//                        greenChargingCard.isVisible = true
-//
-//                        // Step 5: Show the fifth layout after another 1 second
-//                        delay(1500)
-//                        greenChargingCard.isVisible = false
-//                        homechargeblue.isVisible = true
-//
-//                        // Step 6: Show the sixth layout after another 1 second
-//                        delay(1500)
-//                        homechargeblue.isVisible = false
-//                        maincard.isVisible = true
-//
-//                    }
-                    updateMapVisibility()
                 }
             }
         }
 
         // Launch Add Site Activity
         addsitelnr.setOnClickListener {
-
             addsitefn()
-//            val intent = Intent(this@MapMakrAftersave, AddsiteAdddresAdd::class.java)
-//            addSiteLauncher.launch(intent)
+
+
 
 
         }

@@ -20,6 +20,7 @@ class UserAdapter(
         private val username: TextView = itemView.findViewById(R.id.username_txt)
         private val relationStatus: TextView = itemView.findViewById(R.id.relationstatus)
         private val typeCard: TextView = itemView.findViewById(R.id.typecard)
+        private val carImage: ImageView = itemView.findViewById(R.id.imgtick_recycle)
 
         // Bind data to the views
         fun bind(user: User, onItemClick: (User) -> Unit) {
@@ -27,9 +28,10 @@ class UserAdapter(
             username.text = user.username
             relationStatus.text = user.relationStatus
             typeCard.text = user.cardType
+            carImage.setImageResource(user.userImage)
 
             // Set the click listener for the entire itemView
-            itemView.setOnClickListener {
+            carImage.setOnClickListener {
                 onItemClick(user)
             }
         }

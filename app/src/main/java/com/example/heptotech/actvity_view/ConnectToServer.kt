@@ -83,7 +83,7 @@ class ConnectToServer : AppCompatActivity() {
         btn_submit.setOnClickListener {
             val intent = Intent(this@ConnectToServer, MapMakrAftersave::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_down)
+            overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right)
 
 
 

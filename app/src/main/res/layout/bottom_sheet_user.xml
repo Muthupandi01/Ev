@@ -130,4 +130,30 @@
         android:layout_below="@id/vechicle_text"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_20sdp" />
+    <LinearLayout
+        android:id="@+id/btn_linear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_below="@id/recycle_vechicle"
+        android:background="@drawable/rectangle_34624554_ev"
+        android:backgroundTint="@color/greentxt"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:text="Submit"
+        android:textAlignment="center"
+        android:textColor="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"/>
+    </LinearLayout>
+
+
 </RelativeLayout>

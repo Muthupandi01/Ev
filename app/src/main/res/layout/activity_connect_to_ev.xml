@@ -8,8 +8,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     >
-
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/root_layout"
             android:orientation="vertical">
 
             <LinearLayout
@@ -136,6 +135,7 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:layout_width="0dp"
+                            android:id="@+id/tyoedevice_name"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@color/transparent"
@@ -188,6 +188,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:layout_gravity="center_vertical"
                             android:hint="Type serial number"
+                            android:id="@+id/type_serialnumber"
                             android:textSize="@dimen/_11ssp"
                             android:textColor="#25314C"
                             android:textColorHint="#9A656565"/>
@@ -229,6 +230,8 @@
                             android:singleLine="true"
                             android:background="@color/transparent"
                             android:layout_width="0dp"
+                            android:id="@+id/tepe_pincode"
+
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/poppins_medium"
@@ -270,23 +273,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/> <!-- Changed from match_parent -->
                 </LinearLayout>
-
-
-
-
-
-
             </LinearLayout>
-
-
-
-
-
-
-
-
-
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:paddingVertical="@dimen/_20sdp"
@@ -299,6 +286,7 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_35sdp"
                     android:text="Save Device"
+
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textColor="@color/white"

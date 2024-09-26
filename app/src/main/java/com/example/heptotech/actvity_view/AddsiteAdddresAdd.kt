@@ -60,8 +60,8 @@ class AddsiteAdddresAdd : AppCompatActivity(), OnMapReadyCallback {
 
         back.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("site_name", sitename.text.toString())
-            intent.putExtra("site_address", typeaddres.text.toString())
+          //  intent.putExtra("site_name", sitename.text.toString())
+          //  intent.putExtra("site_address", typeaddres.text.toString())
             setResult(RESULT_OK, intent)
             finish()
             overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right)
@@ -69,9 +69,9 @@ class AddsiteAdddresAdd : AppCompatActivity(), OnMapReadyCallback {
 
         conformbtn.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("MYKEY", "MYVALUE")
-            intent.putExtra("site_name", sitename.text.toString())
-            intent.putExtra("site_address", typeaddres.text.toString())
+           // intent.putExtra("MYKEY", "MYVALUE")
+          //  intent.putExtra("site_name", sitename.text.toString())
+          //  intent.putExtra("site_address", typeaddres.text.toString())
             setResult(RESULT_OK, intent)
             finish()
             overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right)
@@ -90,9 +90,9 @@ class AddsiteAdddresAdd : AppCompatActivity(), OnMapReadyCallback {
     override fun onBackPressed() {
         super.onBackPressed()
         val intent = Intent()
-        intent.putExtra("MYKEY", "MYVALUE")
-        intent.putExtra("site_name", sitename.text.toString())
-        intent.putExtra("site_address", typeaddres.text.toString())
+      //  intent.putExtra("MYKEY", "MYVALUE")
+      //  intent.putExtra("site_name", sitename.text.toString())
+      //  intent.putExtra("site_address", typeaddres.text.toString())
         setResult(RESULT_OK, intent)
         finish()
         overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right)
@@ -128,8 +128,8 @@ class AddsiteAdddresAdd : AppCompatActivity(), OnMapReadyCallback {
             val addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
             if (addresses != null && addresses.isNotEmpty()) {
                 val address = addresses[0].getAddressLine(0)  // Get the complete address
-                typeaddres.setText(address)  // Set the address in the EditText
-                sitename.setText("EV Charge Station")  // Set the address in the EditText
+             //   typeaddres.setText(address)  // Set the address in the EditText
+               // sitename.setText("EV Charge Station")  // Set the address in the EditText
 
                 // Optional: Toast message to show the fetched address
                // Toast.makeText(this, "Address: $address", Toast.LENGTH_SHORT).show()

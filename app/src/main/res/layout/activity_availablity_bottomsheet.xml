@@ -452,126 +452,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:fontFamily="@font/poppins_medium"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:layout_width="match_parent"
-                    android:textSize="@dimen/_11ssp"
-                    android:textColor="#E8656565"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/days_text"
-                    android:text="Days"/>
 
-                    <LinearLayout
-                        android:visibility="visible"
-                        android:layout_marginTop="@dimen/_10ssp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        >
-
-                        <TextView
-                            android:paddingHorizontal="@dimen/_5sdp"
-                            android:paddingVertical="@dimen/_8sdp"
-                            android:id="@+id/sun"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="Sun"
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                        <TextView
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:id="@+id/mon"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="Mon"
-
-                            android:padding="12dp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                        <TextView
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:id="@+id/tue"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Tue"
-                            android:padding="12dp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                        <TextView
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:id="@+id/wed"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Wed"
-                            android:padding="12dp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                        <TextView
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:id="@+id/thu"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Thu"
-                            android:padding="12dp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                        <TextView
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:id="@+id/fri"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Fri"
-                            android:padding="12dp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                        <TextView
-                            android:layout_marginRight="@dimen/_2ssp"
-                            android:id="@+id/sat"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Sat"
-                            android:padding="12dp"
-                            android:background="@drawable/rectangle_34624564_ev"
-                            android:textColor="@android:color/black"
-                            android:gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textSize="@dimen/_7ssp" />
-
-                    </LinearLayout>
 
 
                 <LinearLayout
@@ -752,7 +633,126 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="#E8656565"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/days_text"
+                    android:text="Days"/>
 
+                <LinearLayout
+                    android:visibility="visible"
+                    android:layout_marginTop="@dimen/_10ssp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:id="@+id/sun"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="Sun"
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:id="@+id/mon"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="Mon"
+
+                        android:padding="12dp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:id="@+id/tue"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Tue"
+                        android:padding="12dp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:id="@+id/wed"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Wed"
+                        android:padding="12dp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:id="@+id/thu"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Thu"
+                        android:padding="12dp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:id="@+id/fri"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Fri"
+                        android:padding="12dp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_2ssp"
+                        android:id="@+id/sat"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Sat"
+                        android:padding="12dp"
+                        android:background="@drawable/rectangle_34624564_ev"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/_7ssp" />
+
+                </LinearLayout>
 
 
 

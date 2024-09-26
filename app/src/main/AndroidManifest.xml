@@ -38,7 +38,7 @@
             android:name=".AddNewUserAcces"
             android:exported="false" />
         <activity
-            android:name=".actvity_view.AccessBottomsheet"
+            android:name=".activity_view.AccessBottomsheet"
             android:exported="false" />
         <activity
             android:name=".actvity_view.PriceBottomSheet"

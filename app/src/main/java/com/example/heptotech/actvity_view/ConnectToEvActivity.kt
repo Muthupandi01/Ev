@@ -1,18 +1,22 @@
 package com.example.heptotech.activity_view
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Editable
 import android.text.Spannable
+import android.text.TextWatcher
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.text.style.ImageSpan
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.ImageView
-import android.widget.ScrollView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,45 +24,55 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.actvity_view. ConnectToServer
-import com.example.heptotech.actvity_view.PrivateStation
+import com.example.heptotech.actvity_view.ConnectToServer
 import com.example.heptotech.actvity_view.ScanGetText
 import com.example.heptotech.adapters.VehicleItemCheckBoxAdapter
 import com.example.heptotech.bean_dataclass.VehicleItem
+import com.google.android.material.internal.ViewUtils.hideKeyboard
 
-// ConnectToEvActivity.kt
 class ConnectToEvActivity : AppCompatActivity(),
     VehicleItemCheckBoxAdapter.OnVehicleCheckChangeListener {
 
     private lateinit var vehicleRecyclerView: RecyclerView
     private lateinit var btnSubmit: TextView
     private lateinit var devicename: TextView
+    private lateinit var typeDeviceName: EditText
+    private lateinit var typeSerialNumber: EditText
+    private lateinit var serialImg:ImageView
+    private lateinit var pincodeImg : ImageView
+
+    private lateinit var typePinCode: EditText
     private lateinit var vehicleItemCheckBoxAdapter: VehicleItemCheckBoxAdapter
-    private lateinit var scrollView: ScrollView
-    lateinit var back: ImageView
-    lateinit var pincodeImg: ImageView
-    lateinit var serialImg: ImageView
     private val selectedVehicles = mutableSetOf<String>()
     private val vehicleList = listOf(
         VehicleItem(R.drawable.g, "2-Wheeler"),
         VehicleItem(R.drawable.h, "4-Wheeler")
-        // Add more items as needed
     )
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect_to_ev)
+
         vehicleRecyclerView = findViewById(R.id.vehicletype)
         btnSubmit = findViewById(R.id.btn_submit)
         devicename = findViewById(R.id.devicename)
-        back=findViewById(R.id.back)
-        serialImg=findViewById(R.id.serialImg)
-        pincodeImg=findViewById(R.id.pincodeImg)
-        back=findViewById(R.id.back)
+        typeDeviceName = findViewById(R.id.tyoedevice_name)
+        typeSerialNumber = findViewById(R.id.type_serialnumber)
+        typePinCode = findViewById(R.id.tepe_pincode)
+        serialImg = findViewById(R.id.serialImg)
+        pincodeImg = findViewById(R.id.pincodeImg)
+
+        val back = findViewById<ImageView>(R.id.back)
 
         btnSubmit.setOnClickListener {
-            navigateToConnectToServer()
+            if (isAnyInputFilled()) {
+                navigateToConnectToServer()
+            }
+        }
+
+        back.setOnClickListener {
+            setResult(Activity.RESULT_OK, Intent())
+            finish()
         }
         pincodeImg.setOnClickListener {
             val intent = Intent(this, ScanGetText::class.java)
@@ -72,26 +86,58 @@ class ConnectToEvActivity : AppCompatActivity(),
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
-
-        back.setOnClickListener{
-
-//            val intent = Intent(this@ConnectToEvActivity, PrivateStation::class.java)
-//            startActivity(intent)
-
-            val resultIntent = Intent()
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
-        }
-
         vehicleItemCheckBoxAdapter = VehicleItemCheckBoxAdapter(vehicleList, this)
-        vehicleRecyclerView.adapter = vehicleItemCheckBoxAdapter
-
         vehicleRecyclerView.layoutManager = LinearLayoutManager(this)
         vehicleRecyclerView.adapter = vehicleItemCheckBoxAdapter
 
-        // Optionally enable edge-to-edge mode
         enableEdgeToEdge()
         setRedStarTextView(devicename)
+
+        // Setup touch listener to hide keyboard when tapping outside EditTexts
+        val rootLayout = findViewById<LinearLayout>(R.id.root_layout)
+        rootLayout.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                val currentFocus = currentFocus
+                if (currentFocus != null) {
+                    val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+                    currentFocus.clearFocus()
+                }
+            }
+            false
+        }
+
+        setupTextWatchers()
+    }
+
+    // Existing methods...
+
+    private fun setupTextWatchers() {
+        val textChangeListener = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                updateSubmitButtonState()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        }
+
+        typeDeviceName.addTextChangedListener(textChangeListener)
+        typeSerialNumber.addTextChangedListener(textChangeListener)
+        typePinCode.addTextChangedListener(textChangeListener)
+    }
+
+    private fun updateSubmitButtonState() {
+        btnSubmit.setBackgroundResource(
+            if (isAnyInputFilled()) R.drawable.rectanglef_ev else R.drawable.rectangle_34624554_ev
+        )
+    }
+
+    private fun isAnyInputFilled(): Boolean {
+        return typeDeviceName.text.isNotEmpty()
+                //typeSerialNumber.text.isNotEmpty() ||
+              //  typePinCode.text.isNotEmpty()
     }
 
     private fun navigateToConnectToServer() {
@@ -100,43 +146,25 @@ class ConnectToEvActivity : AppCompatActivity(),
         }
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-
     }
 
     fun setRedStarTextView(textView: TextView) {
         val context = textView.context
-
-        // Create a SpannableString with the text you want
         val text = "Device name *"
         val spannableString = SpannableString(text)
-
-        // Define the color for the star
         val starColor = Color.RED
-
-        // Define the position for the star
         val starIndex = text.indexOf("*")
-
-        // Create a drawable for the star
         val starDrawable: Drawable? = ContextCompat.getDrawable(context, R.drawable.red_star_ev)
         starDrawable?.setBounds(0, 0, starDrawable.intrinsicWidth, starDrawable.intrinsicHeight)
-
-        // Set the star drawable to the spannable string
         val imageSpan = starDrawable?.let { ImageSpan(it, ImageSpan.ALIGN_BOTTOM) }
         spannableString.setSpan(imageSpan, starIndex, starIndex + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // Set the color of the star
         spannableString.setSpan(ForegroundColorSpan(starColor), starIndex, starIndex + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // Set the styled text to the TextView
         textView.text = spannableString
     }
 
-
-
     override fun onBackPressed() {
         super.onBackPressed()
-        val resultIntent = Intent()
-        setResult(Activity.RESULT_OK, resultIntent)
+        setResult(Activity.RESULT_OK, Intent())
         finish()
     }
 
@@ -146,13 +174,6 @@ class ConnectToEvActivity : AppCompatActivity(),
         } else {
             selectedVehicles.remove(vehicleType)
         }
-
-        // Enable the button if at least one vehicle is selected
-        if (selectedVehicles.isNotEmpty()) {
-            btnSubmit.setBackgroundResource(R.drawable.rectanglef_ev) // Green drawable for enabled state
-        } else {
-            btnSubmit.setBackgroundResource(R.drawable.rectangle_34624554_ev) // Grey drawable for disabled state
-        }
+        updateSubmitButtonState()
     }
 }
-
