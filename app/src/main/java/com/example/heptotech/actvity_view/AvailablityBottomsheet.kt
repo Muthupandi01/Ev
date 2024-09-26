@@ -80,8 +80,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
         enableEdgeToEdge() // Optional for edge-to-edge UI
         setContentView(R.layout.activity_availablity_bottomsheet)
 
-
-
         checkSumValue="Home"
         // Find views by their ID
         back = findViewById(R.id.back)
@@ -119,17 +117,16 @@ class AvailablityBottomsheet : AppCompatActivity() {
         endtime=findViewById(R.id.ten_text)
 
 
-
         timeset.setOnClickListener()
         {
             openTimePicker()
         }
 
+
         endtime.setOnClickListener()
         {
             openTimePickers()
         }
-
 
 
         addtimerectangle.setOnClickListener {
