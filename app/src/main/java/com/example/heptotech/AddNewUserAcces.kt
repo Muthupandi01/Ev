@@ -3,9 +3,7 @@ package com.example.heptotech
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
@@ -18,19 +16,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import com.example.heptotech.activity_view.AccessBottomsheet
-import com.example.heptotech.activity_view.IphoneMap
 
 class AddNewUserAcces : AppCompatActivity() {
 
-    private lateinit var rootLayout: View
     private lateinit var imageView: ImageView
     private lateinit var confirmLayout: LinearLayout
     private lateinit var switchimg: ImageView
     private lateinit var relationEditText: EditText
     private lateinit var sidEditText: EditText
     private lateinit var incorrectSidTextView: TextView
-    private lateinit var textView1:TextView
-
+    private lateinit var textView1: TextView
 
     private val checkboxes = mutableListOf<CheckBox>()
     private var isSwitchEnabled = false
@@ -42,7 +37,6 @@ class AddNewUserAcces : AppCompatActivity() {
         setContentView(R.layout.activity_add_new_user_acces)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        rootLayout = findViewById(R.id.main)
         imageView = findViewById(R.id.back1)
         confirmLayout = findViewById(R.id.linearconform)
         switchimg = findViewById(R.id.switch_btn)
@@ -63,7 +57,9 @@ class AddNewUserAcces : AppCompatActivity() {
         }
 
         confirmLayout.setOnClickListener {
-            handleConfirmClick()
+            if (checkConditions()) {
+                startActivity(Intent(this, AccessBottomsheet::class.java))
+            }
         }
 
         relationEditText.setOnClickListener {
@@ -72,8 +68,25 @@ class AddNewUserAcces : AppCompatActivity() {
 
         switchimg.setOnClickListener {
             toggleSwitchImage()
+            updateConfirmLayoutBackground() // Update background when switch is toggled
         }
 
+        // Add text change listener for SID EditText
+        sidEditText.setOnFocusChangeListener { _, _ ->
+            updateConfirmLayoutBackground()
+            //checkSidVisibility()
+        }
+
+        // Add listener for relation EditText
+        relationEditText.setOnFocusChangeListener { _, _ ->
+            updateConfirmLayoutBackground()
+        }
+
+        // Add listener for checkboxes
+        checkboxes.forEach { checkbox ->
+            checkbox.setOnCheckedChangeListener { _, _ -> updateConfirmLayoutBackground() }
+        }
+        incorrectSidTextView.visibility = View.GONE
     }
 
     private fun showPopupWindow(anchor: View) {
@@ -83,43 +96,69 @@ class AddNewUserAcces : AppCompatActivity() {
         popupView.findViewById<TextView>(R.id.item_family).setOnClickListener {
             relationEditText.setText("Family")
             popupWindow.dismiss()
+            updateConfirmLayoutBackground() // Update when a relation is selected
         }
         popupView.findViewById<TextView>(R.id.item_friend).setOnClickListener {
             relationEditText.setText("Friend")
             popupWindow.dismiss()
+            updateConfirmLayoutBackground()
         }
         popupView.findViewById<TextView>(R.id.item_colleague).setOnClickListener {
             relationEditText.setText("Colleague")
             popupWindow.dismiss()
+            updateConfirmLayoutBackground()
         }
         popupView.findViewById<TextView>(R.id.item_other).setOnClickListener {
             relationEditText.setText("Other")
             popupWindow.dismiss()
+            updateConfirmLayoutBackground()
         }
 
         popupWindow.showAsDropDown(anchor)
     }
 
-    private fun handleConfirmClick() {
-        val sidText = sidEditText.text.toString()
+    private fun updateConfirmLayoutBackground() {
+      //  val sidText = sidEditText.text.toString()
         val isAppChecked = findViewById<CheckBox>(R.id.checbox_App).isChecked
         val isRfidChecked = findViewById<CheckBox>(R.id.checbox_Apps).isChecked
         val isAnyCheckboxChecked = checkboxes.any { it.isChecked }
 
-        // Check if SID is correct, at least one checkbox is checked, and the switch is enabled
-        if (sidText == "abc11" && isAnyCheckboxChecked && isSwitchEnabled && relationEditText.text.isNotEmpty() && (isAppChecked || isRfidChecked)) {
+        // Determine if the SID is correct
+      //  val isSidCorrect = sidText == "abc11"
+
+        // Check if conditions are met for enabling the button
+        if (sidEditText.text.isNotEmpty() && isAnyCheckboxChecked && isSwitchEnabled && relationEditText.text.isNotEmpty() && (isAppChecked || isRfidChecked)) {
             confirmLayout.setBackgroundResource(R.drawable.rectangle_34624554)
             textView1.setTextColor(ContextCompat.getColor(this, R.color.white))
-            incorrectSidTextView.visibility = View.GONE
-
-            startActivity(Intent(this, AccessBottomsheet::class.java))
+           // incorrectSidTextView.visibility = View.GONE // Hide if SID is correct
         } else {
-            // Reset background if conditions are not met
-           // confirmLayout.setBackgroundColor(Color.WHITE) // Or any default color you want
             confirmLayout.background = ContextCompat.getDrawable(this, R.drawable.rectangle_554__ev)
             textView1.setTextColor(ContextCompat.getColor(this, R.color.thumb_color))
-            incorrectSidTextView.visibility = View.VISIBLE
+          //  incorrectSidTextView.visibility= View.GONE
+
+            // Show the incorrect SID message only if the SID is incorrect
+          //  incorrectSidTextView.visibility = if (!isSidCorrect) View.VISIBLE else View.GONE
         }
+    }
+
+   /* private fun checkSidVisibility() {
+        // Show the "incorrect SID" message only if the SID is incorrect
+        if (sidEditText.text.toString() != "abc11") {
+            incorrectSidTextView.visibility = View.VISIBLE
+        } else {
+            incorrectSidTextView.visibility = View.GONE
+        }*/
+    //}
+
+    private fun checkConditions(): Boolean {
+        // Check conditions for navigation
+      //  val sidText = sidEditText.text.toString()
+        val isAppChecked = findViewById<CheckBox>(R.id.checbox_App).isChecked
+        val isRfidChecked = findViewById<CheckBox>(R.id.checbox_Apps).isChecked
+        val isAnyCheckboxChecked = checkboxes.any { it.isChecked }
+
+        return (sidEditText.text.isNotEmpty() && isAnyCheckboxChecked && isSwitchEnabled &&
+                relationEditText.text.isNotEmpty() && (isAppChecked || isRfidChecked))
     }
 
     private fun toggleSwitchImage() {
