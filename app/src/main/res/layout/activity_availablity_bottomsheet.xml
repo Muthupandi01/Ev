@@ -165,7 +165,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:text="Home"
                             android:fontFamily="@font/poppins_medium"
                             android:textSize="@dimen/_10ssp"
@@ -173,6 +173,19 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/home_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:text="18:00 - 05:59"
+                            android:visibility="invisible"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/home_text" />
 
                         <!-- Home RadioButton -->
                         <RadioButton
@@ -217,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:text="Office"
                             android:fontFamily="@font/poppins_medium"
                             android:textSize="@dimen/_10ssp"
@@ -225,6 +238,18 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/office_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:text="18:00 - 05:59"
+                            android:visibility="invisible"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/office_text" />
 
                         <!-- Office RadioButton -->
                         <RadioButton
@@ -265,7 +290,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:text="Commercial"
                             android:fontFamily="@font/poppins_medium"
                             android:textSize="@dimen/_10ssp"
@@ -273,6 +298,18 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/commercial_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:text="18:00 - 05:59"
+                            android:visibility="invisible"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/commercial_text" />
 
                         <!-- Commercial RadioButton -->
                         <RadioButton
@@ -340,6 +377,17 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/day_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:text="06:00 - 17:59"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/day_text" />
 
                         <!-- Day RadioButton -->
                         <RadioButton
@@ -391,6 +439,19 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/night_icon" />
 
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:text="18:00 - 05:59"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/night_text" />
+
                         <!-- Night RadioButton -->
                         <RadioButton
                             android:id="@+id/radio_night"
@@ -430,7 +491,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:text="Manual"
                             android:fontFamily="@font/poppins_medium"
                             android:textSize="@dimen/_10ssp"
@@ -438,6 +499,18 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/manual_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:text="18:00 - 05:59"
+                            android:visibility="invisible"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/manual_text" />
 
                         <!-- Manual RadioButton -->
                         <RadioButton
@@ -458,7 +531,7 @@
                 <LinearLayout
                     android:id="@+id/manualonlychild"
                     android:background="@drawable/rectangle_1580_ev"
-                    android:layout_marginTop="@dimen/_10ssp"
+                    android:layout_marginTop="@dimen/_13ssp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -509,7 +582,6 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-
                             android:weightSum="2.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

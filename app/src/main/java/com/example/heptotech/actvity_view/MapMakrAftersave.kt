@@ -161,14 +161,26 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 //        val s1: String = sharedPreferences.getString("Key", "") ?: ""
 //        Log.d("CheckLoggedvalue", "onCreate: "+s1)
 
+
+
+
+
         val intent = intent
         val checkSumValue = intent.getStringExtra("Key")
 
         Log.d("CheckValuethis", "onCreate: "+checkSumValue)
 
+
+
+
+
+
+
+
+
+
         if (checkSumValue.equals("Home")){
             getDisplayfn()
-
             neverConnected.isVisible=false
             notplugedlayout.isVisible=false
             homechargeblue.isVisible=true
@@ -177,7 +189,6 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         }
 
         else if (checkSumValue.equals("Office")){
-
             getDisplayfn()
             neverConnected.isVisible=false
             notplugedlayout.isVisible=false
@@ -188,9 +199,6 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 nooperatorassignedlay.isVisible=false
                 onlinecard.isVisible=true
             }
-
-
-
         }
         else if (checkSumValue.equals("Commercial")){
             getDisplayfn()
@@ -199,7 +207,6 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             homechargeblue.isVisible=false
             nooperatorassignedlay.isVisible=false
             onlinecard.isVisible=false
-
 
             orangependingCard.isVisible=true
             GlobalScope.launch(Dispatchers.Main) {
@@ -213,23 +220,22 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 maincard.isVisible=true
             }
 
-
-
         }
-
         else{
             GlobalScope.launch(Dispatchers.Main) {
-                delay(2500)
+                // Step 1: Initial state
+                delay(6000)
+                greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this@MapMakrAftersave, R.color.greentxt))
+                addsitelnr.isVisible = false
+                mapimgdummy.isVisible = false
+                notplugedlayout.isVisible = false
+                // nooperatorassignedlay.isVisible = true
+                txteditlocationdetails.text = "Edit Location details"
+                menu.isVisible = true
                 neverConnected.isVisible=false
                 notplugedlayout.isVisible=true
-
             }
         }
-
-
-
-
-
 
 
 
@@ -377,17 +383,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            // Step 1: Initial state
-            delay(2000)
-            greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this@MapMakrAftersave, R.color.greentxt))
-            addsitelnr.isVisible = false
-            mapimgdummy.isVisible = false
-            notplugedlayout.isVisible = false
-            // nooperatorassignedlay.isVisible = true
-            txteditlocationdetails.text = "Edit Location details"
-            menu.isVisible = true
-        }
+
 
         // Site address launcher
         addSiteLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -395,9 +391,9 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
                 val data = result.data
                 if (data != null) {
                     GlobalScope.launch(Dispatchers.Main) {
-                        delay(2500)
-                        neverConnected.isVisible=false
-                        notplugedlayout.isVisible=true
+                        delay(6000)
+//                        neverConnected.isVisible=false
+//                        notplugedlayout.isVisible=true
 
                     }
 

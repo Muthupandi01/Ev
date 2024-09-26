@@ -128,14 +128,28 @@
                     android:orientation="vertical">
 
 
-                <TextView
-                    android:fontFamily="@font/poppins_medium"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:layout_width="match_parent"
-                    android:textSize="@dimen/_11ssp"
-                    android:textColor="#E8656565"
-                    android:layout_height="wrap_content"
-                    android:text="Transmission Cost *"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#E8656565"
+                            android:layout_height="wrap_content"
+                            android:text="Transmission Cost"/>
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_width="match_parent"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="@color/red"
+                            android:layout_height="wrap_content"
+                            android:text=" *"/>
+                    </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_marginTop="@dimen/_9sdp"
@@ -161,7 +175,6 @@
                             android:fontFamily="@font/poppins_medium"
                             android:layout_gravity="center_vertical"
                             android:hint="Type Transmission Cost"
-                            android:text="12000"
                             android:textSize="@dimen/_11ssp"
                             android:textColor="#25314C"
                             android:textColorHint="#9A656565"/>
@@ -180,8 +193,6 @@
                 </LinearLayout>
                 </LinearLayout>
 
-
-
                 <LinearLayout
                     android:visibility="gone"
                     android:id="@+id/daynightchild"
@@ -190,14 +201,33 @@
                     android:orientation="vertical">
 
 
-                    <TextView
-                        android:fontFamily="@font/poppins_medium"
-                        android:layout_marginTop="@dimen/_12sdp"
+
+
+
+
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:textSize="@dimen/_11ssp"
-                        android:textColor="#E8656565"
                         android:layout_height="wrap_content"
-                        android:text="Day Transmission Cost *"/>
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#E8656565"
+                            android:layout_height="wrap_content"
+                            android:text="Day Transmission Cost (06:00 - 17:59)"/>
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_width="match_parent"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="@color/red"
+                            android:layout_height="wrap_content"
+                            android:text=" *"/>
+
+                    </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_marginTop="@dimen/_9sdp"
@@ -218,7 +248,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="12000"
                                 android:fontFamily="@font/poppins_medium"
                                 android:layout_gravity="center_vertical"
                                 android:hint="Type day transmission cost"
@@ -238,14 +267,29 @@
                         </LinearLayout>
 
                     </LinearLayout>
-                    <TextView
-                        android:fontFamily="@font/poppins_medium"
-                        android:layout_marginTop="@dimen/_12sdp"
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:textSize="@dimen/_11ssp"
-                        android:textColor="#E8656565"
                         android:layout_height="wrap_content"
-                        android:text="Night Transmission Cost *"/>
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#E8656565"
+                            android:layout_height="wrap_content"
+                            android:text="Night Transmission Cost (18:00 - 05:59)"/>
+                        <TextView
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_width="match_parent"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="@color/red"
+                            android:layout_height="wrap_content"
+                            android:text=" *"/>
+                    </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_marginTop="@dimen/_9sdp"
@@ -268,7 +312,6 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_medium"
                                 android:layout_gravity="center_vertical"
-                                android:text="12000"
                                 android:hint="Type Night transmission cost"
                                 android:textSize="@dimen/_11ssp"
                                 android:textColor="#25314C"

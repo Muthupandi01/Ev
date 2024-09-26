@@ -34,7 +34,7 @@ class PrivateStation : AppCompatActivity() {
             chooseCamera.setOnClickListener {
                 val intent = Intent(this@PrivateStation, ConnectToEvActivity::class.java)
                 startActivity(intent)
-                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
+               // overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
             }
 
 

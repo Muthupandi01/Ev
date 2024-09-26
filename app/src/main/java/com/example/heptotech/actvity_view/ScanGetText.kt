@@ -1,8 +1,10 @@
 package com.example.heptotech.actvity_view
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -16,15 +18,13 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.heptotech.R
 import com.example.heptotech.activity_view.ConnectToEvActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.journeyapps.barcodescanner.BarcodeView
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class ScanGetText : AppCompatActivity() {
     private lateinit var btn_submit: TextView
@@ -52,9 +52,14 @@ class ScanGetText : AppCompatActivity() {
     // Flag to check if BottomSheetDialog is already shown
     private var isBottomSheetShown = false
     private var isFlashOn = false
+
+    // Permission request code for camera access
+    private val CAMERA_PERMISSION_REQUEST_CODE = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan_get_text)
+
         // Initialize views
         btn_submit = findViewById(R.id.btn_submit)
         scannerView = findViewById(R.id.scanner_view)
@@ -75,28 +80,19 @@ class ScanGetText : AppCompatActivity() {
         qr_code_frame = findViewById(R.id.qr_code_frame)
         flash = findViewById(R.id.flash)
 
+        // Initialize scan animation
         val scanAnimationView: ImageView = findViewById(R.id.scan_animation_view)
         val animationDrawable: AnimationDrawable = scanAnimationView.drawable as AnimationDrawable
         animationDrawable.start()
 
-        GlobalScope.launch {
-            delay(1500)
-            val resultIntent = Intent()
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
-        }
-
-
-        // Set up the QR code scanner
-        scannerView.decodeContinuous { result ->
-           // handleScanResult(result.text)
-
-            GlobalScope.launch {
-                delay(1500)
-                val resultIntent = Intent()
-                setResult(Activity.RESULT_OK, resultIntent)
-                finish()
-            }
+        // Request camera permission
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_REQUEST_CODE)
+        } else {
+            initializeScanner()
         }
 
         // Handle flashlight toggle
@@ -117,20 +113,18 @@ class ScanGetText : AppCompatActivity() {
         }
 
         closeparent.setOnClickListener {
-            startActivity(Intent(this@ScanGetText, ConnectToEvActivity::class.java))
+            val resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
 
-
-
         btn_submit.setOnClickListener {
-            val scanResult = "Sample Scan Result" // Replace with actual scan result
+            val scanResult = "Sample Scan Result"
             val resultIntent = Intent()
             resultIntent.putExtra("EXTRA_SCAN_RESULT", scanResult)
             setResult(Activity.RESULT_OK, resultIntent)
-            finish() // Close ScanGetText and return to ViewVehicles
-
+            finish()
         }
-
 
         leftButton.setOnClickListener {
             centralImage.setImageResource(R.drawable.connectortypeleft_01_ev)
@@ -148,17 +142,17 @@ class ScanGetText : AppCompatActivity() {
             dummyparent.isVisible = true
         }
     }
-    private fun handleScanResult(scanResult: String) {
-        // Only show BottomSheetDialog if it's not already shown
-//        if (!isBottomSheetShown) {
-//            isBottomSheetShown = true
-//            qrvalue = scanResult
-//
-//            showImagePickerBottomSheet()
-//        }
 
-        parentMain.isVisible=false
-        continueparent.isVisible=true
+    private fun initializeScanner() {
+        // Set up the QR code scanner
+        scannerView.decodeContinuous { result ->
+            handleScanResult(result.text)
+        }
+    }
+
+    private fun handleScanResult(scanResult: String) {
+
+        finish()
 
     }
 
@@ -182,7 +176,6 @@ class ScanGetText : AppCompatActivity() {
             activateTextView.setTextColor(Color.BLACK)
         } else {
             if (qrvalueSafe.isNotEmpty()) {
-                //chargeIdEditText.setText(qrvalueSafe)
                 img_tick.isVisible = true
                 activateTextView.isEnabled = true
                 activateTextView.setBackgroundResource(R.drawable.rectangle_green_ev)
@@ -263,24 +256,34 @@ class ScanGetText : AppCompatActivity() {
             flash.setImageResource(R.drawable.flash_on_ev)
             isFlashOn = true
         }
-
     }
 
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        startActivity(Intent(this@ScanGetText, ConnectToEvActivity::class.java))
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST_CODE -> {
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Permission granted, start scanning
+                    initializeScanner()
+                } else {
+                    // Permission denied, close the activity
+                    finish()
+                }
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        // Resume QR code scanning
         scannerView.resume()
     }
 
     override fun onPause() {
         super.onPause()
-        // Pause QR code scanning
         scannerView.pause()
     }
 }
