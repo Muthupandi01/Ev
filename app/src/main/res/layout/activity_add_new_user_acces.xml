@@ -188,6 +188,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentEnd="true"
+
+
                 android:id="@+id/checbox_Apps"
                 android:layout_marginStart="@dimen/_6sdp"
                 android:textSize="@dimen/_8ssp"
