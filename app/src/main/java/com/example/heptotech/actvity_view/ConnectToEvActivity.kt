@@ -78,14 +78,14 @@ class ConnectToEvActivity : AppCompatActivity(),
         pincodeImg.setOnClickListener {
             val intent = Intent(this, ScanGetText::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        //    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         }
 
         serialImg.setOnClickListener {
             val intent = Intent(this, ScanGetText::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+         //   overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         vehicleItemCheckBoxAdapter = VehicleItemCheckBoxAdapter(vehicleList, this)
@@ -147,7 +147,7 @@ class ConnectToEvActivity : AppCompatActivity(),
             putExtra("selectedVehicles", selectedVehicles.toTypedArray())
         }
         startActivity(intent)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+       // overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
     fun setRedStarTextView(textView: TextView) {

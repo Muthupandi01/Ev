@@ -26,7 +26,7 @@ class AccessBottomsheet : AppCompatActivity() {
     private lateinit var btn_submit: TextView
   private  lateinit var linearLayout: LinearLayout
   private lateinit var imageView: ImageView
-
+    private var bottomSheetDialog: BottomSheetDialog? = null
 
     private lateinit var usercardrec: RecyclerView
     private lateinit var addlnr: LinearLayout
@@ -59,9 +59,54 @@ class AccessBottomsheet : AppCompatActivity() {
             usercardrec.layoutManager = LinearLayoutManager(this)
             usercardrec.adapter = UserAdapter(users) { selectedUser ->
 
+                bottomSheetDialog = BottomSheetDialog(this)
+                bottomSheetDialog!!.show()
+                val sheetView = this.layoutInflater.inflate(R.layout.bottom_sheet_user_temp, null)
+
+                bottomSheetDialog!!.setContentView(sheetView)
+
+                val vehicleRecyclerView = bottomSheetDialog!!.findViewById<RecyclerView>(R.id.recycle_vechicle)
+                val linearLayout= bottomSheetDialog!!.findViewById<LinearLayout>(R.id.btn_linear)
+
+                if (vehicleRecyclerView == null || linearLayout == null) {
+                    Log.e("AccessBottomsheet", "Vehicle RecyclerView or btn_linear not found.")
+                    return@UserAdapter
+                }
+
+                val vehicleItems = mutableListOf(
+                    VechicleUserItem(R.drawable.mcar_list, "Tesla Model X", "License Plate 123", false),
+                    VechicleUserItem(R.drawable.mcar1_list, "Tesla Model Y", "License Plate 456", false),
+                    VechicleUserItem(R.drawable.mcar2_list, "Tesla Model S", "License Plate 789", false)
+                )
+
+                vehicleRecyclerView.layoutManager = LinearLayoutManager(this)
+                vehicleRecyclerView.adapter = VechicleUserAdapter(vehicleItems, object : VechicleUserAdapter.ClickItemListener {
+                    override fun onItemClick(position: Int, checked: Boolean) {
+                        updateSubmitButtonVisibility(vehicleItems,linearLayout) // Update button visibility here
+                    }
+                })
+
+                bottomSheetDialog!!.findViewById<ImageView>(R.id.user_img)?.setImageResource(selectedUser.userImageResId)
+                bottomSheetDialog!!.findViewById<TextView>(R.id.username_txt)?.text = selectedUser.username
+                bottomSheetDialog!!.findViewById<TextView>(R.id.relationstatus)?.text = selectedUser.relationStatus
+                bottomSheetDialog!!.findViewById<TextView>(R.id.typecard)?.text = selectedUser.cardType
+                bottomSheetDialog!!.findViewById<ImageView>(R.id.imgtick_recycle)?.setImageResource(selectedUser.userImageResId)
 
 
-                    showBottomSheet(selectedUser)
+
+
+
+
+
+
+                   //showBottomSheet(selectedUser)
+
+
+
+
+
+
+
                         }
 
         back.setOnClickListener {
@@ -75,9 +120,10 @@ class AccessBottomsheet : AppCompatActivity() {
         }
     }
 
+
     private fun showBottomSheet(selectedUser: User) {
         val bottomSheetDialog = BottomSheetDialog(this)
-        bottomSheetDialog.setContentView(R.layout.bottom_sheet_user)
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_user_temp)
 
         val vehicleRecyclerView = bottomSheetDialog.findViewById<RecyclerView>(R.id.recycle_vechicle)
         val linearLayout=bottomSheetDialog.findViewById<LinearLayout>(R.id.btn_linear)

@@ -57,8 +57,8 @@
     </string>
 
     <string name="app_sid">App SID *</string>
-    <string name="relation">Relation *</string>
-    <string name="type">TYPE *</string>
-    <string name="assign_card">Assign Card? *</string>
+    <string name="relation">Relation</string>
+    <string name="type">TYPE</string>
+    <string name="assign_card">Assign Card?</string>
 
 </resources>

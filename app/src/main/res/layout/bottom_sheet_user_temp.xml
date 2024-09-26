@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BF000000">
+
+    <LinearLayout
+        android:id="@+id/parentService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+    android:visibility="visible"
+    android:layout_marginTop="@dimen/_40sdp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/top_shape_ev"
+           >
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:visibility="invisible"
+                        android:textColor="#292929"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:text="Robert Fox"
+                        android:textColor="#292929"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="#E1E1E1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/linear1"
+                        android:id="@+id/linear2"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:weightSum="2">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_gravity="start"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="#292929"
+                            android:textSize="@dimen/_8ssp"
+                            android:gravity="start"
+                            android:layout_weight="1"
+                            android:text="Relation"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/_11ssp"
+                            android:text="Brother"
+                            android:layout_weight="1"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            android:layout_marginEnd="@dimen/_20sdp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/linear2"
+                        android:id="@+id/linear23"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:weightSum="2">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="#292929"
+                            android:textSize="@dimen/_8ssp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:layout_weight="1"
+                            android:text="Type"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="APP, RFID Card"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="#292929"
+                            android:layout_weight="1"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            android:layout_marginEnd="@dimen/_20sdp"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:id="@+id/view"
+                        android:layout_below="@id/linear23"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="#E1E1E1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/vechicle_text"
+                        android:text="Vechicle List"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_below="@id/view"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins_medium"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recycle_vechicle"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/vechiclelist_recycle"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_below="@id/vechicle_text"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_20sdp" />
+
+                    <LinearLayout
+                        android:id="@+id/btn_linear"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_below="@id/recycle_vechicle"
+                        android:background="@drawable/rectangle_34624554_ev"
+                        android:backgroundTint="@color/greentxt"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:text="Submit"
+                        android:textAlignment="center"
+                        android:textColor="@color/white">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Submit"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/poppins_medium"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:src="@drawable/dummy1"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="3dp"
+        app:layout_anchor="@+id/parentService"
+        app:layout_anchorGravity="top|center" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

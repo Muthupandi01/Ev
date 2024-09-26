@@ -33,17 +33,33 @@
             android:fontFamily="@font/poppins_medium"
             android:textColor="#000000"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/linear"
+
+    <LinearLayout
         android:id="@+id/APP_text"
-        android:textColor="#5C5C5C"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/app_sid"
-        android:layout_marginStart="@dimen/_20dp"
-        android:textSize="@dimen/_11ssp"/>
+        android:layout_below="@id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="#5C5C5C"
+            android:fontFamily="@font/poppins_medium"
+            android:text="App SID"
+            android:layout_marginStart="@dimen/_20dp"
+            android:textSize="@dimen/_11ssp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/poppins_medium"
+            android:text=" *"
+            android:textSize="@dimen/_11ssp"/>
+    </LinearLayout>
+
 
     <EditText
         android:layout_width="match_parent"
@@ -73,17 +89,33 @@
         android:fontFamily="@font/poppins_medium"
         android:textColor="#F64C35"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/APP_text1"
         android:layout_marginTop="20dp"
         android:layout_below="@id/SID_Edittext"
-        android:id="@+id/APP_text1"
-        android:textColor="#5C5C5C"
-        android:text="@string/relation"
-        android:fontFamily="@font/poppins_medium"
-        android:layout_marginStart="@dimen/_20dp"
-        android:textSize="@dimen/_11ssp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#5C5C5C"
+            android:text="@string/relation"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="@dimen/_20dp"
+            android:textSize="@dimen/_11ssp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text=" *"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_11ssp"/>
+    </LinearLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,17 +138,36 @@
             android:drawableEnd="@drawable/angle_down"
             android:paddingEnd="@dimen/_10sdp"/>
     </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/type"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="#5C5C5C"
-        android:textSize="@dimen/_11ssp"
+
+
+
+    <LinearLayout
         android:id="@+id/Type_textview"
         android:layout_below="@id/rea"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#5C5C5C"
+            android:textSize="@dimen/_11ssp"
+
+            android:layout_marginStart="@dimen/_20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text=" *"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_11ssp"/>
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -205,33 +256,38 @@
         android:orientation="horizontal"
         android:layout_below="@id/type_linear1"
         android:layout_alignParentEnd="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/_20dp"
-            android:layout_marginTop="@dimen/_15sdp"
+
+
+        <LinearLayout
             android:id="@+id/Assign_text"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#5C5C5C"
-            android:textSize="@dimen/_11ssp"
-            android:text="@string/assign_card"/>
-        <!--<androidx.appcompat.widget.SwitchCompat
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_toRightOf="@id/Assign_text"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:gravity="center_vertical"
-            android:layout_gravity="end"
-            android:id="@+id/switch_id"
-            android:textSize="@dimen/_8ssp"
-            app:showText="false"
-            android:textOn="Yes"
-            android:textOff="No"
-            android:thumb="@drawable/design_thumb"
-            app:track="@drawable/track_user"/>-->
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_20dp"
+
+
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#5C5C5C"
+                android:textSize="@dimen/_11ssp"
+                android:text="@string/assign_card"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text=" *"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_11ssp"/>
+        </LinearLayout>
+
+
         <ImageView
             android:id="@+id/switch_btn"
             android:layout_width="50dp"
