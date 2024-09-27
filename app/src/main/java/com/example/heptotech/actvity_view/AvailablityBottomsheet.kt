@@ -8,12 +8,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -128,10 +131,13 @@ class AvailablityBottomsheet : AppCompatActivity() {
             openTimePickers()
         }
 
-
+        addInitialTimeSlotView()
         addtimerectangle.setOnClickListener {
-//            if (endTimEditText.text.toString().length>0&&startTimeEditText.text.toString().length>0)
-            addTimeSlotView()
+            if (validateLastTimeSlot()) {
+                addTimeSlotView()
+            } else {
+                Toast.makeText(this, "Please fill both start and end times", Toast.LENGTH_SHORT).show()
+            }
         }
 
 
@@ -214,6 +220,47 @@ class AvailablityBottomsheet : AppCompatActivity() {
         }
     }
 
+    private fun addInitialTimeSlotView() {
+        val inflater = layoutInflater
+        val initialView = inflater.inflate(R.layout.time_slot_layout, addview, false)
+
+        // Set up the time pickers for the initial view
+        val startTimeEditText: EditText = initialView.findViewById(R.id.clock_time)
+        val endTimeEditText: EditText = initialView.findViewById(R.id.endtime)
+
+        startTimeEditText.setOnClickListener {
+            showTimePickerDialog(startTimeEditText)
+        }
+
+        endTimeEditText.setOnClickListener {
+            showTimePickerDialogend(endTimeEditText)
+        }
+
+        // Add the initial view to the layout
+        addview.addView(initialView)
+        val deleteButton: ImageView = initialView.findViewById(R.id.delete)
+        deleteButton.setOnClickListener {
+            startTimeEditText.setText("")
+            endTimeEditText.setText("")
+        }
+    }
+
+
+    private fun validateLastTimeSlot(): Boolean {
+        // Get the last added view (if any)
+        val childCount = addview.childCount
+        if (childCount > 0) {
+            val lastView = addview.getChildAt(childCount - 1)
+            val startTimeEditText: EditText = lastView.findViewById(R.id.clock_time)
+            val endTimeEditText: EditText = lastView.findViewById(R.id.endtime)
+
+            // Check if both start and end times are filled
+            return startTimeEditText.text.toString().isNotEmpty() && endTimeEditText.text.toString().isNotEmpty()
+        }
+        return true
+    }
+
+
     /*  private fun clockview()
       {
           val timePickerDialog = TimePickerDialog(this, { _, hour, minute ->
@@ -270,29 +317,55 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
 
     private fun addTimeSlotView() {
+        // Validate the last time slot before adding a new one
+        if (!validateLastTimeSlot()) {
+            // If validation fails, show a message and don't add a new view
+            Toast.makeText(this, "Please fill both start and end times before adding a new slot", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Proceed to add a new time slot
         val inflater = layoutInflater
         val newView = inflater.inflate(R.layout.time_slot_layout, addview, false)
-        // Handle delete button click
-        val deleteButton: ImageView = newView.findViewById(R.id.delete)
-        deleteButton.setOnClickListener {
-            removeTimeSlotView(newView)
-        }
-        startTimeEditText = newView.findViewById(R.id.clock_time)
 
+        val startTimeEditText: EditText = newView.findViewById(R.id.clock_time)
+        val endTimeEditText: EditText = newView.findViewById(R.id.endtime)
 
         startTimeEditText.setOnClickListener {
             showTimePickerDialog(startTimeEditText)
         }
-        endTimEditText = newView.findViewById(R.id.endtime)
 
-
-        endTimEditText.setOnClickListener {
-            showTimePickerDialogend(endTimEditText)
+        endTimeEditText.setOnClickListener {
+            showTimePickerDialogend(endTimeEditText)
         }
 
-        addview.addView(newView)
+        // Handle delete button click for this view
+        val deleteButton: ImageView = newView.findViewById(R.id.delete)
+        deleteButton.setOnClickListener {
+            removeTimeSlotView(newView)
+        }
 
+        // Add the new view to the layout
+        addview.addView(newView)
     }
+
+    private fun removeTimeSlotView(view: View) {
+        // Check if there is only one view
+        if (addview.childCount == 1) {
+            // Clear the EditText values in the only existing view
+            val startTimeEditText: EditText = view.findViewById(R.id.clock_time)
+            val endTimeEditText: EditText = view.findViewById(R.id.endtime)
+
+            startTimeEditText.setText("")
+            endTimeEditText.setText("")
+        } else {
+            // If there are multiple views, remove the clicked view
+            addview.removeView(view)
+        }
+    }
+
+
+
 
 
     private fun showTimePickerDialogend(endTimEditText: EditText)
@@ -331,9 +404,9 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
     }
 
-    private fun removeTimeSlotView(newView: View?) {
-        addview.removeView(newView)
-    }
+//    private fun removeTimeSlotView(newView: View?) {
+//        addview.removeView(newView)
+//    }
 
     // Function to handle Home RadioButton click
     private fun radioHomeClicked() {
