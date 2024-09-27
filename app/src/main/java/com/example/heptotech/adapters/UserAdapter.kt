@@ -20,6 +20,7 @@ class UserAdapter(
         private val username: TextView = itemView.findViewById(R.id.username_txt)
         private val relationStatus: TextView = itemView.findViewById(R.id.relationstatus)
         private val typeCard: TextView = itemView.findViewById(R.id.typecard)
+        private val imgtick_recycle: ImageView = itemView.findViewById(R.id.imgtick_recycle)
 
         // Bind data to the views
         fun bind(user: User, onItemClick: (User) -> Unit) {
@@ -29,7 +30,7 @@ class UserAdapter(
             typeCard.text = user.cardType
 
             // Set the click listener for the entire itemView
-            itemView.setOnClickListener {
+            imgtick_recycle.setOnClickListener {
                 onItemClick(user)
             }
         }

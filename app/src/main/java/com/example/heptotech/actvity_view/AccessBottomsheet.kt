@@ -6,10 +6,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.AddNewUserAcces
@@ -30,6 +33,7 @@ class AccessBottomsheet : AppCompatActivity() {
 
     private lateinit var usercardrec: RecyclerView
     private lateinit var addlnr: LinearLayout
+    private lateinit var main: ConstraintLayout
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +45,7 @@ class AccessBottomsheet : AppCompatActivity() {
         btn_submit = findViewById(R.id.btn_submit)
         usercardrec = findViewById(R.id.usercardrec)
         addlnr = findViewById(R.id.addlnr)
+        main = findViewById(R.id.main)
       //  imageView=findViewById(R.id.imgtick_recycle)
 
         addlnr.setOnClickListener {
@@ -58,56 +63,9 @@ class AccessBottomsheet : AppCompatActivity() {
 
             usercardrec.layoutManager = LinearLayoutManager(this)
             usercardrec.adapter = UserAdapter(users) { selectedUser ->
+                showBottomSheet(selectedUser)
 
-                bottomSheetDialog = BottomSheetDialog(this)
-                bottomSheetDialog!!.show()
-                val sheetView = this.layoutInflater.inflate(R.layout.bottom_sheet_user_temp, null)
-
-                bottomSheetDialog!!.setContentView(sheetView)
-
-                val vehicleRecyclerView = bottomSheetDialog!!.findViewById<RecyclerView>(R.id.recycle_vechicle)
-                val linearLayout= bottomSheetDialog!!.findViewById<LinearLayout>(R.id.btn_linear)
-
-                if (vehicleRecyclerView == null || linearLayout == null) {
-                    Log.e("AccessBottomsheet", "Vehicle RecyclerView or btn_linear not found.")
-                    return@UserAdapter
-                }
-
-                val vehicleItems = mutableListOf(
-                    VechicleUserItem(R.drawable.mcar_list, "Tesla Model X", "License Plate 123", false),
-                    VechicleUserItem(R.drawable.mcar1_list, "Tesla Model Y", "License Plate 456", false),
-                    VechicleUserItem(R.drawable.mcar2_list, "Tesla Model S", "License Plate 789", false)
-                )
-
-                vehicleRecyclerView.layoutManager = LinearLayoutManager(this)
-                vehicleRecyclerView.adapter = VechicleUserAdapter(vehicleItems, object : VechicleUserAdapter.ClickItemListener {
-                    override fun onItemClick(position: Int, checked: Boolean) {
-                        updateSubmitButtonVisibility(vehicleItems,linearLayout) // Update button visibility here
-                    }
-                })
-
-                bottomSheetDialog!!.findViewById<ImageView>(R.id.user_img)?.setImageResource(selectedUser.userImageResId)
-                bottomSheetDialog!!.findViewById<TextView>(R.id.username_txt)?.text = selectedUser.username
-                bottomSheetDialog!!.findViewById<TextView>(R.id.relationstatus)?.text = selectedUser.relationStatus
-                bottomSheetDialog!!.findViewById<TextView>(R.id.typecard)?.text = selectedUser.cardType
-                bottomSheetDialog!!.findViewById<ImageView>(R.id.imgtick_recycle)?.setImageResource(selectedUser.userImageResId)
-
-
-
-
-
-
-
-
-                   //showBottomSheet(selectedUser)
-
-
-
-
-
-
-
-                        }
+            }
 
         back.setOnClickListener {
             setResult(Activity.RESULT_OK)
@@ -122,12 +80,14 @@ class AccessBottomsheet : AppCompatActivity() {
 
 
     private fun showBottomSheet(selectedUser: User) {
-        val bottomSheetDialog = BottomSheetDialog(this)
-        bottomSheetDialog.setContentView(R.layout.bottom_sheet_user_temp)
+        val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
+      //  bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
 
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_user_temp)
         val vehicleRecyclerView = bottomSheetDialog.findViewById<RecyclerView>(R.id.recycle_vechicle)
         val linearLayout=bottomSheetDialog.findViewById<LinearLayout>(R.id.btn_linear)
-
+        val vechicle_text=bottomSheetDialog.findViewById<TextView>(R.id.vechicle_text)
+        vechicle_text!!.isVisible=true
         if (vehicleRecyclerView == null || linearLayout == null) {
             Log.e("AccessBottomsheet", "Vehicle RecyclerView or btn_linear not found.")
             return
@@ -173,4 +133,15 @@ class AccessBottomsheet : AppCompatActivity() {
         setResult(Activity.RESULT_OK)
         finish()
     }
+    override fun onStart() {
+        super.onStart()
+
+        bottomSheetDialog?.let { bottomSheetDialog ->
+            bottomSheetDialog.window?.setLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+    }
+
 }

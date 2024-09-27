@@ -85,8 +85,6 @@ class ConnectToServer : AppCompatActivity() {
             startActivity(intent)
             //overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right)
 
-
-
         }
 
         back.setOnClickListener {

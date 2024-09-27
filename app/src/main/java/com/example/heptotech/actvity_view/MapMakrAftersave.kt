@@ -24,6 +24,7 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
@@ -194,7 +195,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             notplugedlayout.isVisible=false
             homechargeblue.isVisible=false
             nooperatorassignedlay.isVisible=true
-            GlobalScope.launch(Dispatchers.Main) {
+            lifecycleScope.launch(Dispatchers.Main) {
                 delay(2500)
                 nooperatorassignedlay.isVisible=false
                 onlinecard.isVisible=true
@@ -209,7 +210,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             onlinecard.isVisible=false
 
             orangependingCard.isVisible=true
-            GlobalScope.launch(Dispatchers.Main) {
+            lifecycleScope.launch(Dispatchers.Main) {
                 delay(2000)
                 orangependingCard.isVisible=false
                 greenChargingCard.isVisible=true
@@ -222,7 +223,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
         }
         else{
-            GlobalScope.launch(Dispatchers.Main) {
+            lifecycleScope.launch(Dispatchers.Main) {
                 // Step 1: Initial state
                 delay(6000)
                 greygreentint.setBackgroundTintList(ContextCompat.getColorStateList(this@MapMakrAftersave, R.color.greentxt))
@@ -390,7 +391,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             if (result.resultCode == RESULT_OK) {
                 val data = result.data
                 if (data != null) {
-                    GlobalScope.launch(Dispatchers.Main) {
+                    lifecycleScope.launch(Dispatchers.Main) {
                         delay(6000)
 //                        neverConnected.isVisible=false
 //                        notplugedlayout.isVisible=true

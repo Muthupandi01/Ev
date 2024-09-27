@@ -157,7 +157,11 @@
                 android:layout_height="match_parent"
                 >
 
+
+
+
                 <TextView
+                    android:visibility="visible"
                     android:id="@+id/btn_submit"
                     android:layout_width="0dp"
 

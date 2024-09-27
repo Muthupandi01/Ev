@@ -2,8 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.heptotech">
+
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
@@ -14,7 +18,7 @@
         android:name="android.hardware.camera.flash"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,6 +30,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".actvity_view.CheckSheet"
+            android:exported="false" />
         <activity
             android:name=".actvity_view.ScanGetText"
             android:exported="false" />
@@ -102,7 +109,7 @@
         <activity
             android:name=".actvity_view.PrivateStation"
             android:exported="true"
-            android:label="Vehicle Registration">
+            android:label="Private Station">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,6 @@
 package com.example.heptotech.adapters
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +46,13 @@ class VechicleUserAdapter(
         // Set the checkbox state without triggering the listener
         holder.checkBox.setOnCheckedChangeListener(null) // Prevent the listener from being triggered
         holder.checkBox.isChecked = item.isChecked // Set the checkbox state
+        // Set the background tint based on the checkbox state
+        val colorStateList = ColorStateList(
+            arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+            intArrayOf(0xFF02CD8D.toInt(), 0xFFB0BEC5.toInt()) // Green when checked, grey when unchecked
+        )
+        holder.checkBox.buttonTintList = colorStateList
+
         holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
             items[position].isChecked = isChecked // Update state
             listener.onItemClick(position, isChecked) // Notify listener

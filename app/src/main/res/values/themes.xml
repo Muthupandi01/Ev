@@ -59,27 +59,14 @@
     </style>
 
 
-<!--    <style name="round_sheet" parent="Theme.Design.Light.BottomSheetDialog">-->
-<!--        &lt;!&ndash;<item name="android:windowCloseOnTouchOutside">false</item>&ndash;&gt;-->
-<!--        <item name="android:windowIsTranslucent">false</item>-->
-<!--        <item name="android:colorBackground">@android:color/transparent</item>-->
-<!--        <item name="android:backgroundDimEnabled">true</item>-->
 
 
-
-<!--        <item name="android:windowFrame">@null</item>-->
-<!--        <item name="android:windowIsFloating">false</item>-->
-<!--        <item name="backgroundColor">@color/transparent</item>-->
-<!--        <item name="android:windowBackground">@null</item>-->
-<!--        <item name="elevationOverlayEnabled">false</item>-->
-<!--        <item name="android:fitsSystemWindows">true</item>-->
-<!--        <item name="android:state_expanded">true</item>-->
-<!--    </style>-->
-
-<!--    <style name="ShoppingList.BottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">-->
-<!--        <item name="android:colorBackground">@android:color/transparent</item> &lt;!&ndash; has no effect &ndash;&gt;-->
-<!--        <item name="android:backgroundDimAmount">0.3</item>-->
-<!--    </style>-->
+    <style name="ShoppingList.BottomSheetDialog" parent="Theme.Design.BottomSheetDialog">
+        <item name="android:colorBackground">@android:color/transparent</item> <!-- Transparent background -->
+        <item name="android:layout_width">match_parent</item> <!-- Ensure width matches parent -->
+        <item name="android:layout_height">wrap_content</item> <!-- Height can be adjusted as needed -->
+        <item name="background">@android:color/transparent</item> <!-- Set background to transparent -->
+    </style>
 
     <style name="viewParent">
         <item name="android:layout_width">wrap_content</item>
@@ -96,6 +83,12 @@
         <item name="android:textColor">#616161</item>
         <item name="textAllCaps">false</item> <!-- Disable all caps -->
     </style>
+
+
+
+
+
+
 
 
 </resources>
