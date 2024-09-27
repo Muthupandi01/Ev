@@ -44,7 +44,7 @@
             android:name=".AddNewUserAcces"
             android:exported="false" />
         <activity
-            android:name=".actvity_view.PrivateStation"
+            android:name=".activity_view.AccessBottomsheet"
             android:exported="false" />
         <activity
             android:name=".actvity_view.PriceBottomSheet"
@@ -105,8 +105,7 @@
             android:exported="false" />
         <activity android:name=".actvity_view.RegistrationListGet" />
         <activity
-
-            android:name=".activity_view.AccessBottomsheet"
+            android:name=".actvity_view.PrivateStation"
             android:exported="true"
             android:label="Private Station">
             <intent-filter>
