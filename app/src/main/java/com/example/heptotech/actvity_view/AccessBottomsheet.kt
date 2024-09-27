@@ -88,10 +88,7 @@ class AccessBottomsheet : AppCompatActivity() {
         val linearLayout=bottomSheetDialog.findViewById<LinearLayout>(R.id.btn_linear)
         val vechicle_text=bottomSheetDialog.findViewById<TextView>(R.id.vechicle_text)
         vechicle_text!!.isVisible=true
-        if (vehicleRecyclerView == null || linearLayout == null) {
-            Log.e("AccessBottomsheet", "Vehicle RecyclerView or btn_linear not found.")
-            return
-        }
+
 
         val vehicleItems = mutableListOf(
             VechicleUserItem(R.drawable.mcar_list, "Tesla Model X", "License Plate 123", false),
@@ -99,10 +96,12 @@ class AccessBottomsheet : AppCompatActivity() {
             VechicleUserItem(R.drawable.mcar2_list, "Tesla Model S", "License Plate 789", false)
         )
 
-        vehicleRecyclerView.layoutManager = LinearLayoutManager(this)
-        vehicleRecyclerView.adapter = VechicleUserAdapter(vehicleItems, object : VechicleUserAdapter.ClickItemListener {
+        vehicleRecyclerView!!.layoutManager = LinearLayoutManager(this)
+        vehicleRecyclerView!!.adapter = VechicleUserAdapter(vehicleItems, object : VechicleUserAdapter.ClickItemListener {
             override fun onItemClick(position: Int, checked: Boolean) {
-                updateSubmitButtonVisibility(vehicleItems,linearLayout) // Update button visibility here
+                if (linearLayout != null) {
+                    updateSubmitButtonVisibility(vehicleItems,linearLayout)
+                } // Update button visibility here
             }
         })
 

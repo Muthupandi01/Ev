@@ -30,9 +30,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".actvity_view.CheckSheet"
-            android:exported="false" />
+
         <activity
             android:name=".actvity_view.ScanGetText"
             android:exported="false" />
@@ -46,7 +44,7 @@
             android:name=".AddNewUserAcces"
             android:exported="false" />
         <activity
-            android:name=".activity_view.AccessBottomsheet"
+            android:name=".actvity_view.PrivateStation"
             android:exported="false" />
         <activity
             android:name=".actvity_view.PriceBottomSheet"
@@ -107,7 +105,8 @@
             android:exported="false" />
         <activity android:name=".actvity_view.RegistrationListGet" />
         <activity
-            android:name=".actvity_view.PrivateStation"
+
+            android:name=".activity_view.AccessBottomsheet"
             android:exported="true"
             android:label="Private Station">
             <intent-filter>

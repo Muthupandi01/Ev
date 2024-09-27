@@ -60,13 +60,11 @@
 
 
 
-
     <style name="ShoppingList.BottomSheetDialog" parent="Theme.Design.BottomSheetDialog">
         <item name="android:colorBackground">@android:color/transparent</item> <!-- Transparent background -->
-        <item name="android:layout_width">match_parent</item> <!-- Ensure width matches parent -->
-        <item name="android:layout_height">wrap_content</item> <!-- Height can be adjusted as needed -->
         <item name="background">@android:color/transparent</item> <!-- Set background to transparent -->
     </style>
+
 
     <style name="viewParent">
         <item name="android:layout_width">wrap_content</item>

@@ -5,9 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
-
-    >
+    android:background="@color/transparent">
 
     <LinearLayout
         android:id="@+id/parentService"
@@ -25,7 +23,6 @@
             android:orientation="vertical"
             android:background="@drawable/top_shape_ev"
            >
-
 
             <androidx.core.widget.NestedScrollView
                 android:layout_marginTop="@dimen/dp_10"
@@ -70,7 +67,7 @@
                         android:id="@+id/linear2"
                         android:orientation="horizontal"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:weightSum="2">
+                       >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -89,6 +86,7 @@
                             android:textSize="@dimen/_11ssp"
                             android:text="Brother"
                             android:layout_weight="1"
+                            android:textColor="#292929"
                             android:layout_gravity="end"
                             android:gravity="end"
                             android:layout_marginEnd="@dimen/_20sdp"/>
@@ -133,15 +131,17 @@
                         android:layout_marginHorizontal="@dimen/_20sdp"
                         android:background="#E1E1E1"/>
 
+
                     <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/vechicle_text"
                         android:text="Vechicle List"
                         android:layout_below="@id/linear23"
                         android:textSize="@dimen/_8ssp"
+                        android:textColor="#292929"
                         android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:fontFamily="@font/poppins_medium"/>
 
                     <androidx.recyclerview.widget.RecyclerView
