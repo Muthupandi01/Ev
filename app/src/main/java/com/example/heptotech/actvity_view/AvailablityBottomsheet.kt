@@ -70,9 +70,9 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
     lateinit var checkSumValue:String
 
+    //    private lateinit var sharedPreferences: SharedPreferences
+    //    private lateinit var myEdit: SharedPreferences.Editor
 
-//    private lateinit var sharedPreferences: SharedPreferences
-//    private lateinit var myEdit: SharedPreferences.Editor
 
     lateinit var endTimEditText: EditText
     lateinit var startTimeEditText: EditText
@@ -136,7 +136,7 @@ class AvailablityBottomsheet : AppCompatActivity() {
             if (validateLastTimeSlot()) {
                 addTimeSlotView()
             } else {
-                Toast.makeText(this, "Please fill both start and end times", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "Please fill both start and end times", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -236,12 +236,15 @@ class AvailablityBottomsheet : AppCompatActivity() {
             showTimePickerDialogend(endTimeEditText)
         }
 
+
         // Add the initial view to the layout
         addview.addView(initialView)
         val deleteButton: ImageView = initialView.findViewById(R.id.delete)
         deleteButton.setOnClickListener {
-            startTimeEditText.setText("")
+                        startTimeEditText.setText("")
             endTimeEditText.setText("")
+            addview.removeView(addview)
+
         }
     }
 
