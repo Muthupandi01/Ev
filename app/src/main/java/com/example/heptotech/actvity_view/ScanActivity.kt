@@ -1,8 +1,10 @@
 package com.example.heptotech.actvity_view
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -16,6 +18,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.heptotech.R
@@ -48,6 +51,7 @@ class ScanActivity : AppCompatActivity() {
     // Flag to check if BottomSheetDialog is already shown
     private var isBottomSheetShown = false
     private var isFlashOn = false
+    private val CAMERA_PERMISSION_REQUEST_CODE = 100
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,12 +82,19 @@ class ScanActivity : AppCompatActivity() {
         animationDrawable.start()
 
 
-
-
-        // Set up the QR code scanner
-        scannerView.decodeContinuous { result ->
-            handleScanResult(result.text)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_REQUEST_CODE)
+        } else {
+            initializeScanner()
         }
+
+//        // Set up the QR code scanner
+//        scannerView.decodeContinuous { result ->
+//            handleScanResult(result.text)
+//        }
 
         // Handle flashlight toggle
         flash.setOnClickListener {
@@ -131,6 +142,13 @@ class ScanActivity : AppCompatActivity() {
             parentMain.isVisible = true
             continueparent.isVisible = false
             dummyparent.isVisible = true
+        }
+    }
+
+    private fun initializeScanner() {
+        // Set up the QR code scanner
+        scannerView.decodeContinuous { result ->
+            handleScanResult(result.text)
         }
     }
 
@@ -256,6 +274,25 @@ class ScanActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         startActivity(Intent(this@ScanActivity, ViewVehicles::class.java))
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST_CODE -> {
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Permission granted, start scanning
+                    initializeScanner()
+                } else {
+                    // Permission denied, close the activity
+                    finish()
+                }
+            }
+        }
     }
 
     override fun onResume() {

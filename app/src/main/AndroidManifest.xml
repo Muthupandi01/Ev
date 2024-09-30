@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.heptotech">
-
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -26,7 +24,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Private Station"
+        android:label="Vehicle Registartion"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
@@ -103,11 +101,11 @@
         <activity
             android:name=".actvity_view.OrderDetails"
             android:exported="false" />
-        <activity android:name=".actvity_view.RegistrationListGet" />
+        <activity android:name=".actvity_view.PrivateStation" />
         <activity
-            android:name=".actvity_view.PrivateStation"
+            android:name=".actvity_view.RegistrationListGet"
             android:exported="true"
-            android:label="Private Station">
+            android:label="Vehicle Registration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
