@@ -403,7 +403,6 @@
         <LinearLayout
             android:id="@+id/timeLay2"
             android:visibility="gone"
-            android:layout_marginHorizontal="@dimen/_7sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:paddingVertical="@dimen/_10ssp"
             android:layout_width="match_parent"
@@ -411,10 +410,12 @@
             android:orientation="vertical">
 
             <View
+                android:layout_marginHorizontal="@dimen/_7sdp"
                 android:layout_width="match_parent"
                 android:background="@drawable/line_271_ev"
                 android:layout_height="1dp"/>
             <TextView
+                android:layout_marginHorizontal="@dimen/_7sdp"
                 android:paddingHorizontal="@dimen/dp_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -427,18 +428,20 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginTop="@dimen/_5ssp"
+                android:layout_marginHorizontal="@dimen/_7sdp"
                 android:id="@+id/slotrec"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
             <LinearLayout
-                android:layout_marginTop="@dimen/_5ssp"
+                android:layout_marginHorizontal="@dimen/_5ssp"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:paddingHorizontal="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/_5ssp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
@@ -449,9 +452,9 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textSize="@dimen/_7ssp" />
                 <TextView
-                    android:paddingHorizontal="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/_3ssp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
@@ -462,9 +465,9 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textSize="@dimen/_7ssp" />
                 <TextView
-                    android:paddingHorizontal="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/_3ssp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
@@ -476,9 +479,9 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textSize="@dimen/_7ssp" />
                 <TextView
-                    android:paddingHorizontal="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/_3ssp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
@@ -489,7 +492,7 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textSize="@dimen/_7ssp" />
 
             </LinearLayout>
 
