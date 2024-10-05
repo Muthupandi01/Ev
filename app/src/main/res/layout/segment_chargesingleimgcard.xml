@@ -1,28 +1,24 @@
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_10sdp"
-    android:background="@drawable/rectangle_34624315_ev"
+
     >
 
     <!-- Left ImageView -->
     <!-- Right ImageView -->
 
-
-
     <!-- Center LinearLayout with TextViews -->
     <LinearLayout
+        android:layout_gravity="center"
         android:id="@+id/textContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/newImageView"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5">
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/modalName"
@@ -31,7 +27,7 @@
             android:fontFamily="@font/poppins_medium"
             android:text="Tesla Model X"
             android:textColor="@color/commontxtcolor"
-            android:textSize="@dimen/_11ssp"
+            android:textSize="@dimen/_10ssp"
             android:textStyle="bold" />
 
         <TextView
@@ -72,18 +68,14 @@
 
     <!-- New ImageView next to textContainer -->
     <ImageView
+        android:layout_gravity="center"
         android:id="@+id/newImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:backgroundTint="@color/black"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="@dimen/_2ssp"
+        android:scaleType="fitCenter"
         android:src="@drawable/pngwingnew"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textContainer"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

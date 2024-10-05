@@ -74,7 +74,7 @@
                             android:layout_marginTop="@dimen/dp_2"
                             android:text="kWh"
                             android:textColor="@color/commontxtcolor"
-                            android:textSize="@dimen/_11ssp" />
+                            android:textSize="@dimen/_10ssp" />
 
                         <!-- TextView for the unit -->
                         <TextView
@@ -85,11 +85,12 @@
                             android:layout_marginTop="@dimen/dp_2"
                             android:text=" (40%)"
                             android:textColor="@color/commontxtcolor"
-                            android:textSize="@dimen/_12ssp"/>
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
                     <TextView
                         android:paddingHorizontal="@dimen/dp_5"
                         android:paddingVertical="@dimen/dp_5"
+                        android:textSize="@dimen/_9ssp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="100"
@@ -147,7 +148,7 @@
                             android:layout_marginTop="@dimen/dp_2"
                             android:text="Duration"
                             android:textColor="@color/commontxtcolor"
-                            android:textSize="@dimen/_11ssp" />
+                            android:textSize="@dimen/_10ssp" />
 
                         <!-- TextView for the unit -->
                         <TextView
@@ -166,6 +167,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="2 hrs"
+                        android:textSize="@dimen/_9ssp"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         />
@@ -216,7 +218,7 @@
                             android:layout_marginTop="@dimen/dp_2"
                             android:text="Fee"
                             android:textColor="@color/commontxtcolor"
-                            android:textSize="@dimen/_11ssp"
+                            android:textSize="@dimen/_10ssp"
                             android:layout_marginEnd="@dimen/dp_2" />
 
                         <!-- TextView for the unit -->
@@ -236,6 +238,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="UGX 73,000"
+                        android:textSize="@dimen/_9ssp"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         />
@@ -302,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:text="Start Time"
                     android:fontFamily="@font/poppins_medium"
-                    android:textSize="@dimen/_12ssp"/>
+                    android:textSize="@dimen/_11ssp"/>
                 <TextView
                     android:textColor="#E8656565"
                     android:layout_margin="@dimen/_10ssp"
@@ -310,7 +313,7 @@
                     android:layout_height="wrap_content"
                     android:text="End Time"
                     android:fontFamily="@font/poppins_medium"
-                    android:textSize="@dimen/_12ssp"/>
+                    android:textSize="@dimen/_11ssp"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/addview"

@@ -21,6 +21,7 @@
         android:focusable="true"
         android:padding="@dimen/_2ssp"
         android:backgroundTint="@color/black"
+        app:tint="#25314C"
         android:src="@drawable/angle_left_circle_ev"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
