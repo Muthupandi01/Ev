@@ -61,7 +61,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         current_loctions.setOnClickListener {
             //Selva bro intent
 
-        // startActivity(Intent(this, VehicleSpecificOpenBooking::class.java))
+         startActivity(Intent(this, IphoneRouteplan::class.java))
 
         }
 
