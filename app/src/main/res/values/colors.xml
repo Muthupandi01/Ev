@@ -65,6 +65,6 @@
     <color name="ride_later">#25314C</color>
     <color name="return_journey">#0897FF</color>
     <color name="one_way">#292929</color>
-
+    <color name="disable">#CFCFCF</color>
 
 </resources>
