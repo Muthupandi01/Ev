@@ -124,6 +124,7 @@
         <activity android:name=".actvity_view.ActivityRoorConform" />
         <activity android:name=".actvity_view.ActivtyCalculateRoot" />
         <activity android:name=".actvity_view.ActivityRouteOption" />
+        <activity android:name=".actvity_view.VehicleSpecificOpenBooking" />
     </application>
 
 </manifest>
