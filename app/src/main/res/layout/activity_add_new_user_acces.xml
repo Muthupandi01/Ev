@@ -363,8 +363,6 @@
             android:layout_marginStart="20dp"
             android:gravity="center"
             android:id="@+id/linearconform"
-
-
             android:layout_marginEnd="20dp"
             android:background="@drawable/conform_rectangle"
             android:layout_weight="1"

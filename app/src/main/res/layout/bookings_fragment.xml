@@ -42,9 +42,9 @@
 
             <com.example.heptotech.customclass.PillView
                 android:id="@+id/pillView"
-                android:layout_width="@dimen/_48sdp"
+                android:layout_width="@dimen/_55sdp"
                 android:layout_gravity="center"
-                android:layout_height="@dimen/_7ssp"
+                android:layout_height="@dimen/_8ssp"
                 android:layout_margin="@dimen/_5ssp"/>
 
 
@@ -803,8 +803,8 @@
                     <LinearLayout
                         android:id="@+id/pauseresumelnr"
                         android:layout_width="wrap_content"
-                        android:background="@drawable/rectangle_34624412_exit_ev"
-                        android:backgroundTint="#F77F00"
+                        android:background="@drawable/rectangle_34624412_reschdeule_ev"
+
 
                         android:gravity="center"
                         android:layout_height="wrap_content"

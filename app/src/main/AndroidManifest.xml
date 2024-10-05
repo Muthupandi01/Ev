@@ -58,9 +58,6 @@
         <activity
             android:name=".activity_view.IphoneMap"
             android:exported="false" />
-
-
-
         <activity
             android:name=".actvity_view.AddsiteAdddresAdd"
             android:exported="false" />
@@ -104,17 +101,9 @@
         <activity
             android:name=".actvity_view.OrderDetails"
             android:exported="false" />
-        <activity android:name=".actvity_view.PrivateStation"/>
-
-
-        <activity android:name=".actvity_view.ActivityRoorConform"/>
-        <activity android:name=".actvity_view.ActivtyCalculateRoot"/>
-        <activity android:name=".actvity_view.ActivityAddstop"/>
-        <activity android:name=".actvity_view.RootPlanScreen"/>
-        <activity android:name=".actvity_view.ActivityRouteOption"/>
-
+        <activity android:name=".actvity_view.PrivateStation" />
         <activity
-            android:name=".actvity_view.IphoneRouteplan"
+            android:name=".actvity_view.RegistrationListGet"
             android:exported="true"
             android:label="Vehicle Registration">
             <intent-filter>

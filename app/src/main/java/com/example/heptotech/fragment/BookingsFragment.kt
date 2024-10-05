@@ -73,6 +73,8 @@ class BookingsFragment : Fragment() {
 //        animator1.start()
 
         // Create a vertical gradient drawable
+
+
         val gradientDrawable = GradientDrawable(
             GradientDrawable.Orientation.TR_BL,
             intArrayOf(0xFFF64C35.toInt(), 0xFFF77F00.toInt(), 0xFFFDCA17.toInt(), 0xFFF64C35.toInt())
@@ -115,9 +117,11 @@ class BookingsFragment : Fragment() {
             if (pauseresumetxt.text == "Resume") {
                 pauseresumetxt.text = "Pause"
                 pauseresumeimg.setImageResource(R.drawable.pause_ev)
+                pauseresumelnr.setBackgroundResource(R.drawable.rectangle_34624412_reschdeule_ev)
             } else {
                 pauseresumetxt.text = "Resume"
                 pauseresumeimg.setImageResource(R.drawable.baseline_play_circle_outline_24_ev)
+                pauseresumelnr.setBackgroundResource(R.drawable.rectangle_34624412_exit_ev)
             }
         }
 
