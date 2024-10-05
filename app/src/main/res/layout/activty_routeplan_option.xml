@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20sdp"
+           >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Route Plan"
+        android:id="@+id/route_text"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:id="@+id/linear_status"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_below="@id/route_text"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/rectangle_34624345__1_ev"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rectangle_34624345__1_ev"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_5sdp"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rectangle_34624345_ev"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_5sdp"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rectangle_34624347_ev"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_5sdp"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rectangle_34624347_ev"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_5sdp"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative_telsa"
+        android:layout_below="@id/linear_status"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:background="@drawable/rectangle_315_ev"
+        android:layout_marginEnd="@dimen/_20sdp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/left_angle"
+            android:src="@drawable/angle_left_circle_ev"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/left_angle"
+            android:text="Telsa Model X"
+            android:textStyle="bold"
+            android:id="@+id/telsa_text"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="#292929"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/uganda_text"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_below="@id/telsa_text"
+            android:layout_toRightOf="@id/left_angle"
+            android:text="12,Kambala,Uganda"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="#333333"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_below="@id/uganda_text"
+            android:layout_toRightOf="@id/left_angle"
+            android:text="Battery:75"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_9ssp"
+            android:textColor="#333333"/>
+        <ImageView
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_110sdp"
+            android:id="@+id/car_png"
+            android:layout_toRightOf="@id/uganda_text"
+            android:src="@drawable/pngcar3"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/car_png"
+
+            android:src="@drawable/angle_left_circle__1_ev"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/linear_miles"
+        android:orientation="horizontal"
+        android:layout_below="@id/relative_telsa"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orricial_text"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="#25314C"
+            android:text="Official Ev Range" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+
+                android:weightSum="2">
+            <EditText
+                android:layout_width="0dp"
+                android:hint="0"
+                android:textSize="@dimen/_10ssp"
+                android:inputType="number"
+                android:fontFamily="@font/poppins_medium"
+               android:paddingStart="@dimen/_8sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/rectangle_351__1_ev"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/rectangle_377_ev">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Miles"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#000000"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#25314C"
+            android:text="Real EV Range"
+            />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                 android:layout_marginTop="@dimen/_10sdp"
+                android:weightSum="2">
+                <EditText
+                    android:layout_width="0dp"
+                    android:paddingStart="@dimen/_7sdp"
+                    android:hint="0"
+                    android:textSize="@dimen/_10ssp"
+
+                    android:fontFamily="@font/poppins_medium"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/rectangle_351__1_ev"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/rectangle_377_ev">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Miles"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#000000"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Routing Mode"
+        android:id="@+id/route_mode"
+        android:layout_below="@id/linear_miles"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="#25314C"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/route_mode"
+        android:id="@+id/autoroute"
+        android:weightSum="4"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/_5sdp"
+
+            android:orientation="vertical"
+            android:background="@drawable/rectangle_379_ev">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/check_circle__2_ev"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Autoroute"
+                android:textColor="#000000"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:textSize="@dimen/_8ssp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:background="@drawable/rectangle_380_ev">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/check_circle__3_ev"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+
+                android:text="Suggest chargers"
+                android:textColor="#0897FF"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:textSize="@dimen/_8ssp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+
+            android:orientation="vertical"
+            android:background="@drawable/rectangle_379_ev">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/check_circle__2_ev"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Show all Chargers"
+                android:textColor="#000000"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:textSize="@dimen/_8ssp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/autoroute"
+        android:id="@+id/more_text"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/rectangle_382_ev"
+        android:text="More Options"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="#F77F00"
+      android:padding="@dimen/_5sdp"
+        android:drawableEnd="@drawable/angle_down_small_ev"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_medium"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startourney_text"
+        android:visibility="gone"
+        android:text="Battery Charge on journey "
+        android:layout_below="@id/more_text"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="#25314C"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="% charge at start of journey  "
+        android:id="@+id/charge_text"
+        android:visibility="gone"
+        android:layout_below="@id/startourney_text"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_9ssp"
+        android:textColor="#25314C"/>
+
+    <TextView
+        android:id="@+id/tect"
+        android:layout_below="@id/charge_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:text="50"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+
+        android:background="@drawable/bg_ev"
+        android:textSize="@dimen/_5ssp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- SeekBar with percentage values -->
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+
+         android:thumb="@drawable/ellipse_ev"
+
+        android:layout_below="@id/tect"
+        android:max="100"
+        android:progress="50"
+        android:splitTrack="false"
+        android:layout_marginTop="@dimen/_1sdp" />
+
+    <!-- Labels with small vertical lines -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/seekBar"
+        android:visibility="gone"
+        android:id="@+id/chage"
+
+        android:layout_marginRight="@dimen/_18ssp"
+        android:weightSum="10"
+        android:gravity="center"
+       >
+
+        <!-- Container for each tick mark and label (0 - 100) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+
+            android:gravity="center">
+
+            <!-- Small vertical line -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Text label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="0"
+                 />
+        </LinearLayout>
+
+        <!-- Repeat the structure for each interval (10, 20, 30, etc.) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="@dimen/_5ssp"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="20"
+                />
+        </LinearLayout>
+
+        <!-- Repeat for other intervals (30, 40, 50, ..., 100) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+
+
+                android:text="30"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="40"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="50"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="60"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="70"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="80"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:text="90"
+                 />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_5ssp"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:text="100"
+                 />
+        </LinearLayout>
+    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/poppins_medium"
+               android:visibility="gone"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:id="@+id/number"
+                android:layout_below="@id/chage"
+
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="% Charge at arriving at charge stop "
+                android:textSize="@dimen/_9ssp"/>
+            <TextView
+                android:id="@+id/tectss"
+                android:layout_below="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:text="50"
+                android:layout_marginStart="@dimen/_7sdp"
+
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_ev"
+                android:textSize="@dimen/_5ssp"
+                android:layout_gravity="center_horizontal"/>
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                android:thumb="@drawable/ellipse_ev"
+
+                android:layout_below="@id/tectss"
+                android:max="100"
+                android:progress="50"
+                android:splitTrack="false"
+                android:layout_marginTop="@dimen/_1sdp" />
+
+            <!-- Labels with small vertical lines -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_below="@id/seekBar1"
+                android:id="@+id/numbers"
+                android:layout_marginRight="@dimen/_18ssp"
+                android:weightSum="10"
+                android:gravity="center"
+                >
+
+                <!-- Container for each tick mark and label (0 - 100) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+
+                    android:gravity="center">
+
+                    <!-- Small vertical line -->
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- Text label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="0"
+                        />
+                </LinearLayout>
+
+                <!-- Repeat the structure for each interval (10, 20, 30, etc.) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textSize="@dimen/_5ssp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="20"
+                        />
+                </LinearLayout>
+
+                <!-- Repeat for other intervals (30, 40, 50, ..., 100) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+
+
+                        android:text="30"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="40"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="50"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="60"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="70"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="80"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="90"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:layout_gravity="end"
+                        android:gravity="end"
+                        android:text="100"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:id="@+id/chagess"
+                android:layout_below="@id/numbers"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="% Charge after each charge stop "
+                android:textSize="@dimen/_9ssp"/>
+            <TextView
+                android:id="@+id/tectsss"
+                android:layout_below="@+id/chagess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:text="50"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+
+                android:background="@drawable/bg_ev"
+                android:textSize="@dimen/_5ssp"
+                android:layout_gravity="center_horizontal"/>
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                android:thumb="@drawable/ellipse_ev"
+
+                android:layout_below="@id/tectsss"
+                android:max="100"
+                android:progress="50"
+                android:splitTrack="false"
+                android:layout_marginTop="@dimen/_1sdp" />
+
+            <!-- Labels with small vertical lines -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/seekBar2"
+                android:visibility="gone"
+                android:id="@+id/numberss"
+                android:layout_marginRight="@dimen/_18ssp"
+                android:weightSum="10"
+                android:gravity="center"
+                >
+
+                <!-- Container for each tick mark and label (0 - 100) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+
+                    android:gravity="center">
+
+                    <!-- Small vertical line -->
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- Text label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="0"
+                        />
+                </LinearLayout>
+
+                <!-- Repeat the structure for each interval (10, 20, 30, etc.) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textSize="@dimen/_5ssp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="20"
+                        />
+                </LinearLayout>
+
+                <!-- Repeat for other intervals (30, 40, 50, ..., 100) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+
+
+                        android:text="30"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="40"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="50"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="60"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="70"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="80"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:text="90"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_5ssp"
+                        android:layout_gravity="end"
+                        android:gravity="end"
+                        android:text="100"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/numberss"
+                android:id="@+id/search_text"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:visibility="gone"
+                android:text="Charge Search Option"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="#25314C"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_text"
+                android:id="@+id/Distance_text"
+                android:visibility="gone"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_9ssp"
+                android:textColor="#25314C"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="Distance From route"/>
+            <TextView
+                android:id="@+id/tect_miles"
+                android:layout_below="@id/Distance_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center"
+                android:textColor="@color/white"
+
+                android:fontFamily="@font/poppins_medium"
+                android:text="50 miles"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_ev"
+                android:textSize="@dimen/_5ssp"
+                android:layout_gravity="center_horizontal"/>
+            <SeekBar
+                android:id="@+id/seekBar4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                android:thumb="@drawable/ellipse_ev"
+
+                android:layout_below="@id/tect_miles"
+                android:max="100"
+                android:progress="50"
+                android:splitTrack="false"
+                android:layout_marginTop="@dimen/_1sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekBar4"
+                android:id="@+id/range_text"
+                android:visibility="gone"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_9ssp"
+                android:textColor="#25314C"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="Distance from Max Drive range"/>
+            <TextView
+                android:id="@+id/tect_max"
+                android:layout_below="@id/range_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:text="50 miles"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+               android:layout_centerInParent="true"
+                android:background="@drawable/bg_ev"
+                android:textSize="@dimen/_5ssp"
+                android:layout_gravity="center_horizontal"/>
+            <SeekBar
+                android:id="@+id/seekBar5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                android:thumb="@drawable/ellipse_ev"
+
+                android:layout_below="@id/tect_max"
+                android:max="100"
+                android:progress="50"
+                android:splitTrack="false"
+                android:layout_marginTop="@dimen/_1sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekBar5"
+                android:id="@+id/range_textss"
+                android:visibility="gone"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_9ssp"
+                android:textColor="#25314C"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="Distance from Max Drive range"/>
+            <TextView
+                android:id="@+id/tect_maxs"
+                android:layout_below="@id/range_textss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:text="10 Locations"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_ev"
+                android:textSize="@dimen/_5ssp"
+                android:layout_gravity="center_horizontal"/>
+            <SeekBar
+                android:id="@+id/seekBar6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                android:thumb="@drawable/ellipse_ev"
+
+                android:layout_below="@id/tect_maxs"
+                android:max="10"
+                android:progress="5"
+                android:splitTrack="false"
+                android:layout_marginTop="@dimen/_1sdp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekBar6">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rectangle_34624370__2_ev"
+                android:text="Confirm"
+
+                android:gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/_20sdp"/>
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+        </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+</RelativeLayout>

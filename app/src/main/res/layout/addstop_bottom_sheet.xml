@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_shape_ev">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Route name"
+        android:id="@+id/route_text"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#25314C"
+        android:textSize="@dimen/_11ssp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_below="@id/route_text"
+        android:id="@+id/route_edit"
+        android:textSize="@dimen/_9ssp"
+        android:padding="@dimen/_10ssp"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Enter name for the routet"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:background="@drawable/rectangle_356_ev"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_below="@id/route_edit"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Save"
+        android:background="@drawable/rectangle_34624370__2_ev"/>
+
+
+</RelativeLayout>
