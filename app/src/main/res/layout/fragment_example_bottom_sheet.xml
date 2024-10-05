@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_shape_ev">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/times_circle__4_ev"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Ride Start Date"
+        android:id="@+id/start_date"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:textColor="#25314C"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear_main"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:weightSum="2"
+        android:layout_below="@id/start_date"
+        android:background="@drawable/rectangle_34624366_ev"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:id="@+id/linear_date"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- NumberPicker for hour selection -->
+            <NumberPicker
+                android:id="@+id/monthPicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/_5sdp" />
+
+
+
+            <!-- NumberPicker for minute selection -->
+            <NumberPicker
+                android:id="@+id/datePicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_weight="1" />
+
+
+
+            <!-- NumberPicker for AM/PM selection -->
+            <NumberPicker
+                android:id="@+id/yearPicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:id="@+id/linear_time"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <!-- NumberPicker for hour selection -->
+                <NumberPicker
+                    android:id="@+id/time_picker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="@dimen/_5sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text=":"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+                <!-- NumberPicker for minute selection -->
+                <NumberPicker
+                    android:id="@+id/minute_Picker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_weight="1" />
+
+
+
+                <!-- NumberPicker for AM/PM selection -->
+                <NumberPicker
+                    android:id="@+id/am_PmPicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_main"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Done"
+        android:id="@+id/done_text"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:background="@drawable/rectangle_34624370_ev"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_centerInParent="true"/>
+
+
+
+</RelativeLayout>

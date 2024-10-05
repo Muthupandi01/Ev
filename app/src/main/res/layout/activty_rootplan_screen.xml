@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Route Plan"
+        android:id="@+id/route_text"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/route_text"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/rectangle_356__2_ev">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapimg"
+            android:layout_marginStart="@dimen/_5sdp"
+
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:src="@drawable/map_png"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mapimg"
+            android:text="Kambala Route"
+            android:id="@+id/kambala_text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#25314C"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/delete_img"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_below="@id/mapimg"
+            android:src="@drawable/group_931_ev"
+            android:layout_alignParentEnd="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mapimg"
+            android:layout_toLeftOf="@id/delete_img"
+            android:src="@drawable/group_932_sv"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/kambala_text"
+            android:id="@+id/airport_text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_8ssp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:drawableStart="@drawable/group_427318913_ev"
+            android:text="Entebbe International airport"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/airport_text"
+            android:id="@+id/airport_text1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_8ssp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:drawableStart="@drawable/location_pin_ev"
+            android:text="Kambala City"/>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/rectangle_34624370__2_ev"
+        android:text="Crate a Route Plan"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"/>
+
+</RelativeLayout>

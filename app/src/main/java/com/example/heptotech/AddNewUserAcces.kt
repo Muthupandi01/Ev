@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import com.example.heptotech.activity_view.AccessBottomsheet
+import com.example.heptotech.actvity_view.IphoneRouteplan
 
 class AddNewUserAcces : AppCompatActivity() {
 
@@ -58,7 +59,7 @@ class AddNewUserAcces : AppCompatActivity() {
 
         confirmLayout.setOnClickListener {
             if (checkConditions()) {
-                startActivity(Intent(this, AccessBottomsheet::class.java))
+                startActivity(Intent(this, IphoneRouteplan::class.java))
             }
         }
 

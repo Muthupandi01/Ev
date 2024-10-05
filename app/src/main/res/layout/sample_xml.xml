@@ -1,0 +1,93 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/rectnagle_243"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/rectangle_34624243_ev"
+        android:padding="@dimen/_20sdp">
+
+        <ImageView
+            android:id="@+id/radio_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/group_427318913_ev" />
+
+        <EditText
+            android:id="@+id/search_text"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_toRightOf="@id/radio_search"
+            android:background="@drawable/rectangle_34624356_ev"
+            android:fontFamily="@font/poppins_medium"
+
+            android:gravity="center_vertical"
+            android:hint="Search Location"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_10ssp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:id="@+id/edit"
+            android:hint="Stop 1"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:layout_below="@id/search_text"
+            android:layout_toRightOf="@id/location_svg"
+            android:background="@drawable/rectangle_34624351__2_ev"/>
+
+        <ImageView
+            android:id="@+id/line_274"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radio_search"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:src="@drawable/line_274" />
+
+        <ImageView
+            android:id="@+id/location_svg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line_274"
+            android:layout_marginTop="@dimen/_3sdp"
+
+            android:src="@drawable/location_pin_ev" />
+
+        <EditText
+            android:id="@+id/your_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit"
+            android:layout_marginStart="@dimen/_5sdp"
+
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_toRightOf="@id/location_svg"
+            android:background="@drawable/rectangle_34624356_ev"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="Your Destination"
+            android:padding="@dimen/_8sdp"
+
+            android:textSize="@dimen/_10ssp" />
+    </RelativeLayout>
+
+
+    </RelativeLayout>
