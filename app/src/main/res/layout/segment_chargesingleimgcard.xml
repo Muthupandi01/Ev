@@ -15,7 +15,8 @@
     <LinearLayout
         android:layout_gravity="center"
         android:id="@+id/textContainer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
@@ -34,7 +35,6 @@
             android:id="@+id/AddressTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:fontFamily="@font/poppins_medium"
             android:text="12, Kampala, Uganda"
             android:textSize="@dimen/_10ssp" />
