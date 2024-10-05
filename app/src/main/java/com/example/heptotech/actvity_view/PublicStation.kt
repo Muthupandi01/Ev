@@ -41,6 +41,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var imageView: ImageView
     private lateinit var currentLocationImageView: ImageView
+    private lateinit var current_loctions: ImageView
     private lateinit var fusedLocationClient: FusedLocationProviderClient
   var checkkey="Open"
 
@@ -51,9 +52,18 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         imageView = findViewById(R.id.group1)
         currentLocationImageView = findViewById(R.id.current_loction)
         topCenterText = findViewById(R.id.topCenterText)
+        current_loctions = findViewById(R.id.current_loctions)
 
         topCenterText.setOnClickListener {
             showImagePickerBottomSheet()
+        }
+
+        current_loctions.setOnClickListener {
+            //Selva bro intent
+
+           // startActivity(Intent(this, VehicleSpecificOpenBooking::class.java))
+
+
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -69,6 +79,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             getCurrentLocation()
         }
     }
+
 
     private fun showImagePickerBottomSheet() {
         val bottomSheetDialog = BottomSheetDialog(this)
