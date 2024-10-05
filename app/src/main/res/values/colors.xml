@@ -62,6 +62,7 @@
     <color name="default_coour">#CCCDCE</color>
     <color name="change_color">#02CD8D</color>
     <color name="thumb_color">#5C5C5C</color>
+    <color name="disable">#CFCFCF</color>
 
 
 </resources>

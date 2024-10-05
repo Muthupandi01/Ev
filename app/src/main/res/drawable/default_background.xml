@@ -1,5 +1,4 @@
-<!-- res/drawable/default_background.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/gray_common" />
-    <corners android:radius="12dp" />
+    <solid android:color="@android:color/transparent" />
+
 </shape>

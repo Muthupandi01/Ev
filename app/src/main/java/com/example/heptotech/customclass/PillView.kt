@@ -29,9 +29,10 @@ class PillView @JvmOverloads constructor(
 
     init {
         orientation = HORIZONTAL
-        background = createRoundedDrawable(Color.LTGRAY) // Apply curved edges to the entire PillView
+        background = createRoundedDrawable(Color.LTGRAY) // Apply curved edges to the entire PillView background
     }
 
+    // Dynamically add pills based on the number of pages
     private fun updateNumberOfPages(count: Int) {
         contentViews.forEach { removeView(it) }
         contentViews.clear()
@@ -40,29 +41,32 @@ class PillView @JvmOverloads constructor(
             val view = View(context).apply {
                 layoutParams = LayoutParams(0, dpToPx(10)).apply {
                     weight = 1f
-                    marginEnd = if (i < count - 1) dpToPx(0) else 0
+                    marginEnd = if (i < count - 1) dpToPx(8) else 0 // Spacing between pills
                 }
-                setBackgroundColor(Color.TRANSPARENT) // Make inner views transparent
+                background = createRoundedDrawable(Color.TRANSPARENT) // Set initial background with curved edges
                 this@PillView.addView(this)
             }
             contentViews.add(view)
         }
 
-        setTints(currentPage)
+        setTints(currentPage) // Initially set the tint based on current page
     }
 
+    // Set the black tint based on the current page index
     private fun setTints(idx: Int) {
         contentViews.forEachIndexed { index, view ->
-            view.setBackgroundColor(
-                if (index == idx) Color.BLACK else Color.TRANSPARENT
+            val isSelected = index == idx
+            view.background = createRoundedDrawable(
+                if (isSelected) Color.BLACK else Color.TRANSPARENT // Black for selected pill, transparent for others
             )
         }
     }
 
+    // Create a drawable with curved edges for each pill view
     private fun createRoundedDrawable(color: Int): GradientDrawable {
         return GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
-            cornerRadius = dpToPx(5).toFloat()
+            cornerRadius = dpToPx(5).toFloat() // Curved edges for the pill
             setColor(color)
         }
     }

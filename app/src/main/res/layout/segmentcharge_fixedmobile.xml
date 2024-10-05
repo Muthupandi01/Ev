@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_margin="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rectangle_34624287"
+        tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="@drawable/rectangle_34624319"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:background="@drawable/rectangle_34624318"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_marginStart="@dimen/_8ssp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_10ssp"
+                        android:layout_height="@dimen/_10ssp"
+                        android:src="@drawable/check_circle_ev"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:textSize="@dimen/_11ssp"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Fixed Station"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textColor="@color/commontxtcolor"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textSize="@dimen/_11ssp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Station"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_34624320"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <!-- Month and Year Display -->
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/monthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jul 2024"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal" />
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_34624315_ev"
+            >
+
+            <!-- Left ImageView -->
+            <ImageView
+                android:id="@+id/leftImageViewdate"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:padding="@dimen/_2ssp"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/angle_left_circle_ev"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_gravity="center" />
+
+            <!-- Right ImageView -->
+            <ImageView
+                android:id="@+id/rightImageViewdate"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/black"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/_2ssp"
+                android:src="@drawable/angle_right_circle_ev"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#25314C" />
+
+            <!-- Center LinearLayout with TextViews -->
+
+
+            <!-- New ImageView next to textContainer -->
+            <LinearLayout
+                android:padding="16dp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+               >
+
+                <!-- Date Picker RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dateRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
