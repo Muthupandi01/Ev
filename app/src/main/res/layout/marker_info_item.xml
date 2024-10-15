@@ -58,7 +58,7 @@
             android:layout_centerHorizontal="true"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:progressTint="#FFFF00"
+            android:progressTint="#FF006F"
             android:progressBackgroundTint="#D3D3D3"
             android:numStars="5"
             android:stepSize="1.0" />
@@ -132,6 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/img_3"
             android:id="@+id/type_Ac2"
+            android:textStyle="bold"
             android:layout_toLeftOf="@id/type_Ac1"
             android:textColor="@color/black"
             android:text="Type 3\n22Kw Ac"

@@ -1,5 +1,6 @@
 package com.example.heptotech.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+import com.example.heptotech.actvity_view.ActivityRestaurant
 import com.example.heptotech.bean_dataclass.MarkerInfo
 
 class MarkerAdapter (
@@ -47,6 +49,18 @@ class MarkerAdapter (
         holder.meter.text=item.meter
         if (position == selectedMarkerIndex) {
             holder.itemView.visibility = View.VISIBLE // Show the selected marker's details
+        }
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, ActivityRestaurant::class.java)
+
+
+            // You can pass data to the new activity if needed
+            intent.putExtra("title", item.title)
+            intent.putExtra("distance", item.distance)
+
+            context.startActivity(intent)
+
         }
     }
 

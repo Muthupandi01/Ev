@@ -104,7 +104,7 @@
         <activity android:name=".actvity_view.PrivateStation" />
         <activity android:name=".actvity_view.ActivityRouteOption"/>
         <activity
-            android:name=".actvity_view.ActivtyCalculateRoot"
+            android:name=".actvity_view.PublicStation"
            android:exported="true"
             android:label="Vehicle Registration"
            >
@@ -120,9 +120,9 @@
         <activity android:name=".activity_view.AvailablityBottomsheet" />
         <activity android:name=".actvity_view.UserModeCharge" />
         <activity android:name=".actvity_view.RegistrationListGet" />
-<activity android:name=".actvity_view.PublicStation"/>
+<activity android:name=".actvity_view.ActivityRestaurant"/>
         <activity android:name=".actvity_view.RootPlanScreen" />
-
+<activity android:name=".actvity_view.ActivtyCalculateRoot"/>
         <activity android:name=".actvity_view.ActivityRoorConform" />
        <activity android:name=".actvity_view.ActivityAddstop"/>
         <activity android:name=".actvity_view.IphoneRouteplan" />

@@ -14,7 +14,7 @@ class ActivtyCalculateRoot : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activty_location_charperpoint)
+        setContentView(R.layout.activity_calculate_root)
 
 
     }
