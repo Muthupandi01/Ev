@@ -114,6 +114,7 @@
         <activity android:name=".activity_view.AvailablityBottomsheet" />
         <activity android:name=".actvity_view.UserModeCharge" />
         <activity android:name=".actvity_view.RegistrationListGet" />
+        <activity android:name=".actvity_view.RoutePlanStarted"/>
 <activity android:name=".actvity_view.ActivityRestaurant"/>
         <activity android:name=".actvity_view.RootPlanScreen" />
 <activity android:name=".actvity_view.ActivtyCalculateRoot"/>
