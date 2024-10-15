@@ -102,10 +102,12 @@
             android:name=".actvity_view.OrderDetails"
             android:exported="false" />
         <activity android:name=".actvity_view.PrivateStation" />
+        <activity android:name=".actvity_view.ActivityRouteOption"/>
         <activity
-            android:name=".actvity_view.PublicStation"
-            android:exported="true"
-            android:label="Public Station">
+            android:name=".actvity_view.ActivtyCalculateRoot"
+           android:exported="true"
+            android:label="Vehicle Registration"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -118,12 +120,12 @@
         <activity android:name=".activity_view.AvailablityBottomsheet" />
         <activity android:name=".actvity_view.UserModeCharge" />
         <activity android:name=".actvity_view.RegistrationListGet" />
-        <activity android:name=".actvity_view.IphoneRouteplan" />
+<activity android:name=".actvity_view.PublicStation"/>
         <activity android:name=".actvity_view.RootPlanScreen" />
-        <activity android:name=".actvity_view.ActivityAddstop" />
+
         <activity android:name=".actvity_view.ActivityRoorConform" />
-        <activity android:name=".actvity_view.ActivtyCalculateRoot" />
-        <activity android:name=".actvity_view.ActivityRouteOption" />
+       <activity android:name=".actvity_view.ActivityAddstop"/>
+        <activity android:name=".actvity_view.IphoneRouteplan" />
         <activity android:name=".actvity_view.VehicleSpecificOpenBooking" />
     </application>
 

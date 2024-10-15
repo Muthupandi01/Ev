@@ -6,6 +6,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/delete_end"
         android:src="@drawable/times_circle__4_ev"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_alignParentEnd="true"

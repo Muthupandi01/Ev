@@ -2,6 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        android:fillViewport="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,9 +28,9 @@
         android:layout_height="wrap_content"
         android:weightSum="5"
         android:id="@+id/linear_status"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:layout_below="@id/route_text"
         android:orientation="horizontal">
         <ImageView
@@ -53,6 +63,17 @@
             android:layout_weight="1"
             android:layout_marginStart="@dimen/_5sdp"/>
     </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/cofirm_text"
+                android:layout_below="@id/linear_status"
+                android:text="Routes"
+                android:layout_marginStart="@dimen/_22sdp"
+                android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#0897FF"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,9 +81,9 @@
         android:id="@+id/ride_text"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/_30sdp"
-        android:layout_below="@id/linear_status"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp">
+        android:layout_below="@id/cofirm_text"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -106,7 +127,7 @@
         android:id="@+id/one_way"
         android:gravity="center"
 
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp">
         <ImageView
             android:layout_width="wrap_content"
@@ -135,7 +156,7 @@
         android:gravity="center"
         android:layout_toRightOf="@id/one_way"
         android:layout_below="@id/ride_text"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_20sdp">
         <ImageView
@@ -163,9 +184,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear_add"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:background="@drawable/rectangle_34624243_ev"
         android:padding="@dimen/_20sdp">
 
@@ -173,7 +194,7 @@
             android:id="@+id/radio_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+
 
 
             android:layout_marginTop="@dimen/_10sdp"
@@ -182,34 +203,48 @@
         <EditText
             android:id="@+id/search_text"
             android:layout_width="wrap_content"
-
+            android:maxLines="1"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_5sdp"
+
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_toRightOf="@id/radio_search"
             android:background="@drawable/rectangle_34624356_ev"
             android:fontFamily="@font/poppins_medium"
 
-            android:gravity="center_vertical"
+
             android:hint="Search Location"
             android:padding="@dimen/_8sdp"
             android:textSize="@dimen/_10ssp" />
 
         <ImageView
             android:id="@+id/line_274"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/radio_search"
             android:layout_marginStart="@dimen/_6sdp"
             android:layout_marginTop="@dimen/_3sdp"
             android:src="@drawable/line_274" />
-
-        <ImageView
-            android:id="@+id/location_svg"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stops_recycler_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/line_274"
-            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+
+            android:layout_below="@id/search_text"
+            android:layout_marginTop="@dimen/_17sdp"
+
+            android:visibility="visible"/>
+
+
+
+        <ImageView
+            android:id="@+id/locations_svg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@id/stops_recycler_view"
+            android:layout_marginTop="@dimen/_6sdp"
 
             android:src="@drawable/location_pin_ev" />
 
@@ -217,18 +252,17 @@
             android:id="@+id/your_destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/search_text"
-            android:layout_marginStart="@dimen/_5sdp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:layout_below="@id/stops_recycler_view"
 
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_toRightOf="@id/location_svg"
+            android:layout_toRightOf="@id/locations_svg"
             android:background="@drawable/rectangle_34624356_ev"
             android:fontFamily="@font/poppins_medium"
             android:hint="Your Destination"
             android:padding="@dimen/_8sdp"
-
+            android:layout_marginStart="@dimen/_8sdp"
             android:textSize="@dimen/_10ssp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -313,8 +347,8 @@
         android:layout_weight="1"
 
         android:id="@+id/linear_time"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:visibility="gone"
 
         android:layout_marginStart="@dimen/_20sdp"
@@ -350,7 +384,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:textColor="#777777"
-                android:layout_marginStart="@dimen/_10sdp"/>
+                android:layout_marginStart="@dimen/_8sdp"/>
         </LinearLayout>
 
 
@@ -364,11 +398,11 @@
 
 
 
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:visibility="visible"
 
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -400,7 +434,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:textColor="#777777"
-                android:layout_marginStart="@dimen/_10sdp"/>
+                android:layout_marginStart="@dimen/_8sdp"/>
         </LinearLayout>
 
 
@@ -414,7 +448,7 @@
         android:layout_height="wrap_content"
        android:layout_below="@id/linear1"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:text="Choose Route Options"
         android:textStyle="bold"
         android:textSize="@dimen/_11ssp"
@@ -451,6 +485,7 @@
         <ImageView
             android:layout_width="@dimen/_10sdp"
             android:layout_height="@dimen/_10sdp"
+            android:id="@+id/motor_img"
             android:src="@drawable/check_circle_ev"
 
 
@@ -486,12 +521,14 @@
         <ImageView
             android:layout_width="@dimen/_10sdp"
             android:layout_height="@dimen/_10sdp"
+            android:id="@+id/tolls_image"
             android:src="@drawable/ellipse_631_ev"
 
            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="Avoid Tolls"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
@@ -509,7 +546,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
 
-
+        android:id="@+id/avoid_ferr"
         android:padding="@dimen/_3sdp"
         android:gravity="center"
         android:layout_toRightOf="@id/avoid_tolls"
@@ -521,7 +558,7 @@
             android:layout_width="@dimen/_10sdp"
             android:layout_height="@dimen/_10sdp"
             android:src="@drawable/check_circle_ev"
-
+            android:id="@+id/feriies_img"
 
             android:layout_marginStart="@dimen/_5sdp"/>
         <TextView
@@ -553,8 +590,8 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/group_427318939_ev"
         android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"/>
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"/>
 
 
 </RelativeLayout>
@@ -565,7 +602,7 @@
 
 
 
-
-
+        </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

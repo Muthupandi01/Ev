@@ -18,9 +18,9 @@
         android:layout_height="wrap_content"
         android:weightSum="5"
         android:id="@+id/linear_status"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:layout_below="@id/route_text"
         android:orientation="horizontal">
         <ImageView

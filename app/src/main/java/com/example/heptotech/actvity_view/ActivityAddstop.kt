@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class ActivityAddstop : AppCompatActivity(),OnMapReadyCallback
 {
@@ -38,8 +39,13 @@ class ActivityAddstop : AppCompatActivity(),OnMapReadyCallback
         mapFragment.getMapAsync(this)
         stopText.setOnClickListener {
             val bottomSheetFragment = AddStopFragment()
-            bottomSheetFragment.show(supportFragmentManager, "AddStopFragment")
+          //  bottomSheetFragment.show(supportFragmentManager, "AddStopFragment")
+            val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
+            val bottomSheetView = layoutInflater.inflate(R.layout.addstop_bottom_sheet, null)
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.show()
         }
+
 
     }
 

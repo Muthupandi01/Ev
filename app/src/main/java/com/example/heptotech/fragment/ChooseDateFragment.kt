@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.NumberPicker
 import android.widget.TextView
 import com.example.heptotech.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class ChooseDateFragment : BottomSheetDialogFragment() {
@@ -31,7 +32,7 @@ class ChooseDateFragment : BottomSheetDialogFragment() {
 
         monthPicker.minValue = 1
         monthPicker.maxValue = 12
-        monthPicker.displayedValues = resources.getStringArray(R.array.months_array)
+        monthPicker.displayedValues = resources.getStringArray(R.array.monthstime_array)
         yearPicker.minValue = 1900
         yearPicker.maxValue = 2100
 

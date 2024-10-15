@@ -1,6 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-</LinearLayout>
+    <RatingBar
+        android:id="@+id/custom_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:rating="3"
+        android:progressDrawable="@drawable/custom_rating_selector"
+        android:minHeight="30dp"
+        android:maxHeight="30dp"
+        android:isIndicator="false"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/location_svg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:src="@drawable/ellipse_630_ev" />
+    <EditText
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="wrap_content"
+
+
+        android:id="@+id/edit"
+        android:visibility="visible"
+        android:layout_toRightOf="@id/location_svg"
+        android:maxLines="1"
+        android:hint="Stop 1"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:padding="@dimen/_8sdp"
+
+        android:background="@drawable/rectangle_34624351__2_ev"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete_stop"
+        android:src="@drawable/times_circle__6_ev"
+        android:layout_toRightOf="@id/edit"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"/>
+    <ImageView
+        android:id="@+id/line_274_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_below="@id/location_svg"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:src="@drawable/line_274" />
+
+
+</RelativeLayout>

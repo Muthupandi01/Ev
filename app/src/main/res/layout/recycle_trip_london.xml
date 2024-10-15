@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_406_sv"
+
+
+        >
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/img"
+            android:src="@drawable/maskgroup"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toRightOf="@id/img">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+
+                android:text="Restaurent"
+                android:textStyle="bold"
+                android:textSize="@dimen/_11ssp"
+
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_below="@id/rl"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/harl_text"
+                android:layout_toRightOf="@id/img"
+                android:text="Harrodes"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"/>
+
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@id/harl_text"
+
+                   android:layout_marginStart="@dimen/_98sdp"
+
+
+                    android:numStars="5"
+                    android:progressBackgroundTint="#D3D3D3"
+                    android:progressTint="#FFFF00"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:stepSize="1.0" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numbers_one"
+
+            android:text="38731"
+           android:layout_alignParentEnd="true"
+            android:textSize="@dimen/_8ssp"
+            android:fontFamily="@font/poppins_medium"
+           android:layout_below="@id/harl_text"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="@dimen/_5sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBar"
+            android:id="@+id/ten"
+
+            android:text="Open Hours:10:00 - 17.00"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/img"
+            android:layout_marginStart="@dimen/_17sdp"
+
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10ssp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/img"
+            android:layout_marginStart="@dimen/_17sdp"
+            android:layout_below="@id/ten"
+            android:textSize="@dimen/_10ssp"
+            android:text="Mobile Number: 123456789"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"/>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

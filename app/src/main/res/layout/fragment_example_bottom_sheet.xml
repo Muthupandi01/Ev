@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/top_shape_ev">
+    android:background="@drawable/rectangle_365__1_ev">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/delete_start"
         android:src="@drawable/times_circle__4_ev"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_alignParentEnd="true"

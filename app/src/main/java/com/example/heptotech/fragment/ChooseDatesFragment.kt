@@ -33,7 +33,7 @@ class ChooseDatesFragment : BottomSheetDialogFragment() {
 
         monthPickers.minValue = 1
         monthPickers.maxValue = 12
-        monthPickers.displayedValues = resources.getStringArray(R.array.months_array)
+        monthPickers.displayedValues = resources.getStringArray(R.array.monthstime_array)
         yearPickers.minValue = 1900
         yearPickers.maxValue = 2100
 

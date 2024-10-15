@@ -1,0 +1,83 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+
+    >
+
+    <!-- Left ImageView -->
+    <!-- Right ImageView -->
+
+    <!-- Center LinearLayout with TextViews -->
+    <LinearLayout
+        android:layout_gravity="center"
+        android:id="@+id/textContainer"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/modalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Tesla Model X"
+            android:textColor="@color/commontxtcolor"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/AddressTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="12, Kampala, Uganda"
+            android:textSize="@dimen/_9ssp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Battery : "
+                android:textColor="@color/commontxtcolor"
+                android:textSize="@dimen/_9ssp" />
+
+            <TextView
+                android:id="@+id/batterytxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:text="75%"
+                android:textColor="@color/greentxt"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- New ImageView next to textContainer -->
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/newImageView"
+        android:layout_width="@dimen/_100sdp"
+
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/black"
+
+        android:src="@drawable/pngwingnew"
+        />
+
+</LinearLayout>

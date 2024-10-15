@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,9 +36,9 @@
         android:layout_height="wrap_content"
         android:weightSum="5"
         android:id="@+id/linear_status"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:layout_below="@id/route_text"
         android:orientation="horizontal">
         <ImageView
@@ -70,71 +71,53 @@
             android:layout_weight="1"
             android:layout_marginStart="@dimen/_5sdp"/>
     </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/cofirm_text"
+                android:layout_below="@id/linear_status"
+                android:text="Options"
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#0897FF"/>
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/relative_telsa"
-        android:layout_below="@id/linear_status"
+        android:layout_below="@id/cofirm_text"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:background="@drawable/rectangle_315_ev"
-        android:layout_marginEnd="@dimen/_20sdp">
+        android:layout_marginEnd="@dimen/_15sdp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/left_angle"
             android:src="@drawable/angle_left_circle_ev"
+            android:backgroundTint="@color/black"
+            app:tint="#25314C"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_10sdp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/left_angle"
-            android:text="Telsa Model X"
-            android:textStyle="bold"
-            android:id="@+id/telsa_text"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="@dimen/_28sdp"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="#292929"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/uganda_text"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_below="@id/telsa_text"
-            android:layout_toRightOf="@id/left_angle"
-            android:text="12,Kambala,Uganda"
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="@dimen/_8ssp"
-            android:textColor="#333333"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_below="@id/uganda_text"
-            android:layout_toRightOf="@id/left_angle"
-            android:text="Battery:75"
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="@dimen/_9ssp"
-            android:textColor="#333333"/>
-        <ImageView
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_110sdp"
-            android:id="@+id/car_png"
-            android:layout_toRightOf="@id/uganda_text"
-            android:src="@drawable/pngcar3"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_10sdp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/car_png"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/carrec"
 
+            android:layout_toRightOf="@id/left_angle"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+           android:id="@+id/right_angle"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:src="@drawable/angle_left_circle__1_ev"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
@@ -149,8 +132,8 @@
         android:orientation="horizontal"
         android:layout_below="@id/relative_telsa"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp">
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -171,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/_10sdp"
+
 
                 android:weightSum="2">
             <EditText
@@ -259,8 +243,8 @@
         android:text="Routing Mode"
         android:id="@+id/route_mode"
         android:layout_below="@id/linear_miles"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/poppins_medium"
         android:textSize="@dimen/_10ssp"
@@ -272,13 +256,14 @@
         android:id="@+id/autoroute"
         android:weightSum="4"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/auto_route"
             android:layout_marginEnd="@dimen/_5sdp"
 
             android:orientation="vertical"
@@ -287,6 +272,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:id="@+id/auto_img"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:src="@drawable/check_circle__2_ev"/>
             <TextView
@@ -304,7 +290,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
-
+            android:id="@+id/suggest_charger"
             android:layout_marginEnd="@dimen/_5sdp"
             android:orientation="vertical"
             android:background="@drawable/rectangle_380_ev">
@@ -312,6 +298,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:id="@+id/suggest_img"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:src="@drawable/check_circle__3_ev"/>
             <TextView
@@ -330,13 +317,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
-
+            android:id="@+id/show_all"
             android:orientation="vertical"
             android:background="@drawable/rectangle_379_ev">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:id="@+id/show_img"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:src="@drawable/check_circle__2_ev"/>
             <TextView
@@ -355,7 +343,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/autoroute"
         android:id="@+id/more_text"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/rectangle_382_ev"
         android:text="More Options"
@@ -372,7 +360,7 @@
         android:visibility="gone"
         android:text="Battery Charge on journey "
         android:layout_below="@id/more_text"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/poppins_medium"
         android:textSize="@dimen/_10ssp"
@@ -384,7 +372,7 @@
         android:id="@+id/charge_text"
         android:visibility="gone"
         android:layout_below="@id/startourney_text"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/poppins_medium"
         android:textSize="@dimen/_9ssp"
@@ -403,9 +391,9 @@
         android:text="50"
         android:layout_marginStart="@dimen/_7sdp"
         android:layout_marginTop="@dimen/_5sdp"
-
+        android:textStyle="bold"
         android:background="@drawable/bg_ev"
-        android:textSize="@dimen/_5ssp"
+        android:textSize="@dimen/_6ssp"
         android:layout_gravity="center_horizontal"/>
 
     <!-- SeekBar with percentage values -->
@@ -676,7 +664,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/poppins_medium"
                android:visibility="gone"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:id="@+id/number"
                 android:layout_below="@id/chage"
 
@@ -695,10 +683,10 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="50"
                 android:layout_marginStart="@dimen/_7sdp"
-
+                android:textStyle="bold"
                 android:layout_centerInParent="true"
                 android:background="@drawable/bg_ev"
-                android:textSize="@dimen/_5ssp"
+                android:textSize="@dimen/_6ssp"
                 android:layout_gravity="center_horizontal"/>
             <SeekBar
                 android:id="@+id/seekBar1"
@@ -965,7 +953,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:id="@+id/chagess"
                 android:layout_below="@id/numbers"
                 android:visibility="gone"
@@ -985,9 +973,9 @@
                 android:text="50"
                 android:layout_marginStart="@dimen/_7sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-
+                android:textStyle="bold"
                 android:background="@drawable/bg_ev"
-                android:textSize="@dimen/_5ssp"
+                android:textSize="@dimen/_6ssp"
                 android:layout_gravity="center_horizontal"/>
             <SeekBar
                 android:id="@+id/seekBar2"
@@ -1257,7 +1245,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:visibility="gone"
                 android:text="Charge Search Option"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="@dimen/_10ssp"
@@ -1272,7 +1260,7 @@
                 android:textSize="@dimen/_9ssp"
                 android:textColor="#25314C"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:text="Distance From route"/>
             <TextView
@@ -1291,7 +1279,8 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/bg_ev"
-                android:textSize="@dimen/_5ssp"
+                android:textStyle="bold"
+                android:textSize="@dimen/_6ssp"
                 android:layout_gravity="center_horizontal"/>
             <SeekBar
                 android:id="@+id/seekBar4"
@@ -1316,7 +1305,7 @@
                 android:textSize="@dimen/_9ssp"
                 android:textColor="#25314C"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:text="Distance from Max Drive range"/>
             <TextView
@@ -1334,7 +1323,8 @@
                 android:layout_marginTop="@dimen/_5sdp"
                android:layout_centerInParent="true"
                 android:background="@drawable/bg_ev"
-                android:textSize="@dimen/_5ssp"
+                android:textSize="@dimen/_6ssp"
+                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"/>
             <SeekBar
                 android:id="@+id/seekBar5"
@@ -1359,7 +1349,7 @@
                 android:textSize="@dimen/_9ssp"
                 android:textColor="#25314C"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:text="Distance from Max Drive range"/>
             <TextView
@@ -1377,7 +1367,8 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/bg_ev"
-                android:textSize="@dimen/_5ssp"
+                android:textSize="@dimen/_6ssp"
+                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"/>
             <SeekBar
                 android:id="@+id/seekBar6"
@@ -1400,8 +1391,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/rectangle_34624370__2_ev"
                 android:text="Confirm"
