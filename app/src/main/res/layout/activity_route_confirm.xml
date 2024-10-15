@@ -164,6 +164,7 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_below="@+id/linea_mph"
+                android:id="@+id/con_text"
 
                 android:background="@drawable/rectangle_34624370__1_ev"
                 android:text="ConFirm"

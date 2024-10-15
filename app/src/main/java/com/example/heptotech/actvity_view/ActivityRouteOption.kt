@@ -1,5 +1,6 @@
 package com.example.heptotech.actvity_view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -42,6 +43,7 @@ class ActivityRouteOption : AppCompatActivity() {
     private lateinit var car_recycle: RecyclerView
     private lateinit var carAdapter: CarInfoAdapter
     private lateinit var route_option: RouteOptionAdapter
+    private lateinit var textView_con: TextView
     private var areViewsVisible = false
     var currentPosition = 0
 
@@ -64,6 +66,7 @@ class ActivityRouteOption : AppCompatActivity() {
         left_image=findViewById(R.id.left_angle)
         right_image=findViewById(R.id.right_angle)
         car_recycle=findViewById(R.id.carrec)
+        textView_con=findViewById(R.id.con1_text)
         val autoroute = findViewById<LinearLayout>(R.id.auto_route)
         val autoImg = autoroute.findViewById<ImageView>(R.id.auto_img)
 
@@ -111,6 +114,11 @@ class ActivityRouteOption : AppCompatActivity() {
                 showAll.setBackgroundResource(normalBackground)
             }
             isSelected = !isSelected  // Toggle the state
+        }
+        textView_con.setOnClickListener()
+        {
+            val intent = Intent(this, ActivtyCalculateRoot::class.java)
+            startActivity(intent)
         }
 
         val carLists = mutableListOf(

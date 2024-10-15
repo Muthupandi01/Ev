@@ -2,10 +2,12 @@ package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -28,11 +30,13 @@ class ActivityAddstop : AppCompatActivity(),OnMapReadyCallback
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var mMap: GoogleMap
     private lateinit var stopText:TextView
+    private lateinit var savetext:TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_stopstation)
+        savetext=findViewById(R.id.save_text)
         stopText=findViewById(R.id.stop_texts)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -42,8 +46,21 @@ class ActivityAddstop : AppCompatActivity(),OnMapReadyCallback
           //  bottomSheetFragment.show(supportFragmentManager, "AddStopFragment")
             val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
             val bottomSheetView = layoutInflater.inflate(R.layout.addstop_bottom_sheet, null)
+            val save = bottomSheetView.findViewById<TextView>(R.id.sa_text)
             bottomSheetDialog.setContentView(bottomSheetView)
             bottomSheetDialog.show()
+            save?.setOnClickListener()
+            {
+                bottomSheetDialog.dismiss()
+            }
+
+            }
+
+
+        savetext.setOnClickListener()
+        {
+            val intent = Intent(this, RootPlanScreen::class.java)
+            startActivity(intent)
         }
 
 

@@ -1,6 +1,8 @@
 package com.example.heptotech.actvity_view
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
@@ -26,14 +28,22 @@ import com.google.android.gms.maps.model.MarkerOptions
 class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var mMap: GoogleMap
+    private lateinit var confirm_text:TextView
 
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_route_confirm)
         val circleImageView: ImageView = findViewById(R.id.cicle)
         val relativeLayout: RelativeLayout = findViewById(R.id.relative)
+        confirm_text=findViewById(R.id.con_text)
+        confirm_text.setOnClickListener()
+        {
+            val intent = Intent(this, ActivityRouteOption::class.java)
+            startActivity(intent)
+        }
         circleImageView.setOnClickListener {
 
             relativeLayout.visibility = View.GONE

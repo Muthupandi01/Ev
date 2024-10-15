@@ -2,6 +2,7 @@ package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +32,7 @@ class ActivityRestaurant : AppCompatActivity()
     private lateinit var back_image:ImageView
 
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,7 @@ class ActivityRestaurant : AppCompatActivity()
         char_chat=findViewById(R.id.card_chat)
         chat_textView=findViewById(R.id.chat_text)
         back_image=findViewById(R.id.back_img)
+
         card_amen.setOnClickListener()
         {
             cardchange()
@@ -89,8 +93,11 @@ class ActivityRestaurant : AppCompatActivity()
         )
 
         val adapter = RestaurantAdapter(items)
+       // recylcer.isNestedScrollingEnabled = false
+      //  ViewCompat.setNestedScrollingEnabled(recylcer, false)
         recylcer.adapter = adapter
         recylcer.layoutManager = LinearLayoutManager(this)
+
     }
 
     private fun chatchange() {

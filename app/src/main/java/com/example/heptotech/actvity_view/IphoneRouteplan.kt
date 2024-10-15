@@ -1,6 +1,7 @@
 package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -99,7 +100,11 @@ class IphoneRouteplan : AppCompatActivity() {
         val normalImage = R.drawable.ellipse_631_ev    // Normal image
         val selectedImage = R.drawable.check_circle_ev
         var isSelected = false
-
+        routelinear.setOnClickListener()
+        {
+            val intent = Intent(this, ActivityRoorConform::class.java)
+            startActivity(intent)
+        }
         avoidTolls.setOnClickListener {
 
            // tollImage.setImageResource(R.drawable.check_circle_ev)

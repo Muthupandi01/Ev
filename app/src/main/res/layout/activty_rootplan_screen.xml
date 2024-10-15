@@ -89,6 +89,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
+        android:id="@+id/create_text"
         android:layout_marginBottom="@dimen/_20sdp"
         android:background="@drawable/rectangle_34624370__2_ev"
         android:text="Crate a Route Plan"
