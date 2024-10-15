@@ -6,9 +6,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="true" />
@@ -28,7 +26,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".actvity_view.ScanGetText"
             android:exported="false" />
@@ -50,11 +47,9 @@
         <activity
             android:name=".actvity_view.OtherDevicesChargestation"
             android:exported="false" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE" />
-
         <activity
             android:name=".activity_view.IphoneMap"
             android:exported="false" />
@@ -94,7 +89,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
         <activity
             android:name=".actvity_view.ViewVehicles"
             android:exported="false" />

@@ -9,13 +9,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_34624243_ev"
         android:layout_marginStart="@dimen/_15sdp"
-
         android:layout_marginEnd="@dimen/_15sdp">
         <ImageView
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_marginLeft="@dimen/_5ssp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:scaleType="fitXY"
             android:layout_centerVertical="true"
-            android:src="@drawable/ev_img_xml"/>
+            android:src="@drawable/evbottomimg_ev"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +27,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="@dimen/_11ssp"
-        android:layout_marginTop="@dimen/_3sdp"/>
+        android:layout_marginTop="@dimen/_8sdp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,18 +52,23 @@
            android:gravity="center"/>
 
         <RatingBar
+            android:layout_marginTop="-10dp"
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/busstand_text"
             android:layout_centerHorizontal="true"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
             android:progressTint="#FF006F"
             android:progressBackgroundTint="#D3D3D3"
             android:numStars="5"
-            android:stepSize="1.0" />
+            android:stepSize="1.0"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            />
+
+
         <TextView
+            android:layout_marginTop="-15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ratingBar"

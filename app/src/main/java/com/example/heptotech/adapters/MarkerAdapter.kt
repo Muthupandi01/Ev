@@ -53,8 +53,6 @@ class MarkerAdapter (
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ActivityRestaurant::class.java)
-
-
             // You can pass data to the new activity if needed
             intent.putExtra("title", item.title)
             intent.putExtra("distance", item.distance)

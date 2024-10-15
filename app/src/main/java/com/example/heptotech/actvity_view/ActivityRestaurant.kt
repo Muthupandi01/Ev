@@ -5,6 +5,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -19,12 +20,12 @@ import com.example.heptotech.bean_dataclass.RestaurantData
 class ActivityRestaurant : AppCompatActivity()
 {
     private lateinit var recylcer:RecyclerView
-    private lateinit var card_amen:CardView
+    private lateinit var card_amen:LinearLayout
     private var isRecyclerViewVisible = false
     private lateinit var amen_textView: TextView
-    private lateinit var char:CardView
+    private lateinit var char:LinearLayout
     private lateinit var charge_textView: TextView
-    private lateinit var char_chat:CardView
+    private lateinit var char_chat:LinearLayout
     private lateinit var chat_textView: TextView
     private lateinit var back_image:ImageView
 
@@ -65,26 +66,26 @@ class ActivityRestaurant : AppCompatActivity()
         }
         val items = listOf(
             RestaurantData(
-                R.drawable.maskgroup,
-                "Restaurent",
+                R.drawable.car_img_overviewsub_ev,
+                " Restaurent ",
                 "Harrodes",
-                4.5f,
+                2f,
                 "38,731",
                 "Open Hours: 10:00 - 17:00",
                 "Mobile Number: 123456789",
                 "London For 4 Days With Your Partner."
             ),
             RestaurantData(
-                R.drawable.maskgroup,
-                "Restaurent",
+                R.drawable.car_img_overviewsub_ev,
+                " Attraction ",
                 "Harrodes",
-                4.5f,
+                3.5f,
                 "40,000",
                 "Open Hours: 10:00 - 17:00",
                 "Mobile Number: 123456789",
                 "London For 4 Days With Your Partner."
-            )
-            // Add more items if needed
+            ),
+
         )
 
         val adapter = RestaurantAdapter(items)
@@ -93,36 +94,34 @@ class ActivityRestaurant : AppCompatActivity()
     }
 
     private fun chatchange() {
-        char_chat.setCardBackgroundColor(ContextCompat.getColor(this, R.color.green))
+        char_chat.setBackgroundResource(R.drawable.green_bgev)
         chat_textView.setTextColor(ContextCompat.getColor(this, R.color.white))
-        card_amen.setCardBackgroundColor(ContextCompat.getColor(this, R.color.card))
+        card_amen.setBackgroundResource(R.drawable.empty_bgev)
         amen_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-        char.setCardBackgroundColor(ContextCompat.getColor(this, R.color.card))
+        char.setBackgroundResource(R.drawable.empty_bgev)
         charge_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-
-
     }
 
     private fun chargechange() {
-        char.setCardBackgroundColor(ContextCompat.getColor(this, R.color.green))
+        char.setBackgroundResource(R.drawable.green_bgev)
         charge_textView.setTextColor(ContextCompat.getColor(this, R.color.white))
 
         // Reset "Amenities" background and text to normal
-        card_amen.setCardBackgroundColor(ContextCompat.getColor(this, R.color.card))
+        card_amen.setBackgroundResource(R.drawable.empty_bgev)
         amen_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-        char_chat.setCardBackgroundColor(ContextCompat.getColor(this, R.color.card))
+        char_chat.setBackgroundResource(R.drawable.empty_bgev)
         chat_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
 
     }
 
     private fun cardchange() {
-        card_amen.setCardBackgroundColor(ContextCompat.getColor(this, R.color.green))
+        card_amen.setBackgroundResource(R.drawable.green_bgev)
         amen_textView.setTextColor(ContextCompat.getColor(this, R.color.white))
 
         // Reset "Chargers" background and text to normal
-        char.setCardBackgroundColor(ContextCompat.getColor(this, R.color.card))
+        char.setBackgroundResource(R.drawable.empty_bgev)
         charge_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-        char_chat.setCardBackgroundColor(ContextCompat.getColor(this, R.color.card))
+        char_chat.setBackgroundResource(R.drawable.empty_bgev)
         chat_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
 
 

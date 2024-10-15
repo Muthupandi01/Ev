@@ -13,13 +13,13 @@
     android:background="@drawable/evpngcah_ev"
     android:layout_marginTop="@dimen/_10sdp">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/arrow_left_ev"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:src="@drawable/angle_leftd_ev"
         android:id="@+id/back_img"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        app:tint="@color/black" />
+         />
     <ImageView
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
@@ -32,18 +32,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
         android:layout_below="@id/tra">
 
-    <ImageView
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:src="@drawable/he"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/_10sdp"
-        />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:background="@drawable/circle_bg_ev"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/he"
+
+                />
+        </LinearLayout>
+
+
+
     </RelativeLayout>
 </RelativeLayout>
     <TextView
@@ -81,9 +91,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/rectangle_ev"
             android:drawableStart="@drawable/group_427318831"
-
             android:gravity="center"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -120,7 +130,6 @@
         android:text="3"
         android:background="@drawable/rectangle_ev"
         android:drawableStart="@drawable/group_427318831"
-
         android:layout_marginEnd="@dimen/_10sdp"
         android:gravity="center"
         android:textStyle="bold"
@@ -138,9 +147,8 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_15sdp"
         android:id="@+id/car"
-        app:cardElevation="@dimen/_15sdp"
         android:layout_below="@id/cfc"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="#EFECEC"
         android:layout_margin="@dimen/_10sdp">
 
         <LinearLayout
@@ -148,10 +156,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="3"
-            android:padding="@dimen/_8sdp">
+          >
 
             <!-- First TextView with its own CardView -->
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:background="@drawable/green_bgev"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -159,7 +168,7 @@
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
-                app:cardBackgroundColor="@color/card">
+              >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -167,15 +176,14 @@
                     android:id="@+id/card_am"
                     android:gravity="center"
                     android:text="Amenities"
-
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/poppins_medium"
                     android:textSize="@dimen/_10ssp"
                     android:padding="@dimen/_8sdp"/>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
             <!-- Second TextView with its own CardView -->
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -196,10 +204,10 @@
                     android:fontFamily="@font/poppins_medium"
                     android:textSize="@dimen/_10ssp"
                     android:padding="@dimen/_8sdp"/>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
             <!-- Third TextView with its own CardView -->
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -219,7 +227,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:textSize="@dimen/_10ssp"
                     android:padding="@dimen/_8sdp"/>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -229,9 +237,36 @@
         android:layout_height="wrap_content"
         android:id="@+id/recyclerView"
         android:layout_marginTop="@dimen/_10sdp"
-
-
         android:layout_below="@id/car"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
+        <TextView
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:text="Check-in"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/rectangle_34624242_ev"
+                android:backgroundTint="#E8FF5722"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    </LinearLayout>
+
 
 
 

@@ -133,6 +133,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             getCurrentLocation()
 
         }
+
         val markerInfoList = listOf(
             MarkerInfo("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km"),
             MarkerInfo("Another Point", "Akii Bus Road,\n" +

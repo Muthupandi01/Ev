@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
 
 
             <TextView
+                android:background="@drawable/border_drawable_ev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -57,18 +58,16 @@
 
 
                 <RatingBar
+                    android:layout_marginStart="-50dp"
+                    android:layout_toRightOf="@id/img"
+                    android:layout_marginTop="-15dp"
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-
-                    android:layout_below="@id/harl_text"
-
-                   android:layout_marginStart="@dimen/_90sdp"
-
                     android:progressBackgroundTint="#D3D3D3"
                     android:numStars="5"
-
+                    android:layout_below="@+id/harl_text"
+                    android:padding="-20dp"
                     android:progressTint="#DD1F60"
                     android:scaleX="0.4"
                     android:scaleY="0.4"
@@ -81,13 +80,15 @@
 
             android:layout_below="@id/harl_text"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_medium"
             android:text="38,731"
             android:textColor="@color/black"
             android:textSize="@dimen/_8ssp" />
+
         <TextView
+            android:layout_marginTop="-15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ratingBar"

@@ -330,7 +330,6 @@ class AvailablityBottomsheet : AppCompatActivity() {
         // Proceed to add a new time slot
         val inflater = layoutInflater
         val newView = inflater.inflate(R.layout.time_slot_layout, addview, false)
-
         val startTimeEditText: EditText = newView.findViewById(R.id.clock_time)
         val endTimeEditText: EditText = newView.findViewById(R.id.endtime)
 
@@ -350,6 +349,8 @@ class AvailablityBottomsheet : AppCompatActivity() {
 
         // Add the new view to the layout
         addview.addView(newView)
+
+
     }
 
     private fun removeTimeSlotView(view: View) {
