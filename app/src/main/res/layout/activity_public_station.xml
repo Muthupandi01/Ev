@@ -2,9 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <!-- Top Left ImageView -->
-
     <!-- Map Fragment -->
     <fragment
         android:id="@+id/map"
@@ -223,7 +221,6 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/qr_code__1__1_ev"
                 app:tint="@color/greentxt" />
-
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>

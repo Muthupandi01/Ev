@@ -138,8 +138,8 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             topCenterText.visibility = View.GONE
             clickedMarker = null
             recyclerView.isVisible = false
-            imageView.isVisible=true
-            current_loctions.isVisible=true
+            group1C.isVisible=true
+            current_loctionsC.isVisible=true
 
 
             //  topCenterText.visibility = ImageView.INVISIBLE
@@ -377,8 +377,8 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             Toast.makeText(this, "Failed to get location: ${e.message}", Toast.LENGTH_SHORT).show()
             Log.e("IphoneMap", "Location failure", e)
         }
-        imageView.isVisible = true
-        current_loctions.isVisible = true
+        group1C.isVisible = true
+        current_loctionsC.isVisible = true
         recyclerView.isVisible = false
         topCenterText.isVisible = true
         isInCurrentLocationMode = true
