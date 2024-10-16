@@ -81,7 +81,7 @@ class ActivityAddstop : AppCompatActivity(),OnMapReadyCallback
         )
 
         // Add marker for NAKASERO with custom image
-        val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.layer_3_ev)
+        val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.layer_3_ev,125,125)
         mMap.addMarker(
             MarkerOptions()
                 .position(nakaseroLocation)
@@ -102,14 +102,27 @@ class ActivityAddstop : AppCompatActivity(),OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nakaseroLocation, 15f))
     }
 
-    private fun BitmapFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+    private fun BitmapFromVector(context: Context, vectorResId: Int, width: Int, height: Int): BitmapDescriptor? {
         val vectorDrawable: Drawable = ContextCompat.getDrawable(context, vectorResId)!!
-        vectorDrawable.setBounds(0, 0, vectorDrawable.intrinsicWidth, vectorDrawable.intrinsicHeight)
+        vectorDrawable.setBounds(
+            0,
+            0,
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight
+        )
 
-        val bitmap = Bitmap.createBitmap(vectorDrawable.intrinsicWidth, vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
+        // Create a bitmap from the vector drawable
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
         val canvas = Canvas(bitmap)
         vectorDrawable.draw(canvas)
 
-        return BitmapDescriptorFactory.fromBitmap(bitmap)
+        // Scale the bitmap to the specified width and height
+        val resizedBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true)
+
+        return BitmapDescriptorFactory.fromBitmap(resizedBitmap)
     }
 }

@@ -119,6 +119,9 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             topCenterText.visibility = View.GONE
             clickedMarker = null
             recyclerView.isVisible = false
+            imageView.isVisible=true
+            current_loctions.isVisible=true
+
 
             //  topCenterText.visibility = ImageView.INVISIBLE
             if (!isInCurrentLocationMode) {

@@ -565,15 +565,12 @@ class IphoneRouteplan : AppCompatActivity() {
     private fun onStopDeleted(position: Int) {
         stops.removeAt(position) // Remove the stop from the list
         adapter.notifyItemRemoved(position) // Notify the adapter about item removal
+        adapter.notifyItemRangeChanged(position, stops.size) // Update positions of remaining items
 
-        // Check if the stops list is empty
         if (stops.isEmpty()) {
-            resetImagesToNormal() // Reset images if all stops are deleted
-            nextStopNumber = 1 // Reset next stop number
-            hasAddedStop = false
-        isSwitched=false// Reset the flag
-        } else {
-            recalculateNextStopNumber() // Recalculate the next stop number
+            nextStopNumber = 1
+       resetImagesToNormal()
+        hasAddedStop=false// Reset the stop number if needed
         }
     }
     private fun resetImagesToNormal() {

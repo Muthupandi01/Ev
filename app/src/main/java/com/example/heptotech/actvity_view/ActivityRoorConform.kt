@@ -28,8 +28,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var mMap: GoogleMap
-    private lateinit var confirm_text:TextView
-
+    private lateinit var confirm_text: TextView
 
 
     @SuppressLint("MissingInflatedId")
@@ -38,7 +37,7 @@ class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
         setContentView(R.layout.activity_route_confirm)
         val circleImageView: ImageView = findViewById(R.id.cicle)
         val relativeLayout: RelativeLayout = findViewById(R.id.relative)
-        confirm_text=findViewById(R.id.con_text)
+        confirm_text = findViewById(R.id.con_text)
         confirm_text.setOnClickListener()
         {
             val intent = Intent(this, ActivityRouteOption::class.java)
@@ -53,6 +52,7 @@ class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
     }
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -67,7 +67,7 @@ class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
         )
 
         // Add marker for NAKASERO with custom image
-        val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.layer_3_ev)
+        val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.layer_3_ev,125,125)
         mMap.addMarker(
             MarkerOptions()
                 .position(nakaseroLocation)
@@ -88,16 +88,27 @@ class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nakaseroLocation, 15f))
     }
 
-    private fun BitmapFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+    private fun BitmapFromVector(context: Context, vectorResId: Int, width: Int, height: Int): BitmapDescriptor? {
         val vectorDrawable: Drawable = ContextCompat.getDrawable(context, vectorResId)!!
-        vectorDrawable.setBounds(0, 0, vectorDrawable.intrinsicWidth, vectorDrawable.intrinsicHeight)
+        vectorDrawable.setBounds(
+            0,
+            0,
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight
+        )
 
-        val bitmap = Bitmap.createBitmap(vectorDrawable.intrinsicWidth, vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
+        // Create a bitmap from the vector drawable
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
         val canvas = Canvas(bitmap)
         vectorDrawable.draw(canvas)
 
-        return BitmapDescriptorFactory.fromBitmap(bitmap)
+        // Scale the bitmap to the specified width and height
+        val resizedBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true)
+
+        return BitmapDescriptorFactory.fromBitmap(resizedBitmap)
     }
-
 }
-

@@ -25,24 +25,35 @@ class StopsAdapter(
     }
 
     override fun onBindViewHolder(holder: StopViewHolder, position: Int) {
-        // Set the existing stop name in the EditText
         val stopName = stops[position]
-        holder.stopEditText.hint = stopName // Set the hint as the stop name
-        holder.stopEditText.setText("")
 
-        // Handle editing the stop name
+        // Set the hint and clear text for new stops (when text is not saved)
+        if (stopName.startsWith("Stop")) {
+            holder.stopEditText.hint = stopName
+            holder.stopEditText.setText("") // Make sure no text is shown for new stops
+        } else {
+            holder.stopEditText.setText(stopName) // Restore entered text for edited stops
+        }
+
+        // Handle focus change to update the stop name
         holder.stopEditText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
-                // Update the stop name in the list if focus is lost
-                stops[position] = holder.stopEditText.text.toString()
+                val enteredText = holder.stopEditText.text.toString().trim()
+                if (enteredText.isNotEmpty()) {
+                    stops[position] = enteredText // Update the list with entered text
+                } else {
+                    stops[position] = holder.stopEditText.hint.toString() // Restore hint if empty
+                }
             }
         }
 
         // Handle stop deletion
         holder.stopDelete.setOnClickListener {
-            onStopDeleted(position) // Notify the listener to delete the stop
+            holder.stopEditText.clearFocus() // Clear focus before deleting
+            onStopDeleted(position)
         }
     }
+
 
     override fun getItemCount() = stops.size
 }
