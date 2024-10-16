@@ -74,6 +74,10 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var left_image:ImageView
     private var originalCameraPosition: LatLng? = null
     private var lastClickedMarkerIndex: Int? = null
+    private lateinit var group1C:CardView
+    private lateinit var current_loctionsC:CardView
+
+
 
 
 
@@ -89,14 +93,16 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         current=findViewById(R.id.group)
         bottomsearch=findViewById(R.id.bottom_container)
         recyclerView=findViewById(R.id.recyclerView)
-       // left_image = findViewById(R.id.left_angle)
+        group1C=findViewById(R.id.group1C)
+        current_loctionsC=findViewById(R.id.current_loctionsC)
+        // left_image = findViewById(R.id.left_angle)
         val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.idSearchView)
-       // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
+        // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
         val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
         searchTextView?.let {
             it.textSize = 13f // Set your desired text size (SP)
             it.setTextColor(ContextCompat.getColor(this, R.color.black))
-          //  it.setTypeface(null, Typeface.BOLD)
+            //  it.setTypeface(null, Typeface.BOLD)
 
         } ?: Log.e("SearchView", "TextView not found inside SearchView")
 
@@ -124,7 +130,11 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
             for (marker in markers) {
                 marker.isVisible = true
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 7f))
+
             }
+
+
             topCenterText.visibility = View.GONE
             clickedMarker = null
             recyclerView.isVisible = false
@@ -210,7 +220,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
           for (marker in markers) {
               marker.isVisible = true
           }
-  
+
           // Optionally, you can also move the camera to the last clicked marker or the first marker
           if (clickedMarker != null) {
               mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(clickedMarker!!.position, 15f))
@@ -358,7 +368,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 val userLocation = LatLng(location.latitude, location.longitude)
                 val markerIcon = BitmapFromVector(this, R.drawable.group_427318907, 150, 150)
                 currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 5f))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
                 fetchAddressFromLatLng(userLocation)
             } else {
                 Toast.makeText(this, "Unable to find current location", Toast.LENGTH_SHORT).show()
@@ -372,6 +382,9 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         recyclerView.isVisible = false
         topCenterText.isVisible = true
         isInCurrentLocationMode = true
+        topCenterText.isClickable=false
+
+
 
 
 
@@ -385,9 +398,9 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         // Define marker locations
         val nakaseroLocation = LatLng(0.323334, 32.578890) // Marker with title
         val otherLocations = listOf(
-            LatLng(0.327500, 32.579500),
-            LatLng(0.330000, 32.580000),
-            LatLng(0.325000, 32.575000),
+            LatLng(1.4334, 31.3527),
+            LatLng(-0.3338, 31.7341),
+            LatLng(0.0471, 32.4438),
         )
 
         // Add marker for NAKASERO
@@ -420,7 +433,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         }
 
         // Move camera to NAKASERO location
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nakaseroLocation, 15f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nakaseroLocation, 7f))
         // Move camera to NAKASERO location
 
     }
@@ -448,21 +461,24 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 }
             }
 
-            topCenterText.isVisible=true
-            imageView.isVisible=false
-            current_loctions.isVisible=false
+            //
+            //
+            //  topCenterText.isVisible=true
+            group1C.isVisible=false
+            current_loctionsC.isVisible=false
 
 
-           // clickedMarker = marker // Set the currently clicked marker
+            // clickedMarker = marker // Set the currently clicked marker
             Handler(Looper.getMainLooper()).postDelayed({
                 // Change back to the original marker icon after 10 seconds
                 for (marker in markers) {
+
                     marker.setIcon(
                         BitmapDescriptorFactory.fromBitmap(bitmapFromLayout(this, R.layout.cluster_marker_green, 125, 125))
                     )
                 }
                 //selva
-               // marker.setIcon(BitmapFromVector(this, R.drawable.layer_3_ev, 125, 125))
+                // marker.setIcon(BitmapFromVector(this, R.drawable.layer_3_ev, 125, 125))
             }, 3000) // Delay for 10000 milliseconds (10 seconds)
 
 
@@ -491,9 +507,17 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 // Set visibility to VISIBLE after delay
                 Handler(Looper.getMainLooper()).postDelayed({
                     Log.d("RVVisAfter", "Setting visibility to VISIBLE")
+
                     recyclerView.visibility = View.VISIBLE
                     Log.d("RVVisibility", "New Visibility: ${recyclerView.visibility}")
                     Log.d("AdapterItemCount", "Item count: ${recyclerView.adapter?.itemCount}")
+                }, 3000) // Delay for 5000 milliseconds (5 seconds)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    //  Log.d("RVVisAfter", "Setting visibility to VISIBLE")
+
+                    topCenterText.visibility = View.VISIBLE
+                    //  Log.d("RVVisibility", "New Visibility: ${recyclerView.visibility}")
+                    // Log.d("AdapterItemCount", "Item count: ${recyclerView.adapter?.itemCount}")
                 }, 3000) // Delay for 5000 milliseconds (5 seconds)
 
             }

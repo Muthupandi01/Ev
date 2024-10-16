@@ -102,9 +102,11 @@
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/group"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:src="@drawable/navigation_ev" />
+                android:layout_gravity="center"
+                app:tint="@color/greentxt"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/cu" />
         </androidx.cardview.widget.CardView>
 
 
@@ -203,20 +205,20 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/scannerView"
-            app:cardCornerRadius="@dimen/_100sdp"
             android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_height="@dimen/_35sdp"
             android:background="@drawable/circle_bg_ev"
-            android:elevation="@dimen/_13ssp">
+            android:elevation="@dimen/_13ssp"
+            app:cardCornerRadius="@dimen/_100sdp">
 
             <ImageView
                 android:layout_width="@dimen/_12sdp"
-                android:layout_gravity="center"
                 android:layout_height="@dimen/_12sdp"
+                android:layout_gravity="center"
                 android:contentDescription="Scan Icon"
                 android:scaleType="fitXY"
                 android:src="@drawable/qr_code__1__1_ev"
