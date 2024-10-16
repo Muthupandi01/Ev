@@ -27,8 +27,7 @@
             android:background="@drawable/circular_background_ev"
             android:layout_width="@dimen/_30sdp"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_11sdp"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_height="@dimen/_30sdp"
             android:orientation="vertical">
