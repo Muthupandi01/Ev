@@ -29,6 +29,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -55,7 +56,7 @@ import java.util.Locale
 import kotlin.concurrent.timer
 
 class PublicStation : AppCompatActivity(), OnMapReadyCallback {
-    private lateinit var topCenterText: TextView
+    private lateinit var topCenterText: CardView
     private lateinit var mMap: GoogleMap
     private lateinit var imageView: ImageView
     private lateinit var currentLocationImageView: ImageView
@@ -110,9 +111,18 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
         topCenterText.setOnClickListener {
             toggleMarkersVisibility()
+
+//            for (marker in markers) {
+//                marker.setIcon(BitmapFromVector(this, R.drawable.frame_locate, 125, 125)) // Reset to the original icon
+//            }
+            //selva
             for (marker in markers) {
-                marker.setIcon(BitmapFromVector(this, R.drawable.frame_locate, 125, 125)) // Reset to the original icon
+                marker.setIcon(
+                    BitmapDescriptorFactory.fromBitmap(bitmapFromLayout(this, R.layout.cluster_marker, 125, 125))
+                )
             }
+
+
             for (marker in markers) {
                 marker.isVisible = true
             }
@@ -131,6 +141,13 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 topCenterText.visibility = View.VISIBLE // Ensure it remains visible if in current location mode
             }
         }
+
+
+
+
+
+
+
         current.setOnClickListener()
         {
             getCurrentLocation()
@@ -172,26 +189,44 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-  /*  private fun showAllMarkers() {
-        for (marker in markers) {
-            marker.isVisible = true
-        }
+    fun bitmapFromLayout(context: Context, layoutResId: Int, width: Int, height: Int): Bitmap {
+        val inflater = LayoutInflater.from(context)
+        val view = inflater.inflate(layoutResId, null)
 
-        // Optionally, you can also move the camera to the last clicked marker or the first marker
-        if (clickedMarker != null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(clickedMarker!!.position, 15f))
-        } else {
-            // Move the camera to the first marker in the list
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markers[0].position, 15f))
-        }
-       // recyclerView.isVisible=true
-        Handler(Looper.getMainLooper()).postDelayed({
-            Log.d("RVVisAfter", "Setting visibility to VISIBLE")
-            recyclerView.visibility = View.VISIBLE
-            Log.d("RVVisibility", "New Visibility: ${recyclerView.visibility}")
-            Log.d("AdapterItemCount", "Item count: ${recyclerView.adapter?.itemCount}")
-        }, 3000) // Delay for 5000 milliseconds (5 seconds)
-    }*/
+        // Measure and layout the view
+        view.measure(View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY))
+        view.layout(0, 0, view.measuredWidth, view.measuredHeight)
+
+        // Create a bitmap with the view's dimensions
+        val bitmap = Bitmap.createBitmap(view.measuredWidth, view.measuredHeight, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+
+        return bitmap
+    }
+
+
+    /*  private fun showAllMarkers() {
+          for (marker in markers) {
+              marker.isVisible = true
+          }
+  
+          // Optionally, you can also move the camera to the last clicked marker or the first marker
+          if (clickedMarker != null) {
+              mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(clickedMarker!!.position, 15f))
+          } else {
+              // Move the camera to the first marker in the list
+              mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markers[0].position, 15f))
+          }
+         // recyclerView.isVisible=true
+          Handler(Looper.getMainLooper()).postDelayed({
+              Log.d("RVVisAfter", "Setting visibility to VISIBLE")
+              recyclerView.visibility = View.VISIBLE
+              Log.d("RVVisibility", "New Visibility: ${recyclerView.visibility}")
+              Log.d("AdapterItemCount", "Item count: ${recyclerView.adapter?.itemCount}")
+          }, 3000) // Delay for 5000 milliseconds (5 seconds)
+      }*/
 
     private fun showPopupDialog(view: View)
     {
@@ -413,6 +448,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                     m.isVisible = false // Hide the other markers
                 }
             }
+
             topCenterText.isVisible=true
             imageView.isVisible=false
             current_loctions.isVisible=false
@@ -421,7 +457,13 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
            // clickedMarker = marker // Set the currently clicked marker
             Handler(Looper.getMainLooper()).postDelayed({
                 // Change back to the original marker icon after 10 seconds
-                marker.setIcon(BitmapFromVector(this, R.drawable.layer_3_ev, 125, 125))
+                for (marker in markers) {
+                    marker.setIcon(
+                        BitmapDescriptorFactory.fromBitmap(bitmapFromLayout(this, R.layout.cluster_marker_green, 125, 125))
+                    )
+                }
+                //selva
+               // marker.setIcon(BitmapFromVector(this, R.drawable.layer_3_ev, 125, 125))
             }, 3000) // Delay for 10000 milliseconds (10 seconds)
 
 
@@ -460,7 +502,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             //   recyclerView.visibility = View.VISIBLE
 
             // Center the camera on the clicked marker
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 15f))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 5f))
 
             // Delay showing the marker image change and RecyclerView visibility
             /* timer(initialDelay = 50000, period = 50000) {

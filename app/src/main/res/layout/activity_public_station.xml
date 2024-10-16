@@ -20,7 +20,10 @@
 
 
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+           app:cardElevation="@dimen/_8ssp"
+            app:cardCornerRadius="@dimen/_5ssp"
+            android:backgroundTint="@color/white"
             android:background="@drawable/circular_background_ev"
             android:layout_width="@dimen/_30sdp"
             android:layout_alignParentStart="true"
@@ -38,27 +41,36 @@
                 android:src="@drawable/filter_1ev"
 
                 />
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
 
 
         <!-- Top Centered TextView -->
-        <TextView
-            android:background="@drawable/rectangle_34624587"
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/topCenterText"
-            android:backgroundTint="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_35sdp"
-            android:text="Search This Area"
-            android:gravity="center"
-            android:textColor="@color/greentxt"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-           android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/poppins_regular" />
+            app:cardCornerRadius="@dimen/_7ssp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_35sdp"
+            android:elevation="@dimen/_13ssp">
+
+            <TextView
+                android:background="@drawable/rectangle_34624587"
+                android:backgroundTint="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Search This Area"
+                android:gravity="center"
+                android:textColor="@color/greentxt"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular" />
+        </androidx.cardview.widget.CardView>
+
 
         <ImageView
             android:id="@+id/blink_img"
@@ -132,7 +144,7 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/idSearchView"
             app:iconifiedByDefault="false"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_7sdp"
             app:queryHint="Find EV Charger Station"
             app:searchIcon="@drawable/search_2x"
             android:layout_width="0dp"
@@ -141,23 +153,33 @@
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/scannerView"
             android:layout_weight="1.2"
-
             android:background="@drawable/rectangle_343" />
 
         <!-- Scanner Icon to the Right of SearchView -->
-        <ImageView
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/scannerView"
+            app:cardCornerRadius="@dimen/_100sdp"
             android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_height="@dimen/_30sdp"
             android:background="@drawable/circle_bg_ev"
-            android:contentDescription="Scan Icon"
-            android:scaleType="center"
-            android:src="@drawable/qr_code__1__1_ev"
-            app:tint="@color/greentxt" />
+            android:elevation="@dimen/_13ssp">
+
+            <ImageView
+                android:layout_width="@dimen/_12sdp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_12sdp"
+                android:contentDescription="Scan Icon"
+                android:scaleType="fitXY"
+                android:src="@drawable/qr_code__1__1_ev"
+                app:tint="@color/greentxt" />
+
+        </androidx.cardview.widget.CardView>
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
