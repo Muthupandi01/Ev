@@ -10,7 +10,7 @@
     android:layout_marginStart="@dimen/_10sdp"
     android:id="@+id/lv"
     android:layout_marginEnd="@dimen/_10sdp"
-    android:background="@drawable/evpngcah_ev"
+    android:background="@drawable/ev_chrge_info"
     android:layout_marginTop="@dimen/_10sdp">
     <ImageView
         android:layout_width="@dimen/_18sdp"

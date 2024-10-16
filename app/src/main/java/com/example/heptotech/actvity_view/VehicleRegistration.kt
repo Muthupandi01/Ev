@@ -305,7 +305,6 @@ class VehicleRegistration : AppCompatActivity() {
     private fun checkPermissions() {
         val cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
         val storagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
         val permissionsNeeded = mutableListOf<String>()
         if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
             permissionsNeeded.add(Manifest.permission.CAMERA)
@@ -314,11 +313,6 @@ class VehicleRegistration : AppCompatActivity() {
             permissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
 
-//        if (permissionsNeeded.isNotEmpty()) {
-//            ActivityCompat.requestPermissions(this, permissionsNeeded.toTypedArray(), CAMERA_REQUEST_CODE)
-//        } else {
-//            openCamera()
-//        }
     }
 
 

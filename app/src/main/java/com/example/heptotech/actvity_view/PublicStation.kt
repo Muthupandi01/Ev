@@ -111,7 +111,6 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
         topCenterText.setOnClickListener {
             toggleMarkersVisibility()
-
 //            for (marker in markers) {
 //                marker.setIcon(BitmapFromVector(this, R.drawable.frame_locate, 125, 125)) // Reset to the original icon
 //            }
@@ -359,7 +358,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 val userLocation = LatLng(location.latitude, location.longitude)
                 val markerIcon = BitmapFromVector(this, R.drawable.group_427318907, 150, 150)
                 currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 5f))
                 fetchAddressFromLatLng(userLocation)
             } else {
                 Toast.makeText(this, "Unable to find current location", Toast.LENGTH_SHORT).show()
@@ -500,9 +499,9 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             }
 
             //   recyclerView.visibility = View.VISIBLE
-
             // Center the camera on the clicked marker
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 5f))
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 15f))
 
             // Delay showing the marker image change and RecyclerView visibility
             /* timer(initialDelay = 50000, period = 50000) {
