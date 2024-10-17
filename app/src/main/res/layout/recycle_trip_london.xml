@@ -57,43 +57,36 @@
                 android:textSize="@dimen/_10ssp"/>
 
 
-                <RatingBar
-                    android:layout_marginStart="-50dp"
-                    android:layout_toRightOf="@id/img"
-                    android:layout_marginTop="-15dp"
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:progressBackgroundTint="#D3D3D3"
-                    android:numStars="5"
-                    android:layout_below="@+id/harl_text"
-                    android:padding="-20dp"
-                    android:progressTint="#DD1F60"
-                    android:scaleX="0.4"
-                    android:scaleY="0.4"
-                    android:stepSize="1.0" />
+        <com.example.heptotech.customclass.CircleRatingBar
+            android:id="@+id/ratingBar"
+           android:layout_marginVertical="@dimen/_5ssp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_below="@+id/harl_text"
+            android:layout_toRightOf="@id/img"
+            android:layout_alignParentEnd="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
         <TextView
             android:id="@+id/numbers_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_below="@id/harl_text"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
             android:text="38,731"
             android:textColor="@color/black"
             android:textSize="@dimen/_8ssp" />
 
         <TextView
-            android:layout_marginTop="-15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ratingBar"
             android:id="@+id/ten"
-
             android:text="Open Hours:10:00 - 17.00"
             android:textColor="@color/black"
             android:layout_toRightOf="@id/img"

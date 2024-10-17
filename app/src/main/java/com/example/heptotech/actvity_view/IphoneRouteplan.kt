@@ -148,7 +148,6 @@ class IphoneRouteplan : AppCompatActivity() {
             addStop()
         }
 
-
         val searchImageRes = R.drawable.group_427318913_ev
         val locationImageRes = R.drawable.location_pin_ev
 

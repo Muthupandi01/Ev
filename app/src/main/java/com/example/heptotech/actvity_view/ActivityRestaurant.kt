@@ -83,7 +83,7 @@ class ActivityRestaurant : AppCompatActivity()
                 R.drawable.car_img_overviewsub_ev,
                 " Attraction ",
                 "Harrodes",
-                3.5f,
+                4.5f,
                 "40,000",
                 "Open Hours: 10:00 - 17:00",
                 "Mobile Number: 123456789",
