@@ -70,7 +70,7 @@ class ActivityRestaurant : AppCompatActivity()
         }
         val items = listOf(
             RestaurantData(
-                R.drawable.car_img_overviewsub_ev,
+                R.drawable.hotel_ev,
                 " Restaurent ",
                 "Harrodes",
                 2f,
@@ -80,7 +80,7 @@ class ActivityRestaurant : AppCompatActivity()
                 "London For 4 Days With Your Partner."
             ),
             RestaurantData(
-                R.drawable.car_img_overviewsub_ev,
+                R.drawable.car_ev_new,
                 " Attraction ",
                 "Harrodes",
                 4.5f,

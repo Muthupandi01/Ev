@@ -13,6 +13,7 @@
         <ImageView
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_120sdp"
+            android:scaleType="fitXY"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/img"
