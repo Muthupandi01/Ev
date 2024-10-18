@@ -100,7 +100,7 @@
         <activity
             android:name=".actvity_view.PublicStation"
            android:exported="true"
-            android:label="Vehicle Registration"
+            android:label="Public Station"
            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
