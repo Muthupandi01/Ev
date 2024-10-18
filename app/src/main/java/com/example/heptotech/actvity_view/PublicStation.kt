@@ -392,9 +392,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-
         mMap = googleMap
-
         // Define marker locations
         val nakaseroLocation = LatLng(0.323334, 32.578890) // Marker with title
         val otherLocations = listOf(
@@ -402,6 +400,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             LatLng(-0.3338, 31.7341),
             LatLng(0.0471, 32.4438),
         )
+
 
         // Add marker for NAKASERO
         val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.frame_locate, 125, 125)

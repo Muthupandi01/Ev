@@ -14,8 +14,8 @@
     android:layout_marginTop="@dimen/_10sdp">
     <androidx.cardview.widget.CardView
         android:id="@+id/scannerView"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_10sdp"
 
         android:layout_marginStart="@dimen/_10sdp"
@@ -34,8 +34,8 @@
          />
     </androidx.cardview.widget.CardView>
     <ImageView
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
         android:src="@drawable/traffic"
         android:id="@+id/tra"
         app:tint="@color/green"
@@ -58,8 +58,8 @@
             android:orientation="vertical">
             <androidx.cardview.widget.CardView
                 android:id="@+id/scannerView1"
-                android:layout_width="@dimen/_22sdp"
-                android:layout_height="@dimen/_22sdp"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginBottom="@dimen/_2sdp"
 
@@ -84,17 +84,56 @@
 
     </RelativeLayout>
 </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Goldborough Hall"
         android:id="@+id/gold"
         android:layout_below="@+id/lv"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_11ssp"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/black"/>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goldborough Hall"
+                android:textSize="@dimen/_11ssp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <LinearLayout
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:background="@drawable/newtxt_ev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4,175 mi"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,7 +149,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:id="@+id/cfc"
@@ -118,12 +156,12 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/new_ev"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_5ssp"
+                android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
 
@@ -154,7 +192,7 @@
             android:background="@drawable/new_ev"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="@dimen/_25sdp"
+                android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
 
@@ -185,12 +223,10 @@
             android:background="@drawable/new_ev"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="@dimen/_25sdp"
+                android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
-
-
-
+                android:scaleType="fitCenter"
                 android:src="@drawable/new_chadme_ev"/>
 
             <TextView

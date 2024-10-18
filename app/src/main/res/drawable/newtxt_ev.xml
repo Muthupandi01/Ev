@@ -1,11 +1,11 @@
 <!-- res/drawable/curved_rectangle.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#ffffff"/> <!-- Fill color -->
+    <solid android:color="#8AE1E3E6"/> <!-- Fill color -->
 
     <corners
         android:radius="16dp"/> <!-- Curved edges with 10dp radius -->
 
     <stroke
         android:width="1dp"
-        android:color="#B5B9BF"/> <!-- Border around the shape -->
+        android:color="#FCE1E3E6"/> <!-- Border around the shape -->
 </shape>
