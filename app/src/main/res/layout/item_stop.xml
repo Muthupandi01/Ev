@@ -20,7 +20,7 @@
         android:visibility="visible"
         android:layout_toRightOf="@id/location_svg"
         android:maxLines="1"
-        android:hint="Stop 1"
+        android:hint=" Stop1"
         android:fontFamily="@font/poppins_medium"
         android:textSize="@dimen/_10ssp"
         android:layout_marginStart="@dimen/_10sdp"

@@ -17,8 +17,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.NumberPicker
-import android.widget.RelativeLayout
+
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -59,8 +60,10 @@ class IphoneRouteplan : AppCompatActivity() {
     private lateinit var choose_dates: TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: StopsAdapter
-    private val stops: MutableList<String> = mutableListOf()
-    private var nextStopNumber = 1
+   // private val stops: MutableList<String> = mutableListOf()
+   // private val stops: MutableList<String> = mutableListOf("Stop 1") // Initialize with the first stop as a hint
+   // private var nextStopNumber = 2 // Start counting from the next stop
+   // private var nextStopNumber = 1
     private lateinit var radioSearchImageView: ImageView
     private lateinit var locationPinImageView: ImageView
     private var hasAddedStop = false
@@ -138,7 +141,7 @@ class IphoneRouteplan : AppCompatActivity() {
             isSelected = !isSelected
         }
         recyclerView = findViewById(R.id.stops_recycler_view)
-        adapter = StopsAdapter(stops, ::onStopDeleted)
+        adapter = StopsAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -467,6 +470,46 @@ class IphoneRouteplan : AppCompatActivity() {
         }
     }
 
+    private fun addStop() {
+        if (adapter.itemCount == 0) {
+            adapter.addStop() // Add the first stop
+            updateImages() // Update images to reflect that a stop has been added
+        }
+        // If stops exist, ensure the last stop is not empty before adding a new one
+        else {
+            // Check if the last stop has text before adding a new one
+            val lastStopText = adapter.getStopText(adapter.itemCount - 1)
+            if (lastStopText.isNotEmpty()) {
+                adapter.addStop()
+            }
+            // Show a toast if trying to add a new stop but the last one is empty
+            else {
+                Toast.makeText(
+                    this,
+                    "Please enter text for Stop ${adapter.itemCount} before adding a new one.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    private fun updateImages() {
+        if (!hasAddedStop && adapter.itemCount > 0) {
+            radio_search.setImageResource(R.drawable.group_913__1_ev) // Set your new image
+            location_svg.setImageResource(R.drawable.location_pin__1_ev) // Set your new image
+            hasAddedStop = true
+        }
+    }
+
+    fun checkStops() {
+        // Check if there are any stops left
+        if (adapter.itemCount == 0) {
+            radio_search.setImageResource(R.drawable.group_427318913_ev) // Reset to original image
+            location_svg.setImageResource(R.drawable.location_pin_ev) // Reset to original image
+            hasAddedStop = false
+        }
+    }
+
     private fun selectReturnJourney() {
         returnJourneyLayout.setBackgroundResource(R.drawable.rectangle_34624357) // Your selected background drawable
         returnJourneyImage.setImageResource(R.drawable.group_427318914_ev) // Change image on selection
@@ -546,19 +589,33 @@ class IphoneRouteplan : AppCompatActivity() {
             rootTime.visibility = View.GONE
         }
     }
-    private fun addStop() {
-        // Create a new stop name based on the next stop number
-        val stopName = "Stop $nextStopNumber"
-        stops.add(stopName) // Add to the stops list
-        adapter.notifyItemInserted(stops.size - 1) // Notify the adapter
-        nextStopNumber++
+  /*  private fun addStop() {
+        if (stops.isEmpty()) return // No stops available to validate
 
-        // Change the images only on the first addition of a stop
-        if (!hasAddedStop) {
-            radio_search.setImageResource(R.drawable.group_913__1_ev) // Replace with your new image
-            location_svg.setImageResource(R.drawable.location_pin__1_ev) // Replace with your new image
-            hasAddedStop = true
+        // Get the last stop's text for validation
+        val lastStopIndex = stops.size - 1
+        val lastStopText = stops[lastStopIndex]
 
+        // Get the EditText view for the last stop
+        val lastStopEditText = recyclerView.findViewHolderForAdapterPosition(lastStopIndex)?.itemView?.findViewById<EditText>(R.id.edit)
+
+        // Check if the last stop's EditText has valid input
+        if (lastStopEditText != null && lastStopEditText.text.toString().trim().isNotEmpty()) {
+            // If the last stop has text, add a new stop
+            val stopName = "Stop $nextStopNumber"
+            stops.add(stopName) // Add to the stops list
+            adapter.notifyItemInserted(stops.size - 1) // Notify the adapter
+            nextStopNumber++
+
+            // Change images only on the first addition of a stop
+            if (!hasAddedStop) {
+                radio_search.setImageResource(R.drawable.group_913__1_ev) // Replace with your new image
+                location_svg.setImageResource(R.drawable.location_pin__1_ev) // Replace with your new image
+                hasAddedStop = true
+            }
+        } else {
+            // Show a toast if the last stop is empty
+            Toast.makeText(this, "Please enter text for the current stop before adding a new one.", Toast.LENGTH_SHORT).show()
         }
     }
     private fun onStopDeleted(position: Int) {
@@ -567,9 +624,9 @@ class IphoneRouteplan : AppCompatActivity() {
         adapter.notifyItemRangeChanged(position, stops.size) // Update positions of remaining items
 
         if (stops.isEmpty()) {
-            nextStopNumber = 1
-       resetImagesToNormal()
-        hasAddedStop=false// Reset the stop number if needed
+            nextStopNumber = 1 // Reset the stop number if needed
+            resetImagesToNormal()
+            hasAddedStop = false // Reset the flag
         }
     }
     private fun resetImagesToNormal() {
@@ -585,6 +642,6 @@ class IphoneRouteplan : AppCompatActivity() {
         } else {
             stops.map { it.removePrefix("Stop ").toInt() }.maxOrNull()!! + 1
         }
-    }
+    }*/
 
 }
