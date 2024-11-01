@@ -15,14 +15,14 @@
         app:iconifiedByDefault="false"
         android:padding="@dimen/_10sdp"
         app:queryHint="Search Location"
-        app:searchIcon="@drawable/search_2x"
+        app:searchIcon="@drawable/search_2x_ev"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/rectangle_343"
+        android:background="@drawable/rectangle_343_ev"
         />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,20 +34,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/group"
        android:layout_marginTop="@dimen/_300sdp"
-        android:src="@drawable/group_909"
+        android:src="@drawable/group_909_ev"
         />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/group1"
             android:layout_below="@id/group"
-            android:src="@drawable/group_427318908_2x"/>
+            android:src="@drawable/group_427318908_2x_ev"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/current_loction"
             android:layout_below="@id/group1"
-            android:src="@drawable/group_427318907"/>
+            android:src="@drawable/group_427318907_ev"/>
 
     </RelativeLayout>
 

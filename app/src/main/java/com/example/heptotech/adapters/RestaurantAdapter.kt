@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
@@ -29,7 +28,7 @@ class RestaurantAdapter(private val items: List<RestaurantData>) : RecyclerView.
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
         // Inflate the custom layout for each item
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycle_trip_london, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.restarunt_recycle_, parent, false)
         return RestaurantViewHolder(view)
     }
 

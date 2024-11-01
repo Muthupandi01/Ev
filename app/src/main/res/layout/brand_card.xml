@@ -25,7 +25,7 @@
                 android:layout_height="@dimen/_60sdp"
                 android:id="@+id/brand_id_img"
                 android:background="@drawable/rectangle_34624257_ev"
-                android:src="@drawable/pngwing"/>
+                android:src="@drawable/pngwing_ev"/>
 
             <TextView
                 android:id="@+id/brand_id_txt"

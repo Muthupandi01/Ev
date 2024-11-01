@@ -96,7 +96,7 @@
             android:name=".actvity_view.OrderDetails"
             android:exported="false" />
         <activity android:name=".actvity_view.PrivateStation" />
-        <activity android:name=".actvity_view.ActivityRouteOption"/>
+        <activity android:name=".actvity_view.RoutePlanOption"/>
         <activity
             android:name=".actvity_view.PublicStation"
            android:exported="true"
@@ -112,16 +112,17 @@
             android:name=".activity_view.ConnectToEvActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity_view.AvailablityBottomsheet" />
-        <activity android:name=".actvity_view.UserModeCharge" />
+        <activity android:name=".actvity_view.ConfiguratonActivity" />
         <activity android:name=".actvity_view.RegistrationListGet" />
         <activity android:name=".actvity_view.RoutePlanStarted"/>
-<activity android:name=".actvity_view.ActivityRestaurant"/>
+<activity android:name=".actvity_view.PubicstationCard"/>
         <activity android:name=".actvity_view.RootPlanScreen" />
-<activity android:name=".actvity_view.ActivtyCalculateRoot"/>
-        <activity android:name=".actvity_view.ActivityRoorConform" />
-       <activity android:name=".actvity_view.ActivityAddstop"/>
-        <activity android:name=".actvity_view.IphoneRouteplan" />
+<activity android:name=".actvity_view.RoutePlanCalculateRoot"/>
+        <activity android:name=".actvity_view.RoutePlanConfirm" />
+       <activity android:name=".actvity_view.RoutePlanStop"/>
+        <activity android:name=".actvity_view.RoutePlan" />
         <activity android:name=".actvity_view.VehicleSpecificOpenBooking" />
+        <activity android:name=".actvity_view.OpearatersActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.example.heptotech.adapters
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.bean_dataclass.Plugs
@@ -47,7 +45,7 @@ class PlugAdapter(
 
             holder.topTextView.isInvisible=true
             holder.bottomTextView.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.disable))
-            holder.sub.setBackgroundResource(R.drawable.blackrec)
+            holder.sub.setBackgroundResource(R.drawable.blackrec_ev)
             holder.newImageView.imageTintList = ContextCompat.getColorStateList(holder.itemView.context, R.color.disable)
         } else {
             // Reset to default colors for other items

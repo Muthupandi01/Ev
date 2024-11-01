@@ -2,16 +2,12 @@ package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +15,7 @@ import com.example.heptotech.R
 import com.example.heptotech.adapters.RestaurantAdapter
 import com.example.heptotech.bean_dataclass.RestaurantData
 
-class ActivityRestaurant : AppCompatActivity()
+class PubicstationCard : AppCompatActivity()
 {
     private lateinit var recylcer:RecyclerView
     private lateinit var card_amen:LinearLayout
@@ -36,7 +32,7 @@ class ActivityRestaurant : AppCompatActivity()
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activty_location_charperpoint)
+        setContentView(R.layout.activty_publicstationcard)
         recylcer=findViewById(R.id.recyclerView)
         card_amen=findViewById(R.id.card_text)
         amen_textView=findViewById(R.id.card_am)
@@ -103,9 +99,9 @@ class ActivityRestaurant : AppCompatActivity()
     private fun chatchange() {
         char_chat.setBackgroundResource(R.drawable.green_bgev)
         chat_textView.setTextColor(ContextCompat.getColor(this, R.color.white))
-        card_amen.setBackgroundResource(R.drawable.empty_bgev)
+        card_amen.setBackgroundResource(R.drawable.empty_bg_ev)
         amen_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-        char.setBackgroundResource(R.drawable.empty_bgev)
+        char.setBackgroundResource(R.drawable.empty_bg_ev)
         charge_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
     }
 
@@ -114,9 +110,9 @@ class ActivityRestaurant : AppCompatActivity()
         charge_textView.setTextColor(ContextCompat.getColor(this, R.color.white))
 
         // Reset "Amenities" background and text to normal
-        card_amen.setBackgroundResource(R.drawable.empty_bgev)
+        card_amen.setBackgroundResource(R.drawable.empty_bg_ev)
         amen_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-        char_chat.setBackgroundResource(R.drawable.empty_bgev)
+        char_chat.setBackgroundResource(R.drawable.empty_bg_ev)
         chat_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
 
     }
@@ -126,9 +122,9 @@ class ActivityRestaurant : AppCompatActivity()
         amen_textView.setTextColor(ContextCompat.getColor(this, R.color.white))
 
         // Reset "Chargers" background and text to normal
-        char.setBackgroundResource(R.drawable.empty_bgev)
+        char.setBackgroundResource(R.drawable.empty_bg_ev)
         charge_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
-        char_chat.setBackgroundResource(R.drawable.empty_bgev)
+        char_chat.setBackgroundResource(R.drawable.empty_bg_ev)
         chat_textView.setTextColor(ContextCompat.getColor(this, R.color.black))
 
 

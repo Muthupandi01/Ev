@@ -80,7 +80,7 @@
                             android:layout_height="wrap_content"
                             android:scaleType="fitXY"
                             android:layout_marginHorizontal="@dimen/_12sdp"
-                            android:src="@drawable/plus_circle"/>
+                            android:src="@drawable/plus_circle_ev"/>
 
 
                     </LinearLayout>

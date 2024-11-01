@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp"
-            android:id="@+id/car_img"
+            android:id="@+id/car_img1"
             android:src="@drawable/maskgroup_ev"
             android:scaleType="fitXY"/>
         <LinearLayout
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tesela Model X"
-                android:id="@+id/tesela"
+                android:id="@+id/tesela1"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#000000"
                 android:textStyle="bold"/>
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Licence Plate : UPS 256"
-                android:id="@+id/licene"
+                android:id="@+id/licene1"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#F77F00"
                 />
@@ -45,13 +45,13 @@
             android:orientation="vertical"
             android:layout_marginEnd="@dimen/_5sdp"
             android:layout_gravity="center_vertical">
-        <CheckBox
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_gravity="end"
-            android:id="@+id/checbox"
-            android:gravity="end"/>
-    </LinearLayout>
+            <CheckBox
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="end"
+                android:id="@+id/checbox1"
+                android:gravity="end"/>
+        </LinearLayout>
 
     </LinearLayout>
 

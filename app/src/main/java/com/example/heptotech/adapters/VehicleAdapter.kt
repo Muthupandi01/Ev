@@ -65,7 +65,7 @@ class VehicleAdapter(
             modelTextView.text = vehicle.brand
             licensePlateTextView.text = "Licence Plate : ${vehicle.licensePlate}"
             if (!vehicle.imageUrl.isNullOrEmpty()) {
-                Picasso.get().load(vehicle.imageUrl).placeholder(R.drawable.picasoloading).into(imageView)
+                Picasso.get().load(vehicle.imageUrl).placeholder(R.drawable.picasoloading_ev).into(imageView)
             } else {
                 imageView.setImageResource(R.drawable.image_not_available_ev) // Provide a default image
             }

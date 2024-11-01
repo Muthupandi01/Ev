@@ -214,7 +214,7 @@
                         <!-- Left ImageView -->
                         <ImageView
                             android:padding="@dimen/_2ssp"
-                            android:background="@drawable/ripple"
+                            android:background="@drawable/ripple_ev"
                             android:clickable="true"
                             android:focusable="true"
                             android:id="@+id/leftImageView"
@@ -229,7 +229,7 @@
                         <!-- Right ImageView -->
                         <ImageView
                             android:padding="@dimen/_2ssp"
-                            android:background="@drawable/ripple"
+                            android:background="@drawable/ripple_ev"
                             android:clickable="true"
                             android:focusable="true"
                             android:id="@+id/rightImageView"
@@ -811,6 +811,7 @@
                                         android:background="@drawable/rectangle_34624583__1__ev"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:id="@+id/view_text"
                                         android:text="VIEW"
                                         android:textStyle="bold"
                                         android:gravity="center"
@@ -872,7 +873,7 @@
                                             android:scaleType="center"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:src="@drawable/imgonlinecard"
+                                            android:src="@drawable/imgonlinecard_ev"
                                           />
                                     </RelativeLayout>
                                 </LinearLayout>
@@ -889,7 +890,7 @@
 
                                    <LinearLayout
                                        android:layout_marginTop="@dimen/_2sdp"
-                                       android:background="@drawable/rectangle_34624585"
+                                       android:background="@drawable/rectangle_34624585_ev"
                                        android:layout_marginHorizontal="@dimen/_10sdp"
                                        android:layout_width="wrap_content"
                                        android:layout_height="wrap_content"
@@ -962,7 +963,7 @@
                                 <LinearLayout
                                     android:layout_margin="@dimen/_5sdp"
                                     android:layout_marginTop="@dimen/_2sdp"
-                                    android:background="@drawable/rectangle_34624587"
+                                    android:background="@drawable/rectangle_34624587_ev"
 
                                     android:layout_width="wrap_content"
                                     android:layout_gravity="center"
@@ -975,7 +976,7 @@
                                         android:layout_gravity="center"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:src="@drawable/eye_svg"
+                                        android:src="@drawable/eye_svg_ev"
                                         />
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -995,7 +996,7 @@
                                     android:layout_gravity="center"
                                     android:gravity="center"
                                     android:layout_marginTop="@dimen/_2sdp"
-                                    android:background="@drawable/rectangle_34624587"
+                                    android:background="@drawable/rectangle_34624587_ev"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal">
@@ -1028,7 +1029,7 @@
                             android:id="@+id/orangependingCard"
                             android:layout_marginHorizontal="@dimen/_5ssp"
                             app:cardUseCompatPadding="true"
-                            android:background="@drawable/rectangle_34624611"
+                            android:background="@drawable/rectangle_34624611_ev"
                             app:cardCornerRadius="@dimen/_10ssp"
                             android:layout_marginTop="@dimen/_12ssp"
                             android:layout_width="match_parent"
@@ -1158,7 +1159,7 @@
 
                                             <TextView
                                                 android:drawablePadding="@dimen/_5sdp"
-                                                android:drawableLeft="@drawable/user"
+                                                android:drawableLeft="@drawable/user_ev"
                                                 android:fontFamily="@font/poppins_medium"
                                                 android:layout_marginTop="@dimen/_12sdp"
                                                 android:layout_width="match_parent"
@@ -1257,7 +1258,7 @@
                             android:id="@+id/greenChargingCard"
                             android:layout_marginHorizontal="@dimen/_5ssp"
                             app:cardUseCompatPadding="true"
-                            android:background="@drawable/rectangle_34624611"
+                            android:background="@drawable/rectangle_34624611_ev"
                             app:cardCornerRadius="@dimen/_10ssp"
                             android:layout_marginTop="@dimen/_12ssp"
                             android:layout_width="match_parent"
@@ -1389,7 +1390,7 @@
 
                                             <TextView
                                                 android:drawablePadding="@dimen/_5sdp"
-                                                android:drawableLeft="@drawable/user"
+                                                android:drawableLeft="@drawable/user_ev"
                                                 android:fontFamily="@font/poppins_medium"
                                                 android:layout_marginTop="@dimen/_12sdp"
                                                 android:layout_width="match_parent"
@@ -1491,7 +1492,7 @@
                             android:visibility="gone"
                             android:layout_marginHorizontal="@dimen/_5ssp"
                             app:cardUseCompatPadding="true"
-                            android:background="@drawable/rectangle_34624611"
+                            android:background="@drawable/rectangle_34624611_ev"
                             app:cardCornerRadius="@dimen/_10ssp"
                             android:layout_marginTop="@dimen/_12ssp"
                             android:layout_width="match_parent"
@@ -1599,7 +1600,7 @@
 
                                             <TextView
                                                 android:drawablePadding="@dimen/_5sdp"
-                                                android:drawableLeft="@drawable/user"
+                                                android:drawableLeft="@drawable/user_ev"
                                                 android:fontFamily="@font/poppins_medium"
                                                 android:layout_marginTop="@dimen/_12sdp"
                                                 android:layout_width="match_parent"
@@ -1648,7 +1649,7 @@
                                             <TextView
                                                 android:layout_gravity="end"
                                                 android:id="@+id/booknewslottxt"
-                                                android:background="@drawable/rectangle_34624605"
+                                                android:background="@drawable/rectangle_34624605_ev"
                                                 android:drawablePadding="@dimen/_5sdp"
                                                 android:fontFamily="@font/poppins_medium"
                                                 android:layout_marginTop="@dimen/_12sdp"
@@ -1797,14 +1798,14 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:background="@drawable/rectangle_34624587__2_">
+                                        android:background="@drawable/rectangle_34624587__2_ev">
 
                                         <!-- Warning icon ImageView -->
                                         <ImageView
                                             android:scaleType="center"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:src="@drawable/charging_station_1"
+                                            android:src="@drawable/charging_station_1_ev"
                                             />
                                     </RelativeLayout>
                                 </LinearLayout>
@@ -1853,7 +1854,7 @@
 
                                         <TextView
                                             android:layout_marginRight="@dimen/_3sdp"
-                                            android:background="@drawable/rectangle_34624588"
+                                            android:background="@drawable/rectangle_34624588_ev"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="Unlock Charger"
@@ -1867,7 +1868,7 @@
                                         <TextView
                                             android:layout_marginLeft="@dimen/_2ssp"
                                             android:gravity="center"
-                                            android:background="@drawable/rectangle_34624588"
+                                            android:background="@drawable/rectangle_34624588_ev"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="Start Charging"

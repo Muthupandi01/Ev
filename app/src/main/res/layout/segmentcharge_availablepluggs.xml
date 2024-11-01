@@ -37,10 +37,10 @@
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:padding="@dimen/_2ssp"
-                android:background="@drawable/ripple"
+                android:background="@drawable/ripple_ev"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/group_427318898"
+                android:src="@drawable/group_427318898_ev"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -53,7 +53,7 @@
                 android:padding="@dimen/_2ssp"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/group_427318899"
+                android:src="@drawable/group_427318899_ev"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -127,7 +127,7 @@
                android:layout_height="match_parent"
                android:textSize="@dimen/_8ssp"
                android:drawablePadding="@dimen/dp_5"
-               android:drawableLeft="@drawable/phone"
+               android:drawableLeft="@drawable/phone_ev"
                android:fontFamily="@font/poppins_medium"
                android:text="+256 98625 56236"
                android:textColor="@color/commontxtcolor"
@@ -135,7 +135,7 @@
 
            <LinearLayout
                android:layout_margin="@dimen/_10sdp"
-               android:background="@drawable/rectangle_34624269"
+               android:background="@drawable/rectangle_34624269_ev"
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:orientation="vertical">
@@ -197,13 +197,13 @@
                        android:layout_width="@dimen/_55sdp"
                        android:layout_height="match_parent"
                        android:layout_margin="@dimen/_5sdp"
-                       android:background="@drawable/rectangle_34624271">
+                       android:background="@drawable/rectangle_34624271_ev">
 
                        <TextView
                            android:id="@+id/topTextView"
                            android:layout_width="@dimen/_15sdp"
                            android:layout_height="wrap_content"
-                           android:background="@drawable/rectangle_34624278"
+                           android:background="@drawable/rectangle_34624278_ev"
                            android:text="2"
                            android:textAlignment="center"
                            android:textStyle="bold"
@@ -245,14 +245,14 @@
                        android:layout_height="match_parent"
                        android:layout_margin="@dimen/_5sdp"
                        android:backgroundTint="@color/black"
-                       android:background="@drawable/rectangle_34624271">
+                       android:background="@drawable/rectangle_34624271_ev">
 
                        <TextView
                            android:id="@+id/topTextView1"
                            android:layout_width="@dimen/_15sdp"
                            android:layout_height="wrap_content"
                            android:backgroundTint="@color/black"
-                           android:background="@drawable/rectangle_34624278"
+                           android:background="@drawable/rectangle_34624278_ev"
                            android:text="2"
                            android:textAlignment="center"
                            android:textStyle="bold"
@@ -294,7 +294,7 @@
                        android:layout_height="match_parent"
                        android:layout_margin="@dimen/_5sdp"
                        android:backgroundTint="#CFCFCF"
-                       android:background="@drawable/rectangle_34624271">
+                       android:background="@drawable/rectangle_34624271_ev">
 
                        <TextView
                            android:visibility="invisible"
@@ -302,7 +302,7 @@
                            android:layout_width="@dimen/_15sdp"
                            android:layout_height="wrap_content"
                            android:backgroundTint="@color/black"
-                           android:background="@drawable/rectangle_34624278"
+                           android:background="@drawable/rectangle_34624278_ev"
                            android:text="2"
                            android:textAlignment="center"
                            android:textStyle="bold"
@@ -316,7 +316,7 @@
                            android:id="@+id/imageView11"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:src="@drawable/group_427318864"
+                           android:src="@drawable/group_427318864_ev"
                            app:layout_constraintTop_toBottomOf="@id/topTextView11"
                            app:layout_constraintEnd_toEndOf="parent"
                            app:layout_constraintStart_toStartOf="parent"

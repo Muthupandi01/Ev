@@ -8,12 +8,12 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.actvity_view.ActivityRestaurant
+import com.example.heptotech.actvity_view.PubicstationCard
 import com.example.heptotech.bean_dataclass.MarkerInfo
 
-class MarkerAdapter (
+class PublicStationMarkerAdapter (
     private val items: List<MarkerInfo>
-) : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<PublicStationMarkerAdapter.ViewHolder>() {
     private var selectedMarkerIndex: Int = -1
 
     // ViewHolder class to hold item views
@@ -52,7 +52,7 @@ class MarkerAdapter (
         }
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
-            val intent = Intent(context, ActivityRestaurant::class.java)
+            val intent = Intent(context, PubicstationCard::class.java)
             // You can pass data to the new activity if needed
             intent.putExtra("title", item.title)
             intent.putExtra("distance", item.distance)

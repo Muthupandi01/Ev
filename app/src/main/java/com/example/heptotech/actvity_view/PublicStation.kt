@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.location.Geocoder
 import android.location.Location
@@ -17,14 +16,11 @@ import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import android.view.animation.AnimationSet
 import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
-import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -37,13 +33,12 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.adapters.MarkerAdapter
+import com.example.heptotech.adapters.PublicStationMarkerAdapter
 import com.example.heptotech.bean_dataclass.MarkerInfo
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
@@ -53,7 +48,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.Locale
-import kotlin.concurrent.timer
 
 class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var topCenterText: CardView
@@ -100,7 +94,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
         val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
         searchTextView?.let {
-            it.textSize = 13f // Set your desired text size (SP)
+            it.textSize = 12f // Set your desired text size (SP)
             it.setTextColor(ContextCompat.getColor(this, R.color.black))
             //  it.setTypeface(null, Typeface.BOLD)
 
@@ -171,7 +165,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                     "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km"),
             MarkerInfo("Kambala city", "Akii Bus Road,\n" +
                     "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km"))
-        val adapter = MarkerAdapter(markerInfoList)
+        val adapter = PublicStationMarkerAdapter(markerInfoList)
         // val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
 // Set LinearLayoutManager with horizontal orientation
@@ -305,7 +299,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             Animation.RELATIVE_TO_SELF, 0.5f, // Pivot point at center (X)
             Animation.RELATIVE_TO_SELF, 0.5f  // Pivot point at center (Y)
         )
-        zoomAnimation.duration = 1000 // Duration of each zoom cycle (1 second)
+        zoomAnimation.duration = 1500 // Duration of each zoom cycle (1 second)
         zoomAnimation.repeatMode = Animation.REVERSE // Reverse to zoom out after zooming in
         zoomAnimation.repeatCount = Animation.INFINITE // Keep repeating the zoom in/out
 
@@ -350,10 +344,10 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private fun toggleMap() {
         if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL) {
             mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
-            imageView.setImageResource(R.drawable.group_908_ev) // Change to satellite icon
+            imageView.setImageResource(R.drawable.popover_ev) // Change to satellite icon
         } else {
             mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-            imageView.setImageResource(R.drawable.group_427318908_2x) // Change back to normal icon
+            imageView.setImageResource(R.drawable.popover_ev) // Change back to normal icon
         }
     }
 
@@ -366,7 +360,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
             if (location != null) {
                 val userLocation = LatLng(location.latitude, location.longitude)
-                val markerIcon = BitmapFromVector(this, R.drawable.group_427318907, 150, 150)
+                val markerIcon = BitmapFromVector(this, R.drawable.group_427318907_ev, 150, 150)
                 currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
                 fetchAddressFromLatLng(userLocation)
@@ -403,7 +397,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
 
         // Add marker for NAKASERO
-        val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.frame_locate, 125, 125)
+        val nakaseroMarkerImage = BitmapFromVector(this, R.drawable.frame_locate_ev, 125, 125)
         val nakaseroMarker = mMap.addMarker(
             MarkerOptions()
                 .position(nakaseroLocation)
@@ -417,7 +411,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val marker = mMap.addMarker(
                 MarkerOptions()
                     .position(location)
-                    .icon(BitmapFromVector(this, R.drawable.frame_locate, 125, 125))
+                    .icon(BitmapFromVector(this, R.drawable.frame_locate_ev, 125, 125))
             )
             markers.add(marker!!)
         }
@@ -449,7 +443,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         if (clickedMarker != marker) {
             clickedMarker?.let {
                 // Reset the previous marker to the original image
-                it.setIcon(BitmapFromVector(this, R.drawable.frame_locate, 125, 125))
+                it.setIcon(BitmapFromVector(this, R.drawable.frame_locate_ev, 125, 125))
                 it.isVisible = true // Show the previous marker
             }
 
@@ -495,7 +489,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val markerIndex = markers.indexOf(marker)
             if (markerIndex != -1) {
                 // Update the adapter to show the clicked marker's details
-                (recyclerView.adapter as MarkerAdapter).setSelectedMarker(markerIndex)
+                (recyclerView.adapter as PublicStationMarkerAdapter).setSelectedMarker(markerIndex)
 
                 recyclerView.scrollToPosition(markerIndex)
                 Log.d("RVVisBefore", "Visibility: ${recyclerView.visibility}")

@@ -33,10 +33,10 @@ class samplecard : AppCompatActivity() {
         textRight = findViewById(R.id.text_right)
         mainLayout = findViewById(R.id.main)
 
-        defaultBackground = ContextCompat.getDrawable(this, R.drawable.default_background)!!
-        edgeCurvedBackgroundLeft = ContextCompat.getDrawable(this, R.drawable.leftc)!!
-        centerBackground = ContextCompat.getDrawable(this, R.drawable.centerc)!!
-        edgeCurvedBackgroundRight = ContextCompat.getDrawable(this, R.drawable.rightc)!!
+        defaultBackground = ContextCompat.getDrawable(this, R.drawable.default_background_ev)!!
+        edgeCurvedBackgroundLeft = ContextCompat.getDrawable(this, R.drawable.leftc_ev)!!
+        centerBackground = ContextCompat.getDrawable(this, R.drawable.centerc_ev)!!
+        edgeCurvedBackgroundRight = ContextCompat.getDrawable(this, R.drawable.rightc_ev)!!
 
         textLeft.setOnClickListener {
             handleClick(textLeft, edgeCurvedBackgroundLeft)

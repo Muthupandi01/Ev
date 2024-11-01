@@ -22,20 +22,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.adapters.StopsAdapter
-import com.example.heptotech.adapters.VechicleUserAdapter
-import com.example.heptotech.bean_dataclass.User
-import com.example.heptotech.bean_dataclass.VechicleUserItem
-import com.example.heptotech.fragment.ChooseDateFragment
-import com.example.heptotech.fragment.ChooseDatesFragment
+import com.example.heptotech.adapters.RoutePlanStopAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
-class IphoneRouteplan : AppCompatActivity() {
+class RoutePlan : AppCompatActivity() {
     private lateinit var locationEditText: EditText
     private lateinit var destinationEditText: EditText
     private lateinit var routelinear: LinearLayout
@@ -59,7 +53,7 @@ class IphoneRouteplan : AppCompatActivity() {
     private lateinit var Ride_late: TextView
     private lateinit var choose_dates: TextView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: StopsAdapter
+    private lateinit var adapter: RoutePlanStopAdapter
    // private val stops: MutableList<String> = mutableListOf()
    // private val stops: MutableList<String> = mutableListOf("Stop 1") // Initialize with the first stop as a hint
    // private var nextStopNumber = 2 // Start counting from the next stop
@@ -72,7 +66,7 @@ class IphoneRouteplan : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_iphone_promax)
+        setContentView(R.layout.activity_routeplan)
 
         locationEditText = findViewById(R.id.search_text)
         destinationEditText = findViewById(R.id.your_destination)
@@ -105,7 +99,7 @@ class IphoneRouteplan : AppCompatActivity() {
         var isSelected = false
         routelinear.setOnClickListener()
         {
-            val intent = Intent(this, ActivityRoorConform::class.java)
+            val intent = Intent(this, RoutePlanConfirm::class.java)
             startActivity(intent)
         }
         avoidTolls.setOnClickListener {
@@ -141,7 +135,7 @@ class IphoneRouteplan : AppCompatActivity() {
             isSelected = !isSelected
         }
         recyclerView = findViewById(R.id.stops_recycler_view)
-        adapter = StopsAdapter(this)
+        adapter = RoutePlanStopAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -266,7 +260,7 @@ class IphoneRouteplan : AppCompatActivity() {
         chooseDate.setOnClickListener {
             // Create and show the BottomSheetDialog
             val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
-            val bottomSheetView = layoutInflater.inflate(R.layout.fragment_example_bottom_sheet, null)
+            val bottomSheetView = layoutInflater.inflate(R.layout.bottomsheet_ridestart_routeplan, null)
             bottomSheetDialog.setContentView(bottomSheetView)
          //   val bottomSheetDialog = BottomSheetDialog(this, R.style.ShoppingList_BottomSheetDialog)
           //  bottomSheetDialog.setContentView(R.layout.fragment_example_bottom_sheet)
@@ -370,7 +364,7 @@ class IphoneRouteplan : AppCompatActivity() {
            // val bottomSheetFragment = ChooseDatesFragment()
             //bottomSheetFragment.show(supportFragmentManager, "ChooseDatesFragment")
             val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
-            val bottomSheetView = layoutInflater.inflate(R.layout.activity_ride_end, null)
+            val bottomSheetView = layoutInflater.inflate(R.layout.bottomsheet_ride_end_routeplan, null)
             bottomSheetDialog.setContentView(bottomSheetView)
             val dayPickers = bottomSheetDialog.findViewById<NumberPicker>(R.id.datePickers)
             val monthPickers = bottomSheetDialog.findViewById<NumberPicker>(R.id.monthPickers)
@@ -511,7 +505,7 @@ class IphoneRouteplan : AppCompatActivity() {
     }
 
     private fun selectReturnJourney() {
-        returnJourneyLayout.setBackgroundResource(R.drawable.rectangle_34624357) // Your selected background drawable
+        returnJourneyLayout.setBackgroundResource(R.drawable.rectangle_34624357_ev) // Your selected background drawable
         returnJourneyImage.setImageResource(R.drawable.group_427318914_ev) // Change image on selection
         returnJourneyText.setTextColor(
             ContextCompat.getColor(
@@ -543,7 +537,7 @@ class IphoneRouteplan : AppCompatActivity() {
 
 
     private fun selectOneWay() {
-        oneWayLayout.setBackgroundResource(R.drawable.rectangle_34624357) // Your selected background drawable
+        oneWayLayout.setBackgroundResource(R.drawable.rectangle_34624357_ev) // Your selected background drawable
         oneWayImage.setImageResource(R.drawable.group_427318914_ev) // Change image on selection
         oneWayText.setTextColor(ContextCompat.getColor(this, R.color.return_journey)) // Your selected color
 

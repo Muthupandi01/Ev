@@ -2,7 +2,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-android:background="@drawable/popup_background"
+android:background="@drawable/popup_background_ev"
     android:padding="16dp">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -11,7 +11,7 @@ android:background="@drawable/popup_background"
         <ImageView
             android:layout_width="11dp"
             android:layout_height="11dp"
-            android:src="@drawable/green"
+            android:src="@drawable/green_ev"
             android:layout_marginTop="@dimen/_9sdp"/>
 
 
@@ -33,7 +33,7 @@ android:background="@drawable/popup_background"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:src="@drawable/blue"/>
+            android:src="@drawable/blue_ev"/>
 
 
     <TextView
@@ -54,7 +54,7 @@ android:background="@drawable/popup_background"
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:src="@drawable/grey"/>
+            android:src="@drawable/grey_ev"/>
 
     <TextView
         android:id="@+id/option_in_use"

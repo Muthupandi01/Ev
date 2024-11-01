@@ -43,7 +43,7 @@
         android:layout_below="@id/location_svg"
         android:layout_marginStart="@dimen/_3sdp"
         android:layout_marginTop="@dimen/_3sdp"
-        android:src="@drawable/line_274" />
+        android:src="@drawable/line_274_ev" />
 
 
 </RelativeLayout>

@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -63,7 +62,7 @@ class IphoneMap : AppCompatActivity(), OnMapReadyCallback {
             imageView.setImageResource(R.drawable.group_908_ev) // Change to satellite icon
         } else {
             mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-            imageView.setImageResource(R.drawable.group_427318908_2x) // Change back to normal icon
+            imageView.setImageResource(R.drawable.group_427318908_2x_ev) // Change back to normal icon
         }
     }
 
@@ -76,7 +75,7 @@ class IphoneMap : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
             if (location != null) {
                 val userLocation = LatLng(location.latitude, location.longitude)
-                val markerIcon = BitmapFromVector(this, R.drawable.group_427318907) // Change to your marker image
+                val markerIcon = BitmapFromVector(this, R.drawable.group_427318907_ev) // Change to your marker image
                 mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
                 fetchAddressFromLatLng(userLocation)

@@ -16,7 +16,7 @@ class RootPlanScreen : AppCompatActivity()
         createtextView=findViewById(R.id.create_text)
         createtextView.setOnClickListener()
         {
-            val intent= Intent(this,IphoneRouteplan::class.java)
+            val intent= Intent(this,RoutePlan::class.java)
             startActivity(intent)
         }
 

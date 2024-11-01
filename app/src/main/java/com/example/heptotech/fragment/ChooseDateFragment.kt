@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.NumberPicker
 import android.widget.TextView
 import com.example.heptotech.R
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class ChooseDateFragment : BottomSheetDialogFragment() {
@@ -19,7 +18,7 @@ class ChooseDateFragment : BottomSheetDialogFragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        val view=inflater.inflate(R.layout.fragment_example_bottom_sheet, container, false)
+        val view=inflater.inflate(R.layout.bottomsheet_ridestart_routeplan, container, false)
         val dayPicker = view.findViewById<NumberPicker>(R.id.datePicker)
         val monthPicker = view.findViewById<NumberPicker>(R.id.monthPicker)
         val yearPicker = view.findViewById<NumberPicker>(R.id.yearPicker)

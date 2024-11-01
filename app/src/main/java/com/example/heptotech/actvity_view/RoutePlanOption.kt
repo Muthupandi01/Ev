@@ -15,10 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.adapters.CarInfoAdapter
 import com.example.heptotech.adapters.RouteOptionAdapter
-import com.example.heptotech.bean_dataclass.CarInfo
 import com.example.heptotech.bean_dataclass.RouteOption
 
-class ActivityRouteOption : AppCompatActivity() {
+class RoutePlanOption : AppCompatActivity() {
 
     private lateinit var seekBars: Array<SeekBar>
     private lateinit var tvSeekBarProgress: Array<TextView>
@@ -117,16 +116,16 @@ class ActivityRouteOption : AppCompatActivity() {
         }
         textView_con.setOnClickListener()
         {
-            val intent = Intent(this, ActivtyCalculateRoot::class.java)
+            val intent = Intent(this, RoutePlanCalculateRoot::class.java)
             startActivity(intent)
         }
 
         val carLists = mutableListOf(
-            RouteOption("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew),
-            RouteOption("Tesla Model Y", "12, Kampala, Uganda", "90%", R.drawable.pngwingnew),
-            RouteOption("Tesla Model Z", "12, Kampala, Uganda", "100%", R.drawable.pngwingnew),
-            RouteOption("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew),
-            RouteOption("BMW i8", "3, Nairobi, Kenya", "80%", R.drawable.pngwingnew)
+            RouteOption("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
+            RouteOption("Tesla Model Y", "12, Kampala, Uganda", "90%", R.drawable.pngwingnew_ev),
+            RouteOption("Tesla Model Z", "12, Kampala, Uganda", "100%", R.drawable.pngwingnew_ev),
+            RouteOption("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
+            RouteOption("BMW i8", "3, Nairobi, Kenya", "80%", R.drawable.pngwingnew_ev)
         )
         route_option = RouteOptionAdapter(carLists)
         car_recycle.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

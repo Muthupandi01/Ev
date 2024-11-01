@@ -279,7 +279,7 @@
                             android:scaleType="fitXY"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/evzone_pay"/>
+                            android:src="@drawable/evzone_pay_ev"/>
 
                         <TextView
                             android:layout_marginTop="@dimen/dp_5"

@@ -17,7 +17,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/img"
-            android:src="@drawable/maskgroup"/>
+            android:src="@drawable/maskgroup_ev"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

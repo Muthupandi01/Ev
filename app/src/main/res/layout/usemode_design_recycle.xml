@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_111"
+        android:background="@drawable/rectangle_111_ev"
         android:orientation="vertical">
 
         <RadioButton

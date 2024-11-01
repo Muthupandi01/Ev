@@ -20,7 +20,7 @@ class RoutePlanStarted : AppCompatActivity()
         back_img=findViewById(R.id.im)
         create_Route.setOnClickListener()
         {
-            val intent = Intent(this, IphoneRouteplan::class.java)
+            val intent = Intent(this, RoutePlan::class.java)
             startActivity(intent)
         }
         back_img.setOnClickListener()

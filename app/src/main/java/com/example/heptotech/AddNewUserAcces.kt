@@ -15,8 +15,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
-import com.example.heptotech.activity_view.AccessBottomsheet
-import com.example.heptotech.actvity_view.IphoneRouteplan
+import com.example.heptotech.actvity_view.RoutePlan
 
 class AddNewUserAcces : AppCompatActivity() {
 
@@ -59,7 +58,7 @@ class AddNewUserAcces : AppCompatActivity() {
 
         confirmLayout.setOnClickListener {
             if (checkConditions()) {
-                startActivity(Intent(this, IphoneRouteplan::class.java))
+                startActivity(Intent(this, RoutePlan::class.java))
             }
         }
 
@@ -164,7 +163,7 @@ class AddNewUserAcces : AppCompatActivity() {
 
     private fun toggleSwitchImage() {
         isSwitchEnabled = !isSwitchEnabled
-        switchimg.setImageResource(if (isSwitchEnabled) R.drawable.yes__1_ else R.drawable.no_1)
+        switchimg.setImageResource(if (isSwitchEnabled) R.drawable.yes__1_ev else R.drawable.no_1_ev)
     }
 
     override fun onBackPressed() {

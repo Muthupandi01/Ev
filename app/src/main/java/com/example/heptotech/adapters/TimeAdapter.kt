@@ -40,7 +40,7 @@ class TimeAdapter(
         if (isSelected) {
             // For the 0th position, set the background to green
             if (position == 0) {
-                holder.itemView.setBackgroundResource(R.drawable.rectangle__1_) // Background for remaining positions
+                holder.itemView.setBackgroundResource(R.drawable.rectangle__1_ev) // Background for remaining positions
                 holder.timeTextView.setTextColor(Color.BLACK) // Text color for rem
             } else {
                 // Use different background for other selected positions (if needed)
@@ -59,7 +59,7 @@ class TimeAdapter(
                     holder.timeTextView.setTextColor(Color.BLACK) // Text color for 1st, 2nd, and 3rd positions
                 }
                 else -> {
-                    holder.itemView.setBackgroundResource(R.drawable.rectangle__1_) // Background for remaining positions
+                    holder.itemView.setBackgroundResource(R.drawable.rectangle__1_ev) // Background for remaining positions
                     holder.timeTextView.setTextColor(Color.BLACK) // Text color for remaining positions
                 }
             }

@@ -22,7 +22,6 @@ import com.example.heptotech.adapters.VechicleUserAdapter
 import com.example.heptotech.bean_dataclass.User
 import com.example.heptotech.bean_dataclass.VechicleUserItem
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.textview.MaterialTextView
 
 class AccessBottomsheet : AppCompatActivity() {
     private lateinit var back: ImageView
@@ -53,12 +52,12 @@ class AccessBottomsheet : AppCompatActivity() {
         }
 
         val users = listOf(
-            User(R.drawable.dummy1, "Robert Fox", "Brother", "RFID Card",R.drawable.group_427319118_ev),
-            User(R.drawable.dummy2, "Albert Flores", "Brother", "RFID Card",R.drawable.group_427319118_ev),
-            User(R.drawable.dummy3, "Kristin Watson", "Friend", "App",R.drawable.group_427319118_ev),
-            User(R.drawable.dummy4, "Sister", "Friend", "App, RFID Card",R.drawable.group_427319118_ev),
-            User(R.drawable.dummy5, "Sister", "Friend", "App",R.drawable.group_427319118_ev),
-            User(R.drawable.dummy6, "Harold", "Friend", "RFID Card",R.drawable.group_427319118_ev)
+            User(R.drawable.dummy1_ev, "Robert Fox", "Brother", "RFID Card",R.drawable.group_427319118_ev),
+            User(R.drawable.dummy2_ev, "Albert Flores", "Brother", "RFID Card",R.drawable.group_427319118_ev),
+            User(R.drawable.dummy3_ev, "Kristin Watson", "Friend", "App",R.drawable.group_427319118_ev),
+            User(R.drawable.dummy4_ev, "Sister", "Friend", "App, RFID Card",R.drawable.group_427319118_ev),
+            User(R.drawable.dummy5_ev, "Sister", "Friend", "App",R.drawable.group_427319118_ev),
+            User(R.drawable.dummy6_ev, "Harold", "Friend", "RFID Card",R.drawable.group_427319118_ev)
         )
 
             usercardrec.layoutManager = LinearLayoutManager(this)
@@ -91,9 +90,9 @@ class AccessBottomsheet : AppCompatActivity() {
 
 
         val vehicleItems = mutableListOf(
-            VechicleUserItem(R.drawable.mcar_list, "Tesla Model X", "License Plate 123", false),
-            VechicleUserItem(R.drawable.mcar1_list, "Tesla Model Y", "License Plate 456", false),
-            VechicleUserItem(R.drawable.mcar2_list, "Tesla Model S", "License Plate 789", false)
+            VechicleUserItem(R.drawable.mcar_list_ev, "Tesla Model X", "License Plate 123", false),
+            VechicleUserItem(R.drawable.mcar1_list_ev, "Tesla Model Y", "License Plate 456", false),
+            VechicleUserItem(R.drawable.mcar2_list_ev, "Tesla Model S", "License Plate 789", false)
         )
 
         vehicleRecyclerView!!.layoutManager = LinearLayoutManager(this)

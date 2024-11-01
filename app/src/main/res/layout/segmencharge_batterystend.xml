@@ -33,7 +33,7 @@
             >
 
             <LinearLayout
-                android:background="@drawable/rectangle_34624332"
+                android:background="@drawable/rectangle_34624332_ev"
                 android:layout_margin="@dimen/_3sdp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/page_1_51_"/>
+                        android:src="@drawable/page_1_51_ev"/>
 
 
 
@@ -108,7 +108,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:background="@drawable/rectangle_34624333"
+                android:background="@drawable/rectangle_34624333_ev"
                 android:layout_margin="@dimen/_3sdp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -181,7 +181,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:background="@drawable/rectangle_34624334"
+                android:background="@drawable/rectangle_34624334_ev"
                 android:layout_margin="@dimen/_3sdp"
                 android:layout_width="0dp"
                 android:gravity="center"
@@ -286,7 +286,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/rectangle_34624106__1_"
+                    android:src="@drawable/rectangle_34624106__1_ev"
                     android:visibility="visible" />
 
             </LinearLayout>
@@ -325,7 +325,7 @@
 
 
                 <LinearLayout
-                    android:background="@drawable/rectangle_34624335__1_"
+                    android:background="@drawable/rectangle_34624335__1_ev"
                     android:visibility="visible"
                     android:weightSum="2"
                     android:layout_marginHorizontal="@dimen/_7sdp"
@@ -448,7 +448,7 @@
                     android:layout_marginTop="@dimen/_7ssp"
                     android:text="Available"
                     android:drawablePadding="@dimen/_5ssp"
-                    android:drawableLeft="@drawable/ellipse_618"
+                    android:drawableLeft="@drawable/ellipse_618_ev"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -462,7 +462,7 @@
                     android:layout_marginTop="@dimen/_7ssp"
                     android:text="Occupied"
                     android:drawablePadding="@dimen/_5ssp"
-                    android:drawableLeft="@drawable/ellipse_619"
+                    android:drawableLeft="@drawable/ellipse_619_ev"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -476,7 +476,7 @@
                     android:text="Selected"
                     android:drawableTint="@color/greentxt"
                     android:drawablePadding="@dimen/_5ssp"
-                    android:drawableLeft="@drawable/ellipse_619"
+                    android:drawableLeft="@drawable/ellipse_619_ev"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -489,7 +489,7 @@
                     android:layout_marginTop="@dimen/_7ssp"
                     android:text="Suggestion"
                     android:drawablePadding="@dimen/_5ssp"
-                    android:drawableLeft="@drawable/rectangleev"
+                    android:drawableLeft="@drawable/rectangleev_ev"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/black"

@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:gravity="center"
     android:id="@+id/anim2"
-    android:background="@drawable/rectangle__1_"
+    android:background="@drawable/rectangle__1_ev"
     android:layout_margin="@dimen/_5ssp"
     android:layout_height="wrap_content">
 

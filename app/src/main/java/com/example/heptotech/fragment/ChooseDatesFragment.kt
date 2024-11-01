@@ -1,6 +1,5 @@
 package com.example.heptotech.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,7 +19,7 @@ class ChooseDatesFragment : BottomSheetDialogFragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        val view=inflater.inflate(R.layout.activity_ride_end, container, false)
+        val view=inflater.inflate(R.layout.bottomsheet_ride_end_routeplan, container, false)
         val dayPickers = view.findViewById<NumberPicker>(R.id.datePickers)
         val monthPickers = view.findViewById<NumberPicker>(R.id.monthPickers)
         val yearPickers = view.findViewById<NumberPicker>(R.id.yearPickers)

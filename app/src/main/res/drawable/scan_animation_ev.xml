@@ -2,12 +2,12 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
 
-    <item android:drawable="@drawable/scan_frame_1" android:duration="300" />
-    <item android:drawable="@drawable/scan_frame_2" android:duration="300" />
-    <item android:drawable="@drawable/scan_frame_3" android:duration="300" />
+    <item android:drawable="@drawable/scan_frame_1_ev" android:duration="300" />
+    <item android:drawable="@drawable/scan_frame_2_ev" android:duration="300" />
+    <item android:drawable="@drawable/scan_frame_3_ev" android:duration="300" />
     <!-- Add more frames for smooth transitions -->
-    <item android:drawable="@drawable/scan_frame_2" android:duration="300" />
-    <item android:drawable="@drawable/scan_frame_1" android:duration="300" />
-    <item android:drawable="@drawable/scan_frame_1" android:duration="300" />
+    <item android:drawable="@drawable/scan_frame_2_ev" android:duration="300" />
+    <item android:drawable="@drawable/scan_frame_1_ev" android:duration="300" />
+    <item android:drawable="@drawable/scan_frame_1_ev" android:duration="300" />
 
 </animation-list>

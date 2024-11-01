@@ -24,11 +24,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.actvity_view.ConnectToServer
 import com.example.heptotech.actvity_view.ScanGetText
 import com.example.heptotech.adapters.VehicleItemCheckBoxAdapter
 import com.example.heptotech.bean_dataclass.VehicleItem
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 
 class ConnectToEvActivity : AppCompatActivity(),
     VehicleItemCheckBoxAdapter.OnVehicleCheckChangeListener {
@@ -45,8 +43,8 @@ class ConnectToEvActivity : AppCompatActivity(),
     private lateinit var vehicleItemCheckBoxAdapter: VehicleItemCheckBoxAdapter
     private val selectedVehicles = mutableSetOf<String>()
     private val vehicleList = listOf(
-        VehicleItem(R.drawable.g, "2-Wheeler"),
-        VehicleItem(R.drawable.h, "4-Wheeler")
+        VehicleItem(R.drawable.g_ev, "2-Wheeler"),
+        VehicleItem(R.drawable.h_ev, "4-Wheeler")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

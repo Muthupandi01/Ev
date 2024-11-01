@@ -23,7 +23,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.4"
                 android:layout_height="wrap_content"
-                android:src="@drawable/g"
+                android:src="@drawable/g_ev"
                 android:layout_gravity="center_vertical"/>
             <TextView
                 android:id="@+id/vehicletype"

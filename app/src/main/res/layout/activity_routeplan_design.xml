@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:scaleType="fitXY"
-        android:src="@drawable/group_912" />
+        android:src="@drawable/group_912_ev" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,11 +3,11 @@
 
     <item android:state_checked="true"
         android:state_enabled="false"
-        android:drawable="@drawable/ic_switch_on_disable"/>
+        android:drawable="@drawable/ic_switch_on_disable_ev"/>
 
     <item android:state_checked="false"
         android:state_enabled="false"
-        android:drawable="@drawable/ic_switch_off_disable"/>
+        android:drawable="@drawable/ic_switch_off_disable_ev"/>
 
     <item android:state_checked="true"
         android:state_enabled="true"

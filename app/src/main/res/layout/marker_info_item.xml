@@ -12,6 +12,7 @@
         android:layout_marginEnd="@dimen/_15sdp">
         <ImageView
             android:layout_marginLeft="@dimen/_5ssp"
+            android:id="@+id/ev"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
             android:scaleType="fitXY"
@@ -42,23 +43,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_3sdp"
             android:id="@+id/busstand_text"
+            android:layout_toRightOf="@id/ev"
+
+
             android:text="22,Akil Bus Road,\nKampala 22,Akil Bus"
             android:layout_below="@id/Akibua_text"
             android:layout_marginTop="@dimen/_3sdp"
-            android:layout_centerHorizontal="true"
+
             android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/_9ssp"
-           android:gravity="center"/>
+           />
 
         <RatingBar
             android:layout_marginTop="-10dp"
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
+            android:layout_marginStart="-58dp"
+            android:layout_toRightOf="@id/ev"
             android:layout_height="wrap_content"
             android:layout_below="@id/busstand_text"
             android:layout_centerHorizontal="true"
-            android:progressTint="#FF006F"
+            android:progressTint="#FFDF00"
             android:progressBackgroundTint="#D3D3D3"
             android:numStars="5"
             android:stepSize="1.0"
@@ -68,16 +75,18 @@
 
 
         <TextView
-            android:layout_marginTop="-15dp"
+            android:layout_marginTop="-10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ratingBar"
             android:id="@+id/two_text"
             android:text="2/3 Available"
+            android:layout_toRightOf="@id/ev"
+            android:layout_marginStart="@dimen/_3sdp"
 
             android:fontFamily="@font/poppins_medium"
-            android:layout_centerHorizontal="true"
-            android:textSize="@dimen/_11ssp"/>
+
+            android:textSize="@dimen/_10ssp"/>
         <ImageView
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"

@@ -11,9 +11,9 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
-import com.example.heptotech.actvity_view.IphoneRouteplan
+import com.example.heptotech.actvity_view.RoutePlan
 
-class StopsAdapter(private val context: Context) : RecyclerView.Adapter<StopsAdapter.StopViewHolder>() {
+class RoutePlanStopAdapter(private val context: Context) : RecyclerView.Adapter<RoutePlanStopAdapter.StopViewHolder>() {
 
     private val stopsList = mutableListOf<String>()
 
@@ -57,7 +57,7 @@ class StopsAdapter(private val context: Context) : RecyclerView.Adapter<StopsAda
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StopViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_stop, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.stopadapter_recycle, parent, false)
         return StopViewHolder(view)
     }
 
@@ -83,7 +83,7 @@ class StopsAdapter(private val context: Context) : RecyclerView.Adapter<StopsAda
             notifyItemRangeChanged(position, stopsList.size) // Update the positions and hints
 
             // Notify MainActivity to check stops
-            (context as IphoneRouteplan).checkStops() // Call checkStops method from MainActivity
+            (context as RoutePlan).checkStops() // Call checkStops method from MainActivity
         }
     }
 

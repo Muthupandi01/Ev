@@ -72,7 +72,7 @@
         android:textSize="@dimen/_12sdp"
         android:padding="@dimen/_10sdp"
         android:id="@+id/SID_Edittext"
-        android:background="@drawable/rectangle_new_user"
+        android:background="@drawable/rectangle_new_user_ev"
         android:layout_marginStart="@dimen/_20dp"
         android:layout_marginEnd="@dimen/_20dp"/>
     <TextView
@@ -128,14 +128,14 @@
             android:maxLines="1"
             android:layout_marginStart="@dimen/_20dp"
             android:layout_marginEnd="@dimen/_20dp"
-            android:background="@drawable/rectangle_new_user1"
+            android:background="@drawable/rectangle_new_user1_ev"
             android:textSize="@dimen/_12sdp"
             android:id="@+id/Relation_Edittext"
             android:fontFamily="@font/poppins_medium"
             android:hint="Select Relation"
             android:padding="@dimen/_10sdp"
             android:layout_marginTop="10dp"
-            android:drawableEnd="@drawable/angle_down"
+            android:drawableEnd="@drawable/angle_down_ev"
             android:paddingEnd="@dimen/_10sdp"/>
     </RelativeLayout>
 
@@ -176,14 +176,14 @@
         android:layout_marginEnd="@dimen/_20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@drawable/rectangle_type"
+        android:background="@drawable/rectangle_type_ev"
         android:id="@+id/Type_linear"
         android:layout_below="@id/Type_textview">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
-            android:src="@drawable/option_1"
+            android:src="@drawable/option_1_ev"
             android:layout_marginStart="15dp"/>
         <TextView
             android:layout_width="wrap_content"
@@ -215,7 +215,7 @@
         android:layout_marginEnd="@dimen/_20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@drawable/rectangle_type"
+        android:background="@drawable/rectangle_type_ev"
         android:id="@+id/type_linear1"
         android:layout_below="@id/Type_linear">
         <ImageView
@@ -292,7 +292,7 @@
             android:id="@+id/switch_btn"
             android:layout_width="50dp"
             android:layout_height="25dp"
-            android:src="@drawable/no_1"
+            android:src="@drawable/no_1_ev"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="20dp"
             android:layout_alignParentEnd="true"
@@ -342,7 +342,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/_20dp"
-            android:background="@drawable/help_rectangle"
+            android:background="@drawable/help_rectangle_ev"
             android:gravity="center"
             android:layout_marginEnd="@dimen/_20dp"
             android:layout_weight="1"
@@ -364,7 +364,7 @@
             android:gravity="center"
             android:id="@+id/linearconform"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/conform_rectangle"
+            android:background="@drawable/conform_rectangle_ev"
             android:layout_weight="1"
             android:orientation="horizontal">
 

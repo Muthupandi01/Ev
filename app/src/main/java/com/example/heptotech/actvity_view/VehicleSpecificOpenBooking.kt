@@ -13,7 +13,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -165,7 +164,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             Plugs("4","ChadeMO",R.drawable.vector__5_ev),
             Plugs("2","CCS",R.drawable.group_427318831),
             Plugs("2","Tesla",R.drawable.ccs1_ev),
-            Plugs("0","Type 2",R.drawable.group_427318864))
+            Plugs("0","Type 2",R.drawable.group_427318864_ev))
 
         plugAdapter = PlugAdapter(plugss)
         dynamicPlugsRecycler?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -178,11 +177,11 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         }
 
         val carList = mutableListOf(
-            CarInfo("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew),
-            CarInfo("Tesla Model Y", "12, Kampala, Uganda", "90%", R.drawable.pngwingnew),
-            CarInfo("Tesla Model Z", "12, Kampala, Uganda", "100%", R.drawable.pngwingnew),
-            CarInfo("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew),
-            CarInfo("BMW i8", "3, Nairobi, Kenya", "80%", R.drawable.pngwingnew)
+            CarInfo("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
+            CarInfo("Tesla Model Y", "12, Kampala, Uganda", "90%", R.drawable.pngwingnew_ev),
+            CarInfo("Tesla Model Z", "12, Kampala, Uganda", "100%", R.drawable.pngwingnew_ev),
+            CarInfo("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
+            CarInfo("BMW i8", "3, Nairobi, Kenya", "80%", R.drawable.pngwingnew_ev)
         )
 
             carAdapter = CarInfoAdapter(carList)

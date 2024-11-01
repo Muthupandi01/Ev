@@ -13,7 +13,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.heptotech.R
-import com.example.heptotech.activity_view.ConnectToEvActivity
 
 class ConnectToServer : AppCompatActivity() {
     lateinit var back: ImageView
@@ -95,7 +94,7 @@ class ConnectToServer : AppCompatActivity() {
     }
 
     private fun showTick(imageView: ImageView, text: String) {
-        imageView.setImageResource(R.drawable.tick_ev) // Your tick image
+        imageView.setImageResource(R.drawable.tick_ev_ev) // Your tick image
         copyToClipboard(text)
 
         // Reset image after 3 seconds

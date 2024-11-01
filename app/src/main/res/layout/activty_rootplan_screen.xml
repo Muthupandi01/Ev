@@ -28,7 +28,7 @@
             android:layout_marginStart="@dimen/_5sdp"
 
             android:layout_marginEnd="@dimen/_5sdp"
-            android:src="@drawable/map_png"/>
+            android:src="@drawable/map_png_ev"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/mapimg"
             android:layout_toLeftOf="@id/delete_img"
-            android:src="@drawable/group_932_sv"
+            android:src="@drawable/group_932_ev"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_5sdp"/>
         <TextView

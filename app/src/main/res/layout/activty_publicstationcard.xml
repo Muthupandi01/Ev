@@ -10,7 +10,7 @@
     android:layout_marginStart="@dimen/_10sdp"
     android:id="@+id/lv"
     android:layout_marginEnd="@dimen/_10sdp"
-    android:background="@drawable/ev_chrge_info"
+    android:background="@drawable/ev_chrge_info_ev"
     android:layout_marginTop="@dimen/_10sdp">
     <androidx.cardview.widget.CardView
         android:id="@+id/scannerView"
@@ -36,7 +36,7 @@
     <ImageView
         android:layout_width="@dimen/_18sdp"
         android:layout_height="@dimen/_18sdp"
-        android:src="@drawable/traffic"
+        android:src="@drawable/traffic_ev"
         android:id="@+id/tra"
         app:tint="@color/green"
         android:layout_marginTop="@dimen/_10sdp"

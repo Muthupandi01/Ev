@@ -49,7 +49,7 @@
             android:layout_below="@id/radio_search"
             android:layout_marginStart="@dimen/_6sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:src="@drawable/line_274" />
+            android:src="@drawable/line_274_ev" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stops_recycler_view"
             android:layout_width="wrap_content"

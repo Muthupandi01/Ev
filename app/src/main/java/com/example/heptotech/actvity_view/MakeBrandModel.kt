@@ -39,25 +39,25 @@ class MakeBrandModel : AppCompatActivity(), ItemClickListenervehicle<Any> {
     private lateinit var back: ImageView
 
     private val makeList = listOf(
-        Make(R.drawable.tesla, "Tesla"),
+        Make(R.drawable.tesla_ev, "Tesla"),
         Make(R.drawable.chevolet_ev, "Toyota"),
         Make(R.drawable.bmw_ev, "BMW"),
-        Make(R.drawable.honda, "Honda"),
+        Make(R.drawable.honda_ev, "Honda"),
         Make(R.drawable.benz_ev, "Mercedus"),
-        Make(R.drawable.kia, "KIA"),
-        Make(R.drawable.jaguar, "Jaguar"),
+        Make(R.drawable.kia_ev, "KIA"),
+        Make(R.drawable.jaguar_ev, "Jaguar"),
         Make(R.drawable.audi_ev, "Audi"),
-        Make(R.drawable.hyndai, "Hyundai"),
+        Make(R.drawable.hyndai_ev, "Hyundai"),
         Make(R.drawable.chevolet_ev, "Chevrolet"),
-        Make(R.drawable.landrver, "Land Rover"),
-        Make(R.drawable.lexus, "Lexus")
+        Make(R.drawable.landrver_ev, "Land Rover"),
+        Make(R.drawable.lexus_ev, "Lexus")
     )
 
     private val brandList = listOf(
         Brand(R.drawable.car2_ev, "Tesla Model X"),
         Brand(R.drawable.car2_ev, "Tesla Model S"),
         Brand(R.drawable.car4_ev, "Tesla Model Y"),
-        Brand(R.drawable.car1_ev, "Tesla Model Roadster")
+        Brand(R.drawable.car1_ev_ev, "Tesla Model Roadster")
 
     )
 

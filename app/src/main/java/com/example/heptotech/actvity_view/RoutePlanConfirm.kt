@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,7 +24,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
+class RoutePlanConfirm : AppCompatActivity(),OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var mMap: GoogleMap
     private lateinit var confirm_text: TextView
@@ -40,7 +39,7 @@ class ActivityRoorConform : AppCompatActivity(),OnMapReadyCallback {
         confirm_text = findViewById(R.id.con_text)
         confirm_text.setOnClickListener()
         {
-            val intent = Intent(this, ActivityRouteOption::class.java)
+            val intent = Intent(this, RoutePlanOption::class.java)
             startActivity(intent)
         }
         circleImageView.setOnClickListener {

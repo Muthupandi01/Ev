@@ -16,7 +16,7 @@
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
         android:layout_gravity="center"
-        android:background="@drawable/ripple"
+        android:background="@drawable/ripple_ev"
         android:clickable="true"
         android:focusable="true"
         android:padding="@dimen/_2ssp"

@@ -122,7 +122,7 @@
         android:layout_weight="1"
 
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_34624357"
+        android:background="@drawable/rectangle_34624357_ev"
         android:orientation="horizontal"
         android:id="@+id/one_way"
         android:gravity="center"
@@ -224,7 +224,7 @@
             android:layout_below="@id/radio_search"
             android:layout_marginStart="@dimen/_6sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:src="@drawable/line_274" />
+            android:src="@drawable/line_274_ev" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stops_recycler_view"
             android:layout_width="wrap_content"

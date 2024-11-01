@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/rectangle_34624287"
+        android:background="@drawable/rectangle_34624287_ev"
         tools:ignore="MissingConstraints">
 
 
         <LinearLayout
             android:gravity="center"
-            android:background="@drawable/rectangle_34624319"
+            android:background="@drawable/rectangle_34624319_ev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -33,7 +33,7 @@
 
 
                 <LinearLayout
-                    android:background="@drawable/rectangle_34624318"
+                    android:background="@drawable/rectangle_34624318_ev"
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mobile Station"
                     android:gravity="center"
-                    android:background="@drawable/rectangle_34624320"
+                    android:background="@drawable/rectangle_34624320_ev"
                     android:fontFamily="@font/poppins_regular"
                     android:textStyle="bold"
                     android:textColor="@color/white"/>
@@ -125,7 +125,7 @@
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:padding="@dimen/_2ssp"
-                android:background="@drawable/ripple"
+                android:background="@drawable/ripple_ev"
                 android:clickable="true"
                 android:focusable="true"
                 app:tint="#25314C"

@@ -14,7 +14,6 @@ import android.widget.NumberPicker
 import android.widget.RelativeLayout
 import android.widget.Switch
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -44,7 +43,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -52,6 +50,7 @@ import java.util.Locale
 class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
     lateinit var addsitelnr: LinearLayout
     lateinit var locationupdate: LinearLayout
+    private lateinit var viewtext: TextView
 
     lateinit var toggle_switch: Switch
     lateinit var siteRecyclerview: RecyclerView
@@ -150,9 +149,15 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
         neverConnected = findViewById(R.id.neverConnected)
         showBottomsheteye = findViewById(R.id.showBottomsheteye)
         goServer = findViewById(R.id.goServer)
+        viewtext=findViewById(R.id.view_text)
 
         goServer.setOnClickListener {
             val intent = Intent(this@MapMakrAftersave, ConnectToServer::class.java)
+            startActivity(intent)
+        }
+        viewtext.setOnClickListener()
+        {
+            val intent = Intent(this@MapMakrAftersave, OpearatersActivity::class.java)
             startActivity(intent)
         }
 
@@ -413,7 +418,8 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
 
         // Bottom sheet menu
         menu.setOnClickListener {
-            val bottomSheetDialog = BottomSheetDialog(this)
+            val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
+           // val bottomSheetDialog = BottomSheetDialog(this)
             val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_chargemenus, null)
             bottomSheetDialog.setContentView(view)
 
@@ -450,7 +456,7 @@ class MapMakrAftersave : AppCompatActivity(), OnMapReadyCallback {
             }
 
             config.setOnClickListener {
-                val intent = Intent(this@MapMakrAftersave, UserModeCharge::class.java)
+                val intent = Intent(this@MapMakrAftersave, ConfiguratonActivity::class.java)
                 startActivity(intent)
                 bottomSheetDialog.dismiss()
             }

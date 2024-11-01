@@ -11,7 +11,7 @@
         android:numStars="5"
         android:stepSize="1"
         android:rating="3"
-        android:progressDrawable="@drawable/custom_rating_selector"
+        android:progressDrawable="@drawable/custom_rating_selector_ev"
         android:minHeight="30dp"
         android:maxHeight="30dp"
         android:isIndicator="false"

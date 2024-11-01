@@ -60,22 +60,22 @@ class DateAdapter(
             when {
                 isSelected -> {
                     // Apply selected date style
-                    itemView.setBackgroundResource(R.drawable.rectangle_34624286)
-                    dateTextView.setBackgroundResource(R.drawable.ellipse_617)
+                    itemView.setBackgroundResource(R.drawable.rectangle_34624286_ev)
+                    dateTextView.setBackgroundResource(R.drawable.ellipse_617_ev)
                     dayTextView.setTextColor(Color.WHITE)
                     dateTextView.setTextColor(Color.BLACK)
                 }
                 isCurrentDate -> {
                     // Apply current date style
-                    itemView.setBackgroundResource(R.drawable.rectangle_34624288)
-                    dateTextView.setBackgroundResource(R.drawable.default_background)
+                    itemView.setBackgroundResource(R.drawable.rectangle_34624288_ev)
+                    dateTextView.setBackgroundResource(R.drawable.default_background_ev)
                     dayTextView.setTextColor(Color.BLACK) // Customize current date color as needed
                     dateTextView.setTextColor(Color.BLACK)
                 }
                 else -> {
                     // Apply default unselected style
-                    itemView.setBackgroundResource(R.drawable.default_background)
-                    dateTextView.setBackgroundResource(R.drawable.default_background)
+                    itemView.setBackgroundResource(R.drawable.default_background_ev)
+                    dateTextView.setBackgroundResource(R.drawable.default_background_ev)
                     dayTextView.setTextColor(Color.BLACK)
                     dateTextView.setTextColor(Color.BLACK)
                 }
