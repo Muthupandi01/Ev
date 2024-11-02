@@ -1,82 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_150sdp"
-    android:background="@drawable/top_shape_ev"
+    android:layout_height="@dimen/_190sdp"
+    android:background="@color/transparent"
     android:id="@+id/constrain_layout"
-    android:paddingBottom="@dimen/_35sdp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:paddingBottom="@dimen/_35sdp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/choose_camera"
+    <!-- Parent Layout for Open Booking, Image Divider, and Vehicle Specific Booking -->
+    <LinearLayout
+        android:id="@+id/sub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginStart="@dimen/_30sdp"
         android:layout_marginEnd="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_35sdp"
+
+        android:background="@drawable/borders_bottom_ev"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:visibility="invisible"
-            android:id="@+id/camera_img"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:src="@drawable/ic_menu_camera_ev"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        <!-- Open Booking Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/choose_camera"
+            android:paddingVertical="@dimen/_5sdp"
+            android:backgroundTint="#EFEFEF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <ImageView
+                android:visibility="invisible"
+                android:id="@+id/camera_img"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_menu_camera_ev"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Open Booking"
+                android:textColor="#0897FF"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/camera_img"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.571" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider Line -->
+        <ImageView
+            android:id="@+id/center_img"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vehicle Specific booking"
-            android:textSize="15sp"
-            android:textColor="#0897FF"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginStart="@dimen/_25sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/camera_img" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_gravity="center"
+            android:src="@drawable/line_314_ev" />
+
+        <!-- Vehicle Specific Booking Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/choose_gallery"
+            android:backgroundTint="#EFEFEF"
+            android:paddingVertical="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:visibility="invisible"
+                android:id="@+id/gallery_img"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_menu_gallery_ev"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Vehicle Specific Booking"
+                android:textColor="#0897FF"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gallery_img"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.571" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <!-- Cancel Option Layout Below -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/choose_gallery"
+        android:id="@+id/cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_30sdp"
+       android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_50sdp"
-        app:layout_constraintTop_toBottomOf="@+id/choose_camera"
+        android:background="@drawable/borders_bottom_ev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/sub">
 
         <ImageView
-            android:visibility="invisible"
-            android:id="@+id/gallery_img"
+            android:id="@+id/cancelimg"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:src="@drawable/ic_menu_gallery_ev"
-            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open Booking"
-            android:textSize="15sp"
-            android:textColor="#0897FF"
-            android:textStyle="bold"
+            android:layout_marginStart="100dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="@font/poppins_medium"
-            android:layout_marginStart="@dimen/_25sdp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="Cancel"
+            android:textColor="#0897FF"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/gallery_img" />
+            app:layout_constraintStart_toEndOf="@id/cancelimg"
+            tools:ignore="MissingConstraints" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

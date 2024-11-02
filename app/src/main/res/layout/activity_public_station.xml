@@ -186,6 +186,9 @@
     </RelativeLayout>
 
     <!-- SearchView and ScannerView at the Bottom -->
+
+
+
     <RelativeLayout
         android:layout_marginHorizontal="@dimen/_8ssp"
         android:id="@+id/bottom_container"
@@ -256,5 +259,6 @@
 
          />
     </RelativeLayout>
+
 
 </RelativeLayout>

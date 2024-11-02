@@ -325,6 +325,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
         val chooseCamera = view.findViewById<ConstraintLayout>(R.id.choose_camera)
         val chooseGallery = view.findViewById<ConstraintLayout>(R.id.choose_gallery)
+        val cancel = view.findViewById<ConstraintLayout>(R.id.cancel)
 
         chooseCamera.setOnClickListener {
             bottomSheetDialog.dismiss()
@@ -336,6 +337,10 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             bottomSheetDialog.dismiss()
             checkkey = "close"
             startActivity(Intent(this, VehicleSpecificOpenBooking::class.java).putExtra("KEY", checkkey))
+        }
+
+        cancel.setOnClickListener {
+            bottomSheetDialog.dismiss()
         }
 
         bottomSheetDialog.show()
