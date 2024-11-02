@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_charge1"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+
+        app:cardElevation="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_16sdp"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50ssp"
+                android:id="@+id/img_chrge"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ev_chrge_info_ev"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/muthu_text"
+                android:layout_toRightOf="@id/img_chrge"
+                android:text="Muthu"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginStart="@dimen/_5sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/two_text"
+
+                android:layout_alignParentEnd="true"
+                android:text="2 days ago"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginStart="@dimen/_5sdp"/>
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:id="@+id/likeimg"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toRightOf="@id/img_chrge"
+                android:layout_below="@id/muthu_text"
+                android:src="@drawable/like"
+                android:layout_marginStart="@dimen/_5sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/muthu_text"
+                android:id="@+id/succesful_teext"
+
+
+                android:layout_toRightOf="@id/likeimg"
+                android:text="Successfully Recharge"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/green"
+
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginStart="@dimen/_5sdp"/>
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:id="@+id/chimg"
+
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_toRightOf="@id/img_chrge"
+                android:layout_below="@id/likeimg"
+                android:src="@drawable/new_chadme_ev"
+                android:layout_marginStart="@dimen/_5sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/succesful_teext"
+
+                android:layout_toRightOf="@id/chimg"
+                android:text="Type2 Mennekes"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginStart="@dimen/_5sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/two_text"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+
+               android:layout_alignParentEnd="true"
+                android:text="UKN - 24136"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_10ssp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chimg"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toRightOf="@id/img_chrge"
+                android:id="@+id/developer_text"
+
+
+
+                android:text="I am Android Developer"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+
+                android:textSize="@dimen/_10ssp"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/de_img"
+                android:layout_below="@id/developer_text"
+                android:src="@drawable/ev_chrge_info_ev"
+                android:layout_toRightOf="@id/img_chrge"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_toRightOf="@id/img_chrge"
+                android:layout_below="@id/de_img"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/black"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+            
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

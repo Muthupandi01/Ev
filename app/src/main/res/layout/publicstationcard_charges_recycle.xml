@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_charge1"
+       android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+       android:layout_marginBottom="@dimen/_5sdp"
+
+       app:cardElevation="@dimen/_4sdp"
+       app:cardCornerRadius="@dimen/_16sdp"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+           >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="22kw Ac"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:id="@+id/ac_text"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID: E63025"
+                android:id="@+id/Id"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_below="@id/ac_text"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:id="@+id/online_green"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/greendot"
+                android:layout_below="@id/Id"
+                android:layout_marginStart="@dimen/_7sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/online_green"
+                android:id="@+id/avail"
+                android:layout_below="@id/Id"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/green"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Available"
+                android:textSize="@dimen/_10ssp"/>
+
+            <ImageView
+
+                android:id="@+id/chdme"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_25sdp"
+
+
+                android:layout_centerInParent="true"
+                android:src="@drawable/new_chadme_ev" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chdme"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:id="@+id/type"
+
+                android:text="Type 2"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_25sdp"/>
+            <ImageView
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:id="@+id/angle_up"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/angle_up_small1_ev"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/angle_up"
+                android:text="79.0 kr\nper KWh"
+                android:id="@+id/kw"
+                android:textStyle="bold"
+
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
