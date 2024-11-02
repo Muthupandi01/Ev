@@ -1,0 +1,51 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/_10sdp"
+    android:layout_height="wrap_content"
+   >
+
+    <!-- RecyclerView as the background -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/plugrec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Left Arrow Overlay -->
+
+    <!-- Right Arrow Overlay -->
+
+    <ImageView
+        android:layout_marginTop="@dimen/_40sdp"
+        android:id="@+id/leftImageViewplug"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="18dp"
+        android:background="@drawable/ripple_ev"
+        android:backgroundTint="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/_2ssp"
+        android:src="@drawable/angle_left_circle_ev"
+        app:tint="#25314C" />
+
+    <ImageView
+        android:layout_marginTop="@dimen/_40sdp"
+        android:id="@+id/rightImageViewplug"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:backgroundTint="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/_2ssp"
+        android:src="@drawable/angle_right_circle_ev"
+        android:layout_gravity="end|top"
+        android:layout_marginEnd="18dp"
+        app:tint="#25314C" />
+
+</FrameLayout>

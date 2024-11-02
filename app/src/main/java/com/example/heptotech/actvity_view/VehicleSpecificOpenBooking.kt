@@ -2,6 +2,7 @@ package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -11,9 +12,12 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.NumberPicker
 import android.widget.PopupWindow
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -23,10 +27,13 @@ import com.example.heptotech.R
 import com.example.heptotech.adapters.CarInfoAdapter
 import com.example.heptotech.adapters.DateAdapter
 import com.example.heptotech.adapters.PlugAdapter
+import com.example.heptotech.adapters.PlugsSegmentAdapter
 import com.example.heptotech.adapters.TimeAdapter
 import com.example.heptotech.bean_dataclass.CarInfo
 import com.example.heptotech.bean_dataclass.Plugs
+import com.example.heptotech.bean_dataclass.PlugsSegmentClass
 import com.example.heptotech.customclass.BatteryViewHorizontal
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -44,6 +51,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 
     private lateinit var dateAdapter: DateAdapter
     private lateinit var carAdapter: CarInfoAdapter
+    private lateinit var plugsSegmentAdapter: PlugsSegmentAdapter
     private lateinit var plugAdapter: PlugAdapter
     private lateinit var timeAdapter: TimeAdapter
     private lateinit var segment1:LinearLayout
@@ -51,12 +59,13 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
     private lateinit var segment3:LinearLayout
     private lateinit var segment4:LinearLayout
     var currentPosition = 0
-
+    private var receivedValue=""
 
     val timeIntervals = arrayOf(
         "12:00 AM", "12:30 AM", "01:00 AM", "01:30 AM", "02:00 AM", "02:30 AM", "11:30 PM"
     )
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_specific_open_booking)
@@ -66,11 +75,12 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         segment3 = findViewById(R.id.segment3)
         segment4 = findViewById(R.id.segment4)
 
-        val receivedValue = intent.getStringExtra("KEY")
+         receivedValue = intent.getStringExtra("KEY").toString()
 
         // Inflate layouts based on the received value
         if (receivedValue.equals("open")) {
             inflateSegmentLayoutsOpen()
+
         } else {
             inflateSegmentLayoutsClosed()
         }
@@ -115,13 +125,15 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 //        }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun inflateSegmentLayoutsOpen() {
         // Inflate segment3 above segment1
         inflateLayout(segment1, R.layout.segment_chargesingleimgcard_reccyler)
         inflateLayout(segment2, R.layout.segmentcharge_fixedmobile)
         inflateLayout(segment3, R.layout.segmencharge_batterystend)
-        inflateLayout(segment4, R.layout.segmentcharge_availablepluggs)
+        inflateLayout(segment4, R.layout.segment_plugs_recyclercard)
     }
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun inflateSegmentLayoutsClosed() {
         // Inflate segment2 above segment1
         inflateLayout(segment1, R.layout.segmentcharge_fixedmobile)
@@ -130,6 +142,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         inflateLayout(segment4, R.layout.segmentcharge_availablepluggs)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("LongLogTag")
     private fun inflateLayout(segment: LinearLayout, layoutResId: Int) {
         val inflater = LayoutInflater.from(this)
@@ -142,6 +155,9 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         val slotrec: RecyclerView? = inflatedView.findViewById(R.id.slotrec)
         val timeLay2: LinearLayout? = inflatedView.findViewById(R.id.timeLay2)
         val timeLay1: LinearLayout? = inflatedView.findViewById(R.id.timeLay1)
+
+
+
 
        //single
         val recyclerViewsingle: RecyclerView? = inflatedView.findViewById(R.id.carrec)
@@ -156,7 +172,64 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         val dynamicPlugsRecycler: RecyclerView? = inflatedView.findViewById(R.id.dynamicPlugs)
         val staticPlugs: LinearLayout? = inflatedView.findViewById(R.id.staticPlugs)
 
+        val recyclerViewplugs: RecyclerView? = inflatedView.findViewById(R.id.plugrec)
+        val leftImageViewplug: ImageView? = inflatedView.findViewById(R.id.leftImageViewplug)
+        val rightImageViewplug: ImageView? = inflatedView.findViewById(R.id.rightImageViewplug)
 
+
+
+
+        val fixedSt: LinearLayout? = inflatedView.findViewById(R.id.fixedSt)
+        val mobileSt: LinearLayout? = inflatedView.findViewById(R.id.mobileSt)
+        val imgfixedSt: ImageView? = inflatedView.findViewById(R.id.imgfixedSt)
+        val imgmobileSt: ImageView? = inflatedView.findViewById(R.id.imgmobileSt)
+        val txtfixedSt: TextView? = inflatedView.findViewById(R.id.txtfixedSt)
+        val txtmobileSt: TextView? = inflatedView.findViewById(R.id.txtmobileSt)
+        val fixparent: LinearLayout? = inflatedView.findViewById(R.id.fixparent)
+        val mobparent: LinearLayout? = inflatedView.findViewById(R.id.mobparent)
+        fixedSt?.setOnClickListener {
+            imgfixedSt!!.isInvisible = false
+            imgmobileSt!!.isInvisible = true
+            fixparent!!.isVisible=true
+            mobparent!!.isVisible=false
+            txtfixedSt!!.setTextColor(resources.getColor(R.color.commontxtcolor, null))
+            txtmobileSt!!.setTextColor(resources.getColor(R.color.whiteTextColor, null))
+            fixedSt.setBackgroundResource(R.drawable.rectangle_34624318_ev)
+            mobileSt?.setBackgroundResource(R.drawable.rectangle_34624320_ev)
+            mobileSt?.setBackgroundResource(R.drawable.rectangle_34624320_ev)
+        }
+
+        mobileSt?.setOnClickListener {
+            imgfixedSt!!.isInvisible = true
+            imgmobileSt!!.isInvisible = false
+            fixparent!!.isVisible=false
+            mobparent!!.isVisible=true
+            txtfixedSt!!.setTextColor(resources.getColor(R.color.whiteTextColor, null))
+            txtmobileSt!!.setTextColor(resources.getColor(R.color.commontxtcolor, null))
+            fixedSt?.setBackgroundResource(R.drawable.rectangle_34624320_ev)
+            mobileSt.setBackgroundResource(R.drawable.rectangle_34624318_ev)
+        }
+
+        val pluglist = mutableListOf(
+            PlugsSegmentClass("Kampala EV Charge Station"),
+            PlugsSegmentClass("Moracco EV Charge Station"),
+            PlugsSegmentClass("Uganda EV Charge Station")
+        )
+
+        plugsSegmentAdapter = PlugsSegmentAdapter(pluglist)
+        recyclerViewplugs?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewplugs?.adapter = plugsSegmentAdapter
+
+        updateArrowIconsPlugs(leftImageViewplug, rightImageViewplug)
+        leftImageViewplug?.setOnClickListener {
+            scrollLeftPlugs(recyclerViewplugs,leftImageViewplug,rightImageViewplug)
+        }
+        rightImageViewplug?.setOnClickListener {
+            scrollRightPlugs(recyclerViewplugs,leftImageViewplug,rightImageViewplug)
+        }
+
+
+        //
 
 
 
@@ -170,11 +243,12 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         dynamicPlugsRecycler?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         dynamicPlugsRecycler?.adapter = plugAdapter
 
-        lifecycleScope.launch(Dispatchers.Main) {
-            delay(6000)
-            staticPlugs?.isVisible=false
-            dynamicPlugsRecycler?.isVisible=true
-        }
+
+//        lifecycleScope.launch(Dispatchers.Main) {
+//            delay(6000)
+//            staticPlugs?.isVisible=false
+//            dynamicPlugsRecycler?.isVisible=true
+//        }
 
         val carList = mutableListOf(
             CarInfo("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
@@ -214,10 +288,104 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         if (stTime != null && etTime != null) {
             // Set the background color to transparent
             stTime!!.setOnClickListener {
-                showPopupWindow(it,stTime)
+
+                  //  val bottomSheetDialog = BottomSheetDialog(this)
+                val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
+
+                val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_sttime_openbook, null)
+                    bottomSheetDialog.setContentView(view)
+                    // Initialize NumberPickers for hours, minutes, and AM/PM
+
+                    val time_pick = view.findViewById<ImageView>(R.id.time_pick)
+                    val conformbtns = view.findViewById<TextView>(R.id.conformbtn)
+                    val hourPicker = view.findViewById<NumberPicker>(R.id.hourPicker)
+                    val minutePicker = view.findViewById<NumberPicker>(R.id.minutePicker)
+                    val amPmPicker = view.findViewById<NumberPicker>(R.id.amPmPicker)
+
+                    // Set values for hour picker (1 to 12)
+                    hourPicker.minValue = 1
+                    hourPicker.maxValue = 12
+                    hourPicker.wrapSelectorWheel = true
+
+                    // Set values for minute picker (0 to 59)
+                    minutePicker.minValue = 0
+                    minutePicker.maxValue = 59
+                    minutePicker.wrapSelectorWheel = true
+                    minutePicker.setFormatter { i -> String.format("%02d", i) } // Show 2 digits
+
+                    // Set values for AM/PM picker (0 = AM, 1 = PM)
+                    amPmPicker.minValue = 0
+                    amPmPicker.maxValue = 1
+                    amPmPicker.displayedValues = arrayOf("AM", "PM")
+                    amPmPicker.wrapSelectorWheel = true
+
+                    // Set listeners for pickers (optional, for handling user selections)
+                    hourPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                        // Do something with the selected hour
+                    }
+
+                    minutePicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                        // Do something with the selected minute
+                    }
+
+                    amPmPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                        // Do something with the selected AM/PM
+                        val selectedAmPm = if (newVal == 0) "AM" else "PM"
+                        // Toast.makeText(this, "Selected: $selectedAmPm", Toast.LENGTH_SHORT).show()
+                    }
+
+
+
+                    time_pick.setOnClickListener {
+                        bottomSheetDialog.dismiss()
+                    }
+
+//            conformbtns.setOnClickListener {
+//                bottomSheetDialog.dismiss()
+//                conformbtn.setBackgroundResource(R.drawable.rectangle_34624614_green_ev)
+//
+//            }
+
+
+                conformbtns.setOnClickListener {
+                    // Get selected values from pickers
+                    val selectedHour = hourPicker.value
+                    val selectedMinute = minutePicker.value
+                    val selectedAmPm = if (amPmPicker.value == 0) "AM" else "PM"
+
+                    // Convert selected time to a Calendar object
+                    val calendar = Calendar.getInstance()
+                    calendar.set(Calendar.HOUR, selectedHour)
+                    calendar.set(Calendar.MINUTE, selectedMinute)
+                    calendar.set(Calendar.AM_PM, if (selectedAmPm == "AM") Calendar.AM else Calendar.PM)
+
+                    // Format the selected start time and set it to stTime
+                    val formattedStartTime = String.format("%02d:%02d %s", selectedHour, selectedMinute, selectedAmPm)
+                    stTime.setText(formattedStartTime)
+
+                    // Add 2 hours to the calendar for end time
+                    calendar.add(Calendar.HOUR, 2)
+
+                    // Format the new end time and set it to etTime
+                    val endHour = calendar.get(Calendar.HOUR)
+                    val endMinute = calendar.get(Calendar.MINUTE)
+                    val endAmPm = if (calendar.get(Calendar.AM_PM) == Calendar.AM) "AM" else "PM"
+                    val formattedEndTime = String.format("%02d:%02d %s", endHour, endMinute, endAmPm)
+
+                    etTime.setText(formattedEndTime) // Display the calculated end time
+
+                    bottomSheetDialog.dismiss()
+                }
+
+                    bottomSheetDialog.show()
+
+
+                // showPopupWindow(it,stTime)
+
+
             }
             etTime!!.setOnClickListener {
-                showPopupWindow(it,etTime)
+               // showPopupWindow(it,etTime)
             }
 
             val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, timeIntervals)
@@ -265,17 +433,24 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             slotrec!!.layoutManager = GridLayoutManager(this, 3) // 2 is the number of columns
             slotrec!!.adapter = timeAdapter
 
-            GlobalScope.launch(Dispatchers.Main) {
-                delay(6000)
+//            GlobalScope.launch(Dispatchers.Main) {
+//                delay(6000)
+//                timeLay1!!.isVisible=false
+//                timeLay2!!.isVisible=true
+//
+//            }
+
+            // Inflate layouts based on the received value
+            if (receivedValue.equals("open")) {
+
                 timeLay1!!.isVisible=false
                 timeLay2!!.isVisible=true
 
+            } else {
+                timeLay1!!.isVisible=true
+                timeLay2!!.isVisible=false
+
             }
-
-
-
-
-
         }
 
         else {
@@ -308,6 +483,48 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 
         // Add the inflated view to the parent segment
         segment.addView(inflatedView)
+    }
+
+    private fun scrollRightPlugs(recyclerViewplugs: RecyclerView?, leftImageViewplug: ImageView?, rightImageViewplug: ImageView) {
+        if (currentPosition < carAdapter.itemCount - 1) {
+            currentPosition++
+            recyclerViewplugs?.smoothScrollToPosition(currentPosition)
+            updateArrowIconsPlugs(leftImageViewplug, rightImageViewplug)
+        } else {
+            // Optionally log or handle when at the last item
+            Log.d("RecyclerView", "Already at the last item")
+        }
+    }
+
+    private fun scrollLeftPlugs(recyclerViewplugs: RecyclerView?, leftImageViewplug: ImageView, rightImageViewplug: ImageView?) {
+        if (currentPosition > 0) {
+            currentPosition--
+            recyclerViewplugs?.smoothScrollToPosition(currentPosition)
+            updateArrowIconsPlugs(leftImageViewplug, rightImageViewplug)
+        } else {
+            // Optionally log or handle when at the first item
+            Log.d("RecyclerView", "Already at the first item")
+        }
+    }
+
+    private fun updateArrowIconsPlugs(leftImageView: ImageView?, rightImageView: ImageView?) {
+        // Disable or enable left arrow if we are at the first position
+        if (currentPosition == 0) {
+            leftImageView?.isEnabled = false
+            leftImageView?.alpha = 0.5f // Make it semi-transparent or disabled
+        } else {
+            leftImageView?.isEnabled = true
+            leftImageView?.alpha = 1.0f // Fully visible
+        }
+
+        // Disable or enable right arrow if we are at the last position
+        if (currentPosition == plugsSegmentAdapter.itemCount - 1) {
+            rightImageView?.isEnabled = false
+            rightImageView?.alpha = 0.5f // Make it semi-transparent or disabled
+        } else {
+            rightImageView?.isEnabled = true
+            rightImageView?.alpha = 1.0f // Fully visible
+        }
     }
 
     private fun updateArrowIconsdate(leftImageView: ImageView?, rightImageView: ImageView?) {

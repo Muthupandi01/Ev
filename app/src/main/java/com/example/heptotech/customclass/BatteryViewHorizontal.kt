@@ -5,11 +5,11 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
-import android.graphics.Typeface
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
-import com.example.heptotech.R // Make sure this points to your app's R class
+import com.example.heptotech.R
 
 class BatteryViewHorizontal @JvmOverloads constructor(
     context: Context,
@@ -17,85 +17,91 @@ class BatteryViewHorizontal @JvmOverloads constructor(
     defStyle: Int = 0
 ) : View(context, attrs, defStyle) {
 
-    var batteryLevel: Float = 0.75f
+    var batteryLevel: Float = 0.0f // Initial battery level
         set(value) {
-            field = value
+            field = value.coerceIn(0f, 1f) // Clamp between 0 and 1
             invalidate() // Redraw the view when the battery level is updated
         }
 
-    // Green battery fill color
+    // Paint properties
     private val fillPaint = Paint().apply {
         color = Color.parseColor("#02CD8D")
         style = Paint.Style.FILL
     }
-
-    // Background color (inside the battery rectangle)
     private val backgroundPaint = Paint().apply {
         color = Color.WHITE
         style = Paint.Style.FILL
     }
-
-    // Outer black stroke with a stroke width of 12f
     private val outlinePaint = Paint().apply {
         color = Color.BLACK
         style = Paint.Style.STROKE
-        strokeWidth = 16f // Updated stroke width
+        strokeWidth = 16f
     }
-
-    // Set up text paint with Poppins Bold font
     private val textPaint = Paint().apply {
         color = Color.BLACK
-        textSize = 50f // Adjust text size as needed
-        textAlign = Paint.Align.CENTER // Center the text horizontally
+        textSize = 50f
+        textAlign = Paint.Align.CENTER
         isAntiAlias = true
-        typeface = ResourcesCompat.getFont(context, R.font.poppins_medium) // Load Poppins Bold font
+        typeface = ResourcesCompat.getFont(context, R.font.poppins_medium)
     }
 
-    // Increased corner radius for more rounded edges
-    private val cornerRadius = 25f // Updated for more rounded corners
+    private val cornerRadius = 25f
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        // Calculate the half stroke width for offsetting the RectF
         val strokeWidth = outlinePaint.strokeWidth
         val halfStrokeWidth = strokeWidth / 2
-
-        // Calculate dimensions considering padding and stroke width
         val paddingHorizontal = 20f
         val paddingVertical = 10f
-        val margin = 8f // Margin for green battery fill progress
+        val margin = 8f
 
-        val width = width - paddingHorizontal - strokeWidth // Subtract stroke width from total width
-        val height = height - paddingVertical - strokeWidth // Subtract stroke width from total height
+        val width = width - paddingHorizontal - strokeWidth
+        val height = height - paddingVertical - strokeWidth
+        val fillWidth = (width - margin * 2) * batteryLevel
 
-        val fillWidth = (width - margin * 2) * batteryLevel // Apply margin to the green fill width
-
-        // Draw battery outline (outer black stroke), accounting for stroke width on all sides
+        // Battery outline
         val outlineRect = RectF(
-            halfStrokeWidth + paddingHorizontal / 2, // Left
-            halfStrokeWidth + paddingVertical / 2,  // Top
-            width + halfStrokeWidth + paddingHorizontal / 2,  // Right
-            height + halfStrokeWidth + paddingVertical / 2  // Bottom
+            halfStrokeWidth + paddingHorizontal / 2,
+            halfStrokeWidth + paddingVertical / 2,
+            width + halfStrokeWidth + paddingHorizontal / 2,
+            height + halfStrokeWidth + paddingVertical / 2
         )
         canvas.drawRoundRect(outlineRect, cornerRadius, cornerRadius, outlinePaint)
 
-        // Draw battery background (white background inside the outline)
+        // Battery background
         canvas.drawRoundRect(outlineRect, cornerRadius, cornerRadius, backgroundPaint)
 
-        // Draw battery fill (green progress) with margins, inside the background
+        // Battery fill
         val fillRect = RectF(
-            halfStrokeWidth + paddingHorizontal / 2 + margin, // Left
-            halfStrokeWidth + paddingVertical / 2 + margin, // Top
-            fillWidth + halfStrokeWidth + paddingHorizontal / 2 + margin, // Right
-            height + halfStrokeWidth + paddingVertical / 2 - margin // Bottom
+            halfStrokeWidth + paddingHorizontal / 2 + margin,
+            halfStrokeWidth + paddingVertical / 2 + margin,
+            fillWidth + halfStrokeWidth + paddingHorizontal / 2 + margin,
+            height + halfStrokeWidth + paddingVertical / 2 - margin
         )
         canvas.drawRoundRect(fillRect, cornerRadius, cornerRadius, fillPaint)
 
-        // Draw battery percentage text in the center of the view
+        // Battery percentage text
         val batteryPercentage = "${(batteryLevel * 100).toInt()}%"
-        val textX = (width / 2f) + paddingHorizontal / 2 // Center horizontally
-        val textY = (height / 2f) + (textPaint.textSize / 3) + paddingVertical / 2 // Center vertically
+        val textX = (width / 2f) + paddingHorizontal / 2
+        val textY = (height / 2f) + (textPaint.textSize / 3) + paddingVertical / 2
         canvas.drawText(batteryPercentage, textX, textY, textPaint)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
+                // Set battery level based on touch position as a percentage of the view width
+                batteryLevel = (event.x / width).coerceIn(0f, 1f)
+                return true
+            }
+            MotionEvent.ACTION_UP -> {
+                // Optionally, finalize battery level here or trigger any additional actions
+                return true
+            }
+            else -> {
+                return super.onTouchEvent(event)
+            }
+        }
     }
 }

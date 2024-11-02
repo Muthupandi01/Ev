@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:layout_marginTop="@dimen/_10sdp"
-    android:layout_marginHorizontal="@dimen/_10sdp"
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,6 +32,7 @@
 
             <!-- Left ImageView (Overlay) -->
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/leftImageView"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
@@ -47,6 +47,7 @@
 
             <!-- Right ImageView (Overlay) -->
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/rightImageView"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
@@ -82,6 +83,7 @@
                android:orientation="horizontal">
 
                <TextView
+                   android:id="@+id/modalName"
                    android:layout_marginHorizontal="@dimen/_5sdp"
                    android:paddingVertical="@dimen/dp_2"
                    android:layout_width="0dp"
