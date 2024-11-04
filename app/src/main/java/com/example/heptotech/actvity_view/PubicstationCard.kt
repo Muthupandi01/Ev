@@ -7,12 +7,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+import com.example.heptotech.adapters.ChargeAdapter
 import com.example.heptotech.adapters.RestaurantAdapter
+import com.example.heptotech.bean_dataclass.ChargeData
 import com.example.heptotech.bean_dataclass.RestaurantData
 
 class PubicstationCard : AppCompatActivity()
@@ -26,6 +29,8 @@ class PubicstationCard : AppCompatActivity()
     private lateinit var char_chat:LinearLayout
     private lateinit var chat_textView: TextView
     private lateinit var back_image:ImageView
+    private lateinit var charge_recycle: RecyclerView
+    private lateinit var card_ch:CardView
 
 
 
@@ -41,22 +46,44 @@ class PubicstationCard : AppCompatActivity()
         char_chat=findViewById(R.id.card_chat)
         chat_textView=findViewById(R.id.chat_text)
         back_image=findViewById(R.id.back_img)
+        charge_recycle=findViewById(R.id.charge_recycle)
+        card_ch=findViewById(R.id.card_charge1)
 
         card_amen.setOnClickListener()
         {
             cardchange()
             recylcer.isVisible=true
+            card_ch.isVisible=false
+            charge_recycle.isVisible=false
         }
         char.setOnClickListener()
         {
             chargechange()
+            card_ch.isVisible=true
             recylcer.isVisible=false
+            charge_recycle.isVisible=true
         }
         char_chat.setOnClickListener()
         {
             chatchange()
                 recylcer.isVisible=false
+            charge_recycle.isVisible=false
+            card_ch.isVisible=false
         }
+        val cardList = listOf(
+            ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true),
+            ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true),
+            ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true),
+            ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true),
+            ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true),
+            ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true)
+            )
+
+
+        val adapter1 = ChargeAdapter(cardList)
+        charge_recycle.adapter = adapter1
+        charge_recycle.layoutManager = LinearLayoutManager(this)
+
         back_image.setOnClickListener()
         {
 
