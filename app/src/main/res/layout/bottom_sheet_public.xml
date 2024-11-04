@@ -4,20 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_190sdp"
+    android:layout_height="wrap_content"
     android:background="@color/transparent"
     android:id="@+id/constrain_layout"
     android:paddingBottom="@dimen/_35sdp">
 
-    <!-- Parent Layout for Open Booking, Image Divider, and Vehicle Specific Booking -->
+    <!-- Parent Layout for Open Booking, Divider, and Vehicle Specific Booking -->
     <LinearLayout
         android:id="@+id/sub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-       android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_35sdp"
-
         android:background="@drawable/borders_bottom_ev"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,38 +30,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:visibility="invisible"
-                android:id="@+id/camera_img"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/ic_menu_camera_ev"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="92dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Open Booking"
                 android:textColor="#0897FF"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/camera_img"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Divider Line -->
-        <ImageView
-            android:id="@+id/center_img"
+        <View
+            android:id="@+id/center_divider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1dp"
             android:layout_gravity="center"
-            android:src="@drawable/line_314_ev" />
+            android:background="@drawable/line_314_ev" />
 
         <!-- Vehicle Specific Booking Section -->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,71 +60,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:visibility="invisible"
-                android:id="@+id/gallery_img"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/ic_menu_gallery_ev"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Vehicle Specific Booking"
                 android:textColor="#0897FF"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/gallery_img"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <!-- Cancel Option Layout Below -->
-
+    <!-- Cancel Option Layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_15sdp"
-       android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/border_drawable_ev"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sub">
 
-        <ImageView
-            android:id="@+id/cancelimg"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:src="@drawable/ic_menu_gallery_ev"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
+            android:paddingVertical="@dimen/_2sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="116dp"
-            android:layout_marginBottom="4dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Cancel"
             android:textColor="#0897FF"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold"
-
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cancelimg"
-            tools:ignore="MissingConstraints" />
-
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
