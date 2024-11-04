@@ -8,7 +8,6 @@
     android:id="@+id/constrain_layout"
     android:paddingBottom="@dimen/_10sdp">
 
-    <!-- Header TextView -->
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
@@ -23,16 +22,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Time Pick Icon to the right of Header TextView -->
+    <!-- Time Pick Icon positioned to the end of the parent -->
 
-    <!-- NumberPickers Layout -->
+
     <ImageView
         android:id="@+id/time_pick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="4dp"
         android:src="@drawable/times_circle_ev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toEndOf="@id/header"
         app:layout_constraintTop_toTopOf="@id/header"
         app:tint="@color/commontxtcolor" />

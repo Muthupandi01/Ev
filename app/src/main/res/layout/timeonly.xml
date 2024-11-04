@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.heptotech.customclass.GradientView
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:gravity="center"
     android:id="@+id/anim2"
-    android:background="@drawable/rectangle__1_ev"
-    android:layout_margin="@dimen/_5ssp"
-    android:layout_height="wrap_content">
+    android:layout_margin="@dimen/_5sdp"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-
+        <!-- Content inside the GradientView -->
         <LinearLayout
+            android:id="@+id/whitelnr"
+          android:layout_margin="3.2dp"
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/time"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="09:30 AM"
+                android:gravity="center"
                 android:layout_gravity="center"
+                android:text="09:30 AM"
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="@dimen/_9ssp"
+                android:textColor="@android:color/black"
                 tools:ignore="MissingConstraints"/>
+
         </LinearLayout>
 
+    </com.example.heptotech.customclass.GradientView>
 
 
-
-
-
-
-</LinearLayout>

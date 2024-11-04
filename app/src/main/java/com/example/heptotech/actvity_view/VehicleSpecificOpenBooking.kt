@@ -33,6 +33,7 @@ import com.example.heptotech.bean_dataclass.CarInfo
 import com.example.heptotech.bean_dataclass.Plugs
 import com.example.heptotech.bean_dataclass.PlugsSegmentClass
 import com.example.heptotech.customclass.BatteryViewHorizontal
+import com.example.heptotech.customclass.GradientView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -139,7 +140,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         inflateLayout(segment1, R.layout.segmentcharge_fixedmobile)
         inflateLayout(segment2, R.layout.segment_chargesingleimgcard_reccyler)
         inflateLayout(segment3, R.layout.segmencharge_batterystend)
-        inflateLayout(segment4, R.layout.segmentcharge_availablepluggs)
+        inflateLayout(segment4, R.layout.segment_plugs_recyclercard)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -155,7 +156,8 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         val slotrec: RecyclerView? = inflatedView.findViewById(R.id.slotrec)
         val timeLay2: LinearLayout? = inflatedView.findViewById(R.id.timeLay2)
         val timeLay1: LinearLayout? = inflatedView.findViewById(R.id.timeLay1)
-
+        val grad: GradientView? = inflatedView.findViewById(R.id.grad)
+        grad?.animateGradient(3000L) // Set animation duration in milliseconds
 
 
 

@@ -6,13 +6,6 @@
 
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </ScrollView>
-
 
 
     <LinearLayout
@@ -481,19 +474,63 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_8ssp" />
-                <TextView
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_7ssp"
                     android:layout_marginLeft="@dimen/_5ssp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_marginTop="@dimen/_7ssp"
-                    android:text="Suggestion"
-                    android:drawablePadding="@dimen/_5ssp"
-                    android:drawableLeft="@drawable/rectangleev_ev"
-                    android:textAllCaps="true"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_8ssp" />
+                    android:orientation="horizontal">
+
+
+                    <com.example.heptotech.customclass.GradientView
+                        android:layout_marginLeft="@dimen/_5ssp"
+                        android:id="@+id/grad"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Suggestion"
+                        android:drawablePadding="@dimen/_5ssp"
+                        android:drawableLeft="@drawable/rectangleev_ev"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_8ssp" >
+
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/circle_bg_ev"/>
+
+
+
+
+
+                    </com.example.heptotech.customclass.GradientView>
+
+                    <TextView
+                        android:layout_marginLeft="@dimen/_5ssp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Suggestion"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_8ssp" />
+                </LinearLayout>
+
+
+
+
+
+
+
+
 
             </LinearLayout>
 
