@@ -143,11 +143,12 @@
                 android:textSize="@dimen/_10ssp"
                 />
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
                 android:id="@+id/de_img"
+                android:scaleType="fitXY"
                 android:layout_below="@id/developer_text"
-                android:src="@drawable/ev_chrge_info_ev"
+                android:src="@drawable/evworld_ev"
                 android:layout_toRightOf="@id/img_chrge"
                 android:layout_marginEnd="@dimen/_10sdp"/>
             <View
