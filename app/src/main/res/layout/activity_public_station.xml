@@ -108,9 +108,9 @@
                 android:id="@+id/group"
                 android:layout_gravity="center"
                 app:tint="@color/greentxt"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/cu_ev" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/send_01" />
         </androidx.cardview.widget.CardView>
 
 
@@ -228,7 +228,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="Scan Icon"
                 android:scaleType="fitXY"
-                android:src="@drawable/qrcode_ev"
+                android:src="@drawable/qr_01"
                 app:tint="@color/greentxt" />
         </androidx.cardview.widget.CardView>
 

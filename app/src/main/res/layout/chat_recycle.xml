@@ -22,8 +22,6 @@
         >
         <RelativeLayout
             android:layout_width="match_parent"
-
-
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_width="@dimen/_35sdp"
@@ -171,9 +169,9 @@
                 android:id="@+id/reply"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:tint="@color/gray_common"
-                android:drawableStart="@drawable/baseline_reply_24"
+                android:drawableStart="@drawable/reply_01"
                 android:layout_marginStart="@dimen/_5sdp"
-                android:drawablePadding="@dimen/_2sdp"
+                android:drawablePadding="@dimen/_5sdp"
                 android:gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -184,13 +182,11 @@
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="@dimen/_10ssp"
                 android:id="@+id/flag"
-
-
                 android:text="Flag"
                 app:tint="@color/gray_common"
-                android:drawableStart="@drawable/baseline_outlined_flag_24_ev"
+                android:drawableStart="@drawable/flag_01"
                 android:layout_marginStart="@dimen/_30sdp"
-                android:drawablePadding="@dimen/_2sdp"
+                android:drawablePadding="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:gravity="center"/>
             
