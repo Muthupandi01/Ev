@@ -52,19 +52,14 @@
             android:id="@+id/topCenterText"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_centerHorizontal="true"
-
             android:layout_alignParentTop="true"
             app:cardCornerRadius="@dimen/_7ssp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
             app:cardElevation="@dimen/_10sdp"
-
-
-
             >
 
             <TextView
-
                 android:backgroundTint="@color/white"
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="match_parent"
