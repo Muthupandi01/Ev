@@ -11,7 +11,7 @@
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:backgroundTint="#EFECEC"
+        android:backgroundTint="@color/iosgrey"
 
 
         android:background="@drawable/publicchat_ev"
