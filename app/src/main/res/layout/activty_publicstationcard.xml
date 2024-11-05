@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_submit"
+        android:paddingBottom="@dimen/_10sdp"
+        tools:ignore="NotSibling">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -434,25 +441,6 @@
         android:visibility="gone"
         android:id="@+id/chat_recycle"
         />
-        <TextView
-            android:id="@+id/btn_submit"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:text="Check-in"
-           android:layout_alignParentBottom="true"
-
-
-            android:layout_marginBottom="@dimen/_10sdp"
-
-            android:textAlignment="center"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@drawable/rectangle_check"
-            android:backgroundTint="#E8FF5722"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-
-            />
 
 
 
@@ -464,5 +452,22 @@
     </LinearLayout>
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:text="Check-in"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/rectangle_check"
+        android:backgroundTint="#E8FF5722"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"/>
+
+</RelativeLayout>
 
 
