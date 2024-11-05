@@ -381,7 +381,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         recyclerView.isVisible = false
         topCenterText.isVisible = true
         isInCurrentLocationMode = true
-        topCenterText.isClickable=false
+        topCenterText.isClickable=true
 
 
 
@@ -558,7 +558,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
             if (addresses != null && addresses.isNotEmpty()) {
                 val address = addresses[0].getAddressLine(0)
-                Toast.makeText(this, "Address: $address", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "Address: $address", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "No address found", Toast.LENGTH_SHORT).show()
             }

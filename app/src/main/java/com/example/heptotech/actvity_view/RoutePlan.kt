@@ -62,6 +62,7 @@ class RoutePlan : AppCompatActivity() {
     private lateinit var locationPinImageView: ImageView
     private var hasAddedStop = false
     private var isSwitched = false
+    private lateinit var switch_linear:LinearLayout
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,6 +88,8 @@ class RoutePlan : AppCompatActivity() {
         radio_search = findViewById(R.id.radio_search)
         location_svg = findViewById(R.id.locations_svg)
         choose_dates = findViewById(R.id.choose_dates)
+        switch_linear=findViewById(R.id.switch_linear)
+
         val avoidTolls = findViewById<LinearLayout>(R.id.avoid_tolls)
         val tollImage = avoidTolls.findViewById<ImageView>(R.id.tolls_image)
 
@@ -215,11 +218,11 @@ class RoutePlan : AppCompatActivity() {
         locationEditText.addTextChangedListener(textWatcher)
         destinationEditText.addTextChangedListener(textWatcher)
         var isSwitched = false
-        switchText.setOnClickListener { v: View? ->
+        switch_linear.setOnClickListener { v: View? ->
 
             // Toggle visibility of rootTime
 
-            switchText.setOnClickListener { v: View? ->
+            switch_linear.setOnClickListener { v: View? ->
                 if (isSwitched) {
                     // Switch back to original state
                     locationEditText.hint = "Search Location"
