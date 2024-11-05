@@ -70,4 +70,5 @@
     <color name="green">#02CD8D</color>
     <color name="orange">#FF9933</color>
     <color name="grey">#E8BFBDBD</color>
+    <color name="iosgrey">#f6f7f9</color>
 </resources>
