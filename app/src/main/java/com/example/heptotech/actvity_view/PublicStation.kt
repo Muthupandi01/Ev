@@ -70,6 +70,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private var lastClickedMarkerIndex: Int? = null
     private lateinit var group1C:CardView
     private lateinit var current_loctionsC:CardView
+    private lateinit var filterCard:CardView
 
 
 
@@ -89,6 +90,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         recyclerView=findViewById(R.id.recyclerView)
         group1C=findViewById(R.id.group1C)
         current_loctionsC=findViewById(R.id.current_loctionsC)
+        filterCard=findViewById(R.id.filterCard)
         // left_image = findViewById(R.id.left_angle)
         val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.idSearchView)
         // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
@@ -100,7 +102,11 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
         } ?: Log.e("SearchView", "TextView not found inside SearchView")
 
+        filterCard.setOnClickListener {
+            val intent = Intent(this, FilterActivity::class.java)
+            startActivity(intent)
 
+        }
 
         blinkimage = findViewById(R.id.blink_img)
         startBlinkingAnimation()

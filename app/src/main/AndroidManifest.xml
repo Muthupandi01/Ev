@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.heptotech">
+
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="true" />
@@ -26,6 +30,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".actvity_view.FilterActivity"
+            android:exported="false" />
         <activity
             android:name=".actvity_view.ScanGetText"
             android:exported="false" />
@@ -47,9 +54,11 @@
         <activity
             android:name=".actvity_view.OtherDevicesChargestation"
             android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE" />
+
         <activity
             android:name=".activity_view.IphoneMap"
             android:exported="false" />
@@ -89,6 +98,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".actvity_view.ViewVehicles"
             android:exported="false" />
@@ -96,12 +106,11 @@
             android:name=".actvity_view.OrderDetails"
             android:exported="false" />
         <activity android:name=".actvity_view.PrivateStation" />
-        <activity android:name=".actvity_view.RoutePlanOption"/>
+        <activity android:name=".actvity_view.RoutePlanOption" />
         <activity
             android:name=".actvity_view.PublicStation"
-           android:exported="true"
-            android:label="Public Station"
-           >
+            android:exported="true"
+            android:label="Public Station">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -114,15 +123,15 @@
         <activity android:name=".activity_view.AvailablityBottomsheet" />
         <activity android:name=".actvity_view.ConfiguratonActivity" />
         <activity android:name=".actvity_view.RegistrationListGet" />
-        <activity android:name=".actvity_view.RoutePlanStarted"/>
-<activity android:name=".actvity_view.PubicstationCard"/>
+        <activity android:name=".actvity_view.RoutePlanStarted" />
+        <activity android:name=".actvity_view.PubicstationCard" />
         <activity android:name=".actvity_view.RootPlanScreen" />
-<activity android:name=".actvity_view.RoutePlanCalculateRoot"/>
+        <activity android:name=".actvity_view.RoutePlanCalculateRoot" />
         <activity android:name=".actvity_view.RoutePlanConfirm" />
-       <activity android:name=".actvity_view.RoutePlanStop"/>
+        <activity android:name=".actvity_view.RoutePlanStop" />
         <activity android:name=".actvity_view.RoutePlan" />
         <activity android:name=".actvity_view.VehicleSpecificOpenBooking" />
-        <activity android:name=".actvity_view.OpearatersActivity"/>
+        <activity android:name=".actvity_view.OpearatersActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".actvity_view.MakeBrandModel">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@color/greentxt"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_10sdp">
+        <!-- Left aligned back button -->
+        <ImageView
+            android:id="@+id/back"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/angle_left_circle_ev"
+            app:tint="@color/white" />
+        <!-- Center aligned title text -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/_12sdp"
+            android:text="Filter Charge Points"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_medium" />
+        <!-- Right aligned reset text -->
+        <TextView
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:gravity="end|center_vertical"
+
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginEnd="10dp"/>
+
+        <ImageView
+            android:id="@+id/tick"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tick_ev_ev"
+            android:gravity="end|center_vertical"
+            android:layout_marginEnd="10dp"
+            app:tint="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:orientation="vertical">
+        <TextView
+            android:textSize="@dimen/_12sdp"
+
+            android:id="@+id/selectedRangeText"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Power type"
+            android:textColor="@color/commontxtcolor"
+            android:gravity="end|center_vertical"
+            android:fontFamily="@font/poppins_medium"
+           />
+
+<!--        <com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar-->
+<!--            android:id="@+id/rangeSeekBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            />-->
+
+
+        <FrameLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/seekBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView to Display Selected Range -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/seekBar"
+            android:visibility="visible"
+            android:id="@+id/chage"
+            android:weightSum="7"
+            android:gravity="center"
+            >
+
+            <!-- Container for each tick mark and label (0 - 100) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+
+                android:gravity="center">
+
+              
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/label_3KW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="3KW"
+                    />
+            </LinearLayout>
+
+            <!-- Repeat the structure for each interval (10, 20, 30, etc.) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                
+                <TextView
+                    android:id="@+id/label_7KW"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7KW"
+                    android:textSize="@dimen/_7ssp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:layout_weight="1"
+                android:gravity="center">
+
+               
+                <TextView
+                    android:id="@+id/label_11KW"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="11KW"
+                    />
+            </LinearLayout>
+
+            <!-- Repeat for other intervals (30, 40, 50, ..., 100) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/label_22KW"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7ssp"
+
+
+                    android:text="22KW"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+
+               
+                <TextView
+                    android:id="@+id/label_50KW"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="50KW"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+
+             
+                <TextView
+                    android:id="@+id/label_100KW"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="100KW"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/label_350KW"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7ssp"
+                    android:text="350KW"
+                    />
+            </LinearLayout>
+
+            
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/iosgrey"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:weightSum="1.8"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:visibility="visible"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:src="@drawable/location_pin__white_ev"
+                android:layout_gravity="center_vertical"
+                app:tint="#25314C" />
+            <TextView
+                android:layout_marginLeft="@dimen/_5ssp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/_12ssp"
+                android:text="Connecter types"
+                android:textColor="#292929"
+                android:textColorHint="#292929"/>
+
+            <ImageView
+                android:visibility="visible"
+                android:backgroundTint="#25314C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/angle_right_small_ev"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

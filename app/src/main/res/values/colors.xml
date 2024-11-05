@@ -71,4 +71,10 @@
     <color name="orange">#FF9933</color>
     <color name="grey">#E8BFBDBD</color>
     <color name="iosgrey">#f6f7f9</color>
+    <!-- colors.xml -->
+    <color name="thumbColor">#FF5722</color>
+    <color name="thumbBorderColor">#FFFFFF</color>
+    <color name="progressColor">#4CAF50</color>
+    <color name="primaryColor">#2196F3</color>
+
 </resources>

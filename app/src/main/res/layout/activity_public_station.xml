@@ -19,10 +19,10 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/filterCard"
             app:cardElevation="18dp"
             android:translationZ="3dp"
             app:cardForegroundColor="@android:color/transparent"
-
             app:cardCornerRadius="@dimen/_5ssp"
             android:backgroundTint="@color/white"
             android:background="@drawable/circular_background_ev"

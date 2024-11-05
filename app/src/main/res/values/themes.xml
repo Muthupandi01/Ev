@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.HeptoTech" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Base.Theme.HeptoTech" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/greentxt</item>
         <item name="colorPrimaryVariant">@color/my_light_primary_variant</item>
@@ -14,6 +14,8 @@
         <item name="colorError">@color/my_light_error</item>
         <item name="colorOnError">@color/my_light_on_error</item>
     </style>
+
+
 
     <style name="Theme.HeptoTech" parent="Base.Theme.HeptoTech" />
     <!--designs login_bkogin and register-->
