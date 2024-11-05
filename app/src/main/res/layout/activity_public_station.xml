@@ -110,7 +110,7 @@
                 app:tint="@color/greentxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/send_01" />
+                android:src="@drawable/send_01_ev" />
         </androidx.cardview.widget.CardView>
 
 
