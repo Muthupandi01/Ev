@@ -14,9 +14,9 @@ class TimeAdapter(
     private val timeList: List<String>,
     private val onTimeClick: (String) -> Unit
 ) : RecyclerView.Adapter<TimeAdapter.TimeViewHolder>() {
-    // List to keep track of selected positions
-    private val selectedPositions = mutableListOf<Int>()
-    private var previousSelectedPosition: Int? = null // Track the last selected position among 1, 2, and 3
+
+    // Track the currently selected position (initially no selection)
+    private var selectedPosition: Int = -1
 
     // ViewHolder class to represent each item
     class TimeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,7 +26,6 @@ class TimeAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeViewHolder {
-        // Inflate the item layout (timeonly.xml)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.timeonly, parent, false)
         return TimeViewHolder(view)
     }
@@ -34,60 +33,48 @@ class TimeAdapter(
     override fun onBindViewHolder(holder: TimeViewHolder, position: Int) {
         val time = timeList[position]
         holder.timeTextView.text = time
-        // Determine if the current position is selected
-        val isSelected = selectedPositions.contains(position)
-        // Set background and text color based on selection state
+
+        // Determine if the current item is selected
+        val isSelected = selectedPosition == position
+
         if (isSelected) {
-            // For the 0th position, set the background to green
-            if (position == 0) {
-                holder.gradientView.setBackgroundResource(R.color.whiteTextColor) // Background for selected 0th position
+            // Apply styles for the selected item (green background)
+            holder.whitelnr.setBackgroundResource(R.drawable.ev)
+            holder.itemView.setBackgroundResource(R.drawable.rectangle__3_ev)
+            holder.timeTextView.setTextColor(Color.WHITE)
+            holder.gradientView.stopAnimation()  // Stop gradient animation for selected item
+        } else {
+            // Apply styles for unselected items
+            if (position in 0..3) {
+                // Always start gradient animation for positions 0-3 when unselected
+                holder.whitelnr.setBackgroundResource(R.drawable.edgecurved_bgev)
+                holder.timeTextView.setTextColor(Color.BLACK)
+                holder.gradientView.animateGradient(2000L)  // Start or restart gradient animation
+            } else {
+                // Stop gradient animation for other positions
+                holder.gradientView.stopAnimation()
                 holder.itemView.setBackgroundResource(R.drawable.rectangle__1_ev)
-                holder.timeTextView.setTextColor(Color.BLACK) // Text color for selected 0th position
-            } else {
-                holder.whitelnr.setBackgroundResource(R.drawable.ev) // Background for selected positions 1, 2, 3
-                holder.itemView.setBackgroundResource(R.drawable.rectangle__3_ev)
-                holder.timeTextView.setTextColor(Color.WHITE) // Text color for selected positions
-            }
-
-         }else {
-            // Handle unselected states
-            when (position) {
-                0 -> {
-                    holder.itemView.setBackgroundResource(R.drawable.rectangle__3_ev) // Background for unselected 0th position
-                    holder.timeTextView.setTextColor(Color.WHITE) // Text color for unselected 0th position
-                    holder.gradientView.stopAnimation() // Stop animation for 0th position
-                }
-                1, 2, 3 -> {
-                    holder.whitelnr.setBackgroundResource(R.drawable.edgecurved_bgev) // Default background for unselected 1st, 2nd, and 3rd positions
-                    holder.timeTextView.setTextColor(Color.BLACK) // Text color for unselected 1st, 2nd, and 3rd positions
-                    holder.gradientView.animateGradient(2000L) // Start gradient animation for selected items
-                  //  holder.gradientView.setBackgroundResource(R.drawable.rectangle__2_ev) // Reset background for unselected gradient views
-                }
-                else -> {
-                    holder.gradientView.stopAnimation() // Stop animation for remaining positions
-                    holder.itemView.setBackgroundResource(R.drawable.rectangle__1_ev) // Default background for remaining positions
-                    holder.timeTextView.setTextColor(Color.BLACK) // Text color for remaining positions
-                }
+                holder.timeTextView.setTextColor(Color.BLACK)
             }
         }
 
-        // Set a click listener for the time item
+        // Set click listener for each item
         holder.itemView.setOnClickListener {
-            if (isSelected) {
-                // Deselect the item
-                selectedPositions.remove(position)
-            } else {
-                // Select the item
-                selectedPositions.add(position)
+            if (selectedPosition != position) {
+                // Track the previously selected position
+                val previousSelectedPosition = selectedPosition
+                selectedPosition = position
+
+                // Refresh the previously selected item to restore gradient if needed
+                notifyItemChanged(previousSelectedPosition)
+                // Update the newly selected item
+                notifyItemChanged(position)
+
+                // Call the click callback
+                onTimeClick(time)
             }
-            notifyItemChanged(previousSelectedPosition ?: -1) // Notify previous selected position
-            previousSelectedPosition = if (isSelected) null else position // Update previous selected position
-            notifyItemChanged(position) // Notify the adapter to update the item view
-            onTimeClick(time) // Pass the selected time back to the callback
         }
     }
 
-    override fun getItemCount(): Int {
-        return timeList.size // Return the total number of items in the list
-    }
+    override fun getItemCount(): Int = timeList.size
 }

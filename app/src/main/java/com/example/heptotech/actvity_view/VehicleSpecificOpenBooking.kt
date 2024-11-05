@@ -129,16 +129,16 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun inflateSegmentLayoutsOpen() {
         // Inflate segment3 above segment1
-        inflateLayout(segment1, R.layout.segment_chargesingleimgcard_reccyler)
-        inflateLayout(segment2, R.layout.segmentcharge_fixedmobile)
+        inflateLayout(segment1, R.layout.segmentcharge_fixedmobile)
+        inflateLayout(segment2, R.layout.segment_chargesingleimgcard_reccyler)
         inflateLayout(segment3, R.layout.segmencharge_batterystend)
         inflateLayout(segment4, R.layout.segment_plugs_recyclercard)
     }
     @RequiresApi(Build.VERSION_CODES.M)
     private fun inflateSegmentLayoutsClosed() {
         // Inflate segment2 above segment1
-        inflateLayout(segment1, R.layout.segmentcharge_fixedmobile)
-        inflateLayout(segment2, R.layout.segment_chargesingleimgcard_reccyler)
+        inflateLayout(segment1, R.layout.segment_chargesingleimgcard_reccyler)
+        inflateLayout(segment2, R.layout.segmentcharge_fixedmobile)
         inflateLayout(segment3, R.layout.segmencharge_batterystend)
         inflateLayout(segment4, R.layout.segment_plugs_recyclercard)
     }
@@ -445,12 +445,12 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             // Inflate layouts based on the received value
             if (receivedValue.equals("open")) {
 
-                timeLay1!!.isVisible=false
-                timeLay2!!.isVisible=true
-
-            } else {
                 timeLay1!!.isVisible=true
                 timeLay2!!.isVisible=false
+
+            } else {
+                timeLay1!!.isVisible=false
+                timeLay2!!.isVisible=true
 
             }
         }
