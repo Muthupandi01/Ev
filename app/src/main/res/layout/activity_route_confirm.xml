@@ -167,7 +167,7 @@
                 android:id="@+id/con_text"
 
                 android:background="@drawable/rectangle_34624370__1_ev"
-                android:text="ConFirm"
+                android:text="Confirm"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_medium"

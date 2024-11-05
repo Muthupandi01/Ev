@@ -26,6 +26,8 @@
         android:layout_height="wrap_content"
         android:text="Akibua Rd Point"
         android:id="@+id/Akibua_text"
+        android:layout_toRightOf="@id/ev"
+
         android:fontFamily="@font/poppins_medium"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"

@@ -86,7 +86,7 @@
     <RelativeLayout
         android:layout_marginHorizontal="@dimen/_8ssp"
         android:layout_above="@id/bottom_container"
-        android:layout_marginBottom="@dimen/_88sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
 
         android:id="@+id/rl"
         android:layout_width="wrap_content"
