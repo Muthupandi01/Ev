@@ -1397,6 +1397,7 @@
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/rectangle_34624370__2_ev"
                 android:text="Confirm"
+                android:textSize="@dimen/_10ssp"
 
                 android:gravity="center"
                 android:fontFamily="@font/poppins_medium"

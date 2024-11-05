@@ -39,9 +39,9 @@ class RoutePlanStop : AppCompatActivity(),OnMapReadyCallback
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        stopText.setOnClickListener {
+        savetext.setOnClickListener {
             val bottomSheetFragment = AddStopFragment()
-          //  bottomSheetFragment.show(supportFragmentManager, "AddStopFragment")
+            //  bottomSheetFragment.show(supportFragmentManager, "AddStopFragment")
             val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
             val bottomSheetView = layoutInflater.inflate(R.layout.addstop_bottom_sheet, null)
             val save = bottomSheetView.findViewById<TextView>(R.id.sa_text)
@@ -50,16 +50,18 @@ class RoutePlanStop : AppCompatActivity(),OnMapReadyCallback
             save?.setOnClickListener()
             {
                 bottomSheetDialog.dismiss()
+                val intent = Intent(this, RootPlanScreen::class.java)
+                startActivity(intent)
             }
 
-            }
-
-
-        savetext.setOnClickListener()
-        {
-            val intent = Intent(this, RootPlanScreen::class.java)
-            startActivity(intent)
         }
+
+
+        /*  savetext.setOnClickListener()
+          {
+              val intent = Intent(this, RootPlanScreen::class.java)
+              startActivity(intent)
+          }*/
 
 
     }

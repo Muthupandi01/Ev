@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/_10sdp">
+    >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +58,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/add_text"
         android:layout_below="@id/linear_status"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_alignParentEnd="true"
@@ -66,25 +67,35 @@
         android:text="Add stop"
         android:fontFamily="@font/poppins_medium"
         android:layout_marginEnd="@dimen/_73sdp"/>
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_below="@id/add_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Calculate Route"
-        android:textColor="#25314C"
         android:fontFamily="@font/poppins_medium"
-        android:textSize="@dimen/_11ssp"/>
+        android:text="Calculating Route"
+        android:textColor="#25314C"
+        android:textSize="@dimen/_11ssp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_10sdp"
 
         android:id="@+id/con2_text"
 
         android:background="@drawable/rectangle_34624370__1_ev"
-        android:text="ConFirm"
+        android:text="Confirm"
         android:gravity="center"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins_medium"
