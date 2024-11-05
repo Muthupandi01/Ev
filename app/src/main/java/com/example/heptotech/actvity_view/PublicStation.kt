@@ -124,7 +124,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
 
             for (marker in markers) {
                 marker.isVisible = true
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 7f))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 2f))
 
             }
 
@@ -395,9 +395,9 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         // Define marker locations
         val nakaseroLocation = LatLng(0.323334, 32.578890) // Marker with title
         val otherLocations = listOf(
-            LatLng(1.4334, 31.3527),
-            LatLng(-0.3338, 31.7341),
-            LatLng(0.0471, 32.4438),
+            LatLng(15.5527, 48.5164),
+            LatLng(23.8859, 45.0792),
+            LatLng(15.5007, 32.5599)
         )
 
 
@@ -431,7 +431,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         }
 
         // Move camera to NAKASERO location
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nakaseroLocation, 7f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nakaseroLocation, 2f))
         // Move camera to NAKASERO location
 
     }

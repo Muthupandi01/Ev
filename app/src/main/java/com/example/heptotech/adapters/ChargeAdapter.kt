@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.bean_dataclass.ChargeData
@@ -37,7 +38,9 @@ class ChargeAdapter(private val cardList: List<ChargeData>) : RecyclerView.Adapt
 
         // Set visibility for the online status image based on availability
         holder.onlineStatus.visibility = if (data.isAvailable) View.VISIBLE else View.GONE
+
     }
+
 
     override fun getItemCount() = cardList.size
 }
