@@ -1,5 +1,6 @@
 package com.example.heptotech.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +31,7 @@ class TimeAdapter(
         return TimeViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TimeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TimeViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val time = timeList[position]
         holder.timeTextView.text = time
 
