@@ -37,8 +37,8 @@
         android:elevation="@dimen/_13ssp"
         app:cardCornerRadius="@dimen/_100sdp">
     <ImageView
-        android:layout_width="@dimen/_18sdp"
-        android:layout_height="@dimen/_18sdp"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
         android:layout_gravity="center"
 
         android:src="@drawable/new_back_arrow_ev"
@@ -47,11 +47,12 @@
          />
     </androidx.cardview.widget.CardView>
     <ImageView
-        android:layout_width="@dimen/_18sdp"
+        android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_18sdp"
         android:src="@drawable/traffic_ev"
         android:id="@+id/tra"
         app:tint="@color/green"
+        android:scaleType="fitXY"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/_10sdp"/>
@@ -71,8 +72,8 @@
             android:orientation="vertical">
             <androidx.cardview.widget.CardView
                 android:id="@+id/scannerView1"
-                android:layout_width="@dimen/_21sdp"
-                android:layout_height="@dimen/_21sdp"
+                android:layout_width="@dimen/_19sdp"
+                android:layout_height="@dimen/_19sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginBottom="@dimen/_2sdp"
 
@@ -83,12 +84,12 @@
                 app:cardCornerRadius="@dimen/_100sdp">
 
             <ImageView
-                android:background="@drawable/circle_bg_ev"
-                android:layout_width="@dimen/_15sdp"
+                android:layout_width="@dimen/_12sdp"
                 android:layout_gravity="center"
-                android:layout_height="@dimen/_15sdp"
-
-                android:src="@drawable/heart_new_ev"
+                android:layout_height="@dimen/_12sdp"
+                android:src="@drawable/heart_ev"
+                android:scaleType="fitXY"
+                app:tint="#E8FF5722"
 
                 />
             </androidx.cardview.widget.CardView>
