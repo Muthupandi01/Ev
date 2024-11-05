@@ -1,13 +1,16 @@
 <!-- res/layout/marker_info_item.xml -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_10sdp"
+   app:cardUseCompatPadding="true"
+    android:layout_marginHorizontal="@dimen/_9sdp"
+    android:layout_marginTop="@dimen/_15sdp"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/markerbackground_ev"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp">
         <ImageView
@@ -164,4 +167,4 @@
     </RelativeLayout>
 
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
