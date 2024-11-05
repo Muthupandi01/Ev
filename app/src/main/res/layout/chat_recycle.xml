@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/card_charge1"
@@ -11,6 +11,10 @@
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
+        android:backgroundTint="#EFECEC"
+
+
+        android:background="@drawable/publicchat_ev"
 
         app:cardElevation="@dimen/_4sdp"
         app:cardCornerRadius="@dimen/_16sdp"
@@ -18,13 +22,15 @@
         >
         <RelativeLayout
             android:layout_width="match_parent"
+
+
             android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50ssp"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35ssp"
                 android:id="@+id/img_chrge"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_7sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/ev_chrge_info_ev"/>
@@ -34,7 +40,7 @@
                 android:id="@+id/muthu_text"
                 android:layout_toRightOf="@id/img_chrge"
                 android:text="Muthu"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="@dimen/_10ssp"
                 android:layout_marginStart="@dimen/_5sdp"/>
@@ -45,7 +51,7 @@
 
                 android:layout_alignParentEnd="true"
                 android:text="2 days ago"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:layout_marginEnd="@dimen/_5sdp"
 
@@ -55,10 +61,11 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:id="@+id/likeimg"
+                app:tint="@color/green"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_toRightOf="@id/img_chrge"
                 android:layout_below="@id/muthu_text"
-                android:src="@drawable/like"
+                android:src="@drawable/baseline_thumb_up_alt_24_ev"
                 android:layout_marginStart="@dimen/_5sdp"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -79,16 +86,19 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:id="@+id/chimg"
+                app:tint="@color/orange"
+
 
                 android:layout_marginTop="@dimen/_7sdp"
                 android:layout_toRightOf="@id/img_chrge"
                 android:layout_below="@id/likeimg"
-                android:src="@drawable/new_chadme_ev"
+                android:src="@drawable/group_427318864_ev"
                 android:layout_marginStart="@dimen/_5sdp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/succesful_teext"
+                android:id="@+id/type2"
 
                 android:layout_toRightOf="@id/chimg"
                 android:text="Type2 Mennekes"
@@ -102,6 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/two_text"
+                android:id="@+id/ukn_text"
                 android:layout_marginEnd="@dimen/_5sdp"
 
 
@@ -119,6 +130,7 @@
                 android:layout_below="@id/chimg"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_toRightOf="@id/img_chrge"
+                android:layout_marginEnd="@dimen/_5sdp"
                 android:id="@+id/developer_text"
 
 
@@ -141,14 +153,49 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:id="@+id/view"
                 android:layout_toRightOf="@id/img_chrge"
                 android:layout_below="@id/de_img"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@color/black"
                 android:layout_marginEnd="@dimen/_10sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_below="@id/view"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:layout_toRightOf="@id/img_chrge"
+                android:text="Reply"
+                android:id="@+id/reply"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:tint="@color/gray_common"
+                android:drawableStart="@drawable/baseline_reply_24"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:drawablePadding="@dimen/_2sdp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_below="@id/view"
+                android:layout_toRightOf="@id/reply"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_10ssp"
+                android:id="@+id/flag"
+
+
+                android:text="Flag"
+                app:tint="@color/gray_common"
+                android:drawableStart="@drawable/baseline_outlined_flag_24_ev"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:drawablePadding="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:gravity="center"/>
             
 
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
 </RelativeLayout>

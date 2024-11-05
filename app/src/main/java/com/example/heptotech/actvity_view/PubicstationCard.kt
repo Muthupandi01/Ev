@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.adapters.ChargeAdapter
+import com.example.heptotech.adapters.ChargeInfoAdapter
 import com.example.heptotech.adapters.RestaurantAdapter
 import com.example.heptotech.bean_dataclass.ChargeData
+import com.example.heptotech.bean_dataclass.ChatData
 import com.example.heptotech.bean_dataclass.RestaurantData
 
 class PubicstationCard : AppCompatActivity()
@@ -30,7 +32,11 @@ class PubicstationCard : AppCompatActivity()
     private lateinit var chat_textView: TextView
     private lateinit var back_image:ImageView
     private lateinit var charge_recycle: RecyclerView
-    private lateinit var card_ch:CardView
+    private lateinit var card_ch:LinearLayout
+    private lateinit var chat_recycle:RecyclerView
+    private lateinit var chargeList: MutableList<ChatData>
+    private lateinit var chargeInfoAdapter: ChargeInfoAdapter
+
 
 
 
@@ -48,6 +54,7 @@ class PubicstationCard : AppCompatActivity()
         back_image=findViewById(R.id.back_img)
         charge_recycle=findViewById(R.id.charge_recycle)
         card_ch=findViewById(R.id.card_charge1)
+        chat_recycle=findViewById(R.id.chat_recycle)
 
         card_amen.setOnClickListener()
         {
@@ -55,6 +62,7 @@ class PubicstationCard : AppCompatActivity()
             recylcer.isVisible=true
             card_ch.isVisible=false
             charge_recycle.isVisible=false
+            chat_recycle.isVisible=false
         }
         char.setOnClickListener()
         {
@@ -62,6 +70,7 @@ class PubicstationCard : AppCompatActivity()
             card_ch.isVisible=true
             recylcer.isVisible=false
             charge_recycle.isVisible=true
+            chat_recycle.isVisible=false
         }
         char_chat.setOnClickListener()
         {
@@ -69,6 +78,7 @@ class PubicstationCard : AppCompatActivity()
                 recylcer.isVisible=false
             charge_recycle.isVisible=false
             card_ch.isVisible=false
+            chat_recycle.isVisible=true
         }
         val cardList = listOf(
             ChargeData("22kw AC", "ID: E63025", "Available", "Type 2", "79.0 kr\nper KWh", true),
@@ -112,6 +122,25 @@ class PubicstationCard : AppCompatActivity()
                 "Mobile Number: 123456789",
                 "London For 4 Days With Your Partner."
             ),
+            RestaurantData(
+                R.drawable.car_ev_new,
+                " Attraction ",
+                "Harrodes",
+                4.5f,
+                "40,000",
+                "Open Hours: 10:00 - 17:00",
+                "Mobile Number: 123456789",
+                "London For 4 Days With Your Partner."
+            ), RestaurantData(
+                R.drawable.car_ev_new,
+                " Attraction ",
+                "Harrodes",
+                4.5f,
+                "40,000",
+                "Open Hours: 10:00 - 17:00",
+                "Mobile Number: 123456789",
+                "London For 4 Days With Your Partner."
+            ),
 
         )
 
@@ -120,6 +149,50 @@ class PubicstationCard : AppCompatActivity()
       //  ViewCompat.setNestedScrollingEnabled(recylcer, false)
         recylcer.adapter = adapter
         recylcer.layoutManager = LinearLayoutManager(this)
+        chargeList = mutableListOf(
+            ChatData(
+                imageResId = R.drawable.ev_chrge_info_ev, // Replace with actual drawable
+                name = "Nagendran",
+                timeAgo = "5 mins ago",
+                successfulMessage = "Successfully Charged",
+                type = "UKN - 241136",
+                developerText = "I am android Developer",
+                replyText = "Reply","Flag","Type 2 Mennekes", deImg = R.drawable.evworld
+            ),
+            ChatData(
+                imageResId = R.drawable.ev_chrge_info_ev, // Replace with actual drawable
+                name = "Muthu",
+                timeAgo = "5 mins ago",
+                successfulMessage = "Successfully Charged",
+                type = "Type 2 Mennekes",
+                developerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam in scelerisque sem.Mauris" +
+                        "volutpat, dolor id interdum ullamcorper,risus dolor egestas lectus,sit amet mattis purus" +
+                        "dui nec risus. Maecenas non sodales nisi,vel dictum dolor. Class aptent taciti sociosqu ad" +
+                        "litora torquent per conubia nostra, per inceptos himenaeos.",
+                replyText = "Reply","Flag","UKN - 241136", deImg = R.drawable.evworld
+            ),
+            ChatData(
+                imageResId = R.drawable.ev_chrge_info_ev, // Replace with actual drawable
+                name = "Charge Station 1",
+                timeAgo = "5 mins ago",
+                successfulMessage = "Successfully Charged",
+                type = "Fast Charge",
+                developerText = "Developer Info",
+                replyText = "Reply","Flag","Type 2 Mennekes", deImg = R.drawable.evworld
+            ),
+            ChatData(
+                imageResId = R.drawable.ev_chrge_info_ev, // Replace with actual drawable
+                name = "Charge Station 1",
+                timeAgo = "5 mins ago",
+                successfulMessage = "Successfully Charged",
+                type = "Fast Charge",
+                developerText = "Developer Info",
+                replyText = "Reply","Flag","UKN - 241136", deImg = R.drawable.evworld
+            ),
+        )
+        chargeInfoAdapter = ChargeInfoAdapter(chargeList)
+        chat_recycle.adapter = chargeInfoAdapter
+        chat_recycle.layoutManager = LinearLayoutManager(this)
 
     }
 

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="@dimen/_15sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -294,26 +298,26 @@
 
             <!-- Second TextView with its own CardView -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/card_charge"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_4sdp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
-                app:cardBackgroundColor="@color/card">
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/card"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp">
 
                 <TextView
+                    android:id="@+id/text_ca"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
-                    android:id="@+id/text_ca"
+                    android:padding="@dimen/_8sdp"
                     android:text="Chargers"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textSize="@dimen/_10ssp"
-                    android:padding="@dimen/_8sdp"/>
+                    android:textSize="@dimen/_10ssp" />
             </LinearLayout>
 
             <!-- Third TextView with its own CardView -->
@@ -349,7 +353,8 @@
         android:visibility="visible"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_below="@id/car"/>
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -360,6 +365,11 @@
         android:layout_marginBottom="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_16sdp"
        app:cardElevation="@dimen/_4sdp"
+        android:backgroundTint="#EFECEC"
+
+
+        android:background="@drawable/publicchat_ev"
+
 
 
         android:layout_below="@id/car">
@@ -403,7 +413,7 @@
                 android:padding="8dp" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -448,8 +458,9 @@
 
 
     </LinearLayout>
+    </LinearLayout>
 
 
 
 
-</RelativeLayout>
+</ScrollView>

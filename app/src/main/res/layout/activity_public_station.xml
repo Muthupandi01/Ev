@@ -52,19 +52,19 @@
             android:id="@+id/topCenterText"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_centerHorizontal="true"
+
             android:layout_alignParentTop="true"
             app:cardCornerRadius="@dimen/_7ssp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
-            app:cardElevation="24dp"
-            android:translationZ="2dp"
-            app:cardForegroundColor="@android:color/transparent"
+            app:cardElevation="@dimen/_10sdp"
+
 
 
             >
 
             <TextView
-                android:background="@drawable/rectangle_34624587_ev"
+
                 android:backgroundTint="@color/white"
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="match_parent"
@@ -228,12 +228,12 @@
             app:cardCornerRadius="@dimen/_100sdp">
 
             <ImageView
-                android:layout_width="@dimen/_12sdp"
-                android:layout_height="@dimen/_12sdp"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
                 android:layout_gravity="center"
                 android:contentDescription="Scan Icon"
                 android:scaleType="fitXY"
-                android:src="@drawable/qr_code__1__1_ev"
+                android:src="@drawable/qrcode_ev"
                 app:tint="@color/greentxt" />
         </androidx.cardview.widget.CardView>
 
