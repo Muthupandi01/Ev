@@ -83,7 +83,7 @@ class FilterMainAdapter(
             val count = countMap[brand.name] ?: 0
 
             if (count > 0) {
-              // countTextView.text = " ($count)"
+               countTextView.text = " ($count)"
                 countTextView.visibility = View.VISIBLE
             } else {
                 countTextView.visibility = View.GONE
