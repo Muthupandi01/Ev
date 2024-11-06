@@ -33,11 +33,11 @@ class FilterActivity : AppCompatActivity() {
                 val selectedRange = getSelectedRange()
                 tick.isVisible=true
                 reset.isVisible=false
-                selectedRangeText.text = "Power type - "+"Range: ${selectedRange.first} to ${selectedRange.second}"
+                //selectedRangeText.text = "Power type - "+"Range: ${selectedRange.first} to ${selectedRange.second}"
             }
         }
         val initialRange = customSeekBar.getSelectedRange()
-        selectedRangeText.text = "Power type - "+"Range: ${initialRange.first} to ${initialRange.second}"
+       // selectedRangeText.text = "Power type - "+"Range: ${initialRange.first} to ${initialRange.second}"
         seekBarContainer.addView(customSeekBar)
 
 

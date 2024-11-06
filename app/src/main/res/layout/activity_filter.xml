@@ -62,7 +62,6 @@
         android:orientation="vertical">
         <TextView
             android:textSize="@dimen/_12sdp"
-
             android:id="@+id/selectedRangeText"
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
