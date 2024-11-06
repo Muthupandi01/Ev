@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/_12sdp"
+    android:paddingVertical="@dimen/_8sdp"
     android:layout_marginEnd="@dimen/_5sdp"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -11,62 +11,66 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
+
         <LinearLayout
-            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
-            android:weightSum="1.8"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="1.8">
+
             <ImageView
                 android:id="@+id/image"
-                android:visibility="visible"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:layout_height="wrap_content"
-                android:src="@drawable/location_pin__white_ev"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="0.3"
+                android:src="@drawable/location_pin__white_ev"
+                android:visibility="visible"
                 app:tint="#25314C" />
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/type"
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_gravity="center_vertical"
-                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
                     android:text="Connecter types"
                     android:textColor="#292929"
-                    android:textColorHint="#292929"/>
+                    android:textColorHint="#292929"
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_gravity="center_vertical"
-                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text=" (4)"
                     android:textColor="@color/orange"
-                    />
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
 
             <ImageView
                 android:id="@+id/check"
-                android:visibility="invisible"
-                android:backgroundTint="#25314C"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/tick_ev_ev"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/check_tick_iconev"
+                android:visibility="invisible"
                 app:tint="@color/green" />
         </LinearLayout>
 

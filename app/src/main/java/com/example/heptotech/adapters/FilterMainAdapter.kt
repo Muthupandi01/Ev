@@ -1,5 +1,6 @@
 package com.example.heptotech.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +12,19 @@ import com.example.heptotech.bean_dataclass.Filter
 
 class FilterMainAdapter(
     private var brandList: List<Filter>,
-    private val itemClickListener: OnItemClickListener
+    private val itemClickListener: OnItemClickListener,
+    private val context: Context // Pass context to access SharedPreferences
 ) : RecyclerView.Adapter<FilterMainAdapter.BrandViewHolder>() {
 
     private val countMap = mutableMapOf<String, Int>()
 
     interface OnItemClickListener {
         fun onItemClicked(brandName: String, countTextView: TextView)
+    }
+
+    init {
+        // Load counts from SharedPreferences
+        loadCountsFromSharedPreferences()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandViewHolder {
@@ -32,14 +39,34 @@ class FilterMainAdapter(
 
     override fun getItemCount() = brandList.size
 
+    // Update count in the map and SharedPreferences
     fun updateCount(brandName: String?, count: Int) {
-        // Update count in map if it's non-zero
-        if (brandName != null && count > 0) {
+        if (brandName != null && count >= 0) {
             countMap[brandName] = count
+            // Save updated count to SharedPreferences
+            saveCountToSharedPreferences(brandName, count)
+
             val index = brandList.indexOfFirst { it.name == brandName }
             if (index != -1) {
                 notifyItemChanged(index)
             }
+        }
+    }
+
+    // Save the count to SharedPreferences
+    private fun saveCountToSharedPreferences(brandName: String, count: Int) {
+        val sharedPref = context.getSharedPreferences("USER_SELECTIONS", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putInt(brandName, count) // Store count with the brand name as the key
+        editor.apply()
+    }
+
+    // Load the count from SharedPreferences
+    private fun loadCountsFromSharedPreferences() {
+        val sharedPref = context.getSharedPreferences("USER_SELECTIONS", Context.MODE_PRIVATE)
+        brandList.forEach { brand ->
+            val count = sharedPref.getInt(brand.name, 0) // Default count is 0 if not found
+            countMap[brand.name] = count
         }
     }
 
@@ -52,10 +79,11 @@ class FilterMainAdapter(
             brandImageView.setImageResource(brand.imageResId)
             brandTextView.text = brand.name
 
-            // Display count only if available in the map and greater than zero
+            // Display count from the map (or default to 0)
             val count = countMap[brand.name] ?: 0
+
             if (count > 0) {
-                countTextView.text = " ($count)"
+              // countTextView.text = " ($count)"
                 countTextView.visibility = View.VISIBLE
             } else {
                 countTextView.visibility = View.GONE

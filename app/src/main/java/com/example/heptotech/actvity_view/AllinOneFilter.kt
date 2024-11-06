@@ -1,4 +1,4 @@
-package com.example.heptotech.actvity_view
+package com.example.heptotech.activity_view
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,34 +15,58 @@ import com.example.heptotech.bean_dataclass.Filter
 class AllinOneFilter : AppCompatActivity() {
 
     private lateinit var allinOneAdapter: AllinOneAdapter
-    private lateinit var filerMainrec: RecyclerView
+    private lateinit var filterMainRec: RecyclerView
     private lateinit var header: TextView
-    private lateinit var btn_submit: TextView
-    var selectedCountTextView = 0 // Display selected count
-    var selectedItemsList = mutableListOf<Filter>() // Track selected items
+    private lateinit var btnSubmit: TextView
+    private var selectedCount = 0
+    private var selectedItemsList = mutableListOf<Filter>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_allin_one_filter)
 
-        filerMainrec = findViewById(R.id.allinrec)
+        filterMainRec = findViewById(R.id.allinrec)
         header = findViewById(R.id.header)
-        btn_submit = findViewById(R.id.btn_submit)
+        btnSubmit = findViewById(R.id.btn_submit)
 
         val brandName = intent.getStringExtra("BRAND_NAME")
         header.text = brandName
 
-        // Retrieve selected items from SharedPreferences
+
+
+
+
+        loadUserSelections()
+        val brandList: List<Filter> = getBrandList(brandName)
+        setupAdapter(brandList)
+        setupSubmitButton(brandName)
+    }
+
+    private fun loadUserSelections() {
         val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
-        selectedCountTextView = sharedPref.getInt("SELECTED_COUNT", 0)
+        selectedCount = sharedPref.getInt("SELECTED_COUNT", 0)
         val selectedItemsSet = sharedPref.getStringSet("SELECTED_ITEMS", emptySet())
+        selectedItemsList = selectedItemsSet?.map { Filter(name = it, isSelected = true) }?.toMutableList() ?: mutableListOf()
 
-        // Update the UI or adapter with the saved values
-        selectedItemsList = selectedItemsSet?.map { Filter(name = it) }?.toMutableList() ?: mutableListOf()
-        Log.d("selectedItemsListN", "onCreate: "+selectedItemsList)
+        // Now update the isSelected property of filters based on user selections
+        val brandName = intent.getStringExtra("BRAND_NAME")
+        val brandList = getBrandList(brandName) // This will be the list of all possible filters
 
-        // Initialize the list based on brandName
-        val brandList: List<Filter> = when (brandName) {
+        brandList.forEach { filter ->
+            filter.isSelected = selectedItemsList.any { it.name == filter.name }
+        }
+
+        Log.d("selectedItemsList", "Loaded One: $brandName - $selectedItemsList")
+        //Log.d("selectedItemsList", "Loaded Two: $brandName")
+
+
+
+
+    }
+
+
+    private fun getBrandList(brandName: String?): List<Filter> {
+        return when (brandName) {
             "Connnector types" -> listOf(
                 Filter(0, "DC", isHeader = true),
                 Filter(R.drawable.connecttype_ev, "CCS Combo"),
@@ -57,104 +81,104 @@ class AllinOneFilter : AppCompatActivity() {
                 Filter(R.drawable.connecttype_ev, "Commando")
             )
             "Networks" -> listOf(
-                Filter(R.drawable.location_pin__1_ev, "Alfa Power"),
-                Filter(R.drawable.location_pin__1_ev, "Applegreen Electric"),
-                Filter(R.drawable.location_pin__1_ev, "Char.gy"),
-                Filter(R.drawable.location_pin__1_ev, "Connected Kerb"),
-                Filter(R.drawable.location_pin__1_ev, "ESB Energy"),
-                Filter(R.drawable.location_pin__1_ev, "Evyve"),
-                Filter(R.drawable.location_pin__1_ev, "Fastned"),
-                Filter(R.drawable.location_pin__1_ev, "FOR-EV"),
-                Filter(R.drawable.location_pin__1_ev, "GeniePoint"),
-                Filter(R.drawable.location_pin__1_ev, "Mer"),
-                Filter(R.drawable.location_pin__1_ev, "MFG EV Power"),
-                Filter(R.drawable.location_pin__1_ev, "Osprey"),
-                Filter(R.drawable.location_pin__1_ev, "Pogo Charge")
+                Filter(R.drawable.globe, "Alfa Power"),
+                Filter(R.drawable.globe, "Applegreen Electric"),
+                Filter(R.drawable.globe, "Char.gy"),
+                Filter(R.drawable.globe, "Connected Kerb"),
+                Filter(R.drawable.globe, "ESB Energy"),
+                Filter(R.drawable.globe, "Evyve"),
+                Filter(R.drawable.globe, "Fastned"),
+                Filter(R.drawable.globe, "FOR-EV"),
+                Filter(R.drawable.globe, "GeniePoint"),
+                Filter(R.drawable.globe, "Mer"),
+                Filter(R.drawable.globe, "MFG EV Power"),
+                Filter(R.drawable.globe, "Osprey"),
+                Filter(R.drawable.globe, "Pogo Charge")
             )
             "Location types" -> listOf(
-                Filter(R.drawable.location_pin__1_ev, "Accomodation"),
-                Filter(R.drawable.location_pin__1_ev, "Car park"),
-                Filter(R.drawable.location_pin__1_ev, "Dealership"),
-                Filter(R.drawable.location_pin__1_ev, "Education"),
-                Filter(R.drawable.location_pin__1_ev, "Fuel Forecourt"),
-                Filter(R.drawable.location_pin__1_ev, "Health Services"),
-                Filter(R.drawable.location_pin__1_ev, "Home"),
-                Filter(R.drawable.location_pin__1_ev, "Leisure"),
-                Filter(R.drawable.location_pin__1_ev, "Motorway Services"),
-                Filter(R.drawable.location_pin__1_ev, "On-Street"),
-                Filter(R.drawable.location_pin__1_ev, "Other"),
-                Filter(R.drawable.location_pin__1_ev, "Park and Ride"),
-                Filter(R.drawable.location_pin__1_ev, "Public Services"),
-                Filter(R.drawable.location_pin__1_ev, "Restaurent/Pub/Cafe"),
-                Filter(R.drawable.location_pin__1_ev, "Retail Car Park"),
-                Filter(R.drawable.location_pin__1_ev, "Supermarket"),
-                Filter(R.drawable.location_pin__1_ev, "Travel Interchange"),
-                Filter(R.drawable.location_pin__1_ev, "Workplace Car Park")
+                Filter(R.drawable.baseline_location_on_24, "Accomodation"),
+                Filter(R.drawable.baseline_location_on_24, "Car park"),
+                Filter(R.drawable.baseline_location_on_24, "Dealership"),
+                Filter(R.drawable.baseline_location_on_24, "Education"),
+                Filter(R.drawable.baseline_location_on_24, "Fuel Forecourt"),
+                Filter(R.drawable.baseline_location_on_24, "Health Services"),
+                Filter(R.drawable.baseline_location_on_24, "Home"),
+                Filter(R.drawable.baseline_location_on_24, "Leisure"),
+                Filter(R.drawable.baseline_location_on_24, "Motorway Services"),
+                Filter(R.drawable.baseline_location_on_24, "On-Street"),
+                Filter(R.drawable.baseline_location_on_24, "Other"),
+                Filter(R.drawable.baseline_location_on_24, "Park and Ride"),
+                Filter(R.drawable.baseline_location_on_24, "Public Services"),
+                Filter(R.drawable.baseline_location_on_24, "Restaurent/Pub/Cafe"),
+                Filter(R.drawable.baseline_location_on_24, "Retail Car Park"),
+                Filter(R.drawable.baseline_location_on_24, "Supermarket"),
+                Filter(R.drawable.baseline_location_on_24, "Travel Interchange"),
+                Filter(R.drawable.baseline_location_on_24, "Workplace Car Park")
             )
             "Access" -> listOf(
-                Filter(R.drawable.location_pin__1_ev, "24 hours access"),
-                Filter(R.drawable.location_pin__1_ev, "Public access"),
-                Filter(R.drawable.location_pin__1_ev, "No physical restrictions"),
-                Filter(R.drawable.location_pin__1_ev, "Hide Zap-Home points"),
-                Filter(R.drawable.location_pin__1_ev, "Hide Zap-Work points"),
-                Filter(R.drawable.location_pin__1_ev, "Show Taxi Only")
+                Filter(R.drawable.access_ev, "24 hours access"),
+                Filter(R.drawable.access_ev, "Public access"),
+                Filter(R.drawable.access_ev, "No physical restrictions"),
+                Filter(R.drawable.access_ev, "Hide Zap-Home points"),
+                Filter(R.drawable.access_ev, "Hide Zap-Work points"),
+                Filter(R.drawable.access_ev, "Show Taxi Only")
             )
             "User rating" -> listOf(
-                Filter(R.drawable.location_pin__1_ev, "2 stars or more"),
-                Filter(R.drawable.location_pin__1_ev, "3 stars or more"),
-                Filter(R.drawable.location_pin__1_ev, "4 stars or more")
+                Filter(R.drawable.baseline_star_24, "2 stars or more"),
+                Filter(R.drawable.baseline_star_24, "3 stars or more"),
+                Filter(R.drawable.baseline_star_24, "4 stars or more")
             )
             "Multiple devices" -> listOf(
-                Filter(R.drawable.connecttype_ev, "2 devices or more"),
-                Filter(R.drawable.connecttype_ev, "3 devices or more"),
-                Filter(R.drawable.connecttype_ev, "4 devices or more"),
-                Filter(R.drawable.connecttype_ev, "5 devices or more"),
-                Filter(R.drawable.connecttype_ev, "6 devices or more")
+                Filter(R.drawable.multi_ev, "2 devices or more"),
+                Filter(R.drawable.multi_ev, "3 devices or more"),
+                Filter(R.drawable.multi_ev, "4 devices or more"),
+                Filter(R.drawable.multi_ev, "5 devices or more"),
+                Filter(R.drawable.multi_ev, "6 devices or more")
             )
             else -> listOf(
-                Filter(R.drawable.location_pin__1_ev, "Residential"),
-                Filter(R.drawable.location_pin__1_ev, "Corporate"),
-                Filter(R.drawable.location_pin__1_ev, "Public")
+                Filter(R.drawable.baseline_fiber_new_24, "Residential"),
+                Filter(R.drawable.baseline_fiber_new_24, "Corporate"),
+                Filter(R.drawable.baseline_fiber_new_24, "Public")
             )
         }
 
-        // Pass brandList to the adapter
+
+
+
+
+    }
+
+    private fun setupAdapter(brandList: List<Filter>) {
         allinOneAdapter = AllinOneAdapter(brandList, this) { selectedCount, selectedItems ->
-            selectedCountTextView = selectedCount
+            this.selectedCount = selectedCount
             selectedItemsList = selectedItems.toMutableList()
-            // Update UI or other components if needed
         }
+        filterMainRec.layoutManager = LinearLayoutManager(this)
+        filterMainRec.adapter = allinOneAdapter
+    }
 
-        filerMainrec.layoutManager = LinearLayoutManager(this)
-        filerMainrec.adapter = allinOneAdapter
-
-//        btn_submit.setOnClickListener {
-//            val resultIntent = Intent().apply {
-//                putExtra("BRAND_NAME", brandName)
-//                putExtra("SELECTED_COUNT", selectedCountTextView)
-//                putExtra("SELECTED_ITEMS", ArrayList(selectedItemsList)) // Pass selected items as a list
-//            }
-//            setResult(RESULT_OK, resultIntent)
-//            finish()
-//        }
-        btn_submit.setOnClickListener {
-            val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
-            val editor = sharedPref.edit()
-
-            // Save selected count and items
-            editor.putInt("SELECTED_COUNT", selectedCountTextView)
-            editor.putStringSet("SELECTED_ITEMS", selectedItemsList.map { it.name }.toSet())
-
-            editor.apply()
-
+    private fun setupSubmitButton(brandName: String?) {
+        btnSubmit.setOnClickListener {
+            saveUserSelections()
             val resultIntent = Intent().apply {
                 putExtra("BRAND_NAME", brandName)
-                putExtra("SELECTED_COUNT", selectedCountTextView)
-                putExtra("SELECTED_ITEMS", ArrayList(selectedItemsList)) // Pass selected items as a list
+                putExtra("SELECTED_COUNT", selectedCount)
+                putExtra("SELECTED_ITEMS", ArrayList(selectedItemsList))
             }
             setResult(RESULT_OK, resultIntent)
             finish()
         }
-
     }
+
+
+    private fun saveUserSelections() {
+        val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putInt("SELECTED_COUNT", selectedCount)
+            putStringSet("SELECTED_ITEMS", selectedItemsList.map { it.name }.toSet())
+            apply()
+        }
+        Log.d("saveUserSelections", "Saved to SharedPreferences: $selectedItemsList")
+    }
+
 }

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.bean_dataclass.Brand
@@ -23,6 +22,11 @@ class AllinOneAdapter(
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+    }
+
+    init {
+        // Load selected items from SharedPreferences and update the selection state
+        selectedItems.addAll(loadSelectedItems(context))
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -52,6 +56,19 @@ class AllinOneAdapter(
 
     fun getSelectedItems(): List<Filter> = selectedItems.toList() // To retrieve selected items
 
+    private fun loadSelectedItems(context: Context): List<Filter> {
+        val sharedPref = context.getSharedPreferences("USER_SELECTIONS", Context.MODE_PRIVATE)
+        val selectedNames = sharedPref.getStringSet("SELECTED_ITEMS", emptySet()) ?: emptySet()
+
+        // Retrieve the selected items based on the names (or IDs)
+        val selectedItems = mutableListOf<Filter>()
+        for (name in selectedNames) {
+            selectedItems.add(brandList.find { it.name == name } ?: Filter(name = name)) // Modify as needed
+        }
+
+        return selectedItems
+    }
+
     inner class BrandViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val brandImageView: ImageView = itemView.findViewById(R.id.image)
         private val brandTextView: TextView = itemView.findViewById(R.id.type)
@@ -61,22 +78,25 @@ class AllinOneAdapter(
             brandImageView.setImageResource(brand.imageResId)
             brandTextView.text = brand.name
 
-            // Toggle selection
+            // Set the initial visibility of the checkmark based on the current selection
+            checkImageView.visibility = if (selectedItems.contains(brand)) View.VISIBLE else View.INVISIBLE
+
+            // Toggle selection on click
             itemView.setOnClickListener {
                 if (selectedItems.contains(brand)) {
-                    selectedItems.remove(brand)
-                    checkImageView.visibility = View.INVISIBLE
+                    selectedItems.remove(brand)  // Deselect the item
+                    checkImageView.visibility = View.INVISIBLE  // Hide the checkmark
                 } else {
-                    selectedItems.add(brand)
-                    checkImageView.visibility = View.VISIBLE
+                    selectedItems.add(brand)  // Select the item
+                    checkImageView.visibility = View.VISIBLE  // Show the checkmark
                 }
 
-                // Update selection count and selected items via callback
+                // Update the selection count and selected items via the callback
                 onSelectionChanged(selectedItems.size, selectedItems.toList())
-            }
 
-            // Update UI for selected state
-            checkImageView.visibility = if (selectedItems.contains(brand)) View.VISIBLE else View.INVISIBLE
+                // Save the updated selection to SharedPreferences
+                saveSelectedItems(context, selectedItems.toList())
+            }
         }
     }
 
@@ -84,7 +104,19 @@ class AllinOneAdapter(
         private val headerTextView: TextView = itemView.findViewById(R.id.header_text)
 
         fun bind(brand: Filter) {
-            headerTextView.text = brand.name
+            headerTextView.text = "    "+brand.name
         }
+    }
+
+    // Save selected items to SharedPreferences
+    private fun saveSelectedItems(context: Context, selectedItems: List<Filter>) {
+        val sharedPref = context.getSharedPreferences("USER_SELECTIONS", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        // Convert selected items to a set of names or IDs
+        val selectedNames = selectedItems.map { it.name }.toSet()
+        editor.putStringSet("SELECTED_ITEMS", selectedNames)
+        editor.putInt("SELECTED_COUNT", selectedItems.size)
+        editor.apply()
     }
 }

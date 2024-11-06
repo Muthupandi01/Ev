@@ -135,6 +135,7 @@
         <activity android:name=".actvity_view.RoutePlan" />
         <activity android:name=".actvity_view.VehicleSpecificOpenBooking" />
         <activity android:name=".actvity_view.OpearatersActivity" />
+        <activity android:name=".activity_view.AllinOneFilter" />
     </application>
 
 </manifest>
