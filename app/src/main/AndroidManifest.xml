@@ -31,6 +31,9 @@
         android:theme="@style/Theme.HeptoTech"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".actvity_view.AllinOneFilter"
+            android:exported="false" />
+        <activity
             android:name=".actvity_view.FilterActivity"
             android:exported="false" />
         <activity

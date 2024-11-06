@@ -57,7 +57,6 @@
             app:tint="@color/white" />
     </LinearLayout>
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="@dimen/_80sdp"
         android:orientation="vertical">
@@ -241,50 +240,9 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:background="@color/iosgrey"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:paddingVertical="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_9sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-        <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:weightSum="1.8"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:visibility="visible"
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:layout_height="wrap_content"
-                android:src="@drawable/location_pin__white_ev"
-                android:layout_gravity="center_vertical"
-                app:tint="#25314C" />
-            <TextView
-                android:layout_marginLeft="@dimen/_5ssp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.5"
-                android:fontFamily="@font/poppins_medium"
-                android:layout_gravity="center_vertical"
-                android:textSize="@dimen/_12ssp"
-                android:text="Connecter types"
-                android:textColor="#292929"
-                android:textColorHint="#292929"/>
-
-            <ImageView
-                android:visibility="visible"
-                android:backgroundTint="#25314C"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/angle_right_small_ev"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-
-    </LinearLayout>
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/filerMainrec"/>
 
 </LinearLayout>

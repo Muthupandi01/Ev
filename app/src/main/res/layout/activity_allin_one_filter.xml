@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actvity_view.MakeBrandModel">
+
+    <!-- Header Layout -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@color/greentxt"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Left aligned back button -->
+        <ImageView
+            android:id="@+id/back"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/angle_left_circle_ev"
+            app:tint="@color/white" />
+
+        <!-- Center aligned title text -->
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/_12sdp"
+            android:text="header"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_medium" />
+
+        <!-- Right aligned reset text -->
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:gravity="end|center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginEnd="10dp" />
+
+        <ImageView
+            android:id="@+id/tick"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tick_ev_ev"
+            android:layout_marginEnd="10dp"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <!-- RecyclerView for content -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allinrec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_50sdp"
+        app:layout_constraintTop_toBottomOf="@id/back"
+        app:layout_constraintBottom_toTopOf="@id/btn_submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="NotSibling" />
+
+    <!-- Submit button fixed at the bottom -->
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:text="Save"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/rectangle_check"
+        android:backgroundTint="#E8FF5722"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
