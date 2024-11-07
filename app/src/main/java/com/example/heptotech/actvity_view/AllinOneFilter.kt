@@ -36,8 +36,6 @@ class AllinOneFilter : AppCompatActivity() {
         selectedCount = sharedPref.getInt("SELECTED_COUNT", 0)
         sharedPref.edit().clear().apply()
 
-
-
         loadUserSelections()
         val brandList: List<Filter> = getBrandList(brandName)
         setupAdapter(brandList)
