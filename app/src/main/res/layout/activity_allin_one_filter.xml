@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".actvity_view.MakeBrandModel">
+  >
 
     <!-- Header Layout -->
     <LinearLayout
@@ -20,15 +20,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Left aligned back button -->
-        <ImageView
+
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/back"
-            android:padding="@dimen/_5sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
             android:layout_gravity="start|center_vertical"
-            android:src="@drawable/angle_left_circle_ev"
-            app:tint="@color/white" />
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/circle_bg_ev"
+            android:elevation="@dimen/_13ssp"
+            app:cardCornerRadius="@dimen/_100sdp">
+            <ImageView
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_gravity="center"
+
+                android:src="@drawable/new_back_arrow_ev"
+                android:id="@+id/back_img"
+
+                />
+        </androidx.cardview.widget.CardView>
+
 
         <!-- Center aligned title text -->
         <TextView

@@ -32,9 +32,9 @@ class AllinOneFilter : AppCompatActivity() {
         val brandName = intent.getStringExtra("BRAND_NAME")
         header.text = brandName
 
-        val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
-        selectedCount = sharedPref.getInt("SELECTED_COUNT", 0)
-        sharedPref.edit().clear().apply()
+//        val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
+//        selectedCount = sharedPref.getInt("SELECTED_COUNT", 0)
+//        sharedPref.edit().clear().apply()
 
         loadUserSelections()
         val brandList: List<Filter> = getBrandList(brandName)

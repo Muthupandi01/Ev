@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,7 @@ import com.example.heptotech.customclass.FixedRangeSeekBar
 class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListener {
     lateinit var reset:TextView
     lateinit var tick:ImageView
-    lateinit var back:ImageView
+    lateinit var back:CardView
     private lateinit var filterMainAdapter: FilterMainAdapter
     private lateinit var filerMainrec: RecyclerView
     private val FilterList = listOf(

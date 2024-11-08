@@ -23,7 +23,7 @@
         android:textSize="@dimen/_9ssp"
         android:padding="@dimen/_10ssp"
         android:fontFamily="@font/poppins_medium"
-        android:hint="Enter name for the routet"
+        android:hint="Enter name for the route"
         android:layout_marginStart="@dimen/_20sdp"
         android:background="@drawable/rectangle_356_ev"/>
     <TextView
