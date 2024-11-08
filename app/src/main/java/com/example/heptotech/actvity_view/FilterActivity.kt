@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
@@ -15,11 +16,18 @@ import com.example.heptotech.R
 import com.example.heptotech.activity_view.AllinOneFilter
 import com.example.heptotech.adapters.FilterMainAdapter
 import com.example.heptotech.bean_dataclass.Filter
+import com.example.heptotech.bean_dataclass.FilterAccess
+import com.example.heptotech.bean_dataclass.FilterChargeStation
+import com.example.heptotech.bean_dataclass.FilterConnecter
+import com.example.heptotech.bean_dataclass.FilterLocation
+import com.example.heptotech.bean_dataclass.FilterMultidevice
+import com.example.heptotech.bean_dataclass.FilterNet
+import com.example.heptotech.bean_dataclass.Filterrating
 import com.example.heptotech.customclass.FixedRangeSeekBar
 
 class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListener {
     lateinit var reset:TextView
-    lateinit var tick:ImageView
+    lateinit var tick:TextView
     lateinit var back:CardView
     private lateinit var filterMainAdapter: FilterMainAdapter
     private lateinit var filerMainrec: RecyclerView
@@ -48,13 +56,18 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             startActivity(Intent(this, PublicStation::class.java))
         }
 
+        tick.setOnClickListener {
+            reset.isVisible=true
+            tick.isVisible=false
+        }
         reset.setOnClickListener {
+            reset.isVisible=false
+            tick.isVisible=true
             val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
             sharedPref.edit().clear().apply()
             filterMainAdapter = FilterMainAdapter(FilterList,this,this)
             filerMainrec.layoutManager = LinearLayoutManager(this)
             filerMainrec.adapter = filterMainAdapter
-
 
         }
 
@@ -99,8 +112,40 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             val selectedCount = data?.getIntExtra("SELECTED_COUNT", 0) ?: 0
             val selectedItems = data?.getStringArrayListExtra("SELECTED_ITEMS") ?: arrayListOf()
 
-            // Update the specific item count in the adapter
-            filterMainAdapter.updateCount(brandName, selectedCount)
+            val selectedItemsListConnecter = data?.getStringArrayListExtra("SELECTED_ITEMS_CO") ?: arrayListOf()
+            val selectedItemsListNet = data?.getStringArrayListExtra("SELECTED_ITEMS_NET") ?: arrayListOf()
+            val selectedItemsListLocation = data?.getStringArrayListExtra("SELECTED_ITEMS_LOC") ?: arrayListOf()
+            val selectedItemsListAccess = data?.getStringArrayListExtra("SELECTED_ITEMS_ACC") ?: arrayListOf()
+            val selectedItemsListRating = data?.getStringArrayListExtra("SELECTED_ITEMS_RAT") ?: arrayListOf()
+            val selectedItemsListMultiple = data?.getStringArrayListExtra("SELECTED_ITEMS_MULTI") ?: arrayListOf()
+            val selectedItemsListChargeStation = data?.getStringArrayListExtra("SELECTED_ITEMS_CHARGE") ?: arrayListOf()
+
+            when (brandName) {
+                "Connnector types" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListConnecter.size)
+                }
+                "Networks" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListNet.size)
+                }
+                "Location types" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListLocation.size)
+                }
+                "Access" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListAccess.size)
+                }
+                "User rating" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListRating.size)
+                }
+                "Multiple devices" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListMultiple.size)
+                }
+                "Charge Station" -> {
+                    filterMainAdapter.updateCount(brandName, selectedItemsListChargeStation.size)
+                }
+            }
+
+
+
 
             // Save selected items to SharedPreferences
              //saveSelectedItems(brandName, selectedItems)
