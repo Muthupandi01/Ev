@@ -36,7 +36,11 @@ import com.example.heptotech.R
 import com.example.heptotech.adapters.PublicStationMarkerAdapter
 import com.example.heptotech.bean_dataclass.MarkerInfo
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -368,30 +372,40 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             return
         }
 
-        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-            if (location != null) {
-                val userLocation = LatLng(location.latitude, location.longitude)
-                val markerIcon = BitmapFromVector(this, R.drawable.group_427318907_ev, 150, 150)
-                currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
-                fetchAddressFromLatLng(userLocation)
-            } else {
-                Toast.makeText(this, "Unable to find current location", Toast.LENGTH_SHORT).show()
-            }
-        }.addOnFailureListener { e ->
-            Toast.makeText(this, "Failed to get location: ${e.message}", Toast.LENGTH_SHORT).show()
-            Log.e("IphoneMap", "Location failure", e)
+        // Create a location request with high accuracy
+        val locationRequest = LocationRequest.create().apply {
+            priority = Priority.PRIORITY_HIGH_ACCURACY
+            interval = 10000 // Request location every 10 seconds
+            fastestInterval = 5000 // Get updates no more frequently than every 5 seconds
         }
+
+        // Request location updates
+        fusedLocationClient.requestLocationUpdates(locationRequest, object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult) {
+                locationResult.locations.firstOrNull()?.let { location ->
+                    // Handle the location when available
+                    val userLocation = LatLng(location.latitude, location.longitude)
+                    val markerIcon = BitmapFromVector(this@PublicStation, R.drawable.group_427318907_ev, 150, 150)
+                    currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
+                    fetchAddressFromLatLng(userLocation)
+                } ?: run {
+                    // Handle no location available
+                    Toast.makeText(this@PublicStation, "Unable to find current location", Toast.LENGTH_SHORT).show()
+                }
+
+                // Stop receiving updates after one successful update
+                fusedLocationClient.removeLocationUpdates(this)
+            }
+        }, Looper.getMainLooper())
+
+        // Update UI
         group1C.isVisible = true
         current_loctionsC.isVisible = true
         recyclerView.isVisible = false
         topCenterText.isVisible = true
         isInCurrentLocationMode = true
-        topCenterText.isClickable=true
-
-
-
-
+        topCenterText.isClickable = true
 
 
     }
@@ -570,6 +584,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             }
         } catch (e: Exception) {
             e.printStackTrace()
+            Log.e("callocation",e.toString())
             Toast.makeText(this, "Unable to fetch address", Toast.LENGTH_SHORT).show()
         }
     }
