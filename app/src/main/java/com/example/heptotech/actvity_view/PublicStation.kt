@@ -375,8 +375,8 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         // Create a location request with high accuracy
         val locationRequest = LocationRequest.create().apply {
             priority = Priority.PRIORITY_HIGH_ACCURACY
-            interval = 10000 // Request location every 10 seconds
-            fastestInterval = 5000 // Get updates no more frequently than every 5 seconds
+            interval = 1000 // Request location every 10 seconds
+            fastestInterval = 1000 // Get updates no more frequently than every 5 seconds
         }
 
         // Request location updates
