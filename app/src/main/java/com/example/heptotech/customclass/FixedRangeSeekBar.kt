@@ -40,7 +40,7 @@ class FixedRangeSeekBar @JvmOverloads constructor(
     }
 
     private var thumbRadius = 30f
-    private val labels = listOf("3KW", "7KW", "11KW", "22KW", "50KW", "100KW", "350KW")
+    val labels = listOf("3KW", "7KW", "11KW", "22KW", "50KW", "100KW", "350KW")
     private val horizontalMargin = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._25sdp)
 
     init {

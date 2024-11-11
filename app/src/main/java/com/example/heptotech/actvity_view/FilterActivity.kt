@@ -34,9 +34,8 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         Filter(R.drawable.access_ev, "Access"),
         Filter(R.drawable.baseline_star_24, "User rating"),
         Filter(R.drawable.multi_ev, "Multiple devices"),
-        Filter(R.drawable.baseline_fiber_new_24, "Charge Station")
+        Filter(R.drawable.baseline_fiber_new_24, "Charge Station"))
 
-    )
     var check="I"
     companion object {
         const val REQUEST_CODE_ALL_IN_ONE_FILTER = 1001
@@ -59,6 +58,7 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             reset.isVisible=true
             tick.isVisible=false
         }
+
         reset.setOnClickListener {
             reset.isVisible=false
             tick.isVisible=true
@@ -88,13 +88,59 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
                 tick.isVisible=true
                 reset.isVisible=false
 
+                // selectedRangeText.text = "Power type - Range: ${selectedRange.first} to ${selectedRange.second}"
+
+                // Store data into SharedPreferences
+                val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+                val myEdit = sharedPreferences.edit()
+                myEdit.putString("min", selectedRange.first)
+                myEdit.putString("max", selectedRange.second)
+                myEdit.apply()
+            }
+        }
+
+        // Load saved values when the activity opens
+        val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        val savedMin = sharedPreferences.getString("min", null)?.let { customSeekBar.labels.indexOf(it) } ?: 0
+        val savedMax = customSeekBar.labels.size - 1 // assuming fixed max is last element
+
+        if (check.equals("I")){
+            customSeekBar.setSelectedMin(savedMin)
+            reset.isVisible=true
+            // Ensure the seekbar is added only if not already added
+            if (seekBarContainer.childCount == 0) {
+                seekBarContainer.addView(customSeekBar)
+            }
+        }else{
+            seekBarContainer.removeAllViews()
+            val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+            val myEdit = sharedPreferences.edit()
+            myEdit.clear().apply()
+            seekBarContainer.addView(customSeekBar)
+        }
+        // Set initial range to saved range
+
+    }
+
+
+    private fun getseekbars() {
+        val selectedRangeText = findViewById<TextView>(R.id.selectedRangeText)
+        val seekBarContainer = findViewById<FrameLayout>(R.id.seekBarContainer)
+        val customSeekBar = FixedRangeSeekBar(this).apply {
+            setOnRangeChangedListener { min, max ->
+                // Update selected range display in real-time
+                val selectedRange = getSelectedRange()
+                tick.isVisible=true
+                reset.isVisible=false
+
                 // Storing data into SharedPreferences
                 val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
                 val myEdit = sharedPreferences.edit()
                 myEdit.putString("min", selectedRange.first.toString())
                 myEdit.putString("max", selectedRange.second.toString())
                 myEdit.commit()
-                //selectedRangeText.text = "Power type - "+"Range: ${selectedRange.first} to ${selectedRange.second}"
+               // val savedMin = sharedPreferences.getString("min", null)?.toIntOrNull() ?: 0
+               // selectedRangeText.text = "Power type - "+"Range: ${selectedRange.first} to ${selectedRange.second}"
             }
         }
 
