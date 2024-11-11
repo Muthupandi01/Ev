@@ -57,6 +57,7 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         tick.setOnClickListener {
             reset.isVisible=true
             tick.isVisible=false
+
         }
 
         reset.setOnClickListener {
@@ -106,7 +107,7 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
 
         if (check.equals("I")){
             customSeekBar.setSelectedMin(savedMin)
-            reset.isVisible=true
+           // reset.isVisible=true
             // Ensure the seekbar is added only if not already added
             if (seekBarContainer.childCount == 0) {
                 seekBarContainer.addView(customSeekBar)
