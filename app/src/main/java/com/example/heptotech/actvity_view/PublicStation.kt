@@ -105,7 +105,6 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         filterCard.setOnClickListener {
             val intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
-
         }
 
         blinkimage = findViewById(R.id.blink_img)

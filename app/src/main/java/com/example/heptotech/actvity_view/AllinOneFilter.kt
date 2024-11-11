@@ -190,7 +190,7 @@ class AllinOneFilter : AppCompatActivity() {
 
         // Load selected items based on brand name
         when (brandName) {
-            "Connector types" -> {
+            "Connnector types" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_CONNECTOR", emptySet())
                 selectedItemsListConnecter = selectedItemsSet?.map { FilterConnecter(name = it) }?.toMutableList() ?: mutableListOf()
             }
@@ -478,7 +478,7 @@ class AllinOneFilter : AppCompatActivity() {
         val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
         with(sharedPref.edit()) {
             when (brandName) {
-                "Connector types" -> putStringSet("SELECTED_CONNECTOR", selectedItemsListConnecter.map { it.name }.toSet())
+                "Connnector types" -> putStringSet("SELECTED_CONNECTOR", selectedItemsListConnecter.map { it.name }.toSet())
                 "Networks" -> putStringSet("SELECTED_NETWORK", selectedItemsListNet.map { it.name }.toSet())
                 "Location types" -> putStringSet("SELECTED_LOCATION", selectedItemsListLocation.map { it.name }.toSet())
                 "Access" -> putStringSet("SELECTED_ACCESS", selectedItemsListAccess.map { it.name }.toSet())

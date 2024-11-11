@@ -17,7 +17,6 @@ class FilterMainAdapter(
 ) : RecyclerView.Adapter<FilterMainAdapter.BrandViewHolder>() {
 
     private val countMap = mutableMapOf<String, Int>()
-
     interface OnItemClickListener {
         fun onItemClicked(brandName: String, countTextView: TextView)
     }
@@ -32,13 +31,13 @@ class FilterMainAdapter(
         return BrandViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: BrandViewHolder, position: Int) {
         val brand = brandList[position]
         holder.bind(brand)
     }
 
     override fun getItemCount() = brandList.size
-
     // Update count in the map and SharedPreferences
     fun updateCount(brandName: String?, count: Int) {
         if (brandName != null && count >= 0) {
@@ -50,6 +49,7 @@ class FilterMainAdapter(
             if (index != -1) {
                 notifyItemChanged(index)
             }
+            notifyItemChanged(index)
         }
     }
 
@@ -74,7 +74,6 @@ class FilterMainAdapter(
         private val brandImageView: ImageView = itemView.findViewById(R.id.image)
         private val brandTextView: TextView = itemView.findViewById(R.id.type)
         private val countTextView: TextView = itemView.findViewById(R.id.count)
-
         fun bind(brand: Filter) {
             brandImageView.setImageResource(brand.imageResId)
             brandTextView.text = brand.name
