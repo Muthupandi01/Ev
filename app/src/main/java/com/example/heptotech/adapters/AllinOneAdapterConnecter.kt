@@ -105,7 +105,7 @@ class AllinOneAdapterConnecter(
         private val headerTextView: TextView = itemView.findViewById(R.id.header_text)
 
         fun bind(brand: FilterConnecter) {
-            headerTextView.text = "    "+brand.name
+            headerTextView.text = ""+brand.name
         }
     }
 

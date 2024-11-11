@@ -1,12 +1,13 @@
 package com.example.heptotech.actvity_view
 
+import android.R.attr.name
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
@@ -16,18 +17,12 @@ import com.example.heptotech.R
 import com.example.heptotech.activity_view.AllinOneFilter
 import com.example.heptotech.adapters.FilterMainAdapter
 import com.example.heptotech.bean_dataclass.Filter
-import com.example.heptotech.bean_dataclass.FilterAccess
-import com.example.heptotech.bean_dataclass.FilterChargeStation
-import com.example.heptotech.bean_dataclass.FilterConnecter
-import com.example.heptotech.bean_dataclass.FilterLocation
-import com.example.heptotech.bean_dataclass.FilterMultidevice
-import com.example.heptotech.bean_dataclass.FilterNet
-import com.example.heptotech.bean_dataclass.Filterrating
 import com.example.heptotech.customclass.FixedRangeSeekBar
+
 
 class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListener {
     lateinit var reset:TextView
-    lateinit var tick:TextView
+    lateinit var tick:ImageView
     lateinit var back:CardView
     private lateinit var filterMainAdapter: FilterMainAdapter
     private lateinit var filerMainrec: RecyclerView
@@ -41,6 +36,7 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         Filter(R.drawable.baseline_fiber_new_24, "Charge Station")
 
     )
+    var check="I"
     companion object {
         const val REQUEST_CODE_ALL_IN_ONE_FILTER = 1001
     }
@@ -53,7 +49,9 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         reset=findViewById(R.id.reset)
         filerMainrec=findViewById(R.id.filerMainrec)
         back.setOnClickListener {
-            startActivity(Intent(this, PublicStation::class.java))
+            val resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
         }
 
         tick.setOnClickListener {
@@ -68,12 +66,19 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             filterMainAdapter = FilterMainAdapter(FilterList,this,this)
             filerMainrec.layoutManager = LinearLayoutManager(this)
             filerMainrec.adapter = filterMainAdapter
-
+            check="C"
+            getseekbar()
         }
 
         filterMainAdapter = FilterMainAdapter(FilterList,this,this)
         filerMainrec.layoutManager = LinearLayoutManager(this)
         filerMainrec.adapter = filterMainAdapter
+
+        getseekbar()
+
+    }
+
+    private fun getseekbar() {
         val selectedRangeText = findViewById<TextView>(R.id.selectedRangeText)
         val seekBarContainer = findViewById<FrameLayout>(R.id.seekBarContainer)
         val customSeekBar = FixedRangeSeekBar(this).apply {
@@ -82,12 +87,29 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
                 val selectedRange = getSelectedRange()
                 tick.isVisible=true
                 reset.isVisible=false
+
+                // Storing data into SharedPreferences
+                val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+                val myEdit = sharedPreferences.edit()
+                myEdit.putString("min", selectedRange.first.toString())
+                myEdit.putString("max", selectedRange.second.toString())
+                myEdit.commit()
                 //selectedRangeText.text = "Power type - "+"Range: ${selectedRange.first} to ${selectedRange.second}"
             }
         }
+
+
         val initialRange = customSeekBar.getSelectedRange()
-       // selectedRangeText.text = "Power type - "+"Range: ${initialRange.first} to ${initialRange.second}"
-        seekBarContainer.addView(customSeekBar)
+        // selectedRangeText.text = "Power type - "+"Range: ${initialRange.first} to ${initialRange.second}"
+        if (check.equals("I")){
+            seekBarContainer.addView(customSeekBar)
+        }else{
+            seekBarContainer.removeAllViews()
+            val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+            val myEdit = sharedPreferences.edit()
+            myEdit.clear().apply()
+            seekBarContainer.addView(customSeekBar)
+        }
     }
 
     override fun onItemClicked(brandName: String, countTextView: TextView) {
@@ -119,7 +141,8 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             val selectedItemsListRating = data?.getStringArrayListExtra("SELECTED_ITEMS_RAT") ?: arrayListOf()
             val selectedItemsListMultiple = data?.getStringArrayListExtra("SELECTED_ITEMS_MULTI") ?: arrayListOf()
             val selectedItemsListChargeStation = data?.getStringArrayListExtra("SELECTED_ITEMS_CHARGE") ?: arrayListOf()
-
+            tick.isVisible=true
+            reset.isVisible=false
             when (brandName) {
                 "Connnector types" -> {
                     filterMainAdapter.updateCount(brandName, selectedItemsListConnecter.size)
@@ -152,5 +175,11 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val resultIntent = Intent()
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
+    }
 
 }
