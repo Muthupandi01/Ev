@@ -42,26 +42,6 @@
 
                 />
         </androidx.cardview.widget.CardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/recordGifCard"
-            app:cardCornerRadius="100dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:strokeColor="@color/light_red"
-        app:strokeWidth="2dp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp">
-
-        <ImageView
-            android:id="@+id/blink_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@drawable/record_gif" />
-
-    </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -91,6 +71,15 @@
                 android:fontFamily="@font/poppins_regular" />
         </androidx.cardview.widget.CardView>
 
+
+        <ImageView
+            android:id="@+id/blink_img"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:src="@drawable/rec2" />
     </RelativeLayout>
 
     <!-- RelativeLayout for Buttons in the middle -->
@@ -107,7 +96,7 @@
         <!-- First Button -->
 
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/groupC"
             app:cardElevation="@dimen/_10sdp"
             app:cardCornerRadius="100dp"
@@ -117,17 +106,15 @@
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:clipToOutline="true"
-            app:strokeColor="@android:color/black"
-            app:strokeWidth="0dp"
-            >
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/group"
                 android:layout_gravity="center"
                 app:tint="@color/greentxt"
-                android:layout_width="@dimen/_10sdp"
-                android:layout_height="@dimen/_10sdp"
-                android:src="@drawable/compass" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/send_01_ev" />
+        </androidx.cardview.widget.CardView>
 
 
 

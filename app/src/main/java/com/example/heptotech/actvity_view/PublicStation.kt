@@ -372,42 +372,67 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             return
         }
 
-        // Create a location request with high accuracy
+        // Try to get the last known location immediately
+        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+            if (location != null) {
+                handleNewLocation(location)
+            } else {
+                // No last known location, so start requesting updates
+                startLocationUpdates()
+            }
+        }
+    }
+
+    private fun startLocationUpdates() {
         val locationRequest = LocationRequest.create().apply {
             priority = Priority.PRIORITY_HIGH_ACCURACY
-            interval = 1000 // Request location every 10 seconds
-            fastestInterval = 1000 // Get updates no more frequently than every 5 seconds
+            interval = 1000 // Request location every second
+            fastestInterval = 500 // Get updates no more frequently than every half second
         }
 
-        // Request location updates
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
         fusedLocationClient.requestLocationUpdates(locationRequest, object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
                 locationResult.locations.firstOrNull()?.let { location ->
-                    // Handle the location when available
-                    val userLocation = LatLng(location.latitude, location.longitude)
-                    val markerIcon = BitmapFromVector(this@PublicStation, R.drawable.group_427318907_ev, 150, 150)
-                    currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
-                    fetchAddressFromLatLng(userLocation)
-                } ?: run {
-                    // Handle no location available
-                    Toast.makeText(this@PublicStation, "Unable to find current location", Toast.LENGTH_SHORT).show()
+                    handleNewLocation(location)
                 }
-
-                // Stop receiving updates after one successful update
-                fusedLocationClient.removeLocationUpdates(this)
             }
         }, Looper.getMainLooper())
+    }
 
-        // Update UI
+    private fun handleNewLocation(location: Location) {
+        // Use the location to update the map
+        val userLocation = LatLng(location.latitude, location.longitude)
+        val markerIcon = BitmapFromVector(this, R.drawable.group_427318907_ev, 150, 150)
+
+        currentLocationMarker?.remove()  // Remove previous marker, if any
+        currentLocationMarker = mMap.addMarker(MarkerOptions().position(userLocation).icon(markerIcon).title("Current Location"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
+        fetchAddressFromLatLng(userLocation)
+
+        // Update UI elements
         group1C.isVisible = true
         current_loctionsC.isVisible = true
         recyclerView.isVisible = false
         topCenterText.isVisible = true
         isInCurrentLocationMode = true
         topCenterText.isClickable = true
-
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

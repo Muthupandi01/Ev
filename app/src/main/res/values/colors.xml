@@ -76,5 +76,6 @@
     <color name="thumbBorderColor">#FFFFFF</color>
     <color name="progressColor">#4CAF50</color>
     <color name="primaryColor">#2196F3</color>
+    <color name="light_red">#FF7F7F</color>
 
 </resources>
