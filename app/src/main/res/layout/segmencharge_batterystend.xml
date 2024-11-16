@@ -299,6 +299,7 @@
                     android:orientation="vertical">
 
                     <FrameLayout
+                        android:layout_marginVertical="@dimen/_6ssp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
