@@ -6,9 +6,11 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+import com.example.heptotech.actvity_view.FilterActivity
 import com.example.heptotech.adapters.AllinOneAdapter
 import com.example.heptotech.adapters.AllinOneAdapterAccess
 import com.example.heptotech.adapters.AllinOneAdapterChargeStation
@@ -108,6 +110,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterChargeStation = AllinOneAdapterChargeStation(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListChargeStation = selectedItems.toMutableList()
+            if (selectedItemsListChargeStation.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
         filterMainRec.adapter = allinOneAdapterChargeStation
@@ -117,6 +124,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterMultipleDevice = AllinOneAdapterMultipleDevice(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListMultiple = selectedItems.toMutableList()
+            if (selectedItemsListMultiple.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
 
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
@@ -127,7 +139,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterRating = AllinOneAdapterRating(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListRating = selectedItems.toMutableList()
-
+            if (selectedItemsListRating.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
         filterMainRec.adapter = allinOneAdapterRating
@@ -137,7 +153,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterAccess = AllinOneAdapterAccess(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListAccess = selectedItems.toMutableList()
-
+            if (selectedItemsListAccess.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
         filterMainRec.adapter = allinOneAdapterAccess
@@ -147,7 +167,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterLocation = AllinOneAdapterLocation(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListLocation = selectedItems.toMutableList()
-
+            if (selectedItemsListLocation.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
         filterMainRec.adapter = allinOneAdapterLocation
@@ -157,7 +181,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterNet = AllinOneAdapterNet(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListNet = selectedItems.toMutableList()
-
+            if (selectedItemsListNet.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
         filterMainRec.adapter = allinOneAdapterNet
@@ -168,7 +196,11 @@ class AllinOneFilter : AppCompatActivity() {
         allinOneAdapterConnecter = AllinOneAdapterConnecter(brandList, this) { selectedCount, selectedItems ->
             this.selectedCount = selectedCount
             selectedItemsListConnecter = selectedItems.toMutableList()
-
+            if (selectedItemsListConnecter.size!=0){
+                btnSubmit.isVisible=true
+            }else{
+                btnSubmit.isVisible=false
+            }
         }
         filterMainRec.layoutManager = LinearLayoutManager(this)
         filterMainRec.adapter = allinOneAdapterConnecter
@@ -187,36 +219,73 @@ class AllinOneFilter : AppCompatActivity() {
 //        selectedItemsListRating.clear()
 //        selectedItemsListMultiple.clear()
 //        selectedItemsListChargeStation.clear()
-
+        btnSubmit.isVisible=true
         // Load selected items based on brand name
         when (brandName) {
             "Connnector types" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_CONNECTOR", emptySet())
                 selectedItemsListConnecter = selectedItemsSet?.map { FilterConnecter(name = it) }?.toMutableList() ?: mutableListOf()
+
+                if (selectedItemsListConnecter.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
             "Networks" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_NETWORK", emptySet())
                 selectedItemsListNet = selectedItemsSet?.map { FilterNet(name = it) }?.toMutableList() ?: mutableListOf()
+                if (selectedItemsListNet.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
             "Location types" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_LOCATION", emptySet())
                 selectedItemsListLocation = selectedItemsSet?.map { FilterLocation(name = it) }?.toMutableList() ?: mutableListOf()
+                if (selectedItemsListLocation.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
             "Access" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_ACCESS", emptySet())
                 selectedItemsListAccess = selectedItemsSet?.map { FilterAccess(name = it) }?.toMutableList() ?: mutableListOf()
+                if (selectedItemsListAccess.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
             "User rating" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_RATING", emptySet())
                 selectedItemsListRating = selectedItemsSet?.map { Filterrating(name = it) }?.toMutableList() ?: mutableListOf()
+                if (selectedItemsListRating.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
             "Multiple devices" -> {
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_MULTIPLE", emptySet())
                 selectedItemsListMultiple = selectedItemsSet?.map { FilterMultidevice(name = it) }?.toMutableList() ?: mutableListOf()
+                if (selectedItemsListMultiple.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
             "Charge Station" -> {
+
                 val selectedItemsSet = sharedPref.getStringSet("SELECTED_CHARGESTATION", emptySet())
                 selectedItemsListChargeStation = selectedItemsSet?.map { FilterChargeStation(name = it) }?.toMutableList() ?: mutableListOf()
+                if (selectedItemsListChargeStation.size!=0){
+                    btnSubmit.isVisible=true
+                }else{
+                    btnSubmit.isVisible=false
+                }
             }
         }
         Log.d("loadUserSelections", "Loaded selections for $brandName")
@@ -491,4 +560,12 @@ class AllinOneFilter : AppCompatActivity() {
         Log.d("saveUserSelections", "Saved selections for $brandName")
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val resultIntent = Intent()
+        setResult(RESULT_OK, resultIntent)
+        finish()
+
+
+    }
 }

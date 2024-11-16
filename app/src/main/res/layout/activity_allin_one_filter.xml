@@ -93,6 +93,7 @@
 
     <!-- Submit button fixed at the bottom -->
     <TextView
+        android:visibility="gone"
         android:id="@+id/btn_submit"
         android:layout_width="0dp"
         android:layout_height="@dimen/_35sdp"

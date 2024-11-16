@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.customclass.GradientView
@@ -45,17 +46,27 @@ class TimeAdapter(
             holder.timeTextView.setTextColor(Color.WHITE)
             holder.gradientView.stopAnimation()  // Stop gradient animation for selected item
         } else {
-            // Apply styles for unselected items
-            if (position in 0..3) {
-                // Always start gradient animation for positions 0-3 when unselected
-                holder.whitelnr.setBackgroundResource(R.drawable.edgecurved_bgev)
-                holder.timeTextView.setTextColor(Color.BLACK)
-                holder.gradientView.animateGradient(2000L)  // Start or restart gradient animation
-            } else {
-                // Stop gradient animation for other positions
-                holder.gradientView.stopAnimation()
-                holder.itemView.setBackgroundResource(R.drawable.rectangle__1_ev)
-                holder.timeTextView.setTextColor(Color.BLACK)
+            when {
+                position == 14 || position == 17 -> {
+                    // Set gray background for initial positions 12 and 16
+                    holder.gradientView.setBackgroundResource(R.drawable.gray_background)
+                    holder.whitelnr.setBackgroundResource(R.drawable.gray_background)
+                    holder.timeTextView.setTextColor(Color.BLACK)
+
+                    holder.gradientView.stopAnimation() // No animation for these items
+                }
+                position in 0..3 -> {
+                    // Always start gradient animation for positions 0-3 when unselected
+                    holder.whitelnr.setBackgroundResource(R.drawable.edgecurved_bgev)
+                    holder.timeTextView.setTextColor(Color.BLACK)
+                    holder.gradientView.animateGradient(2000L)  // Start or restart gradient animation
+                }
+                else -> {
+                    // Stop gradient animation for other unselected positions
+                    holder.gradientView.stopAnimation()
+                    holder.itemView.setBackgroundResource(R.drawable.rectangle__1_ev)
+                    holder.timeTextView.setTextColor(Color.BLACK)
+                }
             }
         }
 

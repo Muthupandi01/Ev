@@ -2,6 +2,7 @@ package com.example.heptotech.actvity_view
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -14,14 +15,16 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.NumberPicker
 import android.widget.PopupWindow
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.adapters.CarInfoAdapter
@@ -35,10 +38,7 @@ import com.example.heptotech.bean_dataclass.PlugsSegmentClass
 import com.example.heptotech.customclass.BatteryViewHorizontal
 import com.example.heptotech.customclass.GradientView
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
 class VehicleSpecificOpenBooking : AppCompatActivity() {
@@ -46,7 +46,11 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
     private lateinit var popupWindow: PopupWindow
     private lateinit var batteryViewHorizontal: BatteryViewHorizontal
     private lateinit var dateRecyclerView: RecyclerView
-    private lateinit var monthTextView: TextView
+    private var selectedDateTextView: TextView? = null
+    private var selectedDayTextView: TextView? = null
+    private var selectedDateLnr: LinearLayout? = null
+    var dateSelected: String? = null
+
     private var currentMonth = Calendar.getInstance().get(Calendar.MONTH)
     private var currentYear = Calendar.getInstance().get(Calendar.YEAR)
 
@@ -59,12 +63,18 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
     private lateinit var segment2:LinearLayout
     private lateinit var segment3:LinearLayout
     private lateinit var segment4:LinearLayout
+    private var calendar: Calendar = Calendar.getInstance()
+
     var currentPosition = 0
     private var receivedValue=""
 
     val timeIntervals = arrayOf(
         "12:00 AM", "12:30 AM", "01:00 AM", "01:30 AM", "02:00 AM", "02:30 AM", "11:30 PM"
     )
+
+    private lateinit var monthTextView: TextView
+
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +86,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         segment3 = findViewById(R.id.segment3)
         segment4 = findViewById(R.id.segment4)
 
-         receivedValue = intent.getStringExtra("KEY").toString()
+        receivedValue = intent.getStringExtra("KEY").toString()
 
         // Inflate layouts based on the received value
         if (receivedValue.equals("open")) {
@@ -101,7 +111,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 
 
         // Initialize RecyclerView
-      //  dateAdapter = DateAdapter(DateUtil.getDatesForMonth(currentMonth, currentYear))
+        //  dateAdapter = DateAdapter(DateUtil.getDatesForMonth(currentMonth, currentYear))
 
 //        { selectedDate ->
 //            //Toast.makeText(this, "Selected: ${selectedDate.date} ${selectedDate.month} ${selectedDate.year}", Toast.LENGTH_SHORT).show()
@@ -150,6 +160,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         val inflatedView: View = inflater.inflate(layoutResId, segment, false)
 
         val dateRecyclerView: RecyclerView? = inflatedView.findViewById(R.id.dateRecyclerView)
+        val battery_view: BatteryViewHorizontal? = inflatedView.findViewById(R.id.battery_view)
         val monthTextView: TextView? = inflatedView.findViewById(R.id.monthTextView)
         val stTime: AutoCompleteTextView? = inflatedView.findViewById(R.id.autoCompleteStTime)
         val etTime: AutoCompleteTextView? = inflatedView.findViewById(R.id.autoCompleteEtTime)
@@ -159,9 +170,23 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         val grad: GradientView? = inflatedView.findViewById(R.id.grad)
         grad?.animateGradient(3000L) // Set animation duration in milliseconds
 
+        val seekBar: SeekBar? = inflatedView.findViewById(R.id.customSeekBar)
+        val progressText: TextView? = inflatedView.findViewById(R.id.progressText)
+        seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                progressText?.text = "$progress%" // Display progress percentage
+            }
 
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // Optional: Handle start of touch
+            }
 
-       //single
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // Optional: Handle end of touch
+            }
+        })
+
+        //single
         val recyclerViewsingle: RecyclerView? = inflatedView.findViewById(R.id.carrec)
         val leftImageView: ImageView? = inflatedView.findViewById(R.id.leftImageView)
         val rightImageView: ImageView? = inflatedView.findViewById(R.id.rightImageView)
@@ -177,6 +202,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         val recyclerViewplugs: RecyclerView? = inflatedView.findViewById(R.id.plugrec)
         val leftImageViewplug: ImageView? = inflatedView.findViewById(R.id.leftImageViewplug)
         val rightImageViewplug: ImageView? = inflatedView.findViewById(R.id.rightImageViewplug)
+
 
 
 
@@ -218,6 +244,9 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             PlugsSegmentClass("Uganda EV Charge Station")
         )
 
+        val snapHelpers = PagerSnapHelper()
+        snapHelpers.attachToRecyclerView(recyclerViewplugs)
+
         plugsSegmentAdapter = PlugsSegmentAdapter(pluglist)
         recyclerViewplugs?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerViewplugs?.adapter = plugsSegmentAdapter
@@ -245,7 +274,12 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         dynamicPlugsRecycler?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         dynamicPlugsRecycler?.adapter = plugAdapter
 
-
+        dynamicPlugsRecycler?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val snapPosition = (snapHelpers as PagerSnapHelper).findTargetSnapPosition(recyclerView.layoutManager!!, dx, dy)
+                // Handle the snap position, e.g., update some UI
+            }
+        })
 //        lifecycleScope.launch(Dispatchers.Main) {
 //            delay(6000)
 //            staticPlugs?.isVisible=false
@@ -259,12 +293,20 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             CarInfo("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
             CarInfo("BMW i8", "3, Nairobi, Kenya", "80%", R.drawable.pngwingnew_ev)
         )
+        val snapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(recyclerViewsingle)
+        carAdapter = CarInfoAdapter(carList)
+        recyclerViewsingle?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewsingle?.adapter = carAdapter
 
-            carAdapter = CarInfoAdapter(carList)
-            recyclerViewsingle?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-            recyclerViewsingle?.adapter = carAdapter
+        recyclerViewsingle?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val snapPosition = (snapHelper as PagerSnapHelper).findTargetSnapPosition(recyclerView.layoutManager!!, dx, dy)
+                // Handle the snap position, e.g., update some UI
+            }
+        })
 
-            updateArrowIcons(leftImageView, rightImageView)
+        updateArrowIcons(leftImageView, rightImageView)
 
 
         leftImageView?.setOnClickListener {
@@ -279,7 +321,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 
 
         // Check if views are null before proceeding
-       // if (stTime != null && etTime != null) {
+        // if (stTime != null && etTime != null) {
 
 
 
@@ -291,56 +333,56 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             // Set the background color to transparent
             stTime!!.setOnClickListener {
 
-                  //  val bottomSheetDialog = BottomSheetDialog(this)
+                //  val bottomSheetDialog = BottomSheetDialog(this)
                 val bottomSheetDialog = BottomSheetDialog(this,R.style.ShoppingList_BottomSheetDialog)
 
                 val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_sttime_openbook, null)
-                    bottomSheetDialog.setContentView(view)
-                    // Initialize NumberPickers for hours, minutes, and AM/PM
+                bottomSheetDialog.setContentView(view)
+                // Initialize NumberPickers for hours, minutes, and AM/PM
 
-                    val time_pick = view.findViewById<ImageView>(R.id.time_pick)
-                    val conformbtns = view.findViewById<TextView>(R.id.conformbtn)
-                    val hourPicker = view.findViewById<NumberPicker>(R.id.hourPicker)
-                    val minutePicker = view.findViewById<NumberPicker>(R.id.minutePicker)
-                    val amPmPicker = view.findViewById<NumberPicker>(R.id.amPmPicker)
+                val time_pick = view.findViewById<ImageView>(R.id.time_pick)
+                val conformbtns = view.findViewById<TextView>(R.id.conformbtn)
+                val hourPicker = view.findViewById<NumberPicker>(R.id.hourPicker)
+                val minutePicker = view.findViewById<NumberPicker>(R.id.minutePicker)
+                val amPmPicker = view.findViewById<NumberPicker>(R.id.amPmPicker)
 
-                    // Set values for hour picker (1 to 12)
-                    hourPicker.minValue = 1
-                    hourPicker.maxValue = 12
-                    hourPicker.wrapSelectorWheel = true
+                // Set values for hour picker (1 to 12)
+                hourPicker.minValue = 1
+                hourPicker.maxValue = 12
+                hourPicker.wrapSelectorWheel = true
 
-                    // Set values for minute picker (0 to 59)
-                    minutePicker.minValue = 0
-                    minutePicker.maxValue = 59
-                    minutePicker.wrapSelectorWheel = true
-                    minutePicker.setFormatter { i -> String.format("%02d", i) } // Show 2 digits
+                // Set values for minute picker (0 to 59)
+                minutePicker.minValue = 0
+                minutePicker.maxValue = 59
+                minutePicker.wrapSelectorWheel = true
+                minutePicker.setFormatter { i -> String.format("%02d", i) } // Show 2 digits
 
-                    // Set values for AM/PM picker (0 = AM, 1 = PM)
-                    amPmPicker.minValue = 0
-                    amPmPicker.maxValue = 1
-                    amPmPicker.displayedValues = arrayOf("AM", "PM")
-                    amPmPicker.wrapSelectorWheel = true
+                // Set values for AM/PM picker (0 = AM, 1 = PM)
+                amPmPicker.minValue = 0
+                amPmPicker.maxValue = 1
+                amPmPicker.displayedValues = arrayOf("AM", "PM")
+                amPmPicker.wrapSelectorWheel = true
 
-                    // Set listeners for pickers (optional, for handling user selections)
-                    hourPicker.setOnValueChangedListener { picker, oldVal, newVal ->
-                        // Do something with the selected hour
-                    }
+                // Set listeners for pickers (optional, for handling user selections)
+                hourPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                    // Do something with the selected hour
+                }
 
-                    minutePicker.setOnValueChangedListener { picker, oldVal, newVal ->
-                        // Do something with the selected minute
-                    }
+                minutePicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                    // Do something with the selected minute
+                }
 
-                    amPmPicker.setOnValueChangedListener { picker, oldVal, newVal ->
-                        // Do something with the selected AM/PM
-                        val selectedAmPm = if (newVal == 0) "AM" else "PM"
-                        // Toast.makeText(this, "Selected: $selectedAmPm", Toast.LENGTH_SHORT).show()
-                    }
+                amPmPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                    // Do something with the selected AM/PM
+                    val selectedAmPm = if (newVal == 0) "AM" else "PM"
+                    // Toast.makeText(this, "Selected: $selectedAmPm", Toast.LENGTH_SHORT).show()
+                }
 
 
 
-                    time_pick.setOnClickListener {
-                        bottomSheetDialog.dismiss()
-                    }
+                time_pick.setOnClickListener {
+                    bottomSheetDialog.dismiss()
+                }
 
 //            conformbtns.setOnClickListener {
 //                bottomSheetDialog.dismiss()
@@ -379,7 +421,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
                     bottomSheetDialog.dismiss()
                 }
 
-                    bottomSheetDialog.show()
+                bottomSheetDialog.show()
 
 
                 // showPopupWindow(it,stTime)
@@ -387,7 +429,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 
             }
             etTime!!.setOnClickListener {
-               // showPopupWindow(it,etTime)
+                // showPopupWindow(it,etTime)
             }
 
             val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, timeIntervals)
@@ -423,9 +465,9 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             )
 
 
-           timeAdapter = TimeAdapter(timeList) { selectedTime ->
+            timeAdapter = TimeAdapter(timeList) { selectedTime ->
                 // Handle the selected time here
-             //   Toast.makeText(this, "Selected Time: $selectedTime", Toast.LENGTH_SHORT).show()
+                //   Toast.makeText(this, "Selected Time: $selectedTime", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -444,7 +486,6 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
 
             // Inflate layouts based on the received value
             if (receivedValue.equals("open")) {
-
                 timeLay1!!.isVisible=true
                 timeLay2!!.isVisible=false
 
@@ -461,27 +502,138 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         }
 
 
-      //  }
+        //  }
 
-        // Setup the RecyclerView and monthTextView if they are found
-        if (dateRecyclerView != null && monthTextView != null) {
-            dateAdapter = DateAdapter(DateUtil.getDatesForMonth(currentMonth, currentYear)) {
+        val date_1: TextView?   = inflatedView.findViewById(R.id.date_1)
+        val date_2: TextView? = inflatedView.findViewById(R.id.date_2)
+        val date_3: TextView? = inflatedView.findViewById(R.id.date_3)
+        val date_4: TextView? = inflatedView.findViewById(R.id.date_4)
+        val date_5: TextView? = inflatedView.findViewById(R.id.date_5)
+        val date_6: TextView? = inflatedView.findViewById(R.id.date_6)
+        val  date_7: TextView? = inflatedView.findViewById(R.id.date_7)
 
-            }
-            dateRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-            dateRecyclerView.adapter = dateAdapter
-            updateArrowIconsdate(leftImageViewdate, rightImageViewdate)
-            leftImageViewdate?.setOnClickListener {
-                scrollLeftdate(dateRecyclerView,leftImageViewdate,rightImageViewdate)
+        val day1: TextView?   = inflatedView.findViewById(R.id.day1)
+        val day2: TextView? = inflatedView.findViewById(R.id.day2)
+        val day3: TextView? = inflatedView.findViewById(R.id.day3)
+        val day4: TextView? = inflatedView.findViewById(R.id.day4)
+        val day5: TextView? = inflatedView.findViewById(R.id.day5)
+        val day6: TextView? = inflatedView.findViewById(R.id.day6)
+        val  day7: TextView? = inflatedView.findViewById(R.id.day7)
+
+
+        val lnd1: LinearLayout?   = inflatedView.findViewById(R.id.lnd1)
+        val lnd2: LinearLayout? = inflatedView.findViewById(R.id.lnd2)
+        val lnd3: LinearLayout? = inflatedView.findViewById(R.id.lnd3)
+        val lnd4: LinearLayout? = inflatedView.findViewById(R.id.lnd4)
+        val lnd5: LinearLayout? = inflatedView.findViewById(R.id.lnd5)
+        val lnd6: LinearLayout? = inflatedView.findViewById(R.id.lnd6)
+        val  lnd7: LinearLayout? = inflatedView.findViewById(R.id.lnd7)
+
+        val  textMonth: TextView? = inflatedView.findViewById(R.id.textMonth)
+
+
+
+
+        leftImageViewdate?.setOnClickListener {
+            val currentDate = Calendar.getInstance()
+            val firstDayOfMonth = calendar.clone() as Calendar
+            firstDayOfMonth.set(Calendar.DAY_OF_MONTH, 1)
+
+            if (calendar.before(firstDayOfMonth)) {
+                // If the calendar is already at or before the first day of the month, disable the left button
+                leftImageViewdate.isEnabled = false
+                leftImageViewdate.setColorFilter(ContextCompat.getColor(this, R.color.grey))
+                leftImageViewdate.setImageResource(R.drawable.angle_left_circle_ev)
+                return@setOnClickListener
             }
 
-            rightImageViewdate?.setOnClickListener {
-                scrollRightdate(dateRecyclerView,leftImageViewdate,rightImageViewdate)
-            }
-            monthTextView.setOnClickListener {
-                showMonthSelectionDialog(dateAdapter, monthTextView)
-            }
+            // Move calendar back 7 days
+            calendar.add(Calendar.DAY_OF_MONTH, -7)
+            val checks = "L"
+            updateCalendar(
+                date_1, date_2, date_3, date_4, date_5, date_6, date_7,
+                monthTextView, lnd1, lnd2, lnd3, lnd4, lnd5, lnd6, lnd7,
+                day1, day2, day3, day4, day5, day6, day7, checks,leftImageViewdate
+            )
         }
+
+
+        rightImageViewdate?.setOnClickListener {
+            var checks="L"
+            calendar.add(Calendar.DAY_OF_MONTH, 7)
+            updateCalendar(
+                date_1,
+                date_2,
+                date_3,
+                date_4,
+                date_5,
+                date_6,
+                date_7,
+                monthTextView,
+                lnd1,
+                lnd2,
+                lnd3,
+                lnd4,
+                lnd5,
+                lnd6,
+                lnd7,
+                day1,
+                day2,
+                day3,
+                day4,
+                day5,
+                day6,
+                day7,
+                checks,
+                leftImageViewdate
+            )
+        }
+        updateCalendar(
+            date_1,
+            date_2,
+            date_3,
+            date_4,
+            date_5,
+            date_6,
+            date_7,
+            monthTextView,
+            lnd1,
+            lnd2,
+            lnd3,
+            lnd4,
+            lnd5,
+            lnd6,
+            lnd7,
+            day1,
+            day2,
+            day3,
+            day4,
+            day5,
+            day6,
+            day7, "", leftImageViewdate
+        )
+
+
+
+//        // Setup the RecyclerView and monthTextView if they are found
+//        if (dateRecyclerView != null && monthTextView != null) {
+//            dateAdapter = DateAdapter(DateUtil.getDatesForMonth(currentMonth, currentYear)) {
+//                monthTextView.text = "$currentMonth $currentYear"
+//            }
+//            dateRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//            dateRecyclerView.adapter = dateAdapter
+//            updateArrowIconsdate(leftImageViewdate, rightImageViewdate)
+//            leftImageViewdate?.setOnClickListener {
+//                scrollLeftdate(dateRecyclerView,leftImageViewdate,rightImageViewdate)
+//            }
+//
+//            rightImageViewdate?.setOnClickListener {
+//                scrollRightdate(dateRecyclerView,leftImageViewdate,rightImageViewdate)
+//            }
+//            monthTextView.setOnClickListener {
+//                showMonthSelectionDialog(dateAdapter, monthTextView)
+//            }
+//        }
 
         // Add the inflated view to the parent segment
         segment.addView(inflatedView)
@@ -534,6 +686,7 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
         // Disable or enable left arrow if we are at the first position
         if (currentPosition <= 0) {
             leftImageView?.isEnabled = false
+            leftImageView?.setImageResource(R.drawable.angle_left_circle_ev)
             leftImageView?.alpha = 0.5f // Make it semi-transparent or disabled
         } else {
             leftImageView?.isEnabled = true
@@ -726,4 +879,222 @@ class VehicleSpecificOpenBooking : AppCompatActivity() {
             show()
         }
     }
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun updateCalendar(
+        date_1: TextView?,
+        date_2: TextView?,
+        date_3: TextView?,
+        date_4: TextView?,
+        date_5: TextView?,
+        date_6: TextView?,
+        date_7: TextView?,
+        textMonth: TextView?,
+        lnd1: LinearLayout?,
+        lnd2: LinearLayout?,
+        lnd3: LinearLayout?,
+        lnd4: LinearLayout?,
+        lnd5: LinearLayout?,
+        lnd6: LinearLayout?,
+        lnd7: LinearLayout?,
+        day1: TextView?,
+        day2: TextView?,
+        day3: TextView?,
+        day4: TextView?,
+        day5: TextView?,
+        day6: TextView?,
+        day7: TextView?,
+        checks: String,
+        leftImageViewdate: ImageView?
+    ) {
+        val days = generateWeekDays(calendar)
+        val dayTextViews = listOf(
+            date_1,date_2, date_3, date_4,
+            date_5, date_6, date_7
+        )
+        val lnrdates = listOf(
+            lnd1,lnd2, lnd3, lnd4,
+            lnd5, lnd6, lnd7
+        )
+        val dayss = listOf(
+            day1,day2, day3, day4,
+            day5, day6, day7
+        )
+
+        // Get today's date
+        val today = Calendar.getInstance()
+        var hasPastDate = false
+        for (i in dayTextViews.indices+1) {
+            val day = days[i]
+            val isPastDate = day.second.before(today) && day.second.get(Calendar.DAY_OF_YEAR) != today.get(Calendar.DAY_OF_YEAR)
+
+            dayTextViews[i]?.text = day.first.toString()
+
+            if (isPastDate) {
+                hasPastDate = true
+                leftImageViewdate?.alpha = 0.5f
+                // Disable past dates visually and remove click listener
+                dayTextViews[i]?.setTextColor(resources.getColor(R.color.black, null)) // Gray out past dates
+                dayTextViews[i]?.isEnabled = false // Disable the click event
+                lnrdates[i]?.isEnabled = false // Disable the click event
+                dayss[i]?.isEnabled = false // Disable the click event
+
+            } else {
+                leftImageViewdate?.alpha = 1.0f
+
+                hasPastDate = false
+                // Enable current and future dates
+                dayTextViews[i]?.setTextColor(resources.getColor(R.color.black, null))
+                dayTextViews[i]?.isEnabled = true
+                lnrdates[i]?.isEnabled = true // Disable the click event
+                dayss[i]?.isEnabled = false // Disable the click event
+                // Select and highlight today’s date by default
+                if (day.second.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR) &&
+                    day.second.get(Calendar.YEAR) == today.get(Calendar.YEAR)) {
+                    // Highlight today's date
+                    val today = Calendar.getInstance()
+                    if (day.second.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR) &&
+                        day.second.get(Calendar.YEAR) == today.get(Calendar.YEAR)) {
+                        // If this is today's date, change the background color
+                        lnrdates[i]?.apply {
+                            setBackgroundResource(R.drawable.rectangle_34624288_ev)  // Use your drawable for today's highlight
+                        }
+                        // Highlight the selected date
+                        dayss[i]?.apply {
+                            background=null  // Apply your selection background
+                        }
+
+                        dayTextViews[i]?.apply {
+                            setTextColor(ContextCompat.getColor(this@VehicleSpecificOpenBooking, R.color.black))  // Make day text white for today
+                        }
+                    }
+                }
+
+                if (checks.equals("L")){
+
+
+                    val today = Calendar.getInstance()
+                    if (day.second.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR) &&
+                        day.second.get(Calendar.YEAR) == today.get(Calendar.YEAR)) {
+
+                        lnrdates[i]?.apply {
+                            setBackgroundResource(R.drawable.rectangle_34624288_ev)  // Use your drawable for today's highlight
+                        }
+                        // Highlight the selected date
+                        dayss[i]?.apply {
+                            background=null  // Apply your selection background
+                        }
+
+                        dayTextViews[i]?.apply {
+                            setTextColor(ContextCompat.getColor(this@VehicleSpecificOpenBooking, R.color.black))  // Make day text white for today
+                        }
+
+                    }else{
+                        lnrdates[i]?.apply {
+                            background=null  // Apply your selection backgrounddrawable for today's highlight
+                        }
+                        // Highlight the selected date
+                        dayss[i]?.apply {
+                            background=null
+                            setTextColor(resources.getColor(R.color.black, null))
+                        }
+
+                        // If this is today's date, change the background color
+                        lnrdates[i]?.apply {
+                            background=null
+                        }
+                        // Highlight the selected date
+                        dayss[i]?.apply {
+                            background=null  // Apply your selection background
+                        }
+
+                        dayTextViews[i]?.apply {
+                            background=null
+                            setTextColor(ContextCompat.getColor(this@VehicleSpecificOpenBooking, R.color.black))  // Make day text white for today
+                        }
+                    }
+
+
+
+                }
+                lnrdates[i]?.setOnClickListener {
+                    onDateSelected(day.second, dayTextViews[i],lnrdates[i],dayss[i])
+                }
+            }
+        }
+        if (hasPastDate) {
+            leftImageViewdate?.isEnabled = false
+        } else {
+            leftImageViewdate?.isEnabled = true  // Enable the left button if no past dates
+        }
+        val monthTitle = SimpleDateFormat("MMMM yyyy", Locale.getDefault()).format(calendar.time)
+        textMonth?.text = monthTitle
+
+    }
+
+    private fun generateWeekDays(calendar: Calendar): List<Pair<Int, Calendar>> {
+        val daysList = mutableListOf<Pair<Int, Calendar>>()
+        val startOfWeek = calendar.clone() as Calendar
+        startOfWeek.set(Calendar.DAY_OF_WEEK, startOfWeek.firstDayOfWeek)
+
+        for (i in 0 until 7) {
+            val dayOfMonth = startOfWeek.get(Calendar.DAY_OF_MONTH)
+            daysList.add(Pair(dayOfMonth, startOfWeek.clone() as Calendar))
+            startOfWeek.add(Calendar.DAY_OF_MONTH, 1)
+        }
+        return daysList
+    }
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun onDateSelected(
+        selectedDate: Calendar,
+        selectedTextView: TextView?,
+        linearLayout: LinearLayout?,
+        days: TextView?
+    ) {
+        // Clear previous selections and reset backgrounds and text color
+        selectedDateTextView?.apply {
+            background = null
+            setTextColor(resources.getColor(R.color.black, null))
+        }
+
+        selectedDayTextView?.apply {
+            background = null
+            setTextColor(resources.getColor(R.color.black, null))
+        }
+
+        selectedDateLnr?.apply {
+            background = null
+        }
+
+        // Highlight the selected date
+        selectedTextView?.apply {
+            setBackgroundResource(R.drawable.ellipse_617_ev)  // Apply your selection background
+            setTextColor(ContextCompat.getColor(context, R.color.green))  // Set text color for selected date
+        }
+
+        // Highlight the selected day
+        days?.apply {
+            setTextColor(Color.WHITE)  // Change day text color when selected
+        }
+
+        // Apply background to the selected LinearLayout
+        linearLayout?.apply {
+            setBackgroundResource(R.drawable.rectangle_34624286_ev)  // Apply the background for selected day
+        }
+
+        // Highlight current date with a special background
+
+
+        // Format and log the selected date
+        val selectedDat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
+        Log.d("selected_date", selectedDat)
+        dateSelected = selectedDat  // Store the selected date in your variable
+
+        // Update global variables for the currently selected date views
+
+        selectedDateTextView = selectedTextView
+        selectedDateLnr = linearLayout
+        selectedDayTextView = days
+    }
+
+
 }

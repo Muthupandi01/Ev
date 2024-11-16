@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
@@ -25,6 +26,7 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
     lateinit var reset:TextView
     lateinit var tick:ImageView
     lateinit var back:CardView
+
     private lateinit var filterMainAdapter: FilterMainAdapter
     private lateinit var filerMainrec: RecyclerView
     private val FilterList = listOf(
@@ -37,6 +39,7 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         Filter(R.drawable.baseline_fiber_new_24, "Charge Station"))
 
     var check="I"
+    var tickI="I"
     companion object {
         const val REQUEST_CODE_ALL_IN_ONE_FILTER = 1001
     }
@@ -49,20 +52,43 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         reset=findViewById(R.id.reset)
         filerMainrec=findViewById(R.id.filerMainrec)
         back.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+            tickI= sharedPreferences.getString("tickI","C").toString()
+            if (tickI.equals("I")){
+                val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
+                sharedPref.edit().clear().apply()
+            }
             val resultIntent = Intent()
             setResult(Activity.RESULT_OK, resultIntent)
             finish()
+
         }
 
-        tick.setOnClickListener {
-            reset.isVisible=true
-            tick.isVisible=false
+//
 
+        tick.setOnClickListener {
+           // reset.isVisible=true
+            tick.isVisible=false
+            tickI="C"
+
+
+            val resultIntent = Intent()
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
+
+            val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+                val myEdit = sharedPreferences.edit()
+                myEdit.putString("tickI", tickI)
+
+                myEdit.apply()
+
+
+            //getseekbar()
         }
 
         reset.setOnClickListener {
             reset.isVisible=false
-            tick.isVisible=true
+           // tick.isVisible=true
             val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
             sharedPref.edit().clear().apply()
             filterMainAdapter = FilterMainAdapter(FilterList,this,this)
@@ -92,21 +118,35 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
                 // selectedRangeText.text = "Power type - Range: ${selectedRange.first} to ${selectedRange.second}"
 
                 // Store data into SharedPreferences
-                val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
-                val myEdit = sharedPreferences.edit()
-                myEdit.putString("min", selectedRange.first)
-                myEdit.putString("max", selectedRange.second)
-                myEdit.apply()
+//                val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+//                val myEdit = sharedPreferences.edit()
+//                myEdit.putString("min", selectedRange.first)
+//                myEdit.putString("max", selectedRange.second)
+//                myEdit.apply()
             }
         }
 
         // Load saved values when the activity opens
         val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        tickI= sharedPreferences.getString("tickI","").toString()
         val savedMin = sharedPreferences.getString("min", null)?.let { customSeekBar.labels.indexOf(it) } ?: 0
         val savedMax = customSeekBar.labels.size - 1 // assuming fixed max is last element
 
         if (check.equals("I")){
-            customSeekBar.setSelectedMin(savedMin)
+                if (tickI.equals("C")){
+                    customSeekBar.setSelectedMin(savedMin)
+                    reset.isVisible=true
+
+                }else{
+                    val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
+                    sharedPref.edit().clear().apply()
+                    filterMainAdapter = FilterMainAdapter(FilterList,this,this)
+                    filerMainrec.layoutManager = LinearLayoutManager(this)
+                    filerMainrec.adapter = filterMainAdapter
+                }
+
+
+
            // reset.isVisible=true
             // Ensure the seekbar is added only if not already added
             if (seekBarContainer.childCount == 0) {
@@ -170,17 +210,18 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
         // Pass the saved selected items to the intent as a string array list
         intent.putStringArrayListExtra("SELECTED_ITEMS", ArrayList(selectedItems))
 
-        startActivityForResult(intent, REQUEST_CODE_ALL_IN_ONE_FILTER)
+        allInOneFilterLauncher.launch(intent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE_ALL_IN_ONE_FILTER && resultCode == RESULT_OK) {
-            // Retrieve the updated count and selected items from AllinOneFilter
+    @Deprecated("This method has been deprecated in favor of using the Activity Result API\n      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt\n      contracts for common intents available in\n      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for\n      testing, and allow receiving results in separate, testable classes independent from your\n      activity. Use\n      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}\n      with the appropriate {@link ActivityResultContract} and handling the result in the\n      {@link ActivityResultCallback#onActivityResult(Object) callback}.")
+    // Register the Activity Result Launcher
+    private val allInOneFilterLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val data = result.data
             val brandName = data?.getStringExtra("BRAND_NAME")
             val selectedCount = data?.getIntExtra("SELECTED_COUNT", 0) ?: 0
-            val selectedItems = data?.getStringArrayListExtra("SELECTED_ITEMS") ?: arrayListOf()
-
             val selectedItemsListConnecter = data?.getStringArrayListExtra("SELECTED_ITEMS_CO") ?: arrayListOf()
             val selectedItemsListNet = data?.getStringArrayListExtra("SELECTED_ITEMS_NET") ?: arrayListOf()
             val selectedItemsListLocation = data?.getStringArrayListExtra("SELECTED_ITEMS_LOC") ?: arrayListOf()
@@ -188,8 +229,9 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             val selectedItemsListRating = data?.getStringArrayListExtra("SELECTED_ITEMS_RAT") ?: arrayListOf()
             val selectedItemsListMultiple = data?.getStringArrayListExtra("SELECTED_ITEMS_MULTI") ?: arrayListOf()
             val selectedItemsListChargeStation = data?.getStringArrayListExtra("SELECTED_ITEMS_CHARGE") ?: arrayListOf()
-            tick.isVisible=true
-            reset.isVisible=false
+
+            tick.isVisible = true
+            reset.isVisible = false
             when (brandName) {
                 "Connnector types" -> {
                     filterMainAdapter.updateCount(brandName, selectedItemsListConnecter.size)
@@ -213,20 +255,33 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
                     filterMainAdapter.updateCount(brandName, selectedItemsListChargeStation.size)
                 }
             }
-
-
-
-
-            // Save selected items to SharedPreferences
-             //saveSelectedItems(brandName, selectedItems)
         }
     }
 
+    // Launch the Activity
+    fun launchAllInOneFilter() {
+        val intent = Intent(this, AllinOneFilter::class.java)
+        allInOneFilterLauncher.launch(intent)
+    }
+
+
     override fun onBackPressed() {
         super.onBackPressed()
+        val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        tickI= sharedPreferences.getString("tickI","C").toString()
+        if (tickI.equals("I")){
+            val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
+            sharedPref.edit().clear().apply()
+
+        }
+
+
+
         val resultIntent = Intent()
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
+
+
     }
 
 }

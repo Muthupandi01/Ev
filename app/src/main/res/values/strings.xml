@@ -89,5 +89,19 @@
         <item>Nov</item>
         <item>Dec</item>
     </string-array>
-
+    <string name="sun">Sun</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="month">September 2024</string>
+    <string name="day_1">01</string>
+    <string name="day_2">02</string>
+    <string name="day_3">03</string>
+    <string name="day_4">04</string>
+    <string name="day_5">05</string>
+    <string name="day_6">06</string>
+    <string name="day_7">07</string>
 </resources>

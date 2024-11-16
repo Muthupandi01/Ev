@@ -1,5 +1,6 @@
 package com.example.heptotech.customclass
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -47,6 +48,7 @@ class BatteryViewHorizontal @JvmOverloads constructor(
 
     private val cornerRadius = 25f
 
+    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -88,9 +90,10 @@ class BatteryViewHorizontal @JvmOverloads constructor(
         canvas.drawText(batteryPercentage, textX, textY, textPaint)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
-            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
+            MotionEvent.ACTION_BUTTON_PRESS, MotionEvent.ACTION_MOVE -> {
                 // Set battery level based on touch position as a percentage of the view width
                 batteryLevel = (event.x / width).coerceIn(0f, 1f)
                 return true
