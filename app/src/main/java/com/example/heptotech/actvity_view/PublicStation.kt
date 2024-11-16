@@ -88,6 +88,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var filterCard:CardView
     private var lastClickedMarker: Marker? = null
     private var clickCount = 0
+    var isScanTextClicked = false
 
 
     //  private lateinit var searchView: androidx.appcompat.widget.SearchView
@@ -159,7 +160,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             recyle_book.isVisible=false
             scan_text.setOnClickListener()
             {
-                recycler_ev.visibility = View.GONE
+                /* recycler_ev.visibility = View.GONE
 
                 // Show the second RecyclerView (recycle_bookmark)
                 recyle_book.visibility = View.VISIBLE
@@ -171,7 +172,54 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
                     .findViewById<ImageView>(R.id.book)
                 scanImage.setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_IN)  // Change image color if needed
+            */
+                if (isScanTextClicked) {
+                    // Restore to normal state
+                    recycler_ev.visibility = View.VISIBLE
+                    recyle_book.visibility = View.GONE
+
+                    // Restore the background color of the scanner view
+                    scan_text.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            this,
+                            R.color.white
+                        )
+                    ) // Replace with your normal color
+
+                    // Restore the ImageView color to the normal state
+                    val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+                        .findViewById<ImageView>(R.id.book)
+                    scanImage.setColorFilter(
+                        ContextCompat.getColor(this, R.color.black),
+                        PorterDuff.Mode.SRC_IN
+                    )
+
+                    isScanTextClicked = false
+                } else {
+                    // Switch to clicked state
+                    recycler_ev.visibility = View.GONE
+                    recyle_book.visibility = View.VISIBLE
+
+                    // Change the background color of the scanner view to red
+                    scan_text.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            this,
+                            R.color.heart_color
+                        )
+                    )
+
+                    // Change the ImageView color to white
+                    val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+                        .findViewById<ImageView>(R.id.book)
+                    scanImage.setColorFilter(
+                        ContextCompat.getColor(this, R.color.white),
+                        PorterDuff.Mode.SRC_IN
+                    )
+
+                    isScanTextClicked = true
+                }
             }
+
 
 
             recyle_book.layoutManager = LinearLayoutManager(this)
@@ -241,7 +289,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             recyle_book.isVisible=false
             scan_text.setOnClickListener()
             {
-                recycler_ev.visibility = View.GONE
+              /*  recycler_ev.visibility = View.GONE
 
                 // Show the second RecyclerView (recycle_bookmark)
                 recyle_book.visibility = View.VISIBLE
@@ -253,7 +301,55 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
                     .findViewById<ImageView>(R.id.book)
                 scanImage.setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_IN)  // Change image color if needed
+            }*/
+                if (isScanTextClicked) {
+                    // Restore to normal state
+                    recycler_ev.visibility = View.VISIBLE
+                    recyle_book.visibility = View.GONE
+
+                    // Restore the background color of the scanner view
+                    scan_text.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            this,
+                            R.color.white
+                        )
+                    ) // Replace with your normal color
+
+                    // Restore the ImageView color to the normal state
+                    val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+                        .findViewById<ImageView>(R.id.book)
+                    scanImage.setColorFilter(
+                        ContextCompat.getColor(this, R.color.black),
+                        PorterDuff.Mode.SRC_IN
+                    )
+
+                    isScanTextClicked = false
+                } else {
+                    // Switch to clicked state
+                    recycler_ev.visibility = View.GONE
+                    recyle_book.visibility = View.VISIBLE
+
+                    // Change the background color of the scanner view to red
+                    scan_text.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            this,
+                            R.color.heart_color
+                        )
+                    )
+
+                    // Change the ImageView color to white
+                    val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+                        .findViewById<ImageView>(R.id.book)
+                    scanImage.setColorFilter(
+                        ContextCompat.getColor(this, R.color.white),
+                        PorterDuff.Mode.SRC_IN
+                    )
+
+                    isScanTextClicked = true
+                }
             }
+
+
 
 
             recyle_book.layoutManager = LinearLayoutManager(this)
