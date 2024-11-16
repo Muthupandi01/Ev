@@ -87,7 +87,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/chdme"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
                 android:id="@+id/type"
 
                 android:text="Type 2"
