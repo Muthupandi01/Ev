@@ -296,11 +296,13 @@
                     android:layout_weight="1"
                     android:layout_height="@dimen/_90sdp"
                     android:background="@drawable/seekbarbg_ev"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    >
 
                     <FrameLayout
-                        android:layout_marginVertical="@dimen/_6ssp"
+                        android:layout_marginVertical="@dimen/_10ssp"
                         android:layout_width="match_parent"
+
                         android:layout_height="match_parent">
 
                         <!-- SeekBar -->
@@ -309,6 +311,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+
                             android:progress="50"
                             android:max="100"
                             android:thumb="@null"
