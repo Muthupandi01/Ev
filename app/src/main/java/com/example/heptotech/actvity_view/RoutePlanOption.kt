@@ -11,6 +11,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
 import com.example.heptotech.adapters.CarInfoAdapter
@@ -127,6 +128,8 @@ class RoutePlanOption : AppCompatActivity() {
             RouteOption("Tesla Model X", "12, Kampala, Uganda", "75%", R.drawable.pngwingnew_ev),
             RouteOption("BMW i8", "3, Nairobi, Kenya", "80%", R.drawable.pngwingnew_ev)
         )
+        val snapHelpers = PagerSnapHelper()
+        snapHelpers.attachToRecyclerView(car_recycle)
         route_option = RouteOptionAdapter(carLists)
         car_recycle.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         car_recycle.adapter = route_option

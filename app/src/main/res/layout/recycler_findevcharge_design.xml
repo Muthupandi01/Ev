@@ -29,7 +29,7 @@
             android:text="Akibua Rd Point"
             android:id="@+id/Akibua_text"
             android:layout_toRightOf="@id/ev"
-            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_5sdp"
 
             android:fontFamily="@font/poppins_medium"
 
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:id="@+id/busstand_text"
             android:layout_toRightOf="@id/ev"
 
@@ -68,7 +68,7 @@
             android:layout_marginTop="-10dp"
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
-            android:layout_marginStart="-58dp"
+            android:layout_marginStart="-56dp"
             android:layout_toRightOf="@id/ev"
             android:layout_height="wrap_content"
             android:layout_below="@id/busstand_text"
@@ -90,7 +90,7 @@
             android:id="@+id/two_text"
             android:text="2/3 Available"
             android:layout_toRightOf="@id/ev"
-            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_5sdp"
 
             android:fontFamily="@font/poppins_medium"
 
@@ -103,7 +103,7 @@
             android:id="@+id/img_1"
             android:layout_toRightOf="@id/img_2"
             android:src="@drawable/new_chadme_ev"
-            android:layout_marginStart="@dimen/_25sdp"/>
+            android:layout_marginStart="@dimen/_23sdp"/>
         <ImageView
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
@@ -112,7 +112,7 @@
             android:id="@+id/img_2"
             android:layout_toRightOf="@id/img_3"
             android:src="@drawable/new_chadme_ev"
-            android:layout_marginStart="@dimen/_27sdp"/>
+            android:layout_marginStart="@dimen/_21sdp"/>
         <ImageView
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
@@ -121,19 +121,19 @@
             android:id="@+id/img_3"
             android:src="@drawable/new_chadme_ev"
             android:layout_below="@id/two_text"
-            android:layout_marginStart="@dimen/_5sdp"/>
+            android:layout_marginStart="@dimen/_9sdp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/img_1"
             android:id="@+id/type_Ac"
-            android:textColor="@color/black"
+
             android:text="Type 2\n22Kw Ac"
             android:gravity="center"
             android:layout_toRightOf="@id/type_Ac1"
-            android:textSize="@dimen/_9ssp"
+            android:textSize="@dimen/_8ssp"
             android:fontFamily="@font/poppins_medium"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_14sdp"
             android:layout_marginTop="@dimen/_3sdp"
             android:textStyle="bold"/>
         <TextView
@@ -142,14 +142,15 @@
             android:layout_below="@id/img_2"
             android:layout_toRightOf="@id/type_Ac2"
             android:id="@+id/type_Ac1"
-            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_12sdp"
+
             android:text="Type 2\n22Kw Ac"
-            android:textSize="@dimen/_9ssp"
+            android:textSize="@dimen/_8ssp"
             android:gravity="center"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginTop="@dimen/_3sdp"
-            android:layout_marginStart="@dimen/_1sdp"/>
+            />
 
         <TextView
             android:id="@+id/type_Ac2"
@@ -157,15 +158,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/img_3"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="@dimen/_14sdp"
-            android:layout_marginRight="23dp"
+            android:layout_marginStart="@dimen/_4sdp"
+
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_toRightOf="@id/ev"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:text="Type 3\n22Kw Ac"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
+            android:textSize="@dimen/_8ssp"
             android:textStyle="bold" />
 
 

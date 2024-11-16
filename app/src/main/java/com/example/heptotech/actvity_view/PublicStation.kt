@@ -181,7 +181,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val dataList1 = listOf(
                 BookmarkEv("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev,R.drawable.heart_ev),
                 BookmarkEv("Another Point", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev,R.drawable.heart_ev))
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize_ev,R.drawable.heart_ev))
 
 
 
@@ -200,11 +200,11 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val dataList = listOf(
                 FindChargerInfo("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev),
                 FindChargerInfo("Another Point", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev),
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize_ev),
                 FindChargerInfo("Charger Point", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone3_ev),
+                        "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize1_ev),
                 FindChargerInfo("Kambala city", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone4_ev))
+                        "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize3_ev))
 
             // Set up the adapter
             val adapter = FindChargerAdapter(dataList)
@@ -263,7 +263,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val dataList1 = listOf(
                 BookmarkEv("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev,R.drawable.heart_ev),
                 BookmarkEv("Another Point", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev,R.drawable.heart_ev))
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize_ev,R.drawable.heart_ev))
 
 
 
@@ -282,11 +282,11 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val dataList = listOf(
                 FindChargerInfo("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev),
                 FindChargerInfo("Another Point", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev),
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize_ev),
                 FindChargerInfo("Charger Point", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone3_ev),
+                        "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize1_ev),
                 FindChargerInfo("Kambala city", "Akii Bus Road,\n" +
-                        "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone4_ev))
+                        "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evsize3_ev))
 
             // Set up the adapter
             val adapter = FindChargerAdapter(dataList)
