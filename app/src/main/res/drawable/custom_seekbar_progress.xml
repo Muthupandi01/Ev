@@ -2,9 +2,9 @@
     <!-- Background (unfilled portion) -->
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <corners android:radius="20dp" />
+            <corners android:radius="@dimen/_18sdp" />
             <size android:height="100dp" />
-            <size android:width="120dp" />
+            <size android:width="100dp" />
         </shape>
     </item>
 
@@ -12,10 +12,10 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape android:shape="rectangle">
-                <corners android:radius="20dp" />
+                <corners android:radius="@dimen/_18sdp" />
                 <solid android:color="@color/green" />
                 <size android:height="100dp" />
-                <size android:width="120dp" />
+                <size android:width="100dp" />
             </shape>
         </clip>
     </item>

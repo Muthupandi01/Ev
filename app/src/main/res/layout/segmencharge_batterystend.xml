@@ -308,7 +308,7 @@
                         <SeekBar
                             android:id="@+id/customSeekBar"
                             android:layout_width="@dimen/_267sdp"
-                            android:layout_height="@dimen/_150sdp"
+                            android:layout_height="match_parent"
                             android:layout_gravity="center"
 
                             android:progress="50"
