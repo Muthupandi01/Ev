@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_shape_ev"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <RelativeLayout
+        android:layout_marginHorizontal="@dimen/_8ssp"
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_10sdp"
+        >
+
+        <!-- SearchView on the Left -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/idSearchView1"
+            app:iconifiedByDefault="false"
+            android:focusable="false"
+            android:clickable="true"
+
+
+            android:padding="@dimen/_7sdp"
+            app:queryHint="Find EV Charger Station...."
+            app:searchIcon="@drawable/serach2x"
+            android:layout_width="0dp"
+            app:backgroundTint="@color/white"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/scannerView2"
+            android:layout_weight="1.2"
+            android:background="@drawable/find_rectangle" />
+
+        <!-- Scanner Icon to the Right of SearchView -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/scannerView2"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+
+
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:layout_gravity="center"
+                android:id="@+id/book"
+                android:contentDescription="Scan Icon"
+                android:scaleType="fitXY"
+                android:src="@drawable/bookmark_white_ev"
+               />
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/recycle_ev"
+        android:layout_below="@id/bottom_container"
+        android:layout_marginTop="@dimen/_10sdp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycle_bookmark"
+        android:visibility="gone"
+        android:layout_below="@id/bottom_container"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+
+
+
+    </RelativeLayout>

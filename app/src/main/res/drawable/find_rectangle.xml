@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="410dp"
+    android:height="94dp"
+    android:viewportWidth="410"
+    android:viewportHeight="94">
+
+    <!-- Rectangle with white fill and gray border -->
+    <path
+        android:pathData="M31,15L379,15A16,16 0,0 1,395 31L395,63A16,16 0,0 1,379 79L31,79A16,16 0,0 1,15 63L15,31A16,16 0,0 1,31 15z"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#B0B0B0"
+    android:strokeWidth="2"/>
+
+</vector>

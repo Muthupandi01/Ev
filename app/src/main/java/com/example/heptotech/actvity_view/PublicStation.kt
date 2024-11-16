@@ -1,26 +1,32 @@
 package com.example.heptotech.actvity_view
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.InputType
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
+import android.widget.AutoCompleteTextView
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -33,7 +39,11 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+import com.example.heptotech.adapter.FindChargerAdapter
+import com.example.heptotech.adapters.BookmarkEvAdapter
 import com.example.heptotech.adapters.PublicStationMarkerAdapter
+import com.example.heptotech.bean_dataclass.BookmarkEv
+import com.example.heptotech.bean_dataclass.FindChargerInfo
 import com.example.heptotech.bean_dataclass.MarkerInfo
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -50,6 +60,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.Locale
 
@@ -75,12 +86,19 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var group1C:CardView
     private lateinit var current_loctionsC:CardView
     private lateinit var filterCard:CardView
+    private var lastClickedMarker: Marker? = null
+    private var clickCount = 0
+
+
+    //  private lateinit var searchView: androidx.appcompat.widget.SearchView
 
 
 
 
 
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -95,20 +113,191 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
         group1C=findViewById(R.id.group1C)
         current_loctionsC=findViewById(R.id.current_loctionsC)
         filterCard=findViewById(R.id.filterCard)
+     //   searchView=findViewById(R.id.idSearchView)
         // left_image = findViewById(R.id.left_angle)
         val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.idSearchView)
         // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
-        val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
-        searchTextView?.let {
-            it.textSize = 12f // Set your desired text size (SP)
-            it.setTextColor(ContextCompat.getColor(this, R.color.black))
-            //  it.setTypeface(null, Typeface.BOLD)
+        val searchAutoComplete = searchView.findViewById<AutoCompleteTextView>(androidx.appcompat.R.id.search_src_text)
 
-        } ?: Log.e("SearchView", "TextView not found inside SearchView")
+        searchAutoComplete?.let {
+            it.inputType = InputType.TYPE_NULL  // Prevent keyboard from opening
+            it.isFocusable = false
+            it.isClickable = true
+            it.isFocusableInTouchMode = false
+            it.textSize = 12f // Adjust text size in SP
+            it.setTextColor(ContextCompat.getColor(this, R.color.black))
+        }
+
+// Make SearchView clickable for custom action and non-editable
+        searchView.isClickable = true
+        searchView.isFocusable = false
 
         filterCard.setOnClickListener {
             val intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
+        }
+        searchAutoComplete.setOnClickListener()
+        {
+            val bottomSheetDialog = BottomSheetDialog(this, R.style.ShoppingList_BottomSheetDialog)
+            val bottomSheetView = layoutInflater.inflate(R.layout.evcharge_botttomsheet, null)
+            val scan_text = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+            val recyle_book= bottomSheetView.findViewById<RecyclerView>(R.id.recycle_bookmark)
+            val recycler_ev = bottomSheetView.findViewById<RecyclerView>(R.id.recycle_ev)
+            val searchView1 =bottomSheetView.findViewById<androidx.appcompat.widget.SearchView>(R.id.idSearchView1)
+            // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
+            val searchAutoComplete1 =searchView1.findViewById<AutoCompleteTextView>(androidx.appcompat.R.id.search_src_text)
+
+            searchAutoComplete1?.let {
+                // it.inputType = InputType.TYPE_NULL  // Prevent keyboard from opening
+                //  it.isFocusable = false
+                // it.isClickable = true
+                // it.isFocusableInTouchMode = false
+                it.textSize = 12f // Adjust text size in SP
+                it.setTextColor(ContextCompat.getColor(this, R.color.black))
+            }
+            recycler_ev.isVisible=true
+            recyle_book.isVisible=false
+            scan_text.setOnClickListener()
+            {
+                recycler_ev.visibility = View.GONE
+
+                // Show the second RecyclerView (recycle_bookmark)
+                recyle_book.visibility = View.VISIBLE
+
+                // Change the background color of the scanner view to red
+                scan_text.setCardBackgroundColor(ContextCompat.getColor(this, R.color.heart_color))  // Ensure you have a red color in your resources
+
+                // Optionally, you can also modify the ImageView inside the CardView to give a visual cue
+                val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+                    .findViewById<ImageView>(R.id.book)
+                scanImage.setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_IN)  // Change image color if needed
+            }
+
+
+            recyle_book.layoutManager = LinearLayoutManager(this)
+
+
+            // Sample data
+            val dataList1 = listOf(
+                BookmarkEv("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev,R.drawable.heart_ev),
+                BookmarkEv("Another Point", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev,R.drawable.heart_ev))
+
+
+
+            val adapter1 = BookmarkEvAdapter(dataList1)
+            recyle_book.adapter = adapter1
+
+
+
+
+
+            // Retrieve RecyclerView from the inflated bottomSheetView
+
+            recycler_ev.layoutManager = LinearLayoutManager(this)
+
+            // Sample data
+            val dataList = listOf(
+                FindChargerInfo("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev),
+                FindChargerInfo("Another Point", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev),
+                FindChargerInfo("Charger Point", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone3_ev),
+                FindChargerInfo("Kambala city", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone4_ev))
+
+            // Set up the adapter
+            val adapter = FindChargerAdapter(dataList)
+            recycler_ev.adapter = adapter
+
+            // Set the content view of the bottom sheet dialog
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            bottomSheetDialog.behavior.isDraggable = false  // Optional: to prevent dragging
+            bottomSheetDialog.behavior.peekHeight = resources.displayMetrics.heightPixels
+            bottomSheetDialog.show()
+        }
+        searchView.setOnClickListener()
+        {
+            val bottomSheetDialog = BottomSheetDialog(this, R.style.ShoppingList_BottomSheetDialog)
+            val bottomSheetView = layoutInflater.inflate(R.layout.evcharge_botttomsheet, null)
+
+            val scan_text = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+            val recyle_book= bottomSheetView.findViewById<RecyclerView>(R.id.recycle_bookmark)
+            val recycler_ev = bottomSheetView.findViewById<RecyclerView>(R.id.recycle_ev)
+            val searchView1 =bottomSheetView.findViewById<androidx.appcompat.widget.SearchView>(R.id.idSearchView1)
+            // val searchTextView = searchView.findViewById<android.widget.TextView>(androidx.appcompat.R.id.search_src_text)
+            val searchAutoComplete1 =searchView1.findViewById<AutoCompleteTextView>(androidx.appcompat.R.id.search_src_text)
+
+            searchAutoComplete1?.let {
+               // it.inputType = InputType.TYPE_NULL  // Prevent keyboard from opening
+              //  it.isFocusable = false
+               // it.isClickable = true
+               // it.isFocusableInTouchMode = false
+                it.textSize = 12f // Adjust text size in SP
+                it.setTextColor(ContextCompat.getColor(this, R.color.black))
+            }
+            recycler_ev.isVisible=true
+            recyle_book.isVisible=false
+            scan_text.setOnClickListener()
+            {
+                recycler_ev.visibility = View.GONE
+
+                // Show the second RecyclerView (recycle_bookmark)
+                recyle_book.visibility = View.VISIBLE
+
+                // Change the background color of the scanner view to red
+                scan_text.setCardBackgroundColor(ContextCompat.getColor(this, R.color.heart_color))  // Ensure you have a red color in your resources
+
+                // Optionally, you can also modify the ImageView inside the CardView to give a visual cue
+                val scanImage = bottomSheetView.findViewById<CardView>(R.id.scannerView2)
+                    .findViewById<ImageView>(R.id.book)
+                scanImage.setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_IN)  // Change image color if needed
+            }
+
+
+            recyle_book.layoutManager = LinearLayoutManager(this)
+
+
+            // Sample data
+            val dataList1 = listOf(
+                BookmarkEv("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev,R.drawable.heart_ev),
+                BookmarkEv("Another Point", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev,R.drawable.heart_ev))
+
+
+
+            val adapter1 = BookmarkEvAdapter(dataList1)
+            recyle_book.adapter = adapter1
+
+
+
+
+
+            // Retrieve RecyclerView from the inflated bottomSheetView
+
+            recycler_ev.layoutManager = LinearLayoutManager(this)
+
+            // Sample data
+            val dataList = listOf(
+                FindChargerInfo("Akibua Rd Point", "22,Akii Bus Road,\nKambala 22,Akii Bus", 4.5f, "1/4 Available", "Type 2\n22Kw AC", "Type 2\n22Kw AC", "Type 3\n22Kw AC","200 Km",R.drawable.evbottomimg_ev),
+                FindChargerInfo("Another Point", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "2/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.ev1_ev),
+                FindChargerInfo("Charger Point", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "3/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone3_ev),
+                FindChargerInfo("Kambala city", "Akii Bus Road,\n" +
+                        "Kambala 22,Akii Bus", 3.5f, "4/4 Available", "Type 2\n22Kw AC", "Type 3\n22Kw AC", "Type 3\n22Kw AC","100 Km",R.drawable.evzone4_ev))
+
+            // Set up the adapter
+            val adapter = FindChargerAdapter(dataList)
+            recycler_ev.adapter = adapter
+
+
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            bottomSheetDialog.behavior.isDraggable = false  // Optional: to prevent dragging
+            bottomSheetDialog.behavior.peekHeight = resources.displayMetrics.heightPixels
+            bottomSheetDialog.show()
         }
 
         blinkimage = findViewById(R.id.blink_img)
@@ -136,6 +325,9 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 2f))
 
             }
+           // clickedMarker = null
+            lastClickedMarker = null // Reset the last clicked marker
+            clickCount = 0 // Reset click count
 
 
             topCenterText.visibility = View.GONE
@@ -484,7 +676,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
     {
         // topCenterText.visibility = View.VISIBLE
 
-        isInCurrentLocationMode = false
+      /*  isInCurrentLocationMode = false
         if (marker == currentLocationMarker) {
             // Do nothing if the current location marker is clicked
             return
@@ -576,8 +768,53 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
                     recyclerView.visibility = View.VISIBLE
                 }
         }*/
+        }*/
+        if (marker == currentLocationMarker) {
+            return
         }
 
+        // First click: Show only the clicked marker and RecyclerView
+        if (lastClickedMarker != marker) {
+            // Reset the icon of the previously clicked marker if needed
+            lastClickedMarker?.setIcon(BitmapFromVector(this, R.drawable.frame_locate_ev, 125, 125))
+
+            // Hide all other markers except the clicked one
+            for (m in markers) {
+                m.isVisible = m == marker
+            }
+            group1C.isVisible=false
+            current_loctionsC.isVisible=false
+            topCenterText.isVisible=true
+
+            // Set the current marker as the last clicked one and reset click count
+            lastClickedMarker = marker
+            clickCount = 1
+
+            // Make RecyclerView visible
+          //  recyclerView.visibility = View.VISIBLE
+            val markerIndex = markers.indexOf(marker)
+            if (markerIndex != -1) {
+                // Update RecyclerView with clicked marker's details
+                (recyclerView.adapter as PublicStationMarkerAdapter).setSelectedMarker(markerIndex)
+                recyclerView.scrollToPosition(markerIndex)
+            }
+
+            // Move the camera to the clicked marker
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 15f))
+        } else {
+            // Second click on the same marker: Change the icon to cluster_marker_green
+            if (clickCount == 1) {
+                marker.setIcon(
+                    BitmapDescriptorFactory.fromBitmap(bitmapFromLayout(this, R.layout.cluster_marker_green, 125, 125))
+                )
+                clickCount = 2
+                recyclerView.visibility = View.VISIBLE
+
+            }
+
+            // Ensure RecyclerView is still visible
+
+        }
 
     }
 

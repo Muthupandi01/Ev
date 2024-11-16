@@ -1,0 +1,201 @@
+<!-- res/layout/marker_info_item.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/card"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+
+
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
+        <ImageView
+            android:layout_marginLeft="@dimen/_5ssp"
+            android:id="@+id/ev"
+            android:adjustViewBounds="true"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:src="@drawable/evbottomimg_ev"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Akibua Rd Point"
+            android:id="@+id/Akibua_text"
+            android:layout_toRightOf="@id/ev"
+            android:layout_marginStart="@dimen/_3sdp"
+
+            android:fontFamily="@font/poppins_medium"
+
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginTop="@dimen/_8sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/twohundres_text"
+            android:text="200kM"
+            android:textColor="#F77F00"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_2sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:id="@+id/busstand_text"
+            android:layout_toRightOf="@id/ev"
+
+
+            android:text="22,Akil Bus Road,\nKampala 22,Akil Bus"
+            android:layout_below="@id/Akibua_text"
+            android:layout_marginTop="@dimen/_3sdp"
+
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_9ssp"
+            />
+
+        <RatingBar
+            android:layout_marginTop="-10dp"
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="-58dp"
+            android:layout_toRightOf="@id/ev"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/busstand_text"
+            android:layout_centerHorizontal="true"
+            android:progressTint="#FFDF00"
+            android:progressBackgroundTint="#D3D3D3"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            />
+        <ImageView
+            android:layout_width="@dimen/_32sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:id="@+id/heart"
+            android:layout_below="@id/twohundres_text"
+            android:layout_marginTop="@dimen/_31sdp"
+
+
+
+            android:layout_height="@dimen/_32sdp"
+            android:src="@drawable/heart_ev"
+            android:scaleType="fitXY"
+            app:tint="#E8FF5722"/>
+
+
+        <TextView
+            android:layout_marginTop="-10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBar"
+            android:id="@+id/two_text"
+            android:text="2/3 Available"
+            android:layout_toRightOf="@id/ev"
+            android:layout_marginStart="@dimen/_3sdp"
+
+            android:fontFamily="@font/poppins_medium"
+
+            android:textSize="@dimen/_10ssp"/>
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_below="@id/two_text"
+            android:id="@+id/img_1"
+            android:layout_toRightOf="@id/img_2"
+            android:src="@drawable/new_chadme_ev"
+            android:layout_marginStart="@dimen/_25sdp"/>
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_below="@id/two_text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/img_2"
+            android:layout_toRightOf="@id/img_3"
+            android:src="@drawable/new_chadme_ev"
+            android:layout_marginStart="@dimen/_27sdp"/>
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_toRightOf="@id/ev"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/img_3"
+            android:src="@drawable/new_chadme_ev"
+            android:layout_below="@id/two_text"
+            android:layout_marginStart="@dimen/_5sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_1"
+            android:id="@+id/type_Ac"
+            android:textColor="@color/black"
+            android:text="Type 2\n22Kw Ac"
+            android:gravity="center"
+            android:layout_toRightOf="@id/type_Ac1"
+            android:textSize="@dimen/_9ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_2"
+            android:layout_toRightOf="@id/type_Ac2"
+            android:id="@+id/type_Ac1"
+            android:textColor="@color/black"
+            android:text="Type 2\n22Kw Ac"
+            android:textSize="@dimen/_9ssp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_1sdp"/>
+
+        <TextView
+            android:id="@+id/type_Ac2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_3"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginRight="23dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_toRightOf="@id/ev"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Type 3\n22Kw Ac"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/light_grey"
+        android:layout_below="@+id/rl"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+
+
+
+
+</RelativeLayout>
+

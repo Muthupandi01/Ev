@@ -8,6 +8,7 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
+
         android:layout_height="match_parent" />
 
     <RelativeLayout
@@ -99,6 +100,7 @@
         android:layout_above="@id/bottom_container"
         android:layout_marginBottom="@dimen/_30sdp"
 
+
         android:id="@+id/rl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -138,8 +140,10 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_below="@id/group1C"
+            android:padding="@dimen/_6sdp"
+            android:translationZ="5dp"
             android:gravity="center"
-            android:background="@drawable/circle_bg_ev"
+            android:background="@drawable/shadow_circle"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:orientation="vertical">
@@ -158,11 +162,15 @@
             android:id="@+id/group1C"
             app:cardCornerRadius="@dimen/_100sdp"
             android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="@dimen/_6sdp"
+            android:translationZ="5dp"
+
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/circle_bg_ev"
+            android:background="@drawable/shadow_circle"
             android:layout_width="@dimen/_35sdp"
             android:layout_below="@id/groupC"
             android:layout_alignParentEnd="true"
+            app:cardElevation="@dimen/_4sdp"
             android:layout_height="@dimen/_35sdp"
             android:orientation="vertical">
 
@@ -178,12 +186,17 @@
             app:cardCornerRadius="@dimen/_100sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/circle_bg_ev"
+            android:padding="@dimen/_6sdp"
+            android:background="@drawable/card_shadow"
+           
+            android:gravity="center"
             android:layout_width="@dimen/_35sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@id/current_loctionC"
             android:layout_alignParentEnd="true"
+            app:cardElevation="@dimen/_4sdp"
             android:layout_height="@dimen/_35sdp"
+
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/current_loctions"
@@ -215,6 +228,10 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/idSearchView"
             app:iconifiedByDefault="false"
+            android:focusable="false"
+            android:clickable="true"
+
+
             android:padding="@dimen/_7sdp"
             app:queryHint="Find EV Charger Station...."
             app:searchIcon="@drawable/serach2x"
