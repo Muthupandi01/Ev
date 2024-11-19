@@ -1,0 +1,19 @@
+<!-- res/drawable/seekbar_progress.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background (track color) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="1dp" />
+            <solid android:color="#D3D3D3" /> <!-- Light gray for track -->
+        </shape>
+    </item>
+    <!-- Progress bar color -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="1dp" />
+                <solid android:color="#0000FF" /> <!-- Blue progress -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>
