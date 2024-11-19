@@ -135,8 +135,7 @@ class PublicStation : AppCompatActivity(), OnMapReadyCallback {
             val intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
         }
-        searchView.setOnClickListener()
-        {
+        searchView.setOnClickListener() {
             val bottomSheetDialog = BottomSheetDialog(this, R.style.ShoppingList_BottomSheetDialog)
             val bottomSheetView = layoutInflater.inflate(R.layout.evcharge_botttomsheet, null)
             val scan_text = bottomSheetView.findViewById<LinearLayout>(R.id.scannerView2)
