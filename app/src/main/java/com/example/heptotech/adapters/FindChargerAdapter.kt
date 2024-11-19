@@ -11,7 +11,7 @@ import com.example.heptotech.R
 import com.example.heptotech.bean_dataclass.FindChargerInfo
 
 class FindChargerAdapter(
-    private val dataList: List<FindChargerInfo>
+    private val dataList: List<FindChargerInfo >,private val onItemClick: () -> Unit
 ) : RecyclerView.Adapter<FindChargerAdapter.FindChargerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FindChargerViewHolder {
@@ -36,6 +36,11 @@ class FindChargerAdapter(
         val type3TextView: TextView = itemView.findViewById(R.id.type_Ac2)
         val meter: TextView = itemView.findViewById(R.id.twohundres_text)
         val evImage: ImageView = itemView.findViewById(R.id.ev)
+        init {
+            itemView.setOnClickListener {
+                onItemClick() // Pass the clicked item
+            }
+        }
 
         fun bind(item: FindChargerInfo) {
             akibuaTextView.text = item.title
@@ -47,6 +52,7 @@ class FindChargerAdapter(
             type3TextView.text = item.type3
             meter.text = item.meter
             evImage.setImageResource(item.evImg)
+
 
         }
     }

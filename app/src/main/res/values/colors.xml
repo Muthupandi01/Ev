@@ -79,5 +79,6 @@
     <color name="light_red">#FF7F7F</color>
     <color name="light_grey">#D3D3D3</color>
     <color name="heart_color">#E8FF5722</color>
+    <color name="blue">#0000FF</color>
 
 </resources>

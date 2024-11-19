@@ -1,5 +1,7 @@
 package com.example.heptotech.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +10,11 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.heptotech.R
+import com.example.heptotech.actvity_view.PubicstationCard
 import com.example.heptotech.bean_dataclass.BookmarkEv
 
-class BookmarkEvAdapter(private val bookmarkList: List<BookmarkEv>) :
+
+class BookmarkEvAdapter(private val bookmarkList: List<BookmarkEv>, private val onItemClick: () -> Unit) :
     RecyclerView.Adapter<BookmarkEvAdapter.BookmarkEvViewHolder>() {
 
     // ViewHolder for each item in the RecyclerView
@@ -26,6 +30,12 @@ class BookmarkEvAdapter(private val bookmarkList: List<BookmarkEv>) :
         val evImage: ImageView = itemView.findViewById(R.id.ev)
 
         val heartImageView: ImageView = itemView.findViewById(R.id.heart)
+        init {
+            itemView.setOnClickListener {
+                onItemClick() // Pass the clicked item
+            }
+        }
+
     }
 
     // Create the ViewHolder and inflate the item layout
@@ -48,7 +58,10 @@ class BookmarkEvAdapter(private val bookmarkList: List<BookmarkEv>) :
         holder.meter.text = bookmarkEv.meter
         holder.evImage.setImageResource(bookmarkEv.evImg)
         holder.heartImageView.setImageResource(bookmarkEv.heartImg)
+
+
     }
+
 
     // Return the size of the data list
     override fun getItemCount(): Int {
