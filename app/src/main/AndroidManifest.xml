@@ -29,6 +29,7 @@
         android:label="Public Station"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HeptoTech"
+        android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true">
 
         <activity

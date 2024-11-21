@@ -19,6 +19,13 @@ import com.example.heptotech.R
 import com.example.heptotech.activity_view.AllinOneFilter
 import com.example.heptotech.adapters.FilterMainAdapter
 import com.example.heptotech.bean_dataclass.Filter
+import com.example.heptotech.bean_dataclass.FilterAccess
+import com.example.heptotech.bean_dataclass.FilterChargeStation
+import com.example.heptotech.bean_dataclass.FilterConnecter
+import com.example.heptotech.bean_dataclass.FilterLocation
+import com.example.heptotech.bean_dataclass.FilterMultidevice
+import com.example.heptotech.bean_dataclass.FilterNet
+import com.example.heptotech.bean_dataclass.Filterrating
 import com.example.heptotech.customclass.FixedRangeSeekBar
 
 
@@ -26,6 +33,14 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
     lateinit var reset:TextView
     lateinit var tick:ImageView
     lateinit var back:CardView
+
+    private var selectedItemsListConnecter = mutableListOf<FilterConnecter>()
+    private var selectedItemsListNet = mutableListOf<FilterNet>()
+    private var selectedItemsListLocation = mutableListOf<FilterLocation>()
+    private var selectedItemsListAccess = mutableListOf<FilterAccess>()
+    private var selectedItemsListRating = mutableListOf<Filterrating>()
+    private var selectedItemsListMultiple = mutableListOf<FilterMultidevice>()
+    private var selectedItemsListChargeStation = mutableListOf<FilterChargeStation>()
 
     private lateinit var filterMainAdapter: FilterMainAdapter
     private lateinit var filerMainrec: RecyclerView
@@ -222,37 +237,84 @@ class FilterActivity : AppCompatActivity(), FilterMainAdapter.OnItemClickListene
             val data = result.data
             val brandName = data?.getStringExtra("BRAND_NAME")
             val selectedCount = data?.getIntExtra("SELECTED_COUNT", 0) ?: 0
-            val selectedItemsListConnecter = data?.getStringArrayListExtra("SELECTED_ITEMS_CO") ?: arrayListOf()
-            val selectedItemsListNet = data?.getStringArrayListExtra("SELECTED_ITEMS_NET") ?: arrayListOf()
-            val selectedItemsListLocation = data?.getStringArrayListExtra("SELECTED_ITEMS_LOC") ?: arrayListOf()
-            val selectedItemsListAccess = data?.getStringArrayListExtra("SELECTED_ITEMS_ACC") ?: arrayListOf()
-            val selectedItemsListRating = data?.getStringArrayListExtra("SELECTED_ITEMS_RAT") ?: arrayListOf()
-            val selectedItemsListMultiple = data?.getStringArrayListExtra("SELECTED_ITEMS_MULTI") ?: arrayListOf()
-            val selectedItemsListChargeStation = data?.getStringArrayListExtra("SELECTED_ITEMS_CHARGE") ?: arrayListOf()
+            val selectedItemsListConnecters = data?.getStringArrayListExtra("SELECTED_ITEMS_CO") ?: arrayListOf()
+            val selectedItemsListNets = data?.getStringArrayListExtra("SELECTED_ITEMS_NET") ?: arrayListOf()
+            val selectedItemsListLocations = data?.getStringArrayListExtra("SELECTED_ITEMS_LOC") ?: arrayListOf()
+            val selectedItemsListAccesss = data?.getStringArrayListExtra("SELECTED_ITEMS_ACC") ?: arrayListOf()
+            val selectedItemsListRatings = data?.getStringArrayListExtra("SELECTED_ITEMS_RAT") ?: arrayListOf()
+            val selectedItemsListMultiples = data?.getStringArrayListExtra("SELECTED_ITEMS_MULTI") ?: arrayListOf()
+            val selectedItemsListChargeStations = data?.getStringArrayListExtra("SELECTED_ITEMS_CHARGE") ?: arrayListOf()
 
             tick.isVisible = true
             reset.isVisible = false
+//            when (brandName) {
+//                "Connnector types" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListConnecters.size)
+//                }
+//                "Networks" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListNets.size)
+//                }
+//                "Location types" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListLocations.size)
+//                }
+//                "Access" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListAccesss.size)
+//                }
+//                "User rating" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListRatings.size)
+//                }
+//                "Multiple devices" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListMultiples.size)
+//                }
+//                "Charge Station" -> {
+//                    filterMainAdapter.updateCount(brandName, selectedItemsListChargeStations.size)
+//                }
+//            }
+
+
+            val sharedPref = getSharedPreferences("USER_SELECTIONS", MODE_PRIVATE)
             when (brandName) {
                 "Connnector types" -> {
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_CONNECTOR", emptySet())
+                    selectedItemsListConnecter = selectedItemsSet?.map { FilterConnecter(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListConnecter.size)
                 }
                 "Networks" -> {
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_NETWORK", emptySet())
+                    selectedItemsListNet = selectedItemsSet?.map { FilterNet(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListNet.size)
+
                 }
                 "Location types" -> {
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_LOCATION", emptySet())
+                    selectedItemsListLocation = selectedItemsSet?.map { FilterLocation(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListLocation.size)
+
                 }
                 "Access" -> {
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_ACCESS", emptySet())
+                    selectedItemsListAccess = selectedItemsSet?.map { FilterAccess(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListAccess.size)
+
                 }
                 "User rating" -> {
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_RATING", emptySet())
+                    selectedItemsListRating = selectedItemsSet?.map { Filterrating(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListRating.size)
+
                 }
                 "Multiple devices" -> {
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_MULTIPLE", emptySet())
+                    selectedItemsListMultiple = selectedItemsSet?.map { FilterMultidevice(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListMultiple.size)
+
                 }
                 "Charge Station" -> {
+
+                    val selectedItemsSet = sharedPref.getStringSet("SELECTED_CHARGESTATION", emptySet())
+                    selectedItemsListChargeStation = selectedItemsSet?.map { FilterChargeStation(name = it) }?.toMutableList() ?: mutableListOf()
                     filterMainAdapter.updateCount(brandName, selectedItemsListChargeStation.size)
+
                 }
             }
         }
